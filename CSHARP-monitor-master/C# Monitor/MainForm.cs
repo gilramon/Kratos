@@ -215,7 +215,6 @@ namespace SocketServer
         private GroupBox groupBox_SendSerialOrMonitorCommands;
         private Button button_SendSerialPort;
         private TabPage tabPage7;
-        private Label label_TimeDate2;
         private GroupBox groupBox33;
         private Button button_AddContact;
         private CheckedListBox checkedListBox_PhoneBook;
@@ -495,11 +494,11 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
@@ -648,7 +647,6 @@ namespace SocketServer
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.checkBox_ParseMessages = new System.Windows.Forms.CheckBox();
             this.textBox_IDKey = new System.Windows.Forms.RichTextBox();
-            this.label_TimeDate2 = new System.Windows.Forms.Label();
             this.groupBox_FOTA = new System.Windows.Forms.GroupBox();
             this.button_StartFOTAProcess = new System.Windows.Forms.Button();
             this.textBox_TotalFileLength = new System.Windows.Forms.TextBox();
@@ -2508,32 +2506,32 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(194, 2);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.Legend = "Legend1";
-            series1.Name = "Data 1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series2.Legend = "Legend1";
-            series2.Name = "Data 2";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series3.Legend = "Legend1";
-            series3.Name = "Data 3";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series4.Legend = "Legend1";
+            series4.Name = "Data 1";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series5.Legend = "Legend1";
+            series5.Name = "Data 2";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series6.Legend = "Legend1";
+            series6.Name = "Data 3";
+            this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(1350, 665);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2586,7 +2584,6 @@ namespace SocketServer
             // 
             this.tabPage1.Controls.Add(this.checkBox_ParseMessages);
             this.tabPage1.Controls.Add(this.textBox_IDKey);
-            this.tabPage1.Controls.Add(this.label_TimeDate2);
             this.tabPage1.Controls.Add(this.groupBox_FOTA);
             this.tabPage1.Controls.Add(this.checkBox_EchoResponse);
             this.tabPage1.Controls.Add(this.groupBox_ServerSettings);
@@ -2619,16 +2616,6 @@ namespace SocketServer
             this.textBox_IDKey.Size = new System.Drawing.Size(317, 152);
             this.textBox_IDKey.TabIndex = 102;
             this.textBox_IDKey.Text = "";
-            // 
-            // label_TimeDate2
-            // 
-            this.label_TimeDate2.AutoSize = true;
-            this.label_TimeDate2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_TimeDate2.Location = new System.Drawing.Point(1030, 5);
-            this.label_TimeDate2.Name = "label_TimeDate2";
-            this.label_TimeDate2.Size = new System.Drawing.Size(17, 19);
-            this.label_TimeDate2.TabIndex = 98;
-            this.label_TimeDate2.Text = "0";
             // 
             // groupBox_FOTA
             // 
@@ -6983,7 +6970,7 @@ namespace SocketServer
 
 
             //         label_TimeDate.Text = DateTime.Now.ToString();
-            label_TimeDate2.Text = DateTime.Now.ToString();
+            //label_TimeDate2.Text = DateTime.Now.ToString();
             //label_TimeDate3.Text = DateTime.Now.ToString();
 
             if (TimerStatusRingWait > 0)
