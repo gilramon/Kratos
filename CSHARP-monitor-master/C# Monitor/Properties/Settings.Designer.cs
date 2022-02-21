@@ -10,29 +10,22 @@
 
 namespace Monitor.Properties {
     
-    /// <summary>
-    /// 
-    /// </summary>
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public static Settings Default {
             get {
                 return defaultInstance;
             }
         }
         
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2002")]
+        [global::System.Configuration.DefaultSettingValueAttribute("7000")]
         public string Start_Port {
             get {
                 return ((string)(this["Start_Port"]));
@@ -41,9 +34,7 @@ namespace Monitor.Properties {
                 this["Start_Port"] = value;
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -55,9 +46,113 @@ namespace Monitor.Properties {
                 this["Default_Server_Message"] = value;
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM1")]
+        public string Comport_Port {
+            get {
+                return ((string)(this["Comport_Port"]));
+            }
+            set {
+                this["Comport_Port"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("115200")]
+        public string Comport_BaudRate {
+            get {
+                return ((string)(this["Comport_BaudRate"]));
+            }
+            set {
+                this["Comport_BaudRate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string Comport_Parity {
+            get {
+                return ((string)(this["Comport_Parity"]));
+            }
+            set {
+                this["Comport_Parity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public string Comport_DataBits {
+            get {
+                return ((string)(this["Comport_DataBits"]));
+            }
+            set {
+                this["Comport_DataBits"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("One")]
+        public string Comport_StopBit {
+            get {
+                return ((string)(this["Comport_StopBit"]));
+            }
+            set {
+                this["Comport_StopBit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Setting {
+            get {
+                return ((string)(this["Setting"]));
+            }
+            set {
+                this["Setting"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime LastRunTime {
+            get {
+                return ((global::System.DateTime)(this["LastRunTime"]));
+            }
+            set {
+                this["LastRunTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime LastSaveSMSTime {
+            get {
+                return ((global::System.DateTime)(this["LastSaveSMSTime"]));
+            }
+            set {
+                this["LastSaveSMSTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Setting1 {
+            get {
+                return ((string)(this["Setting1"]));
+            }
+            set {
+                this["Setting1"] = value;
+            }
+        }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
@@ -70,79 +165,7 @@ namespace Monitor.Properties {
                 this["PhoneBook"] = value;
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM1")]
-        public string Comport_Port {
-            get {
-                return ((string)(this["Comport_Port"]));
-            }
-            set {
-                this["Comport_Port"] = value;
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("115200")]
-        public string Comport_BaudRate {
-            get {
-                return ((string)(this["Comport_BaudRate"]));
-            }
-            set {
-                this["Comport_BaudRate"] = value;
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("None")]
-        public string Comport_Parity {
-            get {
-                return ((string)(this["Comport_Parity"]));
-            }
-            set {
-                this["Comport_Parity"] = value;
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8")]
-        public string Comport_DataBits {
-            get {
-                return ((string)(this["Comport_DataBits"]));
-            }
-            set {
-                this["Comport_DataBits"] = value;
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("One")]
-        public string Comport_StopBit {
-            get {
-                return ((string)(this["Comport_StopBit"]));
-            }
-            set {
-                this["Comport_StopBit"] = value;
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
@@ -174,9 +197,7 @@ namespace Monitor.Properties {
                 this["SMS_Commands"] = value;
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
@@ -188,60 +209,6 @@ namespace Monitor.Properties {
             }
             set {
                 this["SerialPort_History"] = value;
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Setting {
-            get {
-                return ((string)(this["Setting"]));
-            }
-            set {
-                this["Setting"] = value;
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.DateTime LastRunTime {
-            get {
-                return ((global::System.DateTime)(this["LastRunTime"]));
-            }
-            set {
-                this["LastRunTime"] = value;
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.DateTime LastSaveSMSTime {
-            get {
-                return ((global::System.DateTime)(this["LastSaveSMSTime"]));
-            }
-            set {
-                this["LastSaveSMSTime"] = value;
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Setting1 {
-            get {
-                return ((string)(this["Setting1"]));
-            }
-            set {
-                this["Setting1"] = value;
             }
         }
     }
