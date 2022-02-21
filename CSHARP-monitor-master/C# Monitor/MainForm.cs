@@ -365,6 +365,8 @@ namespace SocketServer
         private Label label15;
         private Label label16;
         private GroupBox groupBox_clientTX;
+        private Label label_SerialPortStatus;
+        private Label label_TCPClient;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -491,11 +493,11 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
@@ -814,6 +816,8 @@ namespace SocketServer
             this.textBox_RxClientData = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.label_SerialPortStatus = new System.Windows.Forms.Label();
+            this.label_TCPClient = new System.Windows.Forms.Label();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -2025,32 +2029,32 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend4.IsTextAutoFit = false;
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(194, 2);
             this.chart1.Name = "chart1";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series10.Legend = "Legend1";
-            series10.Name = "Data 1";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series11.Legend = "Legend1";
-            series11.Name = "Data 2";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series12.Legend = "Legend1";
-            series12.Name = "Data 3";
-            this.chart1.Series.Add(series10);
-            this.chart1.Series.Add(series11);
-            this.chart1.Series.Add(series12);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series7.Legend = "Legend1";
+            series7.Name = "Data 1";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series8.Legend = "Legend1";
+            series8.Name = "Data 2";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series9.Legend = "Legend1";
+            series9.Name = "Data 3";
+            this.chart1.Series.Add(series7);
+            this.chart1.Series.Add(series8);
+            this.chart1.Series.Add(series9);
             this.chart1.Size = new System.Drawing.Size(1350, 665);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2060,10 +2064,10 @@ namespace SocketServer
             this.tabPage_SerialPort.Controls.Add(this.groupBox_SendSerialOrMonitorCommands);
             this.tabPage_SerialPort.Controls.Add(this.gbPortSettings);
             this.tabPage_SerialPort.Controls.Add(this.groupBox5);
-            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 27);
             this.tabPage_SerialPort.Name = "tabPage_SerialPort";
             this.tabPage_SerialPort.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 733);
+            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 682);
             this.tabPage_SerialPort.TabIndex = 1;
             this.tabPage_SerialPort.Text = "Serial Port";
             this.tabPage_SerialPort.UseVisualStyleBackColor = true;
@@ -4178,6 +4182,7 @@ namespace SocketServer
             // 
             // groupBox_SerialPort
             // 
+            this.groupBox_SerialPort.Controls.Add(this.label_SerialPortStatus);
             this.groupBox_SerialPort.Controls.Add(this.Label_SerialPortTx);
             this.groupBox_SerialPort.Controls.Add(this.label_SerialPortConnected);
             this.groupBox_SerialPort.Controls.Add(this.Label_SerialPortRx);
@@ -4187,6 +4192,7 @@ namespace SocketServer
             this.groupBox_SerialPort.TabIndex = 111;
             this.groupBox_SerialPort.TabStop = false;
             this.groupBox_SerialPort.Text = "Serial port";
+            this.groupBox_SerialPort.Enter += new System.EventHandler(this.groupBox_SerialPort_Enter);
             // 
             // textBox1
             // 
@@ -4247,6 +4253,7 @@ namespace SocketServer
             // 
             // groupBox_ClentTCPStatus
             // 
+            this.groupBox_ClentTCPStatus.Controls.Add(this.label_TCPClient);
             this.groupBox_ClentTCPStatus.Controls.Add(this.label12);
             this.groupBox_ClentTCPStatus.Controls.Add(this.label_ClientTCPConnected);
             this.groupBox_ClentTCPStatus.Controls.Add(this.label14);
@@ -4369,6 +4376,24 @@ namespace SocketServer
             this.label16.Size = new System.Drawing.Size(36, 18);
             this.label16.TabIndex = 6;
             this.label16.Text = "Data";
+            // 
+            // label_SerialPortStatus
+            // 
+            this.label_SerialPortStatus.AutoSize = true;
+            this.label_SerialPortStatus.Location = new System.Drawing.Point(95, 29);
+            this.label_SerialPortStatus.Name = "label_SerialPortStatus";
+            this.label_SerialPortStatus.Size = new System.Drawing.Size(42, 18);
+            this.label_SerialPortStatus.TabIndex = 111;
+            this.label_SerialPortStatus.Text = "None";
+            // 
+            // label_TCPClient
+            // 
+            this.label_TCPClient.AutoSize = true;
+            this.label_TCPClient.Location = new System.Drawing.Point(92, 29);
+            this.label_TCPClient.Name = "label_TCPClient";
+            this.label_TCPClient.Size = new System.Drawing.Size(45, 18);
+            this.label_TCPClient.TabIndex = 111;
+            this.label_TCPClient.Text = " None";
             // 
             // MainForm
             // 
@@ -6838,6 +6863,14 @@ namespace SocketServer
         private void Timer_General_Tick(object sender, EventArgs e)
         {
             label_ClientTCPConnected.BackColor = button_ClientConnect.BackColor;
+            if(label_ClientTCPConnected.BackColor == Color.Green)
+            {
+                label_TCPClient.Text = textBox_ClientIP.Text + "  \n" + textBox_ClientPort.Text;
+            }
+            else
+            {
+                label_TCPClient.Text = "None";
+            }
 
             //Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
             //Tab0Color = randomColor;
@@ -7043,6 +7076,7 @@ namespace SocketServer
 
                      button_OpenPort.BackColor = default;
                      label_SerialPortConnected.BackColor = default;
+                     label_SerialPortStatus.Text = "";
 
                      cmbBaudRate.Enabled = true;
                      cmbDataBits.Enabled = true;
@@ -11053,6 +11087,7 @@ namespace SocketServer
                     button_OpenPort.Text = "Close";
                     button_OpenPort.BackColor = Color.LightGreen;
                     label_SerialPortConnected.BackColor = Color.LightGreen;
+                    label_SerialPortStatus.Text = cmbPortName.Text+ "   \n" + cmbBaudRate.Text; 
 
 
                     cmbBaudRate.Enabled = false;
@@ -11091,6 +11126,7 @@ namespace SocketServer
                 ComPortClosing = true;
                 button_OpenPort.BackColor = default;
                 label_SerialPortConnected.BackColor = default;
+                label_SerialPortStatus.Text = "";
                 gbPortSettings.Enabled = false;
                 //checkBox_ComportOpen.Enabled = false;
                 button_OpenPort.Text = "Open";
@@ -11298,6 +11334,11 @@ namespace SocketServer
         }
 
         private void textBox_RxClientData_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox_SerialPort_Enter(object sender, EventArgs e)
         {
 
         }
