@@ -16,6 +16,7 @@ using System.Diagnostics;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace SocketServer
 {
@@ -345,7 +346,7 @@ namespace SocketServer
         private TextBox textBox_Config35;
         private PictureBox pictureBox1;
         private TabPage tabPage_GenericFrame;
-        private Button button_Send;
+        private Button button_SendProtocol;
         private TextBox textBox_data;
         private TextBox textBox_Opcode;
         private TextBox textBox_Preamble;
@@ -367,6 +368,16 @@ namespace SocketServer
         private GroupBox groupBox_clientTX;
         private Label label_SerialPortStatus;
         private Label label_TCPClient;
+        private TabPage tabPage_MiniAda;
+        private GroupBox groupBox40;
+        private Button button_GetSoftwareVersion;
+        private GroupBox groupBox32;
+        private RichTextBox richTextBox_MiniAda;
+        private CheckBox checkBox_RecordMiniAda;
+        private CheckBox checkBox_PauseMiniAda;
+        private Button button_ClearMiniAda;
+        private Label label17;
+        private Label label18;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -493,11 +504,11 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
@@ -669,13 +680,30 @@ namespace SocketServer
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage_GenericFrame = new System.Windows.Forms.TabPage();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox31 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox_RxClientPreamble = new System.Windows.Forms.TextBox();
+            this.textBox_RxClientOpcode = new System.Windows.Forms.TextBox();
+            this.textBox_RxClientData = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.groupBox_clientTX = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button_Send = new System.Windows.Forms.Button();
-            this.textBox_data = new System.Windows.Forms.TextBox();
-            this.textBox_Opcode = new System.Windows.Forms.TextBox();
             this.textBox_Preamble = new System.Windows.Forms.TextBox();
+            this.button_SendProtocol = new System.Windows.Forms.Button();
+            this.textBox_Opcode = new System.Windows.Forms.TextBox();
+            this.textBox_data = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tabPage_MiniAda = new System.Windows.Forms.TabPage();
+            this.groupBox40 = new System.Windows.Forms.GroupBox();
+            this.button_GetSoftwareVersion = new System.Windows.Forms.Button();
+            this.groupBox32 = new System.Windows.Forms.GroupBox();
+            this.richTextBox_MiniAda = new System.Windows.Forms.RichTextBox();
+            this.checkBox_RecordMiniAda = new System.Windows.Forms.CheckBox();
+            this.checkBox_PauseMiniAda = new System.Windows.Forms.CheckBox();
+            this.button_ClearMiniAda = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.S1_Configuration = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -798,6 +826,7 @@ namespace SocketServer
             this.label_SerialPortConnected = new System.Windows.Forms.Label();
             this.Label_SerialPortTx = new System.Windows.Forms.Label();
             this.groupBox_SerialPort = new System.Windows.Forms.GroupBox();
+            this.label_SerialPortStatus = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox_InternalCLIoutput = new System.Windows.Forms.TextBox();
@@ -805,19 +834,11 @@ namespace SocketServer
             this.textBox_SystemStatus = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox_ClentTCPStatus = new System.Windows.Forms.GroupBox();
+            this.label_TCPClient = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label_ClientTCPConnected = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.groupBox_clientTX = new System.Windows.Forms.GroupBox();
-            this.groupBox31 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox_RxClientPreamble = new System.Windows.Forms.TextBox();
-            this.textBox_RxClientOpcode = new System.Windows.Forms.TextBox();
-            this.textBox_RxClientData = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label_SerialPortStatus = new System.Windows.Forms.Label();
-            this.label_TCPClient = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -846,6 +867,11 @@ namespace SocketServer
             this.groupBox_ConnectionTimedOut.SuspendLayout();
             this.tabPage_ClientTCP.SuspendLayout();
             this.tabPage_GenericFrame.SuspendLayout();
+            this.groupBox31.SuspendLayout();
+            this.groupBox_clientTX.SuspendLayout();
+            this.tabPage_MiniAda.SuspendLayout();
+            this.groupBox40.SuspendLayout();
+            this.groupBox32.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.S1_Configuration.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -879,8 +905,6 @@ namespace SocketServer
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox_ClentTCPStatus.SuspendLayout();
-            this.groupBox_clientTX.SuspendLayout();
-            this.groupBox31.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_ServerSettings
@@ -1020,7 +1044,7 @@ namespace SocketServer
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(282, 71);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(659, 505);
+            this.groupBox3.Size = new System.Drawing.Size(936, 505);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "General Console";
@@ -1042,7 +1066,7 @@ namespace SocketServer
             this.txtGeneral.EnableAutoDragDrop = true;
             this.txtGeneral.Location = new System.Drawing.Point(7, 20);
             this.txtGeneral.Name = "txtGeneral";
-            this.txtGeneral.Size = new System.Drawing.Size(647, 480);
+            this.txtGeneral.Size = new System.Drawing.Size(923, 480);
             this.txtGeneral.TabIndex = 0;
             this.txtGeneral.Text = "";
             this.txtGeneral.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
@@ -1091,11 +1115,13 @@ namespace SocketServer
             this.tabControl_Main.Controls.Add(this.tabPage_ServerTCP);
             this.tabControl_Main.Controls.Add(this.tabPage_ClientTCP);
             this.tabControl_Main.Controls.Add(this.tabPage_GenericFrame);
+            this.tabControl_Main.Controls.Add(this.tabPage_MiniAda);
             this.tabControl_Main.Location = new System.Drawing.Point(4, 5);
             this.tabControl_Main.Name = "tabControl_Main";
             this.tabControl_Main.SelectedIndex = 0;
             this.tabControl_Main.Size = new System.Drawing.Size(1555, 713);
             this.tabControl_Main.TabIndex = 8;
+            this.tabControl_Main.TabStop = false;
             this.tabControl_Main.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TabControl1_KeyDown);
             // 
             // tabPage_SMS
@@ -1107,7 +1133,7 @@ namespace SocketServer
             this.tabPage_SMS.Controls.Add(this.groupBox33);
             this.tabPage_SMS.Location = new System.Drawing.Point(4, 27);
             this.tabPage_SMS.Name = "tabPage_SMS";
-            this.tabPage_SMS.Size = new System.Drawing.Size(1547, 728);
+            this.tabPage_SMS.Size = new System.Drawing.Size(1547, 682);
             this.tabPage_SMS.TabIndex = 6;
             this.tabPage_SMS.Text = "SMS";
             this.tabPage_SMS.UseVisualStyleBackColor = true;
@@ -1198,7 +1224,7 @@ namespace SocketServer
             this.groupBox37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox37.Location = new System.Drawing.Point(797, 7);
             this.groupBox37.Name = "groupBox37";
-            this.groupBox37.Size = new System.Drawing.Size(463, 721);
+            this.groupBox37.Size = new System.Drawing.Size(463, 656);
             this.groupBox37.TabIndex = 8;
             this.groupBox37.TabStop = false;
             this.groupBox37.Text = "SMS Console";
@@ -1581,7 +1607,7 @@ namespace SocketServer
             this.tabPage_Configuration.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage_Configuration.Location = new System.Drawing.Point(4, 22);
             this.tabPage_Configuration.Name = "tabPage_Configuration";
-            this.tabPage_Configuration.Size = new System.Drawing.Size(1547, 733);
+            this.tabPage_Configuration.Size = new System.Drawing.Size(1547, 687);
             this.tabPage_Configuration.TabIndex = 5;
             this.tabPage_Configuration.Text = "Configuration";
             this.tabPage_Configuration.UseVisualStyleBackColor = true;
@@ -1921,7 +1947,7 @@ namespace SocketServer
             this.tabPage_charts.Controls.Add(this.chart1);
             this.tabPage_charts.Location = new System.Drawing.Point(4, 22);
             this.tabPage_charts.Name = "tabPage_charts";
-            this.tabPage_charts.Size = new System.Drawing.Size(1547, 733);
+            this.tabPage_charts.Size = new System.Drawing.Size(1547, 687);
             this.tabPage_charts.TabIndex = 7;
             this.tabPage_charts.Text = "Charts";
             this.tabPage_charts.UseVisualStyleBackColor = true;
@@ -2029,32 +2055,32 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
+            legend7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend7.IsTextAutoFit = false;
+            legend7.Name = "Legend1";
+            this.chart1.Legends.Add(legend7);
             this.chart1.Location = new System.Drawing.Point(194, 2);
             this.chart1.Name = "chart1";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series7.Legend = "Legend1";
-            series7.Name = "Data 1";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series8.Legend = "Legend1";
-            series8.Name = "Data 2";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series9.Legend = "Legend1";
-            series9.Name = "Data 3";
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
-            this.chart1.Series.Add(series9);
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series19.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series19.Legend = "Legend1";
+            series19.Name = "Data 1";
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series20.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series20.Legend = "Legend1";
+            series20.Name = "Data 2";
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series21.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series21.Legend = "Legend1";
+            series21.Name = "Data 3";
+            this.chart1.Series.Add(series19);
+            this.chart1.Series.Add(series20);
+            this.chart1.Series.Add(series21);
             this.chart1.Size = new System.Drawing.Size(1350, 665);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2064,10 +2090,10 @@ namespace SocketServer
             this.tabPage_SerialPort.Controls.Add(this.groupBox_SendSerialOrMonitorCommands);
             this.tabPage_SerialPort.Controls.Add(this.gbPortSettings);
             this.tabPage_SerialPort.Controls.Add(this.groupBox5);
-            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 27);
+            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 22);
             this.tabPage_SerialPort.Name = "tabPage_SerialPort";
             this.tabPage_SerialPort.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 682);
+            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 687);
             this.tabPage_SerialPort.TabIndex = 1;
             this.tabPage_SerialPort.Text = "Serial Port";
             this.tabPage_SerialPort.UseVisualStyleBackColor = true;
@@ -2575,7 +2601,7 @@ namespace SocketServer
             // 
             // textBox_IDKey
             // 
-            this.textBox_IDKey.Location = new System.Drawing.Point(941, 77);
+            this.textBox_IDKey.Location = new System.Drawing.Point(1224, 78);
             this.textBox_IDKey.Name = "textBox_IDKey";
             this.textBox_IDKey.Size = new System.Drawing.Size(317, 152);
             this.textBox_IDKey.TabIndex = 102;
@@ -2748,9 +2774,9 @@ namespace SocketServer
             this.tabPage_ClientTCP.Controls.Add(this.textBox_ClientIP);
             this.tabPage_ClientTCP.Controls.Add(this.label8);
             this.tabPage_ClientTCP.Controls.Add(this.label7);
-            this.tabPage_ClientTCP.Location = new System.Drawing.Point(4, 27);
+            this.tabPage_ClientTCP.Location = new System.Drawing.Point(4, 22);
             this.tabPage_ClientTCP.Name = "tabPage_ClientTCP";
-            this.tabPage_ClientTCP.Size = new System.Drawing.Size(1547, 682);
+            this.tabPage_ClientTCP.Size = new System.Drawing.Size(1547, 687);
             this.tabPage_ClientTCP.TabIndex = 9;
             this.tabPage_ClientTCP.Text = "Client TCP";
             this.tabPage_ClientTCP.UseVisualStyleBackColor = true;
@@ -2888,24 +2914,111 @@ namespace SocketServer
             this.tabPage_GenericFrame.TabIndex = 10;
             this.tabPage_GenericFrame.Text = "Generic Kratos frame";
             this.tabPage_GenericFrame.UseVisualStyleBackColor = true;
+            this.tabPage_GenericFrame.Enter += new System.EventHandler(this.tabPage_GenericFrame_Enter);
+            this.tabPage_GenericFrame.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.tabPage_GenericFrame_PreviewKeyDown);
             // 
-            // label11
+            // groupBox31
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 91);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 18);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Data";
+            this.groupBox31.Controls.Add(this.label18);
+            this.groupBox31.Controls.Add(this.label13);
+            this.groupBox31.Controls.Add(this.textBox_RxClientPreamble);
+            this.groupBox31.Controls.Add(this.textBox_RxClientOpcode);
+            this.groupBox31.Controls.Add(this.textBox_RxClientData);
+            this.groupBox31.Controls.Add(this.label15);
+            this.groupBox31.Controls.Add(this.label16);
+            this.groupBox31.Location = new System.Drawing.Point(434, 14);
+            this.groupBox31.Name = "groupBox31";
+            this.groupBox31.Size = new System.Drawing.Size(372, 157);
+            this.groupBox31.TabIndex = 14;
+            this.groupBox31.TabStop = false;
+            this.groupBox31.Text = "Data received";
             // 
-            // label6
+            // label13
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 57);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 18);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Opcode";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(18, 21);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(68, 18);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Preamble";
+            // 
+            // textBox_RxClientPreamble
+            // 
+            this.textBox_RxClientPreamble.Location = new System.Drawing.Point(97, 18);
+            this.textBox_RxClientPreamble.MaxLength = 4;
+            this.textBox_RxClientPreamble.Name = "textBox_RxClientPreamble";
+            this.textBox_RxClientPreamble.ReadOnly = true;
+            this.textBox_RxClientPreamble.Size = new System.Drawing.Size(100, 26);
+            this.textBox_RxClientPreamble.TabIndex = 0;
+            this.textBox_RxClientPreamble.TabStop = false;
+            // 
+            // textBox_RxClientOpcode
+            // 
+            this.textBox_RxClientOpcode.Location = new System.Drawing.Point(97, 54);
+            this.textBox_RxClientOpcode.MaxLength = 4;
+            this.textBox_RxClientOpcode.Name = "textBox_RxClientOpcode";
+            this.textBox_RxClientOpcode.ReadOnly = true;
+            this.textBox_RxClientOpcode.Size = new System.Drawing.Size(100, 26);
+            this.textBox_RxClientOpcode.TabIndex = 1;
+            this.textBox_RxClientOpcode.TabStop = false;
+            // 
+            // textBox_RxClientData
+            // 
+            this.textBox_RxClientData.Location = new System.Drawing.Point(97, 88);
+            this.textBox_RxClientData.Name = "textBox_RxClientData";
+            this.textBox_RxClientData.ReadOnly = true;
+            this.textBox_RxClientData.Size = new System.Drawing.Size(225, 26);
+            this.textBox_RxClientData.TabIndex = 2;
+            this.textBox_RxClientData.TabStop = false;
+            this.textBox_RxClientData.TextChanged += new System.EventHandler(this.textBox_RxClientData_TextChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(18, 57);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(56, 18);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Opcode";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(18, 92);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(36, 18);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Data";
+            // 
+            // groupBox_clientTX
+            // 
+            this.groupBox_clientTX.Controls.Add(this.label17);
+            this.groupBox_clientTX.Controls.Add(this.label4);
+            this.groupBox_clientTX.Controls.Add(this.textBox_Preamble);
+            this.groupBox_clientTX.Controls.Add(this.button_SendProtocol);
+            this.groupBox_clientTX.Controls.Add(this.textBox_Opcode);
+            this.groupBox_clientTX.Controls.Add(this.textBox_data);
+            this.groupBox_clientTX.Controls.Add(this.label6);
+            this.groupBox_clientTX.Controls.Add(this.label11);
+            this.groupBox_clientTX.Location = new System.Drawing.Point(14, 12);
+            this.groupBox_clientTX.Name = "groupBox_clientTX";
+            this.groupBox_clientTX.Size = new System.Drawing.Size(372, 159);
+            this.groupBox_clientTX.TabIndex = 13;
+            this.groupBox_clientTX.TabStop = false;
+            this.groupBox_clientTX.Text = "Send Data";
+            this.groupBox_clientTX.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.groupBox_clientTX_PreviewKeyDown);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label17.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Maroon;
+            this.label17.Location = new System.Drawing.Point(269, 13);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(97, 21);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "Hexadecimal";
             // 
             // label4
             // 
@@ -2916,15 +3029,38 @@ namespace SocketServer
             this.label4.TabIndex = 4;
             this.label4.Text = "Preamble";
             // 
-            // button_Send
+            // textBox_Preamble
             // 
-            this.button_Send.Location = new System.Drawing.Point(97, 127);
-            this.button_Send.Name = "button_Send";
-            this.button_Send.Size = new System.Drawing.Size(91, 23);
-            this.button_Send.TabIndex = 3;
-            this.button_Send.Text = "Send";
-            this.button_Send.UseVisualStyleBackColor = true;
-            this.button_Send.Click += new System.EventHandler(this.button_Send_Click);
+            this.textBox_Preamble.Location = new System.Drawing.Point(97, 18);
+            this.textBox_Preamble.MaxLength = 5;
+            this.textBox_Preamble.Name = "textBox_Preamble";
+            this.textBox_Preamble.Size = new System.Drawing.Size(100, 26);
+            this.textBox_Preamble.TabIndex = 0;
+            this.textBox_Preamble.Text = "53 00";
+            this.textBox_Preamble.TextChanged += new System.EventHandler(this.textBox_Preamble_TextChanged);
+            this.textBox_Preamble.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Preamble_KeyDown);
+            // 
+            // button_SendProtocol
+            // 
+            this.button_SendProtocol.Location = new System.Drawing.Point(6, 125);
+            this.button_SendProtocol.Name = "button_SendProtocol";
+            this.button_SendProtocol.Size = new System.Drawing.Size(91, 23);
+            this.button_SendProtocol.TabIndex = 3;
+            this.button_SendProtocol.TabStop = false;
+            this.button_SendProtocol.Text = "Send";
+            this.button_SendProtocol.UseVisualStyleBackColor = true;
+            this.button_SendProtocol.Click += new System.EventHandler(this.button_Send_Click);
+            // 
+            // textBox_Opcode
+            // 
+            this.textBox_Opcode.Location = new System.Drawing.Point(97, 54);
+            this.textBox_Opcode.MaxLength = 5;
+            this.textBox_Opcode.Name = "textBox_Opcode";
+            this.textBox_Opcode.Size = new System.Drawing.Size(100, 26);
+            this.textBox_Opcode.TabIndex = 1;
+            this.textBox_Opcode.Text = "70 00";
+            this.textBox_Opcode.TextChanged += new System.EventHandler(this.textBox_Opcode_TextChanged);
+            this.textBox_Opcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Opcode_KeyDown);
             // 
             // textBox_data
             // 
@@ -2932,28 +3068,114 @@ namespace SocketServer
             this.textBox_data.Name = "textBox_data";
             this.textBox_data.Size = new System.Drawing.Size(225, 26);
             this.textBox_data.TabIndex = 2;
-            this.textBox_data.Text = "01000000";
+            this.textBox_data.Text = "04 00 00 00";
             this.textBox_data.TextChanged += new System.EventHandler(this.textBox_data_TextChanged);
+            this.textBox_data.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_data_KeyDown);
             // 
-            // textBox_Opcode
+            // label6
             // 
-            this.textBox_Opcode.Location = new System.Drawing.Point(97, 54);
-            this.textBox_Opcode.MaxLength = 4;
-            this.textBox_Opcode.Name = "textBox_Opcode";
-            this.textBox_Opcode.Size = new System.Drawing.Size(100, 26);
-            this.textBox_Opcode.TabIndex = 1;
-            this.textBox_Opcode.Text = "7000";
-            this.textBox_Opcode.TextChanged += new System.EventHandler(this.textBox_Opcode_TextChanged);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 18);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Opcode";
             // 
-            // textBox_Preamble
+            // label11
             // 
-            this.textBox_Preamble.Location = new System.Drawing.Point(97, 18);
-            this.textBox_Preamble.MaxLength = 4;
-            this.textBox_Preamble.Name = "textBox_Preamble";
-            this.textBox_Preamble.Size = new System.Drawing.Size(100, 26);
-            this.textBox_Preamble.TabIndex = 0;
-            this.textBox_Preamble.Text = "5300";
-            this.textBox_Preamble.TextChanged += new System.EventHandler(this.textBox_Preamble_TextChanged);
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 91);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(36, 18);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Data";
+            // 
+            // tabPage_MiniAda
+            // 
+            this.tabPage_MiniAda.Controls.Add(this.groupBox40);
+            this.tabPage_MiniAda.Controls.Add(this.groupBox32);
+            this.tabPage_MiniAda.Location = new System.Drawing.Point(4, 27);
+            this.tabPage_MiniAda.Name = "tabPage_MiniAda";
+            this.tabPage_MiniAda.Size = new System.Drawing.Size(1547, 682);
+            this.tabPage_MiniAda.TabIndex = 11;
+            this.tabPage_MiniAda.Text = "MiniAda";
+            this.tabPage_MiniAda.UseVisualStyleBackColor = true;
+            // 
+            // groupBox40
+            // 
+            this.groupBox40.Controls.Add(this.button_GetSoftwareVersion);
+            this.groupBox40.Location = new System.Drawing.Point(10, 8);
+            this.groupBox40.Name = "groupBox40";
+            this.groupBox40.Size = new System.Drawing.Size(1064, 587);
+            this.groupBox40.TabIndex = 11;
+            this.groupBox40.TabStop = false;
+            this.groupBox40.Text = "Commands for MiniAda";
+            // 
+            // button_GetSoftwareVersion
+            // 
+            this.button_GetSoftwareVersion.Location = new System.Drawing.Point(6, 28);
+            this.button_GetSoftwareVersion.Name = "button_GetSoftwareVersion";
+            this.button_GetSoftwareVersion.Size = new System.Drawing.Size(148, 23);
+            this.button_GetSoftwareVersion.TabIndex = 10;
+            this.button_GetSoftwareVersion.Text = "Get Software version";
+            this.button_GetSoftwareVersion.UseVisualStyleBackColor = true;
+            // 
+            // groupBox32
+            // 
+            this.groupBox32.Controls.Add(this.richTextBox_MiniAda);
+            this.groupBox32.Controls.Add(this.checkBox_RecordMiniAda);
+            this.groupBox32.Controls.Add(this.checkBox_PauseMiniAda);
+            this.groupBox32.Controls.Add(this.button_ClearMiniAda);
+            this.groupBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox32.Location = new System.Drawing.Point(1080, 3);
+            this.groupBox32.Name = "groupBox32";
+            this.groupBox32.Size = new System.Drawing.Size(463, 668);
+            this.groupBox32.TabIndex = 9;
+            this.groupBox32.TabStop = false;
+            this.groupBox32.Text = "MiniAda Monitor";
+            // 
+            // richTextBox_MiniAda
+            // 
+            this.richTextBox_MiniAda.EnableAutoDragDrop = true;
+            this.richTextBox_MiniAda.Location = new System.Drawing.Point(6, 17);
+            this.richTextBox_MiniAda.Name = "richTextBox_MiniAda";
+            this.richTextBox_MiniAda.Size = new System.Drawing.Size(451, 607);
+            this.richTextBox_MiniAda.TabIndex = 0;
+            this.richTextBox_MiniAda.Text = "";
+            // 
+            // checkBox_RecordMiniAda
+            // 
+            this.checkBox_RecordMiniAda.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox_RecordMiniAda.AutoSize = true;
+            this.checkBox_RecordMiniAda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_RecordMiniAda.Location = new System.Drawing.Point(222, 630);
+            this.checkBox_RecordMiniAda.Name = "checkBox_RecordMiniAda";
+            this.checkBox_RecordMiniAda.Size = new System.Drawing.Size(99, 26);
+            this.checkBox_RecordMiniAda.TabIndex = 7;
+            this.checkBox_RecordMiniAda.Text = "Record Log";
+            this.checkBox_RecordMiniAda.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_PauseMiniAda
+            // 
+            this.checkBox_PauseMiniAda.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox_PauseMiniAda.AutoSize = true;
+            this.checkBox_PauseMiniAda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_PauseMiniAda.Location = new System.Drawing.Point(327, 630);
+            this.checkBox_PauseMiniAda.Name = "checkBox_PauseMiniAda";
+            this.checkBox_PauseMiniAda.Size = new System.Drawing.Size(62, 26);
+            this.checkBox_PauseMiniAda.TabIndex = 5;
+            this.checkBox_PauseMiniAda.Text = "Pause";
+            this.checkBox_PauseMiniAda.UseVisualStyleBackColor = true;
+            // 
+            // button_ClearMiniAda
+            // 
+            this.button_ClearMiniAda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ClearMiniAda.Location = new System.Drawing.Point(395, 630);
+            this.button_ClearMiniAda.Name = "button_ClearMiniAda";
+            this.button_ClearMiniAda.Size = new System.Drawing.Size(62, 26);
+            this.button_ClearMiniAda.TabIndex = 6;
+            this.button_ClearMiniAda.Text = "Clear";
+            this.button_ClearMiniAda.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -4194,12 +4416,22 @@ namespace SocketServer
             this.groupBox_SerialPort.Text = "Serial port";
             this.groupBox_SerialPort.Enter += new System.EventHandler(this.groupBox_SerialPort_Enter);
             // 
+            // label_SerialPortStatus
+            // 
+            this.label_SerialPortStatus.AutoSize = true;
+            this.label_SerialPortStatus.Location = new System.Drawing.Point(95, 29);
+            this.label_SerialPortStatus.Name = "label_SerialPortStatus";
+            this.label_SerialPortStatus.Size = new System.Drawing.Size(42, 18);
+            this.label_SerialPortStatus.TabIndex = 111;
+            this.label_SerialPortStatus.Text = "None";
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(5, 25);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(180, 26);
             this.textBox1.TabIndex = 112;
+            this.textBox1.TabStop = false;
             this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_3);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox1_KeyDown);
             // 
@@ -4222,6 +4454,7 @@ namespace SocketServer
             this.textBox_InternalCLIoutput.ReadOnly = true;
             this.textBox_InternalCLIoutput.Size = new System.Drawing.Size(180, 87);
             this.textBox_InternalCLIoutput.TabIndex = 113;
+            this.textBox_InternalCLIoutput.TabStop = false;
             // 
             // groupBox4
             // 
@@ -4241,6 +4474,7 @@ namespace SocketServer
             this.textBox_SystemStatus.ReadOnly = true;
             this.textBox_SystemStatus.Size = new System.Drawing.Size(180, 235);
             this.textBox_SystemStatus.TabIndex = 113;
+            this.textBox_SystemStatus.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -4263,6 +4497,15 @@ namespace SocketServer
             this.groupBox_ClentTCPStatus.TabIndex = 112;
             this.groupBox_ClentTCPStatus.TabStop = false;
             this.groupBox_ClentTCPStatus.Text = "Client TCP";
+            // 
+            // label_TCPClient
+            // 
+            this.label_TCPClient.AutoSize = true;
+            this.label_TCPClient.Location = new System.Drawing.Point(92, 29);
+            this.label_TCPClient.Name = "label_TCPClient";
+            this.label_TCPClient.Size = new System.Drawing.Size(45, 18);
+            this.label_TCPClient.TabIndex = 111;
+            this.label_TCPClient.Text = " None";
             // 
             // label12
             // 
@@ -4292,108 +4535,17 @@ namespace SocketServer
             this.label14.TabIndex = 108;
             this.label14.Text = "Rx";
             // 
-            // groupBox_clientTX
+            // label18
             // 
-            this.groupBox_clientTX.Controls.Add(this.label4);
-            this.groupBox_clientTX.Controls.Add(this.textBox_Preamble);
-            this.groupBox_clientTX.Controls.Add(this.textBox_Opcode);
-            this.groupBox_clientTX.Controls.Add(this.textBox_data);
-            this.groupBox_clientTX.Controls.Add(this.button_Send);
-            this.groupBox_clientTX.Controls.Add(this.label6);
-            this.groupBox_clientTX.Controls.Add(this.label11);
-            this.groupBox_clientTX.Location = new System.Drawing.Point(14, 12);
-            this.groupBox_clientTX.Name = "groupBox_clientTX";
-            this.groupBox_clientTX.Size = new System.Drawing.Size(372, 229);
-            this.groupBox_clientTX.TabIndex = 13;
-            this.groupBox_clientTX.TabStop = false;
-            this.groupBox_clientTX.Text = "Send Data";
-            // 
-            // groupBox31
-            // 
-            this.groupBox31.Controls.Add(this.label13);
-            this.groupBox31.Controls.Add(this.textBox_RxClientPreamble);
-            this.groupBox31.Controls.Add(this.textBox_RxClientOpcode);
-            this.groupBox31.Controls.Add(this.textBox_RxClientData);
-            this.groupBox31.Controls.Add(this.label15);
-            this.groupBox31.Controls.Add(this.label16);
-            this.groupBox31.Location = new System.Drawing.Point(434, 14);
-            this.groupBox31.Name = "groupBox31";
-            this.groupBox31.Size = new System.Drawing.Size(372, 229);
-            this.groupBox31.TabIndex = 14;
-            this.groupBox31.TabStop = false;
-            this.groupBox31.Text = "Data receive";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(18, 21);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(68, 18);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Preamble";
-            // 
-            // textBox_RxClientPreamble
-            // 
-            this.textBox_RxClientPreamble.Location = new System.Drawing.Point(97, 18);
-            this.textBox_RxClientPreamble.MaxLength = 4;
-            this.textBox_RxClientPreamble.Name = "textBox_RxClientPreamble";
-            this.textBox_RxClientPreamble.ReadOnly = true;
-            this.textBox_RxClientPreamble.Size = new System.Drawing.Size(100, 26);
-            this.textBox_RxClientPreamble.TabIndex = 0;
-            // 
-            // textBox_RxClientOpcode
-            // 
-            this.textBox_RxClientOpcode.Location = new System.Drawing.Point(97, 54);
-            this.textBox_RxClientOpcode.MaxLength = 4;
-            this.textBox_RxClientOpcode.Name = "textBox_RxClientOpcode";
-            this.textBox_RxClientOpcode.ReadOnly = true;
-            this.textBox_RxClientOpcode.Size = new System.Drawing.Size(100, 26);
-            this.textBox_RxClientOpcode.TabIndex = 1;
-            // 
-            // textBox_RxClientData
-            // 
-            this.textBox_RxClientData.Location = new System.Drawing.Point(97, 88);
-            this.textBox_RxClientData.Name = "textBox_RxClientData";
-            this.textBox_RxClientData.ReadOnly = true;
-            this.textBox_RxClientData.Size = new System.Drawing.Size(225, 26);
-            this.textBox_RxClientData.TabIndex = 2;
-            this.textBox_RxClientData.TextChanged += new System.EventHandler(this.textBox_RxClientData_TextChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(18, 57);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(56, 18);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "Opcode";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(16, 91);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(36, 18);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "Data";
-            // 
-            // label_SerialPortStatus
-            // 
-            this.label_SerialPortStatus.AutoSize = true;
-            this.label_SerialPortStatus.Location = new System.Drawing.Point(95, 29);
-            this.label_SerialPortStatus.Name = "label_SerialPortStatus";
-            this.label_SerialPortStatus.Size = new System.Drawing.Size(42, 18);
-            this.label_SerialPortStatus.TabIndex = 111;
-            this.label_SerialPortStatus.Text = "None";
-            // 
-            // label_TCPClient
-            // 
-            this.label_TCPClient.AutoSize = true;
-            this.label_TCPClient.Location = new System.Drawing.Point(92, 29);
-            this.label_TCPClient.Name = "label_TCPClient";
-            this.label_TCPClient.Size = new System.Drawing.Size(45, 18);
-            this.label_TCPClient.TabIndex = 111;
-            this.label_TCPClient.Text = " None";
+            this.label18.AutoSize = true;
+            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label18.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Maroon;
+            this.label18.Location = new System.Drawing.Point(269, 16);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(97, 21);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Hexadecimal";
             // 
             // MainForm
             // 
@@ -4411,6 +4563,7 @@ namespace SocketServer
             this.Controls.Add(this.groupBox_PhoneNumber);
             this.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "Monitor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -4461,6 +4614,14 @@ namespace SocketServer
             this.tabPage_ClientTCP.ResumeLayout(false);
             this.tabPage_ClientTCP.PerformLayout();
             this.tabPage_GenericFrame.ResumeLayout(false);
+            this.groupBox31.ResumeLayout(false);
+            this.groupBox31.PerformLayout();
+            this.groupBox_clientTX.ResumeLayout(false);
+            this.groupBox_clientTX.PerformLayout();
+            this.tabPage_MiniAda.ResumeLayout(false);
+            this.groupBox40.ResumeLayout(false);
+            this.groupBox32.ResumeLayout(false);
+            this.groupBox32.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.S1_Configuration.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
@@ -4516,10 +4677,6 @@ namespace SocketServer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox_ClentTCPStatus.ResumeLayout(false);
             this.groupBox_ClentTCPStatus.PerformLayout();
-            this.groupBox_clientTX.ResumeLayout(false);
-            this.groupBox_clientTX.PerformLayout();
-            this.groupBox31.ResumeLayout(false);
-            this.groupBox31.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4791,7 +4948,7 @@ namespace SocketServer
             ASCIIEncoding encoder = new ASCIIEncoding();
 
             // string IncomingString = System.Text.Encoding.Default.GetString(mye.BytesData);
-            string IncomingString = ByteArrayToString(mye.BytesData);
+            string IncomingString = ByteArrayToString(mye.BytesData.Take(40).ToArray());
             //IncomingString = IncomingString.Replace("\0", "");
 
             ServerLogger.LogMessage(Color.Black, Color.White, "\n\nData Received: ", New_Line = false, Show_Time = true);
@@ -5715,7 +5872,7 @@ namespace SocketServer
         //{
         //    System.Windows.Forms.Application.Exit();
         //}
-
+        TextBox_Logger MiniAdaLogger;
         TextBox_Logger ServerLogger;
         TextBox_Logger SerialPortLogger;
         //   Logger LogIWatcher;
@@ -5969,6 +6126,8 @@ namespace SocketServer
                 //Gil: Generate all the loggers
                 ServerLogger = new TextBox_Logger("Server", txtGeneral, button_ClearServer, PauseCheck, checkBox_RecordGeneral, null, null, null, checkBox_StopLogging);
                 SerialPortLogger = new TextBox_Logger("Serial_Port", SerialPortLogger_TextBox, txtS1_Clear, checkBox_S1Pause, checkBox_S1RecordLog, textBox_SerialPortRecognizePattern, textBox_SerialPortRecognizePattern2, textBox_SerialPortRecognizePattern3, null);
+                MiniAdaLogger = new TextBox_Logger("MiniAda", richTextBox_MiniAda, button_ClearMiniAda, checkBox_PauseMiniAda, checkBox_RecordMiniAda, null, null, null, checkBox_StopLogging);
+
 
                 LogSMS = new TextBox_Logger("Log_SMS", richTextBox_SMSConsole, button_ClearSMSConsole, checkBox_PauseSMSConsole, checkBox_RecordSMSConsole, null, null, null, null);
 
@@ -6155,7 +6314,8 @@ namespace SocketServer
             }
             catch (Exception ex)
             {
-              //  ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
+                MessageBox.Show(ex.ToString());
+                //  ServerLogger.LogMessage(Color.Orange, Color.White, ex.ToString(), true, true);
             }
 
         }
@@ -9523,32 +9683,12 @@ namespace SocketServer
 
                 if (IsSent == true)
                 {
-                    //  mutexACKSMSReceived.WaitOne();
-                    //ACKSMSReceived = false;
-                    //   ACKSMSReceived = true;
-                    //Thread.Sleep(1000);
-                    //   mutexACKSMSReceived.ReleaseMutex();
 
-                    //int cnt = 0;
-                    //while (ACKSMSReceived == false && cnt < 100)
-                    //{
-                    //    Thread.Sleep(50);
-                    //    cnt++;
-                    //}
-                    //if (ACKSMSReceived)
-                    //{
                     LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
                     LogSMS.LogMessage(Color.Green, Color.White, "  SMS was Sent:\n Contact: " + i_Contact.ToString() + "\n Text:  " + SMSToSend, New_Line = true, Show_Time = false);
 
                     Thread.Sleep(1500);
-                    //}
-                    //else
-                    //{
-                    //    LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                    //    LogSMS.LogMessage(Color.Red, Color.White, "  SMS wasn't Sent to " + i_Contact.ToString() + "  Text:  " + SMSToSend, New_Line = true, Show_Time = false);
-                    //}
 
-                    //return true;
                 }
             }
         }
@@ -10723,67 +10863,34 @@ namespace SocketServer
 
 
                             stm.Read(buffer, 0, buffer.Length);
+                            KratosProtocolFrame Result = new KratosProtocolFrame();
+                            Result = Kratos_Protocol.DecodeKratusProtocol(buffer);
 
-                            byte[] DataLengthBytes = buffer.Skip(4).Take(4).ToArray();
-
-                            UInt32 FrameDataLength = BitConverter.ToUInt32(DataLengthBytes, 0);
-                            int CheckSumIndex = (int)FrameDataLength + 8;
-
-
-                            UInt16 CheckSumCalc = 0;
-
-                            for (int i = 0; i < CheckSumIndex; i++)
+                            textBox_RxClientPreamble.BeginInvoke(new EventHandler(delegate
                             {
-                                CheckSumCalc += buffer[i];
-                            }
-
-                            byte[] CheckSumBytes = buffer.Skip(CheckSumIndex).Take(2).ToArray();
-                            UInt16 CheckSumSent = BitConverter.ToUInt16(CheckSumBytes, 0);
-
-                            if (CheckSumSent == CheckSumCalc)
-                            {
-                                textBox_RxClientPreamble.BeginInvoke(new EventHandler(delegate
+                                if (Result != null)
                                 {
                                     textBox_RxClientPreamble.BackColor = Color.LightGreen;
-                                    textBox_RxClientPreamble.Text = buffer[0].ToString() + buffer[1].ToString();
+                                    textBox_RxClientPreamble.Text = Result.Preamble;
 
                                     textBox_RxClientOpcode.BackColor = Color.LightGreen;
-                                    textBox_RxClientOpcode.Text = buffer[2].ToString() + buffer[3].ToString();
+                                    textBox_RxClientOpcode.Text = Result.Opcode;
 
                                     textBox_RxClientData.BackColor = Color.LightGreen;
+                                    textBox_RxClientData.Text = Result.Data;
+                                }
 
-                                    textBox_RxClientData.Text = "";
-                                    for (int i = 8; i < CheckSumIndex; i++)
-                                    {
-                                        textBox_RxClientData.Text += buffer[i].ToString();
-                                    }
 
-                                }));
+                            }));
 
 
 
-                            }
-                            else
-                            {
-                                textBox_RxClientPreamble.BeginInvoke(new EventHandler(delegate
-                                {
-                                    textBox_RxClientPreamble.BackColor = Color.Red;
-                                    textBox_RxClientPreamble.Text = buffer[0].ToString() + buffer[1].ToString();
+                            string MiniAdaResult = MiniAda.ParseKratosFrame(Result);
 
-                                    textBox_RxClientOpcode.BackColor = Color.Red;
-                                    textBox_RxClientOpcode.Text = buffer[2].ToString() + buffer[3].ToString();
+                            MiniAdaLogger.LogMessage(Color.Black, Color.Empty, MiniAdaResult, New_Line = true, Show_Time = true);
+                            
 
-                                    textBox_RxClientData.BackColor = Color.Red;
-
-                                    textBox_RxClientData.Text = "";
-                                    for (int i = 8; i < CheckSumIndex; i++)
-                                    {
-                                        textBox_RxClientData.Text += buffer[i].ToString();
-                                    }
-
-                                }));
-
-                            }
+     
 
 
 
@@ -10791,7 +10898,8 @@ namespace SocketServer
                             //SSP_Protocol.SSP_DataPayload data = SSP_Protocol.SSP_Protocol.SSPPacket_Decoder(buffer);
                             richTextBox_ClientRx.Invoke(new EventHandler(delegate
                             {
-                                richTextBox_ClientRx.AppendText("[" + DateTime.Now.TimeOfDay.ToString().Substring(0, 11) + "] " + ByteArrayToString(buffer) + " \n");
+                                byte[] Onlythe40FirstBytes = buffer.Skip(0).Take(40).ToArray();
+                                richTextBox_ClientRx.AppendText("[" + DateTime.Now.TimeOfDay.ToString().Substring(0, 11) + "] " + ByteArrayToString(Onlythe40FirstBytes) + " \n");
                                 //richTextBox_ClientRx.AppendText("[" + dt.TimeOfDay.ToString().Substring(0, 11) + "] " + Encoding.ASCII.GetString(buffer) + " \n");
                                 richTextBox_ClientRx.AppendText(" \n");
 
@@ -10802,19 +10910,18 @@ namespace SocketServer
                         }
                         catch (Exception ex)
                         {
-                            try
-                            {
-                                richTextBox_ClientRx.Invoke(new EventHandler(delegate
-                            {
-                                richTextBox_ClientRx.Text = ex.Message;
 
 
-                            }));
-                            }
-                            catch
-                            {
+                            textBox_SystemStatus.Invoke(new EventHandler(delegate
+                                    {
+                                        richTextBox_ClientRx.Text = ex.Message;
+                                        textBox_SystemStatus.Text = ex.Message;
 
-                            }
+                                 //       ClearRxTextBox();
+
+                                    }));
+                                    
+
                         }
                     }
                     else
@@ -11155,7 +11262,16 @@ namespace SocketServer
                     case Keys.F2:
                         SerialPortLogger.LogMessage(Color.Black, Color.Chartreuse, "F2 function reads all commands to history", New_Line = true, Show_Time = true);
                         break;
+
+                    case Keys.Enter:
+                        if (tabControl_Main.SelectedIndex == 3 && button_ClientConnect.BackColor == Color.Green)
+                        {
+                            button_Send_Click(this, new EventArgs());
+                        }
+                        break;
                 }
+
+
             }
             catch(Exception ex)
             {
@@ -11163,6 +11279,9 @@ namespace SocketServer
             }
 
         }
+
+
+
         int ChartUpdateTime = 100;
         private void ComboBox_ChartUpdateTime_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -11223,60 +11342,51 @@ namespace SocketServer
 
         }
 
+        void ClearRxTextBox()
+        {
+            textBox_RxClientPreamble.BackColor = default;
+            textBox_RxClientPreamble.Text = "";
 
+            textBox_RxClientOpcode.BackColor = default;
+            textBox_RxClientOpcode.Text = "";
+
+            textBox_RxClientData.BackColor = default;
+            textBox_RxClientData.Text = "";
+
+        }
 
         private void button_Send_Click(object sender, EventArgs e)
         {
             try
             {
+                if (ClientSocket == null)
+                {
+                    return;
+                }
+                    ClearRxTextBox();
                 textBox_Preamble_TextChanged(null, null);
                 textBox_Opcode_TextChanged(null, null);
                 textBox_data_TextChanged(null, null);
 
                 if (!(textBox_Preamble.BackColor == Color.LightGreen && textBox_Opcode.BackColor == Color.LightGreen && textBox_data.BackColor == Color.LightGreen))
                 {
-                    button_Send.BackColor = Color.Red;
+                    button_SendProtocol.BackColor = Color.Red;
                     return;
                 }
                 else
                 {
-                    button_Send.BackColor = default(Color);
+                    button_SendProtocol.BackColor = default(Color);
                 }
 
                 List<byte> ListBytes = new List<byte>();
+                // Kratos_Protocol KratusP = new Kratos_Protocol();
+                
+                    Stream stm = ClientSocket.GetStream();
 
-                ListBytes.AddRange(StringToByteArray(textBox_Preamble.Text));
+                byte[] Result = Kratos_Protocol.EncodeKratusProtocol(Regex.Replace(textBox_Preamble.Text, @"\s+", ""), Regex.Replace(textBox_Opcode.Text, @"\s+", ""), Regex.Replace(textBox_data.Text, @"\s+", ""));
 
-                ListBytes.AddRange(StringToByteArray(textBox_Opcode.Text));
-
-                byte[] DataBytes = StringToByteArray(textBox_data.Text);
-                UInt32 Datalength = (UInt32)DataBytes.Length;
-                byte[] intBytes = BitConverter.GetBytes(Datalength);
-                ListBytes.AddRange(intBytes);
-
-
-                ListBytes.AddRange(StringToByteArray(textBox_data.Text));
-
-                UInt16 CheckSum = 0;
-
-                for(int i=0; i< ListBytes.Count; i++)
-                {
-                    CheckSum += ListBytes[i];
-                }
-                intBytes = BitConverter.GetBytes(CheckSum);
-                ListBytes.AddRange(intBytes);
-
-                Stream stm = ClientSocket.GetStream();
-
-                //ASCIIEncoding asen = new ASCIIEncoding();
-                //byte[] ba = asen.GetBytes(str);
-
-                //byte[] sspData = SSP_Protocol.SSP_Protocol.SSPPacket_Encoder(SSP_Protocol.eMessegeType.TRACE, ba);
-
-                // Console.WriteLine("Sending...");
-
-                byte[] ba = ListBytes.ToArray();
-                stm.Write(ba, 0, ba.Length);
+                    stm.Write(Result, 0, Result.Length);
+                
 
 
             }
@@ -11288,9 +11398,10 @@ namespace SocketServer
 
         private void textBox_Preamble_TextChanged(object sender, EventArgs e)
         {
-            byte[] buffer = StringToByteArray(textBox_Preamble.Text);
+            string WithoutSpaces = Regex.Replace(textBox_Preamble.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
 
-            if (buffer != null && textBox_Preamble.Text.Length == 4)
+            if (buffer != null && textBox_Preamble.Text.Length <= 5)
             {
                 textBox_Preamble.BackColor = Color.LightGreen;
             }
@@ -11302,9 +11413,10 @@ namespace SocketServer
 
         private void textBox_Opcode_TextChanged(object sender, EventArgs e)
         {
-            byte[] buffer = StringToByteArray(textBox_Opcode.Text);
+            string WithoutSpaces = Regex.Replace(textBox_Opcode.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
 
-            if (buffer != null && textBox_Opcode.Text.Length == 4)
+            if (buffer != null && textBox_Opcode.Text.Length <= 5)
             {
                 textBox_Opcode.BackColor = Color.LightGreen;
             }
@@ -11316,7 +11428,8 @@ namespace SocketServer
 
         private void textBox_data_TextChanged(object sender, EventArgs e)
         {
-            byte[] buffer = StringToByteArray(textBox_data.Text);
+            string WithoutSpaces = Regex.Replace(textBox_data.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
 
             if (buffer != null )
             {
@@ -11341,6 +11454,51 @@ namespace SocketServer
         private void groupBox_SerialPort_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabPage_GenericFrame_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage_GenericFrame_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_Send_Click(this, new EventArgs());
+            }
+        }
+
+        private void groupBox_clientTX_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_Send_Click(this, new EventArgs());
+            }
+        }
+
+        private void textBox_Preamble_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_Send_Click(this, new EventArgs());
+            }
+        }
+
+        private void textBox_Opcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_Send_Click(this, new EventArgs());
+            }
+        }
+
+        private void textBox_data_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_Send_Click(this, new EventArgs());
+            }
         }
 
         private void ComboBox_SerialPortHistory_SelectedIndexChanged(object sender, EventArgs e)

@@ -171,7 +171,6 @@ namespace Gil_Server
 
                 InformationNotify("Server Started at port " + m_Port);
                 this.listenThread = new Thread(new ThreadStart(ListenForClients));
-                //ThreadsList.Add(this.listenThread);
                 this.listenThread.Start();
                 
 
@@ -181,7 +180,7 @@ namespace Gil_Server
             catch (SocketException se)
             {
                 InformationNotify(se.ToString());
-                //LogGeneral.LogMessage(Color.Black, Color.White, "Exception:  " + se.ToString(), true, true);
+
             }
         }
         /// <summary>
@@ -190,7 +189,7 @@ namespace Gil_Server
         public void Close_Server()
         {
             InformationNotify("Server Stoped ");
-            //LogGeneral.LogMessage(Color.Black, Color.White, "Server Stoped ", true, true);
+
 
             DisposeServer();
 
@@ -352,34 +351,13 @@ namespace Gil_Server
 
 
             }
-            //catch (System.Net.Sockets.SocketException)
-            //{
-            //    //    LogGeneral.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
-            //}
-            //catch (System.IO.IOException)
-            //{
-            //    //    LogGeneral.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
-            //}
-            //catch (System.Threading.ThreadAbortException)
-            //{
-            //    //    LogGeneral.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
-            //}
+
             catch (Exception ex)
             {
                 InformationNotify(ex.Message.ToString());
-               // LogGeneral.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
+
             }
 
-            //if (tcpClient != null)
-            //{
-            //    try
-            //    {
-            //        tcpClient.Close();
-            //    }
-            //    catch
-            //    {
-            //    }
-            //}
 
             if (connection.ConnectionTimeOut == 0)
             {
@@ -389,7 +367,7 @@ namespace Gil_Server
             {
                 InformationNotify("Connection Closed: " );
             }
-           // LogGeneral.LogMessage(Color.Orange, Color.White, "Connection Closed ", true, true);
+
 
         }
 
@@ -518,7 +496,6 @@ namespace Gil_Server
                      catch (Exception ex)
                      {
                          InformationNotify(ex.ToString());
-                         // LogGeneral.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
                      }
                  }
              }
