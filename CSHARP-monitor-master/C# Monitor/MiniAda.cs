@@ -17,7 +17,7 @@ namespace Monitor
             int UnitMinorNumber = int.Parse(i_Parsedframe.Data.Substring(6, 2), System.Globalization.NumberStyles.HexNumber);
             int VersionDay = int.Parse(i_Parsedframe.Data.Substring(8, 2), System.Globalization.NumberStyles.HexNumber);
             int VersionMonth = int.Parse(i_Parsedframe.Data.Substring(10, 2), System.Globalization.NumberStyles.HexNumber);
-            int VersionYear = int.Parse(i_Parsedframe.Data.Substring(12, 4), System.Globalization.NumberStyles.HexNumber);
+            int VersionYear = int.Parse(i_Parsedframe.Data.Substring(14, 2) + i_Parsedframe.Data.Substring(12, 2), System.Globalization.NumberStyles.HexNumber);
             return String.Format(" ICDMajor {0} \n ICDMinor {1} \n UnitMajorNumber {2} \n UnitMinorNumber {3} \n VersionDay {4} \n VersionMonth {5} \n VersionYear {6} \n ", ICDMajor, ICDMinor ,UnitMajorNumber, UnitMinorNumber, VersionDay, VersionMonth, VersionYear);
         }
         static public string ParseKratosFrame(KratosProtocolFrame i_Parsedframe)
