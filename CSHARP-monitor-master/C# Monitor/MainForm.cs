@@ -10912,17 +10912,21 @@ namespace SocketServer
                         {
 
 
-                            textBox_SystemStatus.Invoke(new EventHandler(delegate
-                                    {
-                                        richTextBox_ClientRx.Text = ex.Message;
-                                        textBox_SystemStatus.Text = ex.Message;
+                                //textBox_SystemStatus.Invoke(new EventHandler(delegate
+                                //        {
+                                //            richTextBox_ClientRx.Text = ex.Message;
+                                //            textBox_SystemStatus.Text = ex.Message;
 
-                                 //       ClearRxTextBox();
+                                //        //       ClearRxTextBox();
 
-                                    }));
+                                //    }));
+                            
+
                                     
 
                         }
+                        finally
+                        { }
                     }
                     else
                     {

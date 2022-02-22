@@ -11,18 +11,23 @@ namespace Monitor
         static string GetSoftwareVertion(KratosProtocolFrame i_Parsedframe)
         {
 
-           // int ICDMajor = int.Parse(i_Parsedframe.Data.Substring(0,2), System.Globalization.NumberStyles.HexNumber);
-           // int ICDMinor = int.Parse(i_Parsedframe.Data.Substring(2,2), System.Globalization.NumberStyles.HexNumber);
-            int UnitMajorNumber = int.Parse(i_Parsedframe.Data.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-            int UnitMinorNumber = int.Parse(i_Parsedframe.Data.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
-            int VersionDay = int.Parse(i_Parsedframe.Data.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
-            int VersionMonth = int.Parse(i_Parsedframe.Data.Substring(6, 2), System.Globalization.NumberStyles.HexNumber);
-            int VersionYear = int.Parse(i_Parsedframe.Data.Substring(8, 4), System.Globalization.NumberStyles.HexNumber);
-            return String.Format(" UnitMajorNumber {0} \n UnitMinorNumber {1} \n VersionDay {2} \n VersionMonth {3} \n VersionYear {4} \n ",  UnitMajorNumber, UnitMinorNumber, VersionDay, VersionMonth, VersionYear);
+             int ICDMajor = int.Parse(i_Parsedframe.Data.Substring(0,2), System.Globalization.NumberStyles.HexNumber);
+             int ICDMinor = int.Parse(i_Parsedframe.Data.Substring(2,2), System.Globalization.NumberStyles.HexNumber);
+            int UnitMajorNumber = int.Parse(i_Parsedframe.Data.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+            int UnitMinorNumber = int.Parse(i_Parsedframe.Data.Substring(6, 2), System.Globalization.NumberStyles.HexNumber);
+            int VersionDay = int.Parse(i_Parsedframe.Data.Substring(8, 2), System.Globalization.NumberStyles.HexNumber);
+            int VersionMonth = int.Parse(i_Parsedframe.Data.Substring(10, 2), System.Globalization.NumberStyles.HexNumber);
+            int VersionYear = int.Parse(i_Parsedframe.Data.Substring(12, 4), System.Globalization.NumberStyles.HexNumber);
+            return String.Format(" ICDMajor {0} \n ICDMinor {1} \n UnitMajorNumber {2} \n UnitMinorNumber {3} \n VersionDay {4} \n VersionMonth {5} \n VersionYear {6} \n ", ICDMajor, ICDMinor ,UnitMajorNumber, UnitMinorNumber, VersionDay, VersionMonth, VersionYear);
         }
         static public string ParseKratosFrame(KratosProtocolFrame i_Parsedframe)
         {
             string ret = string.Empty ;
+
+            if(i_Parsedframe == null )
+            {
+                return "frame received as null";
+            }
             int intValue = int.Parse(i_Parsedframe.Preamble, System.Globalization.NumberStyles.HexNumber);
             if (intValue != 0x5300)
             {
@@ -32,7 +37,7 @@ namespace Monitor
             {
                 switch(i_Parsedframe.Opcode)
                 {
-                    case "7000":
+                    case "0100":
                         ret = GetSoftwareVertion(i_Parsedframe);
                         
                         break;
