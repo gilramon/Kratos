@@ -389,6 +389,8 @@ namespace SocketServer
         private Button button51;
         private Button button52;
         private Button button53;
+        private TabControl tabControl_MiniAda;
+        private TabPage tabPage1;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -515,11 +517,11 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series33 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
@@ -861,6 +863,8 @@ namespace SocketServer
             this.textBox_SystemIdentify = new System.Windows.Forms.TextBox();
             this.button52 = new System.Windows.Forms.Button();
             this.button53 = new System.Windows.Forms.Button();
+            this.tabControl_MiniAda = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -927,6 +931,8 @@ namespace SocketServer
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox_ClentTCPStatus.SuspendLayout();
+            this.tabControl_MiniAda.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_ServerSettings
@@ -1064,12 +1070,12 @@ namespace SocketServer
             this.groupBox3.Controls.Add(this.PauseCheck);
             this.groupBox3.Controls.Add(this.Clear_btn);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(282, 71);
+            this.groupBox3.Location = new System.Drawing.Point(282, 65);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(936, 505);
+            this.groupBox3.Size = new System.Drawing.Size(936, 580);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "General Console";
+            this.groupBox3.Text = "Server Console";
             // 
             // checkBox_StopLogging
             // 
@@ -1085,10 +1091,11 @@ namespace SocketServer
             // 
             // txtGeneral
             // 
+            this.txtGeneral.BackColor = System.Drawing.Color.LightGray;
             this.txtGeneral.EnableAutoDragDrop = true;
             this.txtGeneral.Location = new System.Drawing.Point(7, 20);
             this.txtGeneral.Name = "txtGeneral";
-            this.txtGeneral.Size = new System.Drawing.Size(923, 480);
+            this.txtGeneral.Size = new System.Drawing.Size(923, 552);
             this.txtGeneral.TabIndex = 0;
             this.txtGeneral.Text = "";
             this.txtGeneral.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
@@ -2077,32 +2084,32 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea11.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea11);
-            legend11.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend11.IsTextAutoFit = false;
-            legend11.Name = "Legend1";
-            this.chart1.Legends.Add(legend11);
+            chartArea8.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea8);
+            legend8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend8.IsTextAutoFit = false;
+            legend8.Name = "Legend1";
+            this.chart1.Legends.Add(legend8);
             this.chart1.Location = new System.Drawing.Point(194, 2);
             this.chart1.Name = "chart1";
-            series31.ChartArea = "ChartArea1";
-            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series31.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series31.Legend = "Legend1";
-            series31.Name = "Data 1";
-            series32.ChartArea = "ChartArea1";
-            series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series32.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series32.Legend = "Legend1";
-            series32.Name = "Data 2";
-            series33.ChartArea = "ChartArea1";
-            series33.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series33.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series33.Legend = "Legend1";
-            series33.Name = "Data 3";
-            this.chart1.Series.Add(series31);
-            this.chart1.Series.Add(series32);
-            this.chart1.Series.Add(series33);
+            series22.ChartArea = "ChartArea1";
+            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series22.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series22.Legend = "Legend1";
+            series22.Name = "Data 1";
+            series23.ChartArea = "ChartArea1";
+            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series23.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series23.Legend = "Legend1";
+            series23.Name = "Data 2";
+            series24.ChartArea = "ChartArea1";
+            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series24.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series24.Legend = "Legend1";
+            series24.Name = "Data 3";
+            this.chart1.Series.Add(series22);
+            this.chart1.Series.Add(series23);
+            this.chart1.Series.Add(series24);
             this.chart1.Size = new System.Drawing.Size(1350, 665);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2354,7 +2361,6 @@ namespace SocketServer
             this.groupBox5.Controls.Add(this.groupBox_Timer);
             this.groupBox5.Controls.Add(this.groupBox_Stopwatch);
             this.groupBox5.Controls.Add(this.checkBox_RxHex);
-            this.groupBox5.Controls.Add(this.button_OpenFolder);
             this.groupBox5.Controls.Add(this.textBox_SerialPortRecognizePattern3);
             this.groupBox5.Controls.Add(this.textBox_SerialPortRecognizePattern2);
             this.groupBox5.Controls.Add(this.textBox_SerialPortRecognizePattern);
@@ -2365,7 +2371,7 @@ namespace SocketServer
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(4, 105);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1537, 620);
+            this.groupBox5.Size = new System.Drawing.Size(1537, 571);
             this.groupBox5.TabIndex = 68;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Serial Port Console";
@@ -2489,7 +2495,7 @@ namespace SocketServer
             // checkBox_RxHex
             // 
             this.checkBox_RxHex.AutoSize = true;
-            this.checkBox_RxHex.Location = new System.Drawing.Point(776, 20);
+            this.checkBox_RxHex.Location = new System.Drawing.Point(1194, 20);
             this.checkBox_RxHex.Name = "checkBox_RxHex";
             this.checkBox_RxHex.Size = new System.Drawing.Size(111, 23);
             this.checkBox_RxHex.TabIndex = 6;
@@ -2498,9 +2504,9 @@ namespace SocketServer
             // 
             // button_OpenFolder
             // 
-            this.button_OpenFolder.Location = new System.Drawing.Point(909, 18);
+            this.button_OpenFolder.Location = new System.Drawing.Point(1561, 304);
             this.button_OpenFolder.Name = "button_OpenFolder";
-            this.button_OpenFolder.Size = new System.Drawing.Size(108, 26);
+            this.button_OpenFolder.Size = new System.Drawing.Size(191, 26);
             this.button_OpenFolder.TabIndex = 76;
             this.button_OpenFolder.Text = "Open Folder";
             this.button_OpenFolder.UseVisualStyleBackColor = true;
@@ -2538,7 +2544,7 @@ namespace SocketServer
             this.checkBox_S1RecordLog.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_S1RecordLog.AutoSize = true;
             this.checkBox_S1RecordLog.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_S1RecordLog.Location = new System.Drawing.Point(1023, 17);
+            this.checkBox_S1RecordLog.Location = new System.Drawing.Point(1311, 17);
             this.checkBox_S1RecordLog.Name = "checkBox_S1RecordLog";
             this.checkBox_S1RecordLog.Size = new System.Drawing.Size(83, 29);
             this.checkBox_S1RecordLog.TabIndex = 69;
@@ -2551,7 +2557,7 @@ namespace SocketServer
             this.checkBox_S1Pause.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_S1Pause.AutoSize = true;
             this.checkBox_S1Pause.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_S1Pause.Location = new System.Drawing.Point(1115, 17);
+            this.checkBox_S1Pause.Location = new System.Drawing.Point(1403, 17);
             this.checkBox_S1Pause.Name = "checkBox_S1Pause";
             this.checkBox_S1Pause.Size = new System.Drawing.Size(58, 29);
             this.checkBox_S1Pause.TabIndex = 70;
@@ -2562,7 +2568,7 @@ namespace SocketServer
             // txtS1_Clear
             // 
             this.txtS1_Clear.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtS1_Clear.Location = new System.Drawing.Point(1180, 17);
+            this.txtS1_Clear.Location = new System.Drawing.Point(1468, 17);
             this.txtS1_Clear.Name = "txtS1_Clear";
             this.txtS1_Clear.Size = new System.Drawing.Size(62, 26);
             this.txtS1_Clear.TabIndex = 69;
@@ -2577,7 +2583,7 @@ namespace SocketServer
             this.SerialPortLogger_TextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SerialPortLogger_TextBox.Location = new System.Drawing.Point(4, 49);
             this.SerialPortLogger_TextBox.Name = "SerialPortLogger_TextBox";
-            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1536, 568);
+            this.SerialPortLogger_TextBox.Size = new System.Drawing.Size(1536, 516);
             this.SerialPortLogger_TextBox.TabIndex = 0;
             this.SerialPortLogger_TextBox.Text = "";
             this.SerialPortLogger_TextBox.TextChanged += new System.EventHandler(this.SerialPortLogger_TextBox_TextChanged);
@@ -2603,7 +2609,7 @@ namespace SocketServer
             // 
             // button_ClearServer
             // 
-            this.button_ClearServer.Location = new System.Drawing.Point(282, 583);
+            this.button_ClearServer.Location = new System.Drawing.Point(282, 653);
             this.button_ClearServer.Name = "button_ClearServer";
             this.button_ClearServer.Size = new System.Drawing.Size(75, 23);
             this.button_ClearServer.TabIndex = 104;
@@ -3126,17 +3132,7 @@ namespace SocketServer
             // 
             // groupBox40
             // 
-            this.groupBox40.Controls.Add(this.button53);
-            this.groupBox40.Controls.Add(this.textBox_SystemIdentify);
-            this.groupBox40.Controls.Add(this.button51);
-            this.groupBox40.Controls.Add(this.button50);
-            this.groupBox40.Controls.Add(this.button49);
-            this.groupBox40.Controls.Add(this.button48);
-            this.groupBox40.Controls.Add(this.textBox_LogLevel);
-            this.groupBox40.Controls.Add(this.button47);
-            this.groupBox40.Controls.Add(this.button46);
-            this.groupBox40.Controls.Add(this.button45);
-            this.groupBox40.Controls.Add(this.button_GetSoftwareVersion);
+            this.groupBox40.Controls.Add(this.tabControl_MiniAda);
             this.groupBox40.Location = new System.Drawing.Point(10, 8);
             this.groupBox40.Name = "groupBox40";
             this.groupBox40.Size = new System.Drawing.Size(969, 663);
@@ -3146,7 +3142,7 @@ namespace SocketServer
             // 
             // button_GetSoftwareVersion
             // 
-            this.button_GetSoftwareVersion.Location = new System.Drawing.Point(6, 28);
+            this.button_GetSoftwareVersion.Location = new System.Drawing.Point(6, 6);
             this.button_GetSoftwareVersion.Name = "button_GetSoftwareVersion";
             this.button_GetSoftwareVersion.Size = new System.Drawing.Size(244, 23);
             this.button_GetSoftwareVersion.TabIndex = 10;
@@ -4474,7 +4470,7 @@ namespace SocketServer
             // 
             this.groupBox1.Controls.Add(this.textBox_InternalCLIoutput);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(1561, 564);
+            this.groupBox1.Location = new System.Drawing.Point(1561, 561);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(191, 160);
             this.groupBox1.TabIndex = 112;
@@ -4494,9 +4490,9 @@ namespace SocketServer
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.textBox_SystemStatus);
-            this.groupBox4.Location = new System.Drawing.Point(1561, 304);
+            this.groupBox4.Location = new System.Drawing.Point(1561, 336);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(191, 261);
+            this.groupBox4.Size = new System.Drawing.Size(191, 217);
             this.groupBox4.TabIndex = 114;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "System status";
@@ -4507,7 +4503,7 @@ namespace SocketServer
             this.textBox_SystemStatus.Multiline = true;
             this.textBox_SystemStatus.Name = "textBox_SystemStatus";
             this.textBox_SystemStatus.ReadOnly = true;
-            this.textBox_SystemStatus.Size = new System.Drawing.Size(180, 235);
+            this.textBox_SystemStatus.Size = new System.Drawing.Size(180, 192);
             this.textBox_SystemStatus.TabIndex = 113;
             this.textBox_SystemStatus.TabStop = false;
             // 
@@ -4584,7 +4580,7 @@ namespace SocketServer
             // 
             // button45
             // 
-            this.button45.Location = new System.Drawing.Point(6, 62);
+            this.button45.Location = new System.Drawing.Point(6, 40);
             this.button45.Name = "button45";
             this.button45.Size = new System.Drawing.Size(244, 23);
             this.button45.TabIndex = 11;
@@ -4594,7 +4590,7 @@ namespace SocketServer
             // 
             // button46
             // 
-            this.button46.Location = new System.Drawing.Point(6, 94);
+            this.button46.Location = new System.Drawing.Point(6, 72);
             this.button46.Name = "button46";
             this.button46.Size = new System.Drawing.Size(244, 23);
             this.button46.TabIndex = 12;
@@ -4604,7 +4600,7 @@ namespace SocketServer
             // 
             // button47
             // 
-            this.button47.Location = new System.Drawing.Point(6, 126);
+            this.button47.Location = new System.Drawing.Point(6, 104);
             this.button47.Name = "button47";
             this.button47.Size = new System.Drawing.Size(244, 23);
             this.button47.TabIndex = 13;
@@ -4614,7 +4610,7 @@ namespace SocketServer
             // 
             // textBox_LogLevel
             // 
-            this.textBox_LogLevel.Location = new System.Drawing.Point(258, 120);
+            this.textBox_LogLevel.Location = new System.Drawing.Point(258, 98);
             this.textBox_LogLevel.MaxLength = 1;
             this.textBox_LogLevel.Name = "textBox_LogLevel";
             this.textBox_LogLevel.Size = new System.Drawing.Size(27, 26);
@@ -4623,7 +4619,7 @@ namespace SocketServer
             // 
             // button48
             // 
-            this.button48.Location = new System.Drawing.Point(6, 155);
+            this.button48.Location = new System.Drawing.Point(6, 133);
             this.button48.Name = "button48";
             this.button48.Size = new System.Drawing.Size(244, 23);
             this.button48.TabIndex = 15;
@@ -4633,7 +4629,7 @@ namespace SocketServer
             // 
             // button49
             // 
-            this.button49.Location = new System.Drawing.Point(6, 188);
+            this.button49.Location = new System.Drawing.Point(6, 166);
             this.button49.Name = "button49";
             this.button49.Size = new System.Drawing.Size(244, 23);
             this.button49.TabIndex = 16;
@@ -4643,7 +4639,7 @@ namespace SocketServer
             // 
             // button50
             // 
-            this.button50.Location = new System.Drawing.Point(6, 219);
+            this.button50.Location = new System.Drawing.Point(6, 197);
             this.button50.Name = "button50";
             this.button50.Size = new System.Drawing.Size(244, 23);
             this.button50.TabIndex = 17;
@@ -4653,7 +4649,7 @@ namespace SocketServer
             // 
             // button51
             // 
-            this.button51.Location = new System.Drawing.Point(6, 249);
+            this.button51.Location = new System.Drawing.Point(6, 227);
             this.button51.Name = "button51";
             this.button51.Size = new System.Drawing.Size(244, 23);
             this.button51.TabIndex = 18;
@@ -4663,7 +4659,7 @@ namespace SocketServer
             // 
             // textBox_SystemIdentify
             // 
-            this.textBox_SystemIdentify.Location = new System.Drawing.Point(258, 248);
+            this.textBox_SystemIdentify.Location = new System.Drawing.Point(258, 226);
             this.textBox_SystemIdentify.MaxLength = 121;
             this.textBox_SystemIdentify.Name = "textBox_SystemIdentify";
             this.textBox_SystemIdentify.Size = new System.Drawing.Size(216, 26);
@@ -4681,13 +4677,43 @@ namespace SocketServer
             // 
             // button53
             // 
-            this.button53.Location = new System.Drawing.Point(6, 278);
+            this.button53.Location = new System.Drawing.Point(6, 256);
             this.button53.Name = "button53";
             this.button53.Size = new System.Drawing.Size(244, 23);
             this.button53.TabIndex = 20;
             this.button53.Text = "Get Core Card Information";
             this.button53.UseVisualStyleBackColor = true;
             this.button53.Click += new System.EventHandler(this.button53_Click);
+            // 
+            // tabControl_MiniAda
+            // 
+            this.tabControl_MiniAda.Controls.Add(this.tabPage1);
+            this.tabControl_MiniAda.Location = new System.Drawing.Point(6, 23);
+            this.tabControl_MiniAda.Name = "tabControl_MiniAda";
+            this.tabControl_MiniAda.SelectedIndex = 0;
+            this.tabControl_MiniAda.Size = new System.Drawing.Size(957, 635);
+            this.tabControl_MiniAda.TabIndex = 21;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.button_GetSoftwareVersion);
+            this.tabPage1.Controls.Add(this.button53);
+            this.tabPage1.Controls.Add(this.button45);
+            this.tabPage1.Controls.Add(this.textBox_SystemIdentify);
+            this.tabPage1.Controls.Add(this.button46);
+            this.tabPage1.Controls.Add(this.button51);
+            this.tabPage1.Controls.Add(this.button47);
+            this.tabPage1.Controls.Add(this.button50);
+            this.tabPage1.Controls.Add(this.textBox_LogLevel);
+            this.tabPage1.Controls.Add(this.button49);
+            this.tabPage1.Controls.Add(this.button48);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(949, 604);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Commands";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -4698,6 +4724,7 @@ namespace SocketServer
             this.Controls.Add(this.groupBox_ClentTCPStatus);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.button_OpenFolder);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox_SerialPort);
             this.Controls.Add(this.tabControl_Main);
@@ -4763,7 +4790,6 @@ namespace SocketServer
             this.groupBox_clientTX.PerformLayout();
             this.tabPage_MiniAda.ResumeLayout(false);
             this.groupBox40.ResumeLayout(false);
-            this.groupBox40.PerformLayout();
             this.groupBox32.ResumeLayout(false);
             this.groupBox32.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -4821,6 +4847,9 @@ namespace SocketServer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox_ClentTCPStatus.ResumeLayout(false);
             this.groupBox_ClentTCPStatus.PerformLayout();
+            this.tabControl_MiniAda.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
