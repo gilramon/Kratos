@@ -378,6 +378,17 @@ namespace SocketServer
         private Button button_ClearMiniAda;
         private Label label17;
         private Label label18;
+        private Button button45;
+        private Button button46;
+        private Button button47;
+        private TextBox textBox_LogLevel;
+        private Button button48;
+        private Button button49;
+        private Button button50;
+        private TextBox textBox_SystemIdentify;
+        private Button button51;
+        private Button button52;
+        private Button button53;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -839,6 +850,17 @@ namespace SocketServer
             this.label_ClientTCPConnected = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.button45 = new System.Windows.Forms.Button();
+            this.button46 = new System.Windows.Forms.Button();
+            this.button47 = new System.Windows.Forms.Button();
+            this.textBox_LogLevel = new System.Windows.Forms.TextBox();
+            this.button48 = new System.Windows.Forms.Button();
+            this.button49 = new System.Windows.Forms.Button();
+            this.button50 = new System.Windows.Forms.Button();
+            this.button51 = new System.Windows.Forms.Button();
+            this.textBox_SystemIdentify = new System.Windows.Forms.TextBox();
+            this.button52 = new System.Windows.Forms.Button();
+            this.button53 = new System.Windows.Forms.Button();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -2090,10 +2112,10 @@ namespace SocketServer
             this.tabPage_SerialPort.Controls.Add(this.groupBox_SendSerialOrMonitorCommands);
             this.tabPage_SerialPort.Controls.Add(this.gbPortSettings);
             this.tabPage_SerialPort.Controls.Add(this.groupBox5);
-            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 27);
             this.tabPage_SerialPort.Name = "tabPage_SerialPort";
             this.tabPage_SerialPort.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 687);
+            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 682);
             this.tabPage_SerialPort.TabIndex = 1;
             this.tabPage_SerialPort.Text = "Serial Port";
             this.tabPage_SerialPort.UseVisualStyleBackColor = true;
@@ -2774,9 +2796,9 @@ namespace SocketServer
             this.tabPage_ClientTCP.Controls.Add(this.textBox_ClientIP);
             this.tabPage_ClientTCP.Controls.Add(this.label8);
             this.tabPage_ClientTCP.Controls.Add(this.label7);
-            this.tabPage_ClientTCP.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_ClientTCP.Location = new System.Drawing.Point(4, 27);
             this.tabPage_ClientTCP.Name = "tabPage_ClientTCP";
-            this.tabPage_ClientTCP.Size = new System.Drawing.Size(1547, 687);
+            this.tabPage_ClientTCP.Size = new System.Drawing.Size(1547, 682);
             this.tabPage_ClientTCP.TabIndex = 9;
             this.tabPage_ClientTCP.Text = "Client TCP";
             this.tabPage_ClientTCP.UseVisualStyleBackColor = true;
@@ -2906,6 +2928,7 @@ namespace SocketServer
             // 
             // tabPage_GenericFrame
             // 
+            this.tabPage_GenericFrame.Controls.Add(this.button52);
             this.tabPage_GenericFrame.Controls.Add(this.groupBox31);
             this.tabPage_GenericFrame.Controls.Add(this.groupBox_clientTX);
             this.tabPage_GenericFrame.Location = new System.Drawing.Point(4, 27);
@@ -3036,7 +3059,7 @@ namespace SocketServer
             this.textBox_Preamble.Name = "textBox_Preamble";
             this.textBox_Preamble.Size = new System.Drawing.Size(100, 26);
             this.textBox_Preamble.TabIndex = 0;
-            this.textBox_Preamble.Text = "53 00";
+            this.textBox_Preamble.Text = "5300";
             this.textBox_Preamble.TextChanged += new System.EventHandler(this.textBox_Preamble_TextChanged);
             this.textBox_Preamble.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Preamble_KeyDown);
             // 
@@ -3103,10 +3126,20 @@ namespace SocketServer
             // 
             // groupBox40
             // 
+            this.groupBox40.Controls.Add(this.button53);
+            this.groupBox40.Controls.Add(this.textBox_SystemIdentify);
+            this.groupBox40.Controls.Add(this.button51);
+            this.groupBox40.Controls.Add(this.button50);
+            this.groupBox40.Controls.Add(this.button49);
+            this.groupBox40.Controls.Add(this.button48);
+            this.groupBox40.Controls.Add(this.textBox_LogLevel);
+            this.groupBox40.Controls.Add(this.button47);
+            this.groupBox40.Controls.Add(this.button46);
+            this.groupBox40.Controls.Add(this.button45);
             this.groupBox40.Controls.Add(this.button_GetSoftwareVersion);
             this.groupBox40.Location = new System.Drawing.Point(10, 8);
             this.groupBox40.Name = "groupBox40";
-            this.groupBox40.Size = new System.Drawing.Size(1064, 587);
+            this.groupBox40.Size = new System.Drawing.Size(969, 663);
             this.groupBox40.TabIndex = 11;
             this.groupBox40.TabStop = false;
             this.groupBox40.Text = "Commands for MiniAda";
@@ -3115,10 +3148,11 @@ namespace SocketServer
             // 
             this.button_GetSoftwareVersion.Location = new System.Drawing.Point(6, 28);
             this.button_GetSoftwareVersion.Name = "button_GetSoftwareVersion";
-            this.button_GetSoftwareVersion.Size = new System.Drawing.Size(148, 23);
+            this.button_GetSoftwareVersion.Size = new System.Drawing.Size(244, 23);
             this.button_GetSoftwareVersion.TabIndex = 10;
             this.button_GetSoftwareVersion.Text = "Get Software version";
             this.button_GetSoftwareVersion.UseVisualStyleBackColor = true;
+            this.button_GetSoftwareVersion.Click += new System.EventHandler(this.button_GetSoftwareVersion_Click);
             // 
             // groupBox32
             // 
@@ -3127,19 +3161,20 @@ namespace SocketServer
             this.groupBox32.Controls.Add(this.checkBox_PauseMiniAda);
             this.groupBox32.Controls.Add(this.button_ClearMiniAda);
             this.groupBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox32.Location = new System.Drawing.Point(1080, 3);
+            this.groupBox32.Location = new System.Drawing.Point(985, 3);
             this.groupBox32.Name = "groupBox32";
-            this.groupBox32.Size = new System.Drawing.Size(463, 668);
+            this.groupBox32.Size = new System.Drawing.Size(558, 668);
             this.groupBox32.TabIndex = 9;
             this.groupBox32.TabStop = false;
             this.groupBox32.Text = "MiniAda Monitor";
             // 
             // richTextBox_MiniAda
             // 
+            this.richTextBox_MiniAda.BackColor = System.Drawing.Color.LightGray;
             this.richTextBox_MiniAda.EnableAutoDragDrop = true;
             this.richTextBox_MiniAda.Location = new System.Drawing.Point(6, 17);
             this.richTextBox_MiniAda.Name = "richTextBox_MiniAda";
-            this.richTextBox_MiniAda.Size = new System.Drawing.Size(451, 607);
+            this.richTextBox_MiniAda.Size = new System.Drawing.Size(553, 607);
             this.richTextBox_MiniAda.TabIndex = 0;
             this.richTextBox_MiniAda.Text = "";
             // 
@@ -3148,7 +3183,7 @@ namespace SocketServer
             this.checkBox_RecordMiniAda.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_RecordMiniAda.AutoSize = true;
             this.checkBox_RecordMiniAda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_RecordMiniAda.Location = new System.Drawing.Point(222, 630);
+            this.checkBox_RecordMiniAda.Location = new System.Drawing.Point(7, 630);
             this.checkBox_RecordMiniAda.Name = "checkBox_RecordMiniAda";
             this.checkBox_RecordMiniAda.Size = new System.Drawing.Size(99, 26);
             this.checkBox_RecordMiniAda.TabIndex = 7;
@@ -3160,7 +3195,7 @@ namespace SocketServer
             this.checkBox_PauseMiniAda.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_PauseMiniAda.AutoSize = true;
             this.checkBox_PauseMiniAda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_PauseMiniAda.Location = new System.Drawing.Point(327, 630);
+            this.checkBox_PauseMiniAda.Location = new System.Drawing.Point(112, 630);
             this.checkBox_PauseMiniAda.Name = "checkBox_PauseMiniAda";
             this.checkBox_PauseMiniAda.Size = new System.Drawing.Size(62, 26);
             this.checkBox_PauseMiniAda.TabIndex = 5;
@@ -3170,7 +3205,7 @@ namespace SocketServer
             // button_ClearMiniAda
             // 
             this.button_ClearMiniAda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_ClearMiniAda.Location = new System.Drawing.Point(395, 630);
+            this.button_ClearMiniAda.Location = new System.Drawing.Point(180, 630);
             this.button_ClearMiniAda.Name = "button_ClearMiniAda";
             this.button_ClearMiniAda.Size = new System.Drawing.Size(62, 26);
             this.button_ClearMiniAda.TabIndex = 6;
@@ -4547,6 +4582,113 @@ namespace SocketServer
             this.label18.TabIndex = 8;
             this.label18.Text = "Hexadecimal";
             // 
+            // button45
+            // 
+            this.button45.Location = new System.Drawing.Point(6, 62);
+            this.button45.Name = "button45";
+            this.button45.Size = new System.Drawing.Size(244, 23);
+            this.button45.TabIndex = 11;
+            this.button45.Text = "Get Firmware version";
+            this.button45.UseVisualStyleBackColor = true;
+            this.button45.Click += new System.EventHandler(this.button45_Click);
+            // 
+            // button46
+            // 
+            this.button46.Location = new System.Drawing.Point(6, 94);
+            this.button46.Name = "button46";
+            this.button46.Size = new System.Drawing.Size(244, 23);
+            this.button46.TabIndex = 12;
+            this.button46.Text = "Get Serial Number";
+            this.button46.UseVisualStyleBackColor = true;
+            this.button46.Click += new System.EventHandler(this.button46_Click);
+            // 
+            // button47
+            // 
+            this.button47.Location = new System.Drawing.Point(6, 126);
+            this.button47.Name = "button47";
+            this.button47.Size = new System.Drawing.Size(244, 23);
+            this.button47.TabIndex = 13;
+            this.button47.Text = "Set Log Level";
+            this.button47.UseVisualStyleBackColor = true;
+            this.button47.Click += new System.EventHandler(this.button47_Click);
+            // 
+            // textBox_LogLevel
+            // 
+            this.textBox_LogLevel.Location = new System.Drawing.Point(258, 120);
+            this.textBox_LogLevel.MaxLength = 1;
+            this.textBox_LogLevel.Name = "textBox_LogLevel";
+            this.textBox_LogLevel.Size = new System.Drawing.Size(27, 26);
+            this.textBox_LogLevel.TabIndex = 14;
+            this.textBox_LogLevel.TextChanged += new System.EventHandler(this.textBox_LogLevel_TextChanged);
+            // 
+            // button48
+            // 
+            this.button48.Location = new System.Drawing.Point(6, 155);
+            this.button48.Name = "button48";
+            this.button48.Size = new System.Drawing.Size(244, 23);
+            this.button48.TabIndex = 15;
+            this.button48.Text = "Is System busy?";
+            this.button48.UseVisualStyleBackColor = true;
+            this.button48.Click += new System.EventHandler(this.button48_Click);
+            // 
+            // button49
+            // 
+            this.button49.Location = new System.Drawing.Point(6, 188);
+            this.button49.Name = "button49";
+            this.button49.Size = new System.Drawing.Size(244, 23);
+            this.button49.TabIndex = 16;
+            this.button49.Text = "Get system type";
+            this.button49.UseVisualStyleBackColor = true;
+            this.button49.Click += new System.EventHandler(this.button49_Click);
+            // 
+            // button50
+            // 
+            this.button50.Location = new System.Drawing.Point(6, 219);
+            this.button50.Name = "button50";
+            this.button50.Size = new System.Drawing.Size(244, 23);
+            this.button50.TabIndex = 17;
+            this.button50.Text = "Get System identity Information";
+            this.button50.UseVisualStyleBackColor = true;
+            this.button50.Click += new System.EventHandler(this.button50_Click);
+            // 
+            // button51
+            // 
+            this.button51.Location = new System.Drawing.Point(6, 249);
+            this.button51.Name = "button51";
+            this.button51.Size = new System.Drawing.Size(244, 23);
+            this.button51.TabIndex = 18;
+            this.button51.Text = "Set System identity Information";
+            this.button51.UseVisualStyleBackColor = true;
+            this.button51.Click += new System.EventHandler(this.button51_Click);
+            // 
+            // textBox_SystemIdentify
+            // 
+            this.textBox_SystemIdentify.Location = new System.Drawing.Point(258, 248);
+            this.textBox_SystemIdentify.MaxLength = 121;
+            this.textBox_SystemIdentify.Name = "textBox_SystemIdentify";
+            this.textBox_SystemIdentify.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SystemIdentify.TabIndex = 19;
+            // 
+            // button52
+            // 
+            this.button52.Location = new System.Drawing.Point(14, 178);
+            this.button52.Name = "button52";
+            this.button52.Size = new System.Drawing.Size(75, 23);
+            this.button52.TabIndex = 15;
+            this.button52.Text = "Clear";
+            this.button52.UseVisualStyleBackColor = true;
+            this.button52.Click += new System.EventHandler(this.button52_Click);
+            // 
+            // button53
+            // 
+            this.button53.Location = new System.Drawing.Point(6, 278);
+            this.button53.Name = "button53";
+            this.button53.Size = new System.Drawing.Size(244, 23);
+            this.button53.TabIndex = 20;
+            this.button53.Text = "Get Core Card Information";
+            this.button53.UseVisualStyleBackColor = true;
+            this.button53.Click += new System.EventHandler(this.button53_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(7, 19);
@@ -4567,6 +4709,7 @@ namespace SocketServer
             this.Name = "MainForm";
             this.Text = "Monitor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed_1);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox_ServerSettings.ResumeLayout(false);
             this.groupBox_ServerSettings.PerformLayout();
@@ -4620,6 +4763,7 @@ namespace SocketServer
             this.groupBox_clientTX.PerformLayout();
             this.tabPage_MiniAda.ResumeLayout(false);
             this.groupBox40.ResumeLayout(false);
+            this.groupBox40.PerformLayout();
             this.groupBox32.ResumeLayout(false);
             this.groupBox32.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -6714,7 +6858,7 @@ namespace SocketServer
         {
             try
             {
-                if (ClientSocket == null)
+                if (ClientSocket == null || ClientSocket.Client == null)
                 {
                     button_ClientConnect.BackColor = default;
                 }
@@ -6722,7 +6866,7 @@ namespace SocketServer
                     
                     if (ClientSocket.Connected && ClientSocket.Client.Connected && ClientSocket.GetStream() != null)
                     {
-                        button_ClientConnect.BackColor = Color.Green;
+                        button_ClientConnect.BackColor = Color.LightGreen;
                     }
                     else
                     {
@@ -7015,15 +7159,14 @@ namespace SocketServer
         }
 
 
-
-        //bool timer_General_TranssmitionPeriodicallyEnable = false;
-        //uint NumbeOfTransmmitions = 0;
-         int  TimerClearModemStatus = 0;
-        //uint IntervalTimeBetweenTransmitions = 1;
-        private void Timer_General_Tick(object sender, EventArgs e)
+        void TCPClientConnection()
         {
+            if (ClientSocket == null || ClientSocket.Client == null)
+            {
+                button_ClientConnect.BackColor = default;
+            }
             label_ClientTCPConnected.BackColor = button_ClientConnect.BackColor;
-            if(label_ClientTCPConnected.BackColor == Color.Green)
+            if (label_ClientTCPConnected.BackColor == Color.LightGreen)
             {
                 label_TCPClient.Text = textBox_ClientIP.Text + "  \n" + textBox_ClientPort.Text;
             }
@@ -7031,7 +7174,15 @@ namespace SocketServer
             {
                 label_TCPClient.Text = "None";
             }
+        }
+        //bool timer_General_TranssmitionPeriodicallyEnable = false;
+        //uint NumbeOfTransmmitions = 0;
+         int  TimerClearModemStatus = 0;
+        //uint IntervalTimeBetweenTransmitions = 1;
+        private void Timer_General_Tick(object sender, EventArgs e)
+        {
 
+            TCPClientConnection();
             //Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
             //Tab0Color = randomColor;
 
@@ -10887,10 +11038,14 @@ namespace SocketServer
 
                             string MiniAdaResult = MiniAda.ParseKratosFrame(Result);
 
-                            MiniAdaLogger.LogMessage(Color.Black, Color.Empty, MiniAdaResult, New_Line = true, Show_Time = true);
-                            
+                           // MiniAdaLogger.LogMessage(Color.Black, Color.Empty, MiniAdaResult, New_Line = true, Show_Time = true);
 
-     
+                            MiniAdaLogger.LogMessage(Color.Blue, Color.Azure, "", New_Line = false, Show_Time = true);
+                            MiniAdaLogger.LogMessage(Color.Blue, Color.Azure, "Rx:>", false, false);
+                            MiniAdaLogger.LogMessage(Color.Blue, Color.LightGray, MiniAdaResult, true, false);
+
+
+
 
 
 
@@ -10957,8 +11112,17 @@ namespace SocketServer
                 int alPort = System.Convert.ToInt16(szPort, 10);
 
                 ClientSocket = new TcpClient();
+                var result = ClientSocket.BeginConnect(textBox_ClientIP.Text, alPort, null, null);
 
-                ClientSocket.Connect(textBox_ClientIP.Text, alPort);
+                var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
+                if (!success)
+                {
+                    richTextBox_ClientRx.AppendText(String.Format("Failed to connect to [{0}] [{1}]\n", szIPSelected, szPort));
+                    return;
+                }
+                // we have connected
+                ClientSocket.EndConnect(result);
+                
 
                 //System.Net.IPAddress	remoteIPAddress	 = System.Net.IPAddress.Parse(szIPSelected);
                 //System.Net.IPEndPoint	remoteEndPoint = new System.Net.IPEndPoint(remoteIPAddress, alPort);
@@ -11268,7 +11432,7 @@ namespace SocketServer
                         break;
 
                     case Keys.Enter:
-                        if (tabControl_Main.SelectedIndex == 3 && button_ClientConnect.BackColor == Color.Green)
+                        if (tabControl_Main.SelectedIndex == 3 && button_ClientConnect.BackColor == Color.LightGreen)
                         {
                             button_Send_Click(this, new EventArgs());
                         }
@@ -11359,6 +11523,28 @@ namespace SocketServer
 
         }
 
+        void ClearallTextBoxsTCPClient()
+        {
+            textBox_RxClientPreamble.BackColor = default;
+            textBox_RxClientPreamble.Text = "";
+
+            textBox_RxClientOpcode.BackColor = default;
+            textBox_RxClientOpcode.Text = "";
+
+            textBox_RxClientData.BackColor = default;
+            textBox_RxClientData.Text = "";
+
+            textBox_Preamble.BackColor = default;
+            textBox_Preamble.Text = "";
+
+            textBox_Opcode.BackColor = default;
+            textBox_Opcode.Text = "";
+
+            textBox_data.BackColor = default;
+            textBox_data.Text = "";
+
+        }
+
         private void button_Send_Click(object sender, EventArgs e)
         {
             try
@@ -11379,7 +11565,7 @@ namespace SocketServer
                 }
                 else
                 {
-                    button_SendProtocol.BackColor = default(Color);
+                    button_SendProtocol.BackColor = Color.LightGreen;
                 }
 
                 List<byte> ListBytes = new List<byte>();
@@ -11503,6 +11689,142 @@ namespace SocketServer
             {
                 button_Send_Click(this, new EventArgs());
             }
+        }
+
+        void SendDataToSystem()
+        {
+            button_Send_Click(null, null);
+
+            if (button_SendProtocol.BackColor == Color.LightGreen)
+            {
+                MiniAdaLogger.LogMessage(Color.Purple, Color.Azure, "", New_Line = false, Show_Time = true);
+                MiniAdaLogger.LogMessage(Color.Purple, Color.Azure, "Tx:>", false, false);
+                String str = String.Format("Preamble [{0}],Opcode [{1}],Data [{2}] ", textBox_Preamble.Text, textBox_Opcode.Text, textBox_data.Text);
+                MiniAdaLogger.LogMessage(Color.Purple, Color.LightGray, str, true, false);
+            }
+
+            
+        }
+
+        private void button_GetSoftwareVersion_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "01 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void button45_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "02 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void button46_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "04 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void button47_Click(object sender, EventArgs e)
+        {
+            if (textBox_LogLevel.BackColor == Color.LightGreen)
+            {
+                textBox_Preamble.Text = "53 00";
+                textBox_Opcode.Text = "06 00";
+                textBox_data.Text = "0" + textBox_LogLevel.Text;
+
+                SendDataToSystem();
+            }
+            else
+            {
+                MiniAdaLogger.LogMessage(Color.Orange, Color.White, "Log level didn't set in the textbox near the button", New_Line = true, Show_Time = true);
+            }
+        }
+
+        private void textBox_LogLevel_TextChanged(object sender, EventArgs e)
+        {
+
+            int LogLevel = 0;
+            Int32.TryParse(textBox_LogLevel.Text, out LogLevel);
+
+
+            if (LogLevel >=0 && LogLevel <=7)
+            {
+                textBox_LogLevel.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_LogLevel.BackColor = Color.Red;
+            }
+        }
+
+        private void button48_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "07 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void button49_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "08 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void button50_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "10 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void button51_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "11 00";
+
+            byte[] ba = Encoding.Default.GetBytes(textBox_SystemIdentify.Text);
+            string hexString = BitConverter.ToString(ba).Replace("-", string.Empty);
+
+            textBox_data.Text = hexString;
+
+            SendDataToSystem();
+        }
+
+        private void button52_Click(object sender, EventArgs e)
+        {
+            ClearallTextBoxsTCPClient();
+
+        }
+
+        private void button53_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "12 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void MainForm_FormClosed_1(object sender, FormClosedEventArgs e)
+        {
+            m_Exit = true;
+            System.GC.Collect();
         }
 
         private void ComboBox_SerialPortHistory_SelectedIndexChanged(object sender, EventArgs e)
