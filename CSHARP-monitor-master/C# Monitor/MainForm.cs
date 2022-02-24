@@ -391,6 +391,27 @@ namespace SocketServer
         private Button button53;
         private TabControl tabControl_MiniAda;
         private TabPage tabPage1;
+        private TextBox textBox_SetCoreCardInformation;
+        private Button button54;
+        private TextBox textBox_SetRFCardInformation;
+        private Button button55;
+        private Button button56;
+        private TextBox textBox_SetPSUCard;
+        private Button button57;
+        private Button button58;
+        private TabPage tabPage2;
+        private TextBox textBox_SetSynthesizerL1;
+        private Button button59;
+        private Label label19;
+        private Label label20;
+        private TextBox textBox_SetSynthesizerL2;
+        private Button button60;
+        private Label label21;
+        private TextBox textBox_SetTxAD936X;
+        private Button button61;
+        private Button button62;
+        private Label label22;
+        private TextBox textBox_GetTxAD936X;
         private TextBox textBox_ServerActive;
 
         //bool m_Exit = false;
@@ -517,11 +538,11 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
@@ -652,7 +673,6 @@ namespace SocketServer
             this.button_StopwatchReset = new System.Windows.Forms.Button();
             this.textBox_StopWatch = new System.Windows.Forms.TextBox();
             this.checkBox_RxHex = new System.Windows.Forms.CheckBox();
-            this.button_OpenFolder = new System.Windows.Forms.Button();
             this.textBox_SerialPortRecognizePattern3 = new System.Windows.Forms.TextBox();
             this.textBox_SerialPortRecognizePattern2 = new System.Windows.Forms.TextBox();
             this.textBox_SerialPortRecognizePattern = new System.Windows.Forms.TextBox();
@@ -693,7 +713,9 @@ namespace SocketServer
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage_GenericFrame = new System.Windows.Forms.TabPage();
+            this.button52 = new System.Windows.Forms.Button();
             this.groupBox31 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox_RxClientPreamble = new System.Windows.Forms.TextBox();
             this.textBox_RxClientOpcode = new System.Windows.Forms.TextBox();
@@ -711,12 +733,46 @@ namespace SocketServer
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage_MiniAda = new System.Windows.Forms.TabPage();
             this.groupBox40 = new System.Windows.Forms.GroupBox();
+            this.tabControl_MiniAda = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox_SetPSUCard = new System.Windows.Forms.TextBox();
+            this.button57 = new System.Windows.Forms.Button();
+            this.button58 = new System.Windows.Forms.Button();
+            this.textBox_SetRFCardInformation = new System.Windows.Forms.TextBox();
+            this.button55 = new System.Windows.Forms.Button();
+            this.button56 = new System.Windows.Forms.Button();
+            this.textBox_SetCoreCardInformation = new System.Windows.Forms.TextBox();
+            this.button54 = new System.Windows.Forms.Button();
             this.button_GetSoftwareVersion = new System.Windows.Forms.Button();
+            this.button53 = new System.Windows.Forms.Button();
+            this.button45 = new System.Windows.Forms.Button();
+            this.textBox_SystemIdentify = new System.Windows.Forms.TextBox();
+            this.button46 = new System.Windows.Forms.Button();
+            this.button51 = new System.Windows.Forms.Button();
+            this.button47 = new System.Windows.Forms.Button();
+            this.button50 = new System.Windows.Forms.Button();
+            this.textBox_LogLevel = new System.Windows.Forms.TextBox();
+            this.button49 = new System.Windows.Forms.Button();
+            this.button48 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox_GetTxAD936X = new System.Windows.Forms.TextBox();
+            this.button62 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox_SetTxAD936X = new System.Windows.Forms.TextBox();
+            this.button61 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox_SetSynthesizerL2 = new System.Windows.Forms.TextBox();
+            this.button60 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox_SetSynthesizerL1 = new System.Windows.Forms.TextBox();
+            this.button59 = new System.Windows.Forms.Button();
             this.groupBox32 = new System.Windows.Forms.GroupBox();
             this.richTextBox_MiniAda = new System.Windows.Forms.RichTextBox();
             this.checkBox_RecordMiniAda = new System.Windows.Forms.CheckBox();
             this.checkBox_PauseMiniAda = new System.Windows.Forms.CheckBox();
             this.button_ClearMiniAda = new System.Windows.Forms.Button();
+            this.button_OpenFolder = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.S1_Configuration = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -851,20 +907,6 @@ namespace SocketServer
             this.label12 = new System.Windows.Forms.Label();
             this.label_ClientTCPConnected = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.button45 = new System.Windows.Forms.Button();
-            this.button46 = new System.Windows.Forms.Button();
-            this.button47 = new System.Windows.Forms.Button();
-            this.textBox_LogLevel = new System.Windows.Forms.TextBox();
-            this.button48 = new System.Windows.Forms.Button();
-            this.button49 = new System.Windows.Forms.Button();
-            this.button50 = new System.Windows.Forms.Button();
-            this.button51 = new System.Windows.Forms.Button();
-            this.textBox_SystemIdentify = new System.Windows.Forms.TextBox();
-            this.button52 = new System.Windows.Forms.Button();
-            this.button53 = new System.Windows.Forms.Button();
-            this.tabControl_MiniAda = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -897,6 +939,9 @@ namespace SocketServer
             this.groupBox_clientTX.SuspendLayout();
             this.tabPage_MiniAda.SuspendLayout();
             this.groupBox40.SuspendLayout();
+            this.tabControl_MiniAda.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.groupBox32.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.S1_Configuration.SuspendLayout();
@@ -931,8 +976,6 @@ namespace SocketServer
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox_ClentTCPStatus.SuspendLayout();
-            this.tabControl_MiniAda.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_ServerSettings
@@ -2084,32 +2127,32 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea8);
-            legend8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend8.IsTextAutoFit = false;
-            legend8.Name = "Legend1";
-            this.chart1.Legends.Add(legend8);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(194, 2);
             this.chart1.Name = "chart1";
-            series22.ChartArea = "ChartArea1";
-            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series22.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series22.Legend = "Legend1";
-            series22.Name = "Data 1";
-            series23.ChartArea = "ChartArea1";
-            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series23.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series23.Legend = "Legend1";
-            series23.Name = "Data 2";
-            series24.ChartArea = "ChartArea1";
-            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series24.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series24.Legend = "Legend1";
-            series24.Name = "Data 3";
-            this.chart1.Series.Add(series22);
-            this.chart1.Series.Add(series23);
-            this.chart1.Series.Add(series24);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series7.Legend = "Legend1";
+            series7.Name = "Data 1";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series8.Legend = "Legend1";
+            series8.Name = "Data 2";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series9.Legend = "Legend1";
+            series9.Name = "Data 3";
+            this.chart1.Series.Add(series7);
+            this.chart1.Series.Add(series8);
+            this.chart1.Series.Add(series9);
             this.chart1.Size = new System.Drawing.Size(1350, 665);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2119,10 +2162,10 @@ namespace SocketServer
             this.tabPage_SerialPort.Controls.Add(this.groupBox_SendSerialOrMonitorCommands);
             this.tabPage_SerialPort.Controls.Add(this.gbPortSettings);
             this.tabPage_SerialPort.Controls.Add(this.groupBox5);
-            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 27);
+            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 22);
             this.tabPage_SerialPort.Name = "tabPage_SerialPort";
             this.tabPage_SerialPort.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 682);
+            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 687);
             this.tabPage_SerialPort.TabIndex = 1;
             this.tabPage_SerialPort.Text = "Serial Port";
             this.tabPage_SerialPort.UseVisualStyleBackColor = true;
@@ -2502,16 +2545,6 @@ namespace SocketServer
             this.checkBox_RxHex.Text = "Show Rx Hex";
             this.checkBox_RxHex.UseVisualStyleBackColor = true;
             // 
-            // button_OpenFolder
-            // 
-            this.button_OpenFolder.Location = new System.Drawing.Point(1561, 304);
-            this.button_OpenFolder.Name = "button_OpenFolder";
-            this.button_OpenFolder.Size = new System.Drawing.Size(191, 26);
-            this.button_OpenFolder.TabIndex = 76;
-            this.button_OpenFolder.Text = "Open Folder";
-            this.button_OpenFolder.UseVisualStyleBackColor = true;
-            this.button_OpenFolder.Click += new System.EventHandler(this.Button43_Click);
-            // 
             // textBox_SerialPortRecognizePattern3
             // 
             this.textBox_SerialPortRecognizePattern3.Location = new System.Drawing.Point(252, 17);
@@ -2599,10 +2632,10 @@ namespace SocketServer
             this.tabPage_ServerTCP.Controls.Add(this.groupBox_ConnectionTimedOut);
             this.tabPage_ServerTCP.Controls.Add(this.groupBox2);
             this.tabPage_ServerTCP.Controls.Add(this.groupBox3);
-            this.tabPage_ServerTCP.Location = new System.Drawing.Point(4, 27);
+            this.tabPage_ServerTCP.Location = new System.Drawing.Point(4, 22);
             this.tabPage_ServerTCP.Name = "tabPage_ServerTCP";
             this.tabPage_ServerTCP.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_ServerTCP.Size = new System.Drawing.Size(1547, 682);
+            this.tabPage_ServerTCP.Size = new System.Drawing.Size(1547, 687);
             this.tabPage_ServerTCP.TabIndex = 0;
             this.tabPage_ServerTCP.Text = "Server TCP";
             this.tabPage_ServerTCP.UseVisualStyleBackColor = true;
@@ -2802,9 +2835,9 @@ namespace SocketServer
             this.tabPage_ClientTCP.Controls.Add(this.textBox_ClientIP);
             this.tabPage_ClientTCP.Controls.Add(this.label8);
             this.tabPage_ClientTCP.Controls.Add(this.label7);
-            this.tabPage_ClientTCP.Location = new System.Drawing.Point(4, 27);
+            this.tabPage_ClientTCP.Location = new System.Drawing.Point(4, 22);
             this.tabPage_ClientTCP.Name = "tabPage_ClientTCP";
-            this.tabPage_ClientTCP.Size = new System.Drawing.Size(1547, 682);
+            this.tabPage_ClientTCP.Size = new System.Drawing.Size(1547, 687);
             this.tabPage_ClientTCP.TabIndex = 9;
             this.tabPage_ClientTCP.Text = "Client TCP";
             this.tabPage_ClientTCP.UseVisualStyleBackColor = true;
@@ -2946,6 +2979,16 @@ namespace SocketServer
             this.tabPage_GenericFrame.Enter += new System.EventHandler(this.tabPage_GenericFrame_Enter);
             this.tabPage_GenericFrame.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.tabPage_GenericFrame_PreviewKeyDown);
             // 
+            // button52
+            // 
+            this.button52.Location = new System.Drawing.Point(14, 178);
+            this.button52.Name = "button52";
+            this.button52.Size = new System.Drawing.Size(75, 23);
+            this.button52.TabIndex = 15;
+            this.button52.Text = "Clear";
+            this.button52.UseVisualStyleBackColor = true;
+            this.button52.Click += new System.EventHandler(this.button52_Click);
+            // 
             // groupBox31
             // 
             this.groupBox31.Controls.Add(this.label18);
@@ -2961,6 +3004,18 @@ namespace SocketServer
             this.groupBox31.TabIndex = 14;
             this.groupBox31.TabStop = false;
             this.groupBox31.Text = "Data received";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label18.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Maroon;
+            this.label18.Location = new System.Drawing.Point(269, 16);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(97, 21);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Hexadecimal";
             // 
             // label13
             // 
@@ -3140,6 +3195,119 @@ namespace SocketServer
             this.groupBox40.TabStop = false;
             this.groupBox40.Text = "Commands for MiniAda";
             // 
+            // tabControl_MiniAda
+            // 
+            this.tabControl_MiniAda.Controls.Add(this.tabPage1);
+            this.tabControl_MiniAda.Controls.Add(this.tabPage2);
+            this.tabControl_MiniAda.Location = new System.Drawing.Point(6, 23);
+            this.tabControl_MiniAda.Name = "tabControl_MiniAda";
+            this.tabControl_MiniAda.SelectedIndex = 0;
+            this.tabControl_MiniAda.Size = new System.Drawing.Size(957, 635);
+            this.tabControl_MiniAda.TabIndex = 21;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.textBox_SetPSUCard);
+            this.tabPage1.Controls.Add(this.button57);
+            this.tabPage1.Controls.Add(this.button58);
+            this.tabPage1.Controls.Add(this.textBox_SetRFCardInformation);
+            this.tabPage1.Controls.Add(this.button55);
+            this.tabPage1.Controls.Add(this.button56);
+            this.tabPage1.Controls.Add(this.textBox_SetCoreCardInformation);
+            this.tabPage1.Controls.Add(this.button54);
+            this.tabPage1.Controls.Add(this.button_GetSoftwareVersion);
+            this.tabPage1.Controls.Add(this.button53);
+            this.tabPage1.Controls.Add(this.button45);
+            this.tabPage1.Controls.Add(this.textBox_SystemIdentify);
+            this.tabPage1.Controls.Add(this.button46);
+            this.tabPage1.Controls.Add(this.button51);
+            this.tabPage1.Controls.Add(this.button47);
+            this.tabPage1.Controls.Add(this.button50);
+            this.tabPage1.Controls.Add(this.textBox_LogLevel);
+            this.tabPage1.Controls.Add(this.button49);
+            this.tabPage1.Controls.Add(this.button48);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(949, 604);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Standard";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox_SetPSUCard
+            // 
+            this.textBox_SetPSUCard.Location = new System.Drawing.Point(257, 405);
+            this.textBox_SetPSUCard.MaxLength = 121;
+            this.textBox_SetPSUCard.Name = "textBox_SetPSUCard";
+            this.textBox_SetPSUCard.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetPSUCard.TabIndex = 28;
+            // 
+            // button57
+            // 
+            this.button57.Location = new System.Drawing.Point(7, 408);
+            this.button57.Name = "button57";
+            this.button57.Size = new System.Drawing.Size(244, 23);
+            this.button57.TabIndex = 27;
+            this.button57.Text = "Set PSU Card Information";
+            this.button57.UseVisualStyleBackColor = true;
+            this.button57.Click += new System.EventHandler(this.button57_Click);
+            // 
+            // button58
+            // 
+            this.button58.Location = new System.Drawing.Point(7, 377);
+            this.button58.Name = "button58";
+            this.button58.Size = new System.Drawing.Size(244, 23);
+            this.button58.TabIndex = 26;
+            this.button58.Text = "Get PSU Card Information";
+            this.button58.UseVisualStyleBackColor = true;
+            this.button58.Click += new System.EventHandler(this.button58_Click);
+            // 
+            // textBox_SetRFCardInformation
+            // 
+            this.textBox_SetRFCardInformation.Location = new System.Drawing.Point(256, 344);
+            this.textBox_SetRFCardInformation.MaxLength = 121;
+            this.textBox_SetRFCardInformation.Name = "textBox_SetRFCardInformation";
+            this.textBox_SetRFCardInformation.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetRFCardInformation.TabIndex = 25;
+            // 
+            // button55
+            // 
+            this.button55.Location = new System.Drawing.Point(6, 347);
+            this.button55.Name = "button55";
+            this.button55.Size = new System.Drawing.Size(244, 23);
+            this.button55.TabIndex = 24;
+            this.button55.Text = "Set RF Card Information";
+            this.button55.UseVisualStyleBackColor = true;
+            this.button55.Click += new System.EventHandler(this.button55_Click);
+            // 
+            // button56
+            // 
+            this.button56.Location = new System.Drawing.Point(6, 316);
+            this.button56.Name = "button56";
+            this.button56.Size = new System.Drawing.Size(244, 23);
+            this.button56.TabIndex = 23;
+            this.button56.Text = "Get RF Card Information";
+            this.button56.UseVisualStyleBackColor = true;
+            this.button56.Click += new System.EventHandler(this.button56_Click);
+            // 
+            // textBox_SetCoreCardInformation
+            // 
+            this.textBox_SetCoreCardInformation.Location = new System.Drawing.Point(256, 284);
+            this.textBox_SetCoreCardInformation.MaxLength = 121;
+            this.textBox_SetCoreCardInformation.Name = "textBox_SetCoreCardInformation";
+            this.textBox_SetCoreCardInformation.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetCoreCardInformation.TabIndex = 22;
+            // 
+            // button54
+            // 
+            this.button54.Location = new System.Drawing.Point(6, 287);
+            this.button54.Name = "button54";
+            this.button54.Size = new System.Drawing.Size(244, 23);
+            this.button54.TabIndex = 21;
+            this.button54.Text = "Set Core Card Information";
+            this.button54.UseVisualStyleBackColor = true;
+            this.button54.Click += new System.EventHandler(this.button54_Click);
+            // 
             // button_GetSoftwareVersion
             // 
             this.button_GetSoftwareVersion.Location = new System.Drawing.Point(6, 6);
@@ -3149,6 +3317,252 @@ namespace SocketServer
             this.button_GetSoftwareVersion.Text = "Get Software version";
             this.button_GetSoftwareVersion.UseVisualStyleBackColor = true;
             this.button_GetSoftwareVersion.Click += new System.EventHandler(this.button_GetSoftwareVersion_Click);
+            // 
+            // button53
+            // 
+            this.button53.Location = new System.Drawing.Point(6, 256);
+            this.button53.Name = "button53";
+            this.button53.Size = new System.Drawing.Size(244, 23);
+            this.button53.TabIndex = 20;
+            this.button53.Text = "Get Core Card Information";
+            this.button53.UseVisualStyleBackColor = true;
+            this.button53.Click += new System.EventHandler(this.button53_Click);
+            // 
+            // button45
+            // 
+            this.button45.Location = new System.Drawing.Point(6, 40);
+            this.button45.Name = "button45";
+            this.button45.Size = new System.Drawing.Size(244, 23);
+            this.button45.TabIndex = 11;
+            this.button45.Text = "Get Firmware version";
+            this.button45.UseVisualStyleBackColor = true;
+            this.button45.Click += new System.EventHandler(this.button45_Click);
+            // 
+            // textBox_SystemIdentify
+            // 
+            this.textBox_SystemIdentify.Location = new System.Drawing.Point(258, 226);
+            this.textBox_SystemIdentify.MaxLength = 121;
+            this.textBox_SystemIdentify.Name = "textBox_SystemIdentify";
+            this.textBox_SystemIdentify.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SystemIdentify.TabIndex = 19;
+            // 
+            // button46
+            // 
+            this.button46.Location = new System.Drawing.Point(6, 72);
+            this.button46.Name = "button46";
+            this.button46.Size = new System.Drawing.Size(244, 23);
+            this.button46.TabIndex = 12;
+            this.button46.Text = "Get Serial Number";
+            this.button46.UseVisualStyleBackColor = true;
+            this.button46.Click += new System.EventHandler(this.button46_Click);
+            // 
+            // button51
+            // 
+            this.button51.Location = new System.Drawing.Point(6, 227);
+            this.button51.Name = "button51";
+            this.button51.Size = new System.Drawing.Size(244, 23);
+            this.button51.TabIndex = 18;
+            this.button51.Text = "Set System identity Information";
+            this.button51.UseVisualStyleBackColor = true;
+            this.button51.Click += new System.EventHandler(this.button51_Click);
+            // 
+            // button47
+            // 
+            this.button47.Location = new System.Drawing.Point(6, 104);
+            this.button47.Name = "button47";
+            this.button47.Size = new System.Drawing.Size(244, 23);
+            this.button47.TabIndex = 13;
+            this.button47.Text = "Set Log Level";
+            this.button47.UseVisualStyleBackColor = true;
+            this.button47.Click += new System.EventHandler(this.button47_Click);
+            // 
+            // button50
+            // 
+            this.button50.Location = new System.Drawing.Point(6, 197);
+            this.button50.Name = "button50";
+            this.button50.Size = new System.Drawing.Size(244, 23);
+            this.button50.TabIndex = 17;
+            this.button50.Text = "Get System identity Information";
+            this.button50.UseVisualStyleBackColor = true;
+            this.button50.Click += new System.EventHandler(this.button50_Click);
+            // 
+            // textBox_LogLevel
+            // 
+            this.textBox_LogLevel.Location = new System.Drawing.Point(258, 98);
+            this.textBox_LogLevel.MaxLength = 1;
+            this.textBox_LogLevel.Name = "textBox_LogLevel";
+            this.textBox_LogLevel.Size = new System.Drawing.Size(27, 26);
+            this.textBox_LogLevel.TabIndex = 14;
+            this.textBox_LogLevel.TextChanged += new System.EventHandler(this.textBox_LogLevel_TextChanged);
+            // 
+            // button49
+            // 
+            this.button49.Location = new System.Drawing.Point(6, 166);
+            this.button49.Name = "button49";
+            this.button49.Size = new System.Drawing.Size(244, 23);
+            this.button49.TabIndex = 16;
+            this.button49.Text = "Get system type";
+            this.button49.UseVisualStyleBackColor = true;
+            this.button49.Click += new System.EventHandler(this.button49_Click);
+            // 
+            // button48
+            // 
+            this.button48.Location = new System.Drawing.Point(6, 133);
+            this.button48.Name = "button48";
+            this.button48.Size = new System.Drawing.Size(244, 23);
+            this.button48.TabIndex = 15;
+            this.button48.Text = "Is System busy?";
+            this.button48.UseVisualStyleBackColor = true;
+            this.button48.Click += new System.EventHandler(this.button48_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label22);
+            this.tabPage2.Controls.Add(this.textBox_GetTxAD936X);
+            this.tabPage2.Controls.Add(this.button62);
+            this.tabPage2.Controls.Add(this.label21);
+            this.tabPage2.Controls.Add(this.textBox_SetTxAD936X);
+            this.tabPage2.Controls.Add(this.button61);
+            this.tabPage2.Controls.Add(this.label20);
+            this.tabPage2.Controls.Add(this.textBox_SetSynthesizerL2);
+            this.tabPage2.Controls.Add(this.button60);
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.textBox_SetSynthesizerL1);
+            this.tabPage2.Controls.Add(this.button59);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(949, 604);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Master";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label22.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Maroon;
+            this.label22.Location = new System.Drawing.Point(474, 104);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(150, 21);
+            this.label22.TabIndex = 40;
+            this.label22.Text = "Hexadecimal 3 bytes";
+            // 
+            // textBox_GetTxAD936X
+            // 
+            this.textBox_GetTxAD936X.Location = new System.Drawing.Point(252, 100);
+            this.textBox_GetTxAD936X.MaxLength = 30;
+            this.textBox_GetTxAD936X.Name = "textBox_GetTxAD936X";
+            this.textBox_GetTxAD936X.Size = new System.Drawing.Size(216, 26);
+            this.textBox_GetTxAD936X.TabIndex = 39;
+            this.textBox_GetTxAD936X.Text = "00 00 00";
+            this.textBox_GetTxAD936X.TextChanged += new System.EventHandler(this.textBox_GetTxAD936X_TextChanged);
+            // 
+            // button62
+            // 
+            this.button62.Location = new System.Drawing.Point(2, 102);
+            this.button62.Name = "button62";
+            this.button62.Size = new System.Drawing.Size(244, 23);
+            this.button62.TabIndex = 38;
+            this.button62.Text = "Get Tx AD936X data ";
+            this.button62.UseVisualStyleBackColor = true;
+            this.button62.Click += new System.EventHandler(this.button62_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label21.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Maroon;
+            this.label21.Location = new System.Drawing.Point(474, 72);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(150, 21);
+            this.label21.TabIndex = 37;
+            this.label21.Text = "Hexadecimal 4 bytes";
+            // 
+            // textBox_SetTxAD936X
+            // 
+            this.textBox_SetTxAD936X.Location = new System.Drawing.Point(252, 68);
+            this.textBox_SetTxAD936X.MaxLength = 30;
+            this.textBox_SetTxAD936X.Name = "textBox_SetTxAD936X";
+            this.textBox_SetTxAD936X.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetTxAD936X.TabIndex = 36;
+            this.textBox_SetTxAD936X.Text = "00 00 00 00";
+            this.textBox_SetTxAD936X.TextChanged += new System.EventHandler(this.textBox_SetTxAD936X_TextChanged);
+            // 
+            // button61
+            // 
+            this.button61.Location = new System.Drawing.Point(2, 71);
+            this.button61.Name = "button61";
+            this.button61.Size = new System.Drawing.Size(244, 23);
+            this.button61.TabIndex = 35;
+            this.button61.Text = "Set Tx AD936X data ";
+            this.button61.UseVisualStyleBackColor = true;
+            this.button61.Click += new System.EventHandler(this.button61_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label20.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Maroon;
+            this.label20.Location = new System.Drawing.Point(474, 43);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(150, 21);
+            this.label20.TabIndex = 34;
+            this.label20.Text = "Hexadecimal 4 bytes";
+            // 
+            // textBox_SetSynthesizerL2
+            // 
+            this.textBox_SetSynthesizerL2.Location = new System.Drawing.Point(252, 39);
+            this.textBox_SetSynthesizerL2.MaxLength = 30;
+            this.textBox_SetSynthesizerL2.Name = "textBox_SetSynthesizerL2";
+            this.textBox_SetSynthesizerL2.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetSynthesizerL2.TabIndex = 33;
+            this.textBox_SetSynthesizerL2.Text = "00 00 00 00";
+            this.textBox_SetSynthesizerL2.TextChanged += new System.EventHandler(this.textBox_SetSynthesizerL2_TextChanged);
+            // 
+            // button60
+            // 
+            this.button60.Location = new System.Drawing.Point(2, 42);
+            this.button60.Name = "button60";
+            this.button60.Size = new System.Drawing.Size(244, 23);
+            this.button60.TabIndex = 32;
+            this.button60.Text = "Set Synthesizer L2 register ";
+            this.button60.UseVisualStyleBackColor = true;
+            this.button60.Click += new System.EventHandler(this.button60_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label19.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Maroon;
+            this.label19.Location = new System.Drawing.Point(475, 12);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(150, 21);
+            this.label19.TabIndex = 31;
+            this.label19.Text = "Hexadecimal 4 bytes";
+            // 
+            // textBox_SetSynthesizerL1
+            // 
+            this.textBox_SetSynthesizerL1.Location = new System.Drawing.Point(253, 8);
+            this.textBox_SetSynthesizerL1.MaxLength = 30;
+            this.textBox_SetSynthesizerL1.Name = "textBox_SetSynthesizerL1";
+            this.textBox_SetSynthesizerL1.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetSynthesizerL1.TabIndex = 30;
+            this.textBox_SetSynthesizerL1.Text = "00 00 00 00";
+            this.textBox_SetSynthesizerL1.TextChanged += new System.EventHandler(this.textBox_SetSynthesizerL1_TextChanged);
+            // 
+            // button59
+            // 
+            this.button59.Location = new System.Drawing.Point(3, 11);
+            this.button59.Name = "button59";
+            this.button59.Size = new System.Drawing.Size(244, 23);
+            this.button59.TabIndex = 29;
+            this.button59.Text = "Set Synthesizer L1 register ";
+            this.button59.UseVisualStyleBackColor = true;
+            this.button59.Click += new System.EventHandler(this.button59_Click);
             // 
             // groupBox32
             // 
@@ -3207,6 +3621,16 @@ namespace SocketServer
             this.button_ClearMiniAda.TabIndex = 6;
             this.button_ClearMiniAda.Text = "Clear";
             this.button_ClearMiniAda.UseVisualStyleBackColor = true;
+            // 
+            // button_OpenFolder
+            // 
+            this.button_OpenFolder.Location = new System.Drawing.Point(1561, 304);
+            this.button_OpenFolder.Name = "button_OpenFolder";
+            this.button_OpenFolder.Size = new System.Drawing.Size(191, 26);
+            this.button_OpenFolder.TabIndex = 76;
+            this.button_OpenFolder.Text = "Open Folder";
+            this.button_OpenFolder.UseVisualStyleBackColor = true;
+            this.button_OpenFolder.Click += new System.EventHandler(this.Button43_Click);
             // 
             // tabPage4
             // 
@@ -4566,155 +4990,6 @@ namespace SocketServer
             this.label14.TabIndex = 108;
             this.label14.Text = "Rx";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label18.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Maroon;
-            this.label18.Location = new System.Drawing.Point(269, 16);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(97, 21);
-            this.label18.TabIndex = 8;
-            this.label18.Text = "Hexadecimal";
-            // 
-            // button45
-            // 
-            this.button45.Location = new System.Drawing.Point(6, 40);
-            this.button45.Name = "button45";
-            this.button45.Size = new System.Drawing.Size(244, 23);
-            this.button45.TabIndex = 11;
-            this.button45.Text = "Get Firmware version";
-            this.button45.UseVisualStyleBackColor = true;
-            this.button45.Click += new System.EventHandler(this.button45_Click);
-            // 
-            // button46
-            // 
-            this.button46.Location = new System.Drawing.Point(6, 72);
-            this.button46.Name = "button46";
-            this.button46.Size = new System.Drawing.Size(244, 23);
-            this.button46.TabIndex = 12;
-            this.button46.Text = "Get Serial Number";
-            this.button46.UseVisualStyleBackColor = true;
-            this.button46.Click += new System.EventHandler(this.button46_Click);
-            // 
-            // button47
-            // 
-            this.button47.Location = new System.Drawing.Point(6, 104);
-            this.button47.Name = "button47";
-            this.button47.Size = new System.Drawing.Size(244, 23);
-            this.button47.TabIndex = 13;
-            this.button47.Text = "Set Log Level";
-            this.button47.UseVisualStyleBackColor = true;
-            this.button47.Click += new System.EventHandler(this.button47_Click);
-            // 
-            // textBox_LogLevel
-            // 
-            this.textBox_LogLevel.Location = new System.Drawing.Point(258, 98);
-            this.textBox_LogLevel.MaxLength = 1;
-            this.textBox_LogLevel.Name = "textBox_LogLevel";
-            this.textBox_LogLevel.Size = new System.Drawing.Size(27, 26);
-            this.textBox_LogLevel.TabIndex = 14;
-            this.textBox_LogLevel.TextChanged += new System.EventHandler(this.textBox_LogLevel_TextChanged);
-            // 
-            // button48
-            // 
-            this.button48.Location = new System.Drawing.Point(6, 133);
-            this.button48.Name = "button48";
-            this.button48.Size = new System.Drawing.Size(244, 23);
-            this.button48.TabIndex = 15;
-            this.button48.Text = "Is System busy?";
-            this.button48.UseVisualStyleBackColor = true;
-            this.button48.Click += new System.EventHandler(this.button48_Click);
-            // 
-            // button49
-            // 
-            this.button49.Location = new System.Drawing.Point(6, 166);
-            this.button49.Name = "button49";
-            this.button49.Size = new System.Drawing.Size(244, 23);
-            this.button49.TabIndex = 16;
-            this.button49.Text = "Get system type";
-            this.button49.UseVisualStyleBackColor = true;
-            this.button49.Click += new System.EventHandler(this.button49_Click);
-            // 
-            // button50
-            // 
-            this.button50.Location = new System.Drawing.Point(6, 197);
-            this.button50.Name = "button50";
-            this.button50.Size = new System.Drawing.Size(244, 23);
-            this.button50.TabIndex = 17;
-            this.button50.Text = "Get System identity Information";
-            this.button50.UseVisualStyleBackColor = true;
-            this.button50.Click += new System.EventHandler(this.button50_Click);
-            // 
-            // button51
-            // 
-            this.button51.Location = new System.Drawing.Point(6, 227);
-            this.button51.Name = "button51";
-            this.button51.Size = new System.Drawing.Size(244, 23);
-            this.button51.TabIndex = 18;
-            this.button51.Text = "Set System identity Information";
-            this.button51.UseVisualStyleBackColor = true;
-            this.button51.Click += new System.EventHandler(this.button51_Click);
-            // 
-            // textBox_SystemIdentify
-            // 
-            this.textBox_SystemIdentify.Location = new System.Drawing.Point(258, 226);
-            this.textBox_SystemIdentify.MaxLength = 121;
-            this.textBox_SystemIdentify.Name = "textBox_SystemIdentify";
-            this.textBox_SystemIdentify.Size = new System.Drawing.Size(216, 26);
-            this.textBox_SystemIdentify.TabIndex = 19;
-            // 
-            // button52
-            // 
-            this.button52.Location = new System.Drawing.Point(14, 178);
-            this.button52.Name = "button52";
-            this.button52.Size = new System.Drawing.Size(75, 23);
-            this.button52.TabIndex = 15;
-            this.button52.Text = "Clear";
-            this.button52.UseVisualStyleBackColor = true;
-            this.button52.Click += new System.EventHandler(this.button52_Click);
-            // 
-            // button53
-            // 
-            this.button53.Location = new System.Drawing.Point(6, 256);
-            this.button53.Name = "button53";
-            this.button53.Size = new System.Drawing.Size(244, 23);
-            this.button53.TabIndex = 20;
-            this.button53.Text = "Get Core Card Information";
-            this.button53.UseVisualStyleBackColor = true;
-            this.button53.Click += new System.EventHandler(this.button53_Click);
-            // 
-            // tabControl_MiniAda
-            // 
-            this.tabControl_MiniAda.Controls.Add(this.tabPage1);
-            this.tabControl_MiniAda.Location = new System.Drawing.Point(6, 23);
-            this.tabControl_MiniAda.Name = "tabControl_MiniAda";
-            this.tabControl_MiniAda.SelectedIndex = 0;
-            this.tabControl_MiniAda.Size = new System.Drawing.Size(957, 635);
-            this.tabControl_MiniAda.TabIndex = 21;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.button_GetSoftwareVersion);
-            this.tabPage1.Controls.Add(this.button53);
-            this.tabPage1.Controls.Add(this.button45);
-            this.tabPage1.Controls.Add(this.textBox_SystemIdentify);
-            this.tabPage1.Controls.Add(this.button46);
-            this.tabPage1.Controls.Add(this.button51);
-            this.tabPage1.Controls.Add(this.button47);
-            this.tabPage1.Controls.Add(this.button50);
-            this.tabPage1.Controls.Add(this.textBox_LogLevel);
-            this.tabPage1.Controls.Add(this.button49);
-            this.tabPage1.Controls.Add(this.button48);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(949, 604);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Commands";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(7, 19);
@@ -4790,6 +5065,11 @@ namespace SocketServer
             this.groupBox_clientTX.PerformLayout();
             this.tabPage_MiniAda.ResumeLayout(false);
             this.groupBox40.ResumeLayout(false);
+            this.tabControl_MiniAda.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.groupBox32.ResumeLayout(false);
             this.groupBox32.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -4847,9 +5127,6 @@ namespace SocketServer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox_ClentTCPStatus.ResumeLayout(false);
             this.groupBox_ClentTCPStatus.PerformLayout();
-            this.tabControl_MiniAda.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -11065,7 +11342,7 @@ namespace SocketServer
 
 
 
-                            string MiniAdaResult = MiniAda.ParseKratosFrame(Result);
+                            string MiniAdaResult = MiniAda_Parser.ParseKratosFrame(Result);
 
                            // MiniAdaLogger.LogMessage(Color.Black, Color.Empty, MiniAdaResult, New_Line = true, Show_Time = true);
 
@@ -11854,6 +12131,163 @@ namespace SocketServer
         {
             m_Exit = true;
             System.GC.Collect();
+        }
+
+        private void button54_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "13 00";
+
+            byte[] ba = Encoding.Default.GetBytes(textBox_SetCoreCardInformation.Text);
+            string hexString = BitConverter.ToString(ba).Replace("-", string.Empty);
+
+            textBox_data.Text = hexString;
+
+            SendDataToSystem();
+        }
+
+        private void button56_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "14 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void button55_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "15 00";
+
+            byte[] ba = Encoding.Default.GetBytes(textBox_SetRFCardInformation.Text);
+            string hexString = BitConverter.ToString(ba).Replace("-", string.Empty);
+
+            textBox_data.Text = hexString;
+
+            SendDataToSystem();
+        }
+
+        private void button58_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "16 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void button57_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "17 00";
+
+            byte[] ba = Encoding.Default.GetBytes(textBox_SetPSUCard.Text);
+            string hexString = BitConverter.ToString(ba).Replace("-", string.Empty);
+
+            textBox_data.Text = hexString;
+
+            SendDataToSystem();
+        }
+
+        private void button59_Click(object sender, EventArgs e)
+        {
+            textBox_SetSynthesizerL1_TextChanged(null, null);
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "1E 00";
+            textBox_data.Text = textBox_SetSynthesizerL1.Text;
+
+            SendDataToSystem();
+        }
+
+        private void textBox_SetSynthesizerL1_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_SetSynthesizerL1.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length <=4)
+            {
+                textBox_SetSynthesizerL1.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_SetSynthesizerL1.BackColor = Color.Red;
+            }
+        }
+
+        private void button60_Click(object sender, EventArgs e)
+        {
+            textBox_SetSynthesizerL2_TextChanged(null, null);
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "1F 00";
+            textBox_data.Text = textBox_SetSynthesizerL2.Text;
+
+            SendDataToSystem();
+        }
+
+        private void textBox_SetSynthesizerL2_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_SetSynthesizerL2.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length <= 4)
+            {
+                textBox_SetSynthesizerL2.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_SetSynthesizerL2.BackColor = Color.Red;
+            }
+        }
+
+        private void textBox_SetTxAD936X_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_SetTxAD936X.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length <= 4)
+            {
+                textBox_SetTxAD936X.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_SetTxAD936X.BackColor = Color.Red;
+            }
+        }
+
+        private void button61_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "20 00";
+            textBox_data.Text = textBox_SetTxAD936X.Text;
+
+            SendDataToSystem();
+        }
+
+        private void button62_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = "53 00";
+            textBox_Opcode.Text = "21 00";
+            textBox_data.Text = textBox_GetTxAD936X.Text;
+
+            SendDataToSystem();
+        }
+
+
+
+        private void textBox_GetTxAD936X_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_GetTxAD936X.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length <= 3)
+            {
+                textBox_GetTxAD936X.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_GetTxAD936X.BackColor = Color.Red;
+            }
         }
 
         private void ComboBox_SerialPortHistory_SelectedIndexChanged(object sender, EventArgs e)

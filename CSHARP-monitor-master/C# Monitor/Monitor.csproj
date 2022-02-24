@@ -142,7 +142,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Kratos_Protocol.cs" />
-    <Compile Include="MiniAda.cs" />
+    <Compile Include="MiniAda_Parser.cs" />
     <Compile Include="TextBox_Logger.cs" />
     <Compile Include="PhoneBook.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

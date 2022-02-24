@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monitor
 {
-    class MiniAda
+    class MiniAda_Parser
     {
         public static string ConvertHex(String hexString)
         {
@@ -31,7 +31,57 @@ namespace Monitor
             return string.Empty;
         }
 
+        
+        static string GetTxAD936X(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n Tx AD936X  [{0}] \n", i_Parsedframe.Data);
 
+        }
+        static string SetTxAD936X(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n Tx AD936X data Has been Set [OK] \n");
+        }
+        static string SetSynthesizerL2(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n Synthesizer L2 Has been Set [OK] \n");
+        }
+        static string SetSynthesizerL1(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n Synthesizer L1 Has been Set [OK] \n");
+
+        }
+        static string GetPSUCardInformation(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n PSU card Information [{0}] \n", ConvertHex(i_Parsedframe.Data));
+        }
+
+        static string SetPSUCardInformation(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n PSU card Information Has been Set [OK] \n");
+        }
+
+        static string GetRFCardInformation(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n RF card Information [{0}] \n", ConvertHex(i_Parsedframe.Data));
+        }
+
+        static string SetRFCardInformation(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n Core RF Information Has been Set [OK] \n");
+        }
+        
+        static string SetCoreCardInformation(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n Core card Information Has been Set [OK] \n");
+        }
 
         
         static string GetCoreCardInformation(KratosProtocolFrame i_Parsedframe)
@@ -188,6 +238,51 @@ namespace Monitor
 
                     case "1200":
                         ret = GetCoreCardInformation(i_Parsedframe);
+
+                        break;
+
+                    case "1300":
+                        ret = SetCoreCardInformation(i_Parsedframe);
+
+                        break;
+
+                    case "1400":
+                        ret = GetRFCardInformation(i_Parsedframe);
+
+                        break;
+
+                    case "1500":
+                        ret = SetRFCardInformation(i_Parsedframe);
+
+                        break;
+
+                    case "1600":
+                        ret = GetPSUCardInformation(i_Parsedframe);
+
+                        break;
+
+                    case "1700":
+                        ret = SetPSUCardInformation(i_Parsedframe);
+
+                        break;
+
+                    case "1E00":
+                        ret = SetSynthesizerL1(i_Parsedframe);
+
+                        break;
+
+                    case "1F00":
+                        ret = SetSynthesizerL2(i_Parsedframe);
+
+                        break;
+
+                    case "2000":
+                        ret = SetTxAD936X(i_Parsedframe);
+
+                        break;
+
+                    case "2100":
+                        ret = GetTxAD936X(i_Parsedframe);
 
                         break;
                 }
