@@ -31,7 +31,49 @@ namespace Monitor
             return string.Empty;
         }
 
-        
+
+        public static float ConvertFloat(String hexString)
+        {
+            try
+            {
+                //string hexString = "43480170";
+                uint num = uint.Parse(hexString, System.Globalization.NumberStyles.AllowHexSpecifier);
+                byte[] floatVals = BitConverter.GetBytes(num).Reverse().ToArray();
+
+                float f = BitConverter.ToSingle(floatVals, 0);
+                return f;
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            return 0;
+        }
+
+
+        static string GetOutputPower(KratosProtocolFrame i_Parsedframe)
+        {
+
+
+            return String.Format("\n Output Power [{0}] dBm \n", ConvertFloat(i_Parsedframe.Data));
+        }
+        static string SetOutputPower(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n System Output power havs been set \n");
+        }
+        static string GetSytemState(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n System State [{0}] \n", ConvertHex(i_Parsedframe.Data));
+        }
+        static string SetSytemState(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n System state have been changed \n");
+        }
+        static string DoSync(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n Sync received \n");
+        }
         static string GetTxAD936X(KratosProtocolFrame i_Parsedframe)
         {
             return String.Format("\n Tx AD936X  [{0}] \n", i_Parsedframe.Data);
@@ -172,12 +214,18 @@ namespace Monitor
              int ICDMinor = int.Parse(i_Parsedframe.Data.Substring(2,2), System.Globalization.NumberStyles.HexNumber);
             int UnitMajorNumber = int.Parse(i_Parsedframe.Data.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
             int UnitMinorNumber = int.Parse(i_Parsedframe.Data.Substring(6, 2), System.Globalization.NumberStyles.HexNumber);
-            int VersionDay = int.Parse(i_Parsedframe.Data.Substring(8, 2), System.Globalization.NumberStyles.HexNumber);
-            int VersionMonth = int.Parse(i_Parsedframe.Data.Substring(10, 2), System.Globalization.NumberStyles.HexNumber);
-            int VersionYear = int.Parse(i_Parsedframe.Data.Substring(14, 2) + i_Parsedframe.Data.Substring(12, 2), System.Globalization.NumberStyles.HexNumber);  //Gil: because it is little endian so I need to reverse the bytes
-            return String.Format("\n ICD major version [{0}]\n ICD minor version [{1}]\n Unit major version [{2}]\n Unit minor version [{3}]" +
-                "\n Version day  [{4}]\n Version month [{5}]\n Version year [{6}]\n",
-                ICDMajor, ICDMinor ,UnitMajorNumber, UnitMinorNumber, VersionDay, VersionMonth, VersionYear);
+            string VersionDateTime = ConvertHex(i_Parsedframe.Data.Substring(8));
+            
+
+            return string.Format("\n ICD major version [{0}]\n ICD minor version [{1}]\n Unit major version [{2}]\n Unit minor version [{3}]" +
+    "\n Version date time  [{4}]\n ",
+    ICDMajor, ICDMinor, UnitMajorNumber, UnitMinorNumber, VersionDateTime);
+            //int VersionDay = int.Parse(i_Parsedframe.Data.Substring(8, 2), System.Globalization.NumberStyles.HexNumber);
+            //int VersionMonth = int.Parse(i_Parsedframe.Data.Substring(10, 2), System.Globalization.NumberStyles.HexNumber);
+            //int VersionYear = int.Parse(i_Parsedframe.Data.Substring(14, 2) + i_Parsedframe.Data.Substring(12, 2), System.Globalization.NumberStyles.HexNumber);  //Gil: because it is little endian so I need to reverse the bytes
+            //return String.Format("\n ICD major version [{0}]\n ICD minor version [{1}]\n Unit major version [{2}]\n Unit minor version [{3}]" +
+            //    "\n Version day  [{4}]\n Version month [{5}]\n Version year [{6}]\n",
+            //    ICDMajor, ICDMinor ,UnitMajorNumber, UnitMinorNumber, VersionDay, VersionMonth, VersionYear);
         }
         static public string ParseKratosFrame(KratosProtocolFrame i_Parsedframe)
         {
@@ -283,6 +331,31 @@ namespace Monitor
 
                     case "2100":
                         ret = GetTxAD936X(i_Parsedframe);
+
+                        break;
+
+                    case "2600":
+                        ret = DoSync(i_Parsedframe);
+
+                        break;
+
+                    case "2800":
+                        ret = SetSytemState(i_Parsedframe);
+
+                        break;
+
+                    case "2900":
+                        ret = GetSytemState(i_Parsedframe);
+
+                        break;
+
+                    case "2A00":
+                        ret = SetOutputPower(i_Parsedframe);
+
+                        break;
+
+                    case "2B00":
+                        ret = GetOutputPower(i_Parsedframe);
 
                         break;
                 }

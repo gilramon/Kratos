@@ -12,6 +12,7 @@ namespace Monitor
         public string Preamble;
         public string Opcode;
         public string Data;
+        public string DataLength;
     }
 
     class Kratos_Protocol
@@ -105,8 +106,10 @@ namespace Monitor
 
                     Ret.Opcode = ByteArrayToString(i_IncomingBytes.Skip(2).Take(2).ToArray());
 
-                    Ret.Data = ByteArrayToString(i_IncomingBytes.Skip(8).Take((int)FrameDataLength).ToArray()); 
+                    Ret.Data = ByteArrayToString(i_IncomingBytes.Skip(8).Take((int)FrameDataLength).ToArray());
 
+                    Ret.DataLength = FrameDataLength.ToString();
+                    
                     return Ret;
 
 
