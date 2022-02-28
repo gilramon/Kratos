@@ -47,10 +47,79 @@ namespace Monitor
             return 0;
         }
 
+        static byte[] StringToByteArray(string hex)
+        {
+            try
+            {
+                return Enumerable.Range(0, hex.Length)
+                                 .Where(x => x % 2 == 0)
+                                 .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                                 .ToArray();
 
-        static string GetOutputPower(KratosProtocolFrame i_Parsedframe)
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+
+        static string TxGetRFPLLlockDetect(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n Tx Get RF PLL lock Detect [{0}]  \n", i_Parsedframe.Data);
+        }
+        static string RxGetRFPLLlockDetect(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n Rx Get RF PLL lock Detect [{0}]  \n", i_Parsedframe.Data);
+        }
+        static string GetDCA(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n DCA [{0}] dBm \n", ConvertFloat(i_Parsedframe.Data));
+        }
+
+        static string SetDCA(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n DCA has been set \n");
+        }
+        static string GetRXChannelGain(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n Rx channel Gain [{0}] \n", i_Parsedframe.Data);
+        }
+        static string SetRXChannelGain(KratosProtocolFrame i_Parsedframe)
+        {
+            byte[] DataBytes = StringToByteArray(i_Parsedframe.Data);
+            return String.Format("\n RX Channel Gain has been set\n");
+        }
+        static string LoadDataInFlash(KratosProtocolFrame i_Parsedframe)
+        {
+            byte[] DataBytes = StringToByteArray(i_Parsedframe.Data);
+            return String.Format("\n Loaded Data: [{0}]  Data Length: [{1}] Bytes\n", i_Parsedframe.Data, DataBytes.Length);
+        }
+        static string StoreDataInFlash(KratosProtocolFrame i_Parsedframe)
         {
 
+            return String.Format("\n Data stored in the flash \n");
+        }
+        static string Write_FPGA_Data(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n FPGA value have been set \n");
+        }
+
+        static string Read_FPGA_Data(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n FPGA value [{0}] \n", i_Parsedframe.Data);
+        }
+        static string SetTXCO_ON_OFF(KratosProtocolFrame i_Parsedframe)
+        {
+
+
+            return String.Format("\n TCXO have been set \n");
+        }
+        static string GetOutputPower(KratosProtocolFrame i_Parsedframe)
+        {
 
             return String.Format("\n Output Power [{0}] dBm \n", ConvertFloat(i_Parsedframe.Data));
         }
@@ -349,6 +418,46 @@ namespace Monitor
 
                         break;
 
+                    case "3000":
+                        ret = StoreDataInFlash(i_Parsedframe);
+
+                        break;
+
+                    case "3100":
+                        ret = LoadDataInFlash(i_Parsedframe);
+
+                        break;
+
+                    case "5600":
+                        ret = SetRXChannelGain(i_Parsedframe);
+
+                        break;
+
+                    case "5700":
+                        ret = GetRXChannelGain(i_Parsedframe);
+
+                        break;
+
+                    case "5800":
+                        ret = SetDCA(i_Parsedframe);
+
+                        break;
+
+                    case "5900":
+                        ret = GetDCA(i_Parsedframe);
+
+                        break;
+
+                    case "5C00":
+                        ret = RxGetRFPLLlockDetect(i_Parsedframe);
+
+                        break;
+
+                    case "5D00":
+                        ret = TxGetRFPLLlockDetect(i_Parsedframe);
+
+                        break;
+
                     case "2A00":
                         ret = SetOutputPower(i_Parsedframe);
 
@@ -356,6 +465,26 @@ namespace Monitor
 
                     case "2B00":
                         ret = GetOutputPower(i_Parsedframe);
+
+                        break;
+
+                    case "2E00":
+                        ret = SetTXCO_ON_OFF(i_Parsedframe);
+
+                        break;
+
+                    case "2F00":
+                        ret = SetTXCO_ON_OFF(i_Parsedframe);
+
+                        break;
+
+                    case "7000":
+                        ret = Read_FPGA_Data(i_Parsedframe);
+
+                        break;
+
+                    case "7100":
+                        ret = Write_FPGA_Data(i_Parsedframe);
 
                         break;
                 }
