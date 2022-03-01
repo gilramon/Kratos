@@ -64,7 +64,37 @@ namespace Monitor
             }
         }
 
+        static string SetRxChannelStateCal(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n RX channel state RX/CAL have been set \n");
+        }
+        static string RecordIQDaraSelectSource(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n Record IQ data source selected \n");
+        }
+        static string RecordIQData(KratosProtocolFrame i_Parsedframe)
+        {
+            byte[] DataBytes = StringToByteArray(i_Parsedframe.Data);
+            return String.Format("\n IQ samples Data: [{0}]  Data Length: [{1}] Bytes\n", i_Parsedframe.Data, DataBytes.Length);
+        }
+        static string SetGPIOValue(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n GPIO value have been set \n");
+        }
 
+        static string GetGPIOValue(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n GPIO Value  [{0}]  \n", i_Parsedframe.Data);
+        }
+        static string SetGPIODirection(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n GPIO direction have been set \n");
+        }
+
+        static string GetGPIODirection(KratosProtocolFrame i_Parsedframe)
+        {
+            return String.Format("\n GPIO direction  [{0}]  \n", i_Parsedframe.Data);
+        }
         static string TxGetRFPLLlockDetect(KratosProtocolFrame i_Parsedframe)
         {
             return String.Format("\n Tx Get RF PLL lock Detect [{0}]  \n", i_Parsedframe.Data);
@@ -485,6 +515,41 @@ namespace Monitor
 
                     case "7100":
                         ret = Write_FPGA_Data(i_Parsedframe);
+
+                        break;
+
+                    case "7400":
+                        ret = SetGPIODirection(i_Parsedframe);
+
+                        break;
+
+                    case "7500":
+                        ret = GetGPIODirection(i_Parsedframe);
+
+                        break;
+
+                    case "7600":
+                        ret = SetGPIOValue(i_Parsedframe);
+
+                        break;
+
+                    case "7700":
+                        ret = GetGPIOValue(i_Parsedframe);
+
+                        break;
+
+                    case "8000":
+                        ret = RecordIQData(i_Parsedframe);
+
+                        break;
+
+                    case "8100":
+                        ret = RecordIQDaraSelectSource(i_Parsedframe);
+
+                        break;
+
+                    case "8700":
+                        ret = SetRxChannelStateCal(i_Parsedframe);
 
                         break;
                 }
