@@ -64,6 +64,14 @@ namespace Monitor
             }
         }
 
+
+        
+        static string GetUbloxData(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n Ublox data: [{0}] \n", ConvertHex(i_Parsedframe.Data));
+        }
+
         static string SetRxChannelStateCal(KratosProtocolFrame i_Parsedframe)
         {
             return String.Format("\n RX channel state RX/CAL have been set \n");
@@ -550,6 +558,11 @@ namespace Monitor
 
                     case "8700":
                         ret = SetRxChannelStateCal(i_Parsedframe);
+
+                        break;
+
+                    case "D000":
+                        ret = GetUbloxData(i_Parsedframe);
 
                         break;
                 }

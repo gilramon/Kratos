@@ -474,6 +474,7 @@ namespace SocketServer
         private TextBox textBox_SetRxChannelState;
         private Button button85;
         private TabPage tabPage8;
+        private Button button86;
         static readonly string MINIADA_HEADER = "53 00";
         //bool m_Exit = false;
 
@@ -599,11 +600,11 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
@@ -1031,6 +1032,7 @@ namespace SocketServer
             this.label12 = new System.Windows.Forms.Label();
             this.label_ClientTCPConnected = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.button86 = new System.Windows.Forms.Button();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl_Main.SuspendLayout();
@@ -2181,32 +2183,32 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(194, 2);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.Legend = "Legend1";
-            series1.Name = "Data 1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series2.Legend = "Legend1";
-            series2.Name = "Data 2";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series3.Legend = "Legend1";
-            series3.Name = "Data 3";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series7.Legend = "Legend1";
+            series7.Name = "Data 1";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series8.Legend = "Legend1";
+            series8.Name = "Data 2";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series9.Legend = "Legend1";
+            series9.Name = "Data 3";
+            this.chart1.Series.Add(series7);
+            this.chart1.Series.Add(series8);
+            this.chart1.Series.Add(series9);
             this.chart1.Size = new System.Drawing.Size(1350, 665);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2963,9 +2965,9 @@ namespace SocketServer
             this.tabPage_ClientTCP.Controls.Add(this.textBox_ClientIP);
             this.tabPage_ClientTCP.Controls.Add(this.label8);
             this.tabPage_ClientTCP.Controls.Add(this.label7);
-            this.tabPage_ClientTCP.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_ClientTCP.Location = new System.Drawing.Point(4, 27);
             this.tabPage_ClientTCP.Name = "tabPage_ClientTCP";
-            this.tabPage_ClientTCP.Size = new System.Drawing.Size(1547, 687);
+            this.tabPage_ClientTCP.Size = new System.Drawing.Size(1547, 682);
             this.tabPage_ClientTCP.TabIndex = 9;
             this.tabPage_ClientTCP.Text = "Client TCP";
             this.tabPage_ClientTCP.UseVisualStyleBackColor = true;
@@ -3352,9 +3354,9 @@ namespace SocketServer
             // 
             this.tabPage_MiniAda.Controls.Add(this.groupBox40);
             this.tabPage_MiniAda.Controls.Add(this.groupBox32);
-            this.tabPage_MiniAda.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_MiniAda.Location = new System.Drawing.Point(4, 27);
             this.tabPage_MiniAda.Name = "tabPage_MiniAda";
-            this.tabPage_MiniAda.Size = new System.Drawing.Size(1547, 687);
+            this.tabPage_MiniAda.Size = new System.Drawing.Size(1547, 682);
             this.tabPage_MiniAda.TabIndex = 11;
             this.tabPage_MiniAda.Text = "MiniAda";
             this.tabPage_MiniAda.UseVisualStyleBackColor = true;
@@ -3585,6 +3587,7 @@ namespace SocketServer
             this.textBox_LogLevel.Name = "textBox_LogLevel";
             this.textBox_LogLevel.Size = new System.Drawing.Size(27, 26);
             this.textBox_LogLevel.TabIndex = 14;
+            this.textBox_LogLevel.Text = "7";
             this.textBox_LogLevel.TextChanged += new System.EventHandler(this.textBox_LogLevel_TextChanged);
             // 
             // button49
@@ -3640,9 +3643,9 @@ namespace SocketServer
             this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.textBox_SetSynthesizerL1);
             this.tabPage2.Controls.Add(this.button59);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(949, 609);
+            this.tabPage2.Size = new System.Drawing.Size(949, 604);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Master";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -3999,9 +4002,9 @@ namespace SocketServer
             this.tabPage6.Controls.Add(this.button76);
             this.tabPage6.Controls.Add(this.textBox_SetRXChannelGain);
             this.tabPage6.Controls.Add(this.button77);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Location = new System.Drawing.Point(4, 27);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(949, 609);
+            this.tabPage6.Size = new System.Drawing.Size(949, 604);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "RF";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -4128,6 +4131,7 @@ namespace SocketServer
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button86);
             this.tabPage3.Controls.Add(this.textBox_GetGPIOVal);
             this.tabPage3.Controls.Add(this.button82);
             this.tabPage3.Controls.Add(this.textBox_SetGPIOVal);
@@ -4142,9 +4146,9 @@ namespace SocketServer
             this.tabPage3.Controls.Add(this.label30);
             this.tabPage3.Controls.Add(this.textBox_ReadFPGARegister);
             this.tabPage3.Controls.Add(this.button71);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(949, 609);
+            this.tabPage3.Size = new System.Drawing.Size(949, 604);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Debug";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -4307,9 +4311,9 @@ namespace SocketServer
             this.tabPage7.Controls.Add(this.label32);
             this.tabPage7.Controls.Add(this.textBox_RecordIQData);
             this.tabPage7.Controls.Add(this.button_RecordIQData);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Location = new System.Drawing.Point(4, 27);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(949, 609);
+            this.tabPage7.Size = new System.Drawing.Size(949, 604);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Recording";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -5844,6 +5848,16 @@ namespace SocketServer
             this.label14.Size = new System.Drawing.Size(23, 18);
             this.label14.TabIndex = 108;
             this.label14.Text = "Rx";
+            // 
+            // button86
+            // 
+            this.button86.Location = new System.Drawing.Point(3, 246);
+            this.button86.Name = "button86";
+            this.button86.Size = new System.Drawing.Size(244, 23);
+            this.button86.TabIndex = 49;
+            this.button86.Text = "Get UBLOX data";
+            this.button86.UseVisualStyleBackColor = true;
+            this.button86.Click += new System.EventHandler(this.button86_Click);
             // 
             // MainForm
             // 
@@ -12862,7 +12876,7 @@ namespace SocketServer
             Int32.TryParse(textBox_LogLevel.Text, out LogLevel);
 
 
-            if (LogLevel >=0 && LogLevel <=7)
+            if (LogLevel >=0 && LogLevel <=7 && LogLevel >= 0)
             {
                 textBox_LogLevel.BackColor = Color.LightGreen;
             }
@@ -13825,7 +13839,14 @@ RX frame: 	0x004D 0x005C 0x00000001 + RX Data + checksum
             
         }
 
+        private void button86_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "D0 00";
+            textBox_data.Text = textBox_GetGPIOVal.Text;
 
+            SendDataToSystem();
+        }
 
         private void ComboBox_SerialPortHistory_SelectedIndexChanged(object sender, EventArgs e)
         {
