@@ -409,7 +409,7 @@ namespace SocketServer
         private Label label24;
         private GroupBox groupBox3;
         private CheckBox checkBox_StopLogging;
-        private RichTextBox txtGeneral;
+        private RichTextBox TextBox_Server;
         private CheckBox checkBox_RecordGeneral;
         private CheckBox PauseCheck;
         private Button Clear_btn;
@@ -474,6 +474,9 @@ namespace SocketServer
         private TextBox textBox_SetRxChannelState;
         private Button button85;
         private TabPage tabPage8;
+        private CheckBox checkBox_ServerRecord;
+        private CheckBox checkBox_ServerPause;
+        private TabPage tabPage9;
         private Button button86;
         static readonly string MINIADA_HEADER = "53 00";
         //bool m_Exit = false;
@@ -600,11 +603,11 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
@@ -756,7 +759,7 @@ namespace SocketServer
             this.textBox_ConnectionTimedOut = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkBox_StopLogging = new System.Windows.Forms.CheckBox();
-            this.txtGeneral = new System.Windows.Forms.RichTextBox();
+            this.TextBox_Server = new System.Windows.Forms.RichTextBox();
             this.checkBox_RecordGeneral = new System.Windows.Forms.CheckBox();
             this.PauseCheck = new System.Windows.Forms.CheckBox();
             this.Clear_btn = new System.Windows.Forms.Button();
@@ -1032,6 +1035,9 @@ namespace SocketServer
             this.label12 = new System.Windows.Forms.Label();
             this.label_ClientTCPConnected = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.checkBox_ServerPause = new System.Windows.Forms.CheckBox();
+            this.checkBox_ServerRecord = new System.Windows.Forms.CheckBox();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
             this.button86 = new System.Windows.Forms.Button();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1105,6 +1111,7 @@ namespace SocketServer
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox_ClentTCPStatus.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_ServerSettings
@@ -2183,32 +2190,32 @@ namespace SocketServer
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
+            legend7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend7.IsTextAutoFit = false;
+            legend7.Name = "Legend1";
+            this.chart1.Legends.Add(legend7);
             this.chart1.Location = new System.Drawing.Point(194, 2);
             this.chart1.Name = "chart1";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series7.Legend = "Legend1";
-            series7.Name = "Data 1";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series8.Legend = "Legend1";
-            series8.Name = "Data 2";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series9.Legend = "Legend1";
-            series9.Name = "Data 3";
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
-            this.chart1.Series.Add(series9);
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series19.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series19.Legend = "Legend1";
+            series19.Name = "Data 1";
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series20.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series20.Legend = "Legend1";
+            series20.Name = "Data 2";
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series21.Font = new System.Drawing.Font("Calibri", 14.25F);
+            series21.Legend = "Legend1";
+            series21.Name = "Data 3";
+            this.chart1.Series.Add(series19);
+            this.chart1.Series.Add(series20);
+            this.chart1.Series.Add(series21);
             this.chart1.Size = new System.Drawing.Size(1350, 665);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2218,10 +2225,10 @@ namespace SocketServer
             this.tabPage_SerialPort.Controls.Add(this.groupBox_SendSerialOrMonitorCommands);
             this.tabPage_SerialPort.Controls.Add(this.gbPortSettings);
             this.tabPage_SerialPort.Controls.Add(this.groupBox5);
-            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 27);
             this.tabPage_SerialPort.Name = "tabPage_SerialPort";
             this.tabPage_SerialPort.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 687);
+            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 682);
             this.tabPage_SerialPort.TabIndex = 1;
             this.tabPage_SerialPort.Text = "Serial Port";
             this.tabPage_SerialPort.UseVisualStyleBackColor = true;
@@ -2679,7 +2686,6 @@ namespace SocketServer
             // 
             // tabPage_ServerTCP
             // 
-            this.tabPage_ServerTCP.Controls.Add(this.button_ClearServer);
             this.tabPage_ServerTCP.Controls.Add(this.checkBox_ParseMessages);
             this.tabPage_ServerTCP.Controls.Add(this.textBox_IDKey);
             this.tabPage_ServerTCP.Controls.Add(this.groupBox_FOTA);
@@ -2688,17 +2694,17 @@ namespace SocketServer
             this.tabPage_ServerTCP.Controls.Add(this.groupBox_ConnectionTimedOut);
             this.tabPage_ServerTCP.Controls.Add(this.groupBox2);
             this.tabPage_ServerTCP.Controls.Add(this.groupBox3);
-            this.tabPage_ServerTCP.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_ServerTCP.Location = new System.Drawing.Point(4, 27);
             this.tabPage_ServerTCP.Name = "tabPage_ServerTCP";
             this.tabPage_ServerTCP.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_ServerTCP.Size = new System.Drawing.Size(1547, 687);
+            this.tabPage_ServerTCP.Size = new System.Drawing.Size(1547, 682);
             this.tabPage_ServerTCP.TabIndex = 0;
             this.tabPage_ServerTCP.Text = "Server TCP";
             this.tabPage_ServerTCP.UseVisualStyleBackColor = true;
             // 
             // button_ClearServer
             // 
-            this.button_ClearServer.Location = new System.Drawing.Point(282, 653);
+            this.button_ClearServer.Location = new System.Drawing.Point(6, 578);
             this.button_ClearServer.Name = "button_ClearServer";
             this.button_ClearServer.Size = new System.Drawing.Size(75, 23);
             this.button_ClearServer.TabIndex = 104;
@@ -2878,15 +2884,18 @@ namespace SocketServer
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBox_ServerRecord);
+            this.groupBox3.Controls.Add(this.checkBox_ServerPause);
+            this.groupBox3.Controls.Add(this.button_ClearServer);
             this.groupBox3.Controls.Add(this.checkBox_StopLogging);
-            this.groupBox3.Controls.Add(this.txtGeneral);
+            this.groupBox3.Controls.Add(this.TextBox_Server);
             this.groupBox3.Controls.Add(this.checkBox_RecordGeneral);
             this.groupBox3.Controls.Add(this.PauseCheck);
             this.groupBox3.Controls.Add(this.Clear_btn);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(282, 65);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(936, 580);
+            this.groupBox3.Size = new System.Drawing.Size(936, 611);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Server Console";
@@ -2903,16 +2912,16 @@ namespace SocketServer
             this.checkBox_StopLogging.Text = "Stop Printing";
             this.checkBox_StopLogging.UseVisualStyleBackColor = true;
             // 
-            // txtGeneral
+            // TextBox_Server
             // 
-            this.txtGeneral.BackColor = System.Drawing.Color.LightGray;
-            this.txtGeneral.EnableAutoDragDrop = true;
-            this.txtGeneral.Location = new System.Drawing.Point(7, 20);
-            this.txtGeneral.Name = "txtGeneral";
-            this.txtGeneral.Size = new System.Drawing.Size(923, 552);
-            this.txtGeneral.TabIndex = 0;
-            this.txtGeneral.Text = "";
-            this.txtGeneral.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
+            this.TextBox_Server.BackColor = System.Drawing.Color.LightGray;
+            this.TextBox_Server.EnableAutoDragDrop = true;
+            this.TextBox_Server.Location = new System.Drawing.Point(7, 20);
+            this.TextBox_Server.Name = "TextBox_Server";
+            this.TextBox_Server.Size = new System.Drawing.Size(923, 552);
+            this.TextBox_Server.TabIndex = 0;
+            this.TextBox_Server.Text = "";
+            this.TextBox_Server.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
             // 
             // checkBox_RecordGeneral
             // 
@@ -3379,6 +3388,7 @@ namespace SocketServer
             this.tabControl_MiniAda.Controls.Add(this.tabPage3);
             this.tabControl_MiniAda.Controls.Add(this.tabPage7);
             this.tabControl_MiniAda.Controls.Add(this.tabPage8);
+            this.tabControl_MiniAda.Controls.Add(this.tabPage9);
             this.tabControl_MiniAda.Location = new System.Drawing.Point(6, 23);
             this.tabControl_MiniAda.Name = "tabControl_MiniAda";
             this.tabControl_MiniAda.SelectedIndex = 0;
@@ -4131,7 +4141,6 @@ namespace SocketServer
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button86);
             this.tabPage3.Controls.Add(this.textBox_GetGPIOVal);
             this.tabPage3.Controls.Add(this.button82);
             this.tabPage3.Controls.Add(this.textBox_SetGPIOVal);
@@ -4416,9 +4425,9 @@ namespace SocketServer
             // 
             // tabPage8
             // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Location = new System.Drawing.Point(4, 27);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(949, 609);
+            this.tabPage8.Size = new System.Drawing.Size(949, 604);
             this.tabPage8.TabIndex = 5;
             this.tabPage8.Text = "Transmit";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -5849,12 +5858,46 @@ namespace SocketServer
             this.label14.TabIndex = 108;
             this.label14.Text = "Rx";
             // 
+            // checkBox_ServerPause
+            // 
+            this.checkBox_ServerPause.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox_ServerPause.AutoSize = true;
+            this.checkBox_ServerPause.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_ServerPause.Location = new System.Drawing.Point(88, 578);
+            this.checkBox_ServerPause.Name = "checkBox_ServerPause";
+            this.checkBox_ServerPause.Size = new System.Drawing.Size(58, 29);
+            this.checkBox_ServerPause.TabIndex = 107;
+            this.checkBox_ServerPause.Text = "Pause";
+            this.checkBox_ServerPause.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_ServerRecord
+            // 
+            this.checkBox_ServerRecord.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox_ServerRecord.AutoSize = true;
+            this.checkBox_ServerRecord.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_ServerRecord.Location = new System.Drawing.Point(152, 578);
+            this.checkBox_ServerRecord.Name = "checkBox_ServerRecord";
+            this.checkBox_ServerRecord.Size = new System.Drawing.Size(64, 29);
+            this.checkBox_ServerRecord.TabIndex = 108;
+            this.checkBox_ServerRecord.Text = "Record";
+            this.checkBox_ServerRecord.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.button86);
+            this.tabPage9.Location = new System.Drawing.Point(4, 27);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(949, 604);
+            this.tabPage9.TabIndex = 6;
+            this.tabPage9.Text = "Extendend";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
             // button86
             // 
-            this.button86.Location = new System.Drawing.Point(3, 246);
+            this.button86.Location = new System.Drawing.Point(7, 8);
             this.button86.Name = "button86";
             this.button86.Size = new System.Drawing.Size(244, 23);
-            this.button86.TabIndex = 49;
+            this.button86.TabIndex = 50;
             this.button86.Text = "Get UBLOX data";
             this.button86.UseVisualStyleBackColor = true;
             this.button86.Click += new System.EventHandler(this.button86_Click);
@@ -6002,6 +6045,7 @@ namespace SocketServer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox_ClentTCPStatus.ResumeLayout(false);
             this.groupBox_ClentTCPStatus.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -7437,7 +7481,7 @@ namespace SocketServer
                 //pictureBox_logo.BringToFront();
 
                 //Gil: Generate all the loggers
-                ServerLogger = new TextBox_Logger("Server", txtGeneral, button_ClearServer, PauseCheck, checkBox_RecordGeneral, null, null, null, checkBox_StopLogging);
+                ServerLogger = new TextBox_Logger("Server", TextBox_Server, button_ClearServer, checkBox_ServerPause, checkBox_ServerRecord, null, null, null, checkBox_StopLogging);
                 SerialPortLogger = new TextBox_Logger("Serial_Port", SerialPortLogger_TextBox, txtS1_Clear, checkBox_S1Pause, checkBox_S1RecordLog, textBox_SerialPortRecognizePattern, textBox_SerialPortRecognizePattern2, textBox_SerialPortRecognizePattern3, null);
                 MiniAdaLogger = new TextBox_Logger("MiniAda", richTextBox_MiniAda, button_ClearMiniAda, checkBox_PauseMiniAda, checkBox_RecordMiniAda, null, null, null, checkBox_StopLogging);
 
@@ -13843,7 +13887,7 @@ RX frame: 	0x004D 0x005C 0x00000001 + RX Data + checksum
         {
             textBox_Preamble.Text = MINIADA_HEADER;
             textBox_Opcode.Text = "D0 00";
-            textBox_data.Text = textBox_GetGPIOVal.Text;
+            textBox_data.Text = "";
 
             SendDataToSystem();
         }
