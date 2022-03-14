@@ -122,6 +122,7 @@
     <Reference Include="System.Drawing">
       <Name>System.Drawing</Name>
     </Reference>
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms">
       <Name>System.Windows.Forms</Name>
@@ -141,8 +142,13 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DSPLib.cs" />
     <Compile Include="Kratos_Protocol.cs" />
     <Compile Include="MiniAda_Parser.cs" />
+    <Compile Include="Plot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plot.designer.cs" />
     <Compile Include="TextBox_Logger.cs" />
     <Compile Include="PhoneBook.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
