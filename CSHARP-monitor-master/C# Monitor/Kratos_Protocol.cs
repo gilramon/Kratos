@@ -13,6 +13,13 @@ namespace Monitor
         public string Opcode;
         public string Data;
         public string DataLength;
+        public string CheckSum;
+
+        public override string ToString()
+        {
+            return String.Format("Preamble: [{0}] Opcode: [{1}] Data : [{2}] Data length: [{3}] CheckSum: [{4}]",
+                Preamble, Opcode, Data, DataLength, CheckSum);
+        }
     }
 
     class Kratos_Protocol
@@ -109,7 +116,8 @@ namespace Monitor
                     Ret.Data = ByteArrayToString(i_IncomingBytes.Skip(8).Take((int)FrameDataLength).ToArray());
 
                     Ret.DataLength = FrameDataLength.ToString();
-                    
+
+                    Ret.CheckSum = CheckSumSent.ToString("X4");
                     return Ret;
 
 
@@ -121,11 +129,13 @@ namespace Monitor
                 }
 
             }
-            catch
+            catch(Exception ex)
             {
-                //MessageBox.Show(ex.Message);
-                return null;
+                throw new Exception(ex.Message);
+                
             }
+
+            
         }
 
     }

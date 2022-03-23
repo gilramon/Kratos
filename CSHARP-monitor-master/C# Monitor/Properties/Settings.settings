@@ -81,5 +81,8 @@
   &lt;string&gt;;&amp;lt;1234&amp;gt;STAT?,;&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="RegisterCommands" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

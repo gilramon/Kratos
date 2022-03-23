@@ -19,6 +19,9 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Net.NetworkInformation;
 using System.Globalization;
+using DSPLib;
+using System.Numerics;
+using PlotWrapper;
 
 namespace SocketServer
 {
@@ -176,9 +179,9 @@ namespace SocketServer
         private TextBox textBox_NumberOfOpenConnections;
         private System.Windows.Forms.Timer timer_General_1Second;
         private GroupBox gbPortSettings;
-        private ComboBox cmbPortName;
+        private ComboBox cmb_PortName;
         private ComboBox cmbBaudRate;
-        private ComboBox cmbStopBits;
+        private ComboBox cmb_StopBits;
         private ComboBox cmbParity;
         private ComboBox cmbDataBits;
         private Label lblComPort;
@@ -394,15 +397,11 @@ namespace SocketServer
         private TabPage tabPage2;
         private TextBox textBox_SetSynthesizerL1;
         private Button button59;
-        private Label label19;
-        private Label label20;
         private TextBox textBox_SetSynthesizerL2;
         private Button button60;
-        private Label label21;
         private TextBox textBox_SetTxAD936X;
         private Button button61;
         private Button button62;
-        private Label label22;
         private TextBox textBox_GetTxAD936X;
         private TextBox textBox_RxClientDataLength;
         private Label label23;
@@ -414,19 +413,15 @@ namespace SocketServer
         private CheckBox PauseCheck;
         private Button Clear_btn;
         private Button button63;
-        private Label label25;
         private TextBox textBox_SetSyestemState;
         private Button button64;
         private Button button65;
-        private Label label26;
         private TextBox textBox_SetSystemOutputPower;
         private Button button66;
         private Button button67;
         private Button button68;
-        private Label label27;
         private TextBox textBox_TCXOOnOff;
         private TextBox textBox_ServerActive;
-        private Label label28;
         private TextBox textBox_SetTCXOTrim;
         private Button button69;
         private TabPage tabPage3;
@@ -437,10 +432,6 @@ namespace SocketServer
         private TextBox textBox_ReadFPGARegister;
         private Button button71;
         private Button button_Ping;
-        private TextBox textBox_LoadDatainFlash;
-        private Button button73;
-        private TextBox textBox_StoreDatainFlash;
-        private Button button72;
         private TabPage tabPage6;
         private Button button79;
         private Button button78;
@@ -466,7 +457,6 @@ namespace SocketServer
         private TabPage tabPage7;
         private TextBox textBox_RecordIQData;
         private Button button_RecordIQData;
-        private Label label32;
         private Label label33;
         private TextBox textBox_RecordIQSourceSealect;
         private Button button84;
@@ -478,6 +468,99 @@ namespace SocketServer
         private CheckBox checkBox_ServerPause;
         private TabPage tabPage9;
         private Button button86;
+        private TextBox textBox_ReadQSPIFlashData;
+        private Button button87;
+        private TextBox textBox_WriteQSPIFlashData;
+        private Button button88;
+        private TextBox textBox_Erase4KsectorQSPI;
+        private Button button89;
+        private TextBox textBox_GetInternalLOFreq;
+        private TextBox textBox_SetInternalLOFreq;
+        private Button button90;
+        private Button button91;
+        private Label label36;
+        private TextBox textBox_RetriveIQData;
+        private Button button92;
+        private TextBox textBox_PlayIQData;
+        private Button button93;
+        private TextBox textBox_MinXAxis;
+        private TextBox textBox_MaxXAxis;
+        private Label label37;
+        private Button button_FFTPlot;
+        private Button button97;
+        private ComboBox comboBox_WindowsDSPLib;
+        private Label label32;
+        private TextBox TextBoxFsSamplingRate;
+        private Label label38;
+        private Button button_DFTPlot;
+        private TextBox TextBox_Zeropadding;
+        private Label label39;
+        private Button button99;
+        private Label label40;
+        private TextBox textBox_RecordIQDataNumbers;
+        private GroupBox groupBox41;
+        private TextBox textBox_SentChecksum;
+        private Label label48;
+        private Label label42;
+        private TextBox textBox_SentDataLength;
+        private Label label43;
+        private Label label44;
+        private Label label45;
+        private TextBox textBox_SentPreamble;
+        private TextBox textBox_SentOpcode;
+        private TextBox textBox_SentData;
+        private Label label46;
+        private Label label47;
+        private TextBox textBox_RxClientCheckSum;
+        private Label label41;
+        private TextBox textBox_SetRxChannelGainNumber;
+        private Label label19;
+        private TextBox textBox_SetInternalLOFreqNumber;
+        private TabPage tabPage14;
+        private GroupBox groupBox_FlashConfig;
+        private RichTextBox textBox_FilesToWriteForTheCatalinas;
+        private Button button_WriteCatalinas;
+        private TextBox textBox_EraseDataFromFlash;
+        private Button button_EraseFlash;
+        private TextBox textBox_LoadDatainFlash;
+        private Button button98;
+        private TextBox textBox_StoreDatainFlash;
+        private Button button_StoreDatainFlash;
+        private Label label21;
+        private Label label20;
+        private ComboBox comboBox1;
+        private RichTextBox richTextBox_SyntisazerL2;
+        private RichTextBox richTextBox_SyntisazerL1;
+        private ComboBox comboBox_SystemType;
+        private Label label22;
+        private Button button_WriteAllToFlash;
+        private Button button_SynthL1;
+        private Button button_WriteSystemType;
+        private Button button_SynthL2;
+        private ProgressBar progressBar_WriteToFlash;
+        private RichTextBox richTextBox_RegisterCommands;
+        private TextBox textBox_RecordingTests;
+        private Button button72;
+        private TabPage tabPage13;
+        private TextBox textBox_GetMonitoredData;
+        private Button button73;
+        private Button button94;
+        private Button button95;
+        private Button button96;
+        private Button button100;
+        private TextBox textBox_SetAlarmSimulatorBlock;
+        private Button button101;
+        private TextBox textBox_MonitorTask;
+        private Button button102;
+        private TextBox textBox_SetLOFreq;
+        private Button button103;
+        private TextBox textBox_SetLOFreqStep;
+        private Button button104;
+        private TextBox textBox_GetLOStateFreqMode;
+        private Button button105;
+        private Button button106;
+        private Button button107;
+        private TextBox textBox_SelectLOSource;
         static readonly string MINIADA_HEADER = "53 00";
         //bool m_Exit = false;
 
@@ -603,12 +686,9 @@ namespace SocketServer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.groupBox_ServerSettings = new System.Windows.Forms.GroupBox();
             this.textBox_ServerOpen = new System.Windows.Forms.TextBox();
             this.textBox_ServerActive = new System.Windows.Forms.TextBox();
@@ -690,17 +770,6 @@ namespace SocketServer
             this.button31 = new System.Windows.Forms.Button();
             this.textBox_SourceConfig = new System.Windows.Forms.RichTextBox();
             this.button30 = new System.Windows.Forms.Button();
-            this.tabPage_charts = new System.Windows.Forms.TabPage();
-            this.comboBox_ChartUpdateTime = new System.Windows.Forms.ComboBox();
-            this.button28 = new System.Windows.Forms.Button();
-            this.listBox_Charts = new System.Windows.Forms.ListBox();
-            this.button_OpenFolder2 = new System.Windows.Forms.Button();
-            this.button_GraphPause = new System.Windows.Forms.Button();
-            this.Button_Export_excel = new System.Windows.Forms.Button();
-            this.button_ResetGraphs = new System.Windows.Forms.Button();
-            this.textBox_graph_XY = new System.Windows.Forms.TextBox();
-            this.button_ScreenShot = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage_SerialPort = new System.Windows.Forms.TabPage();
             this.groupBox_SendSerialOrMonitorCommands = new System.Windows.Forms.GroupBox();
             this.checkBox_SendHexdata = new System.Windows.Forms.CheckBox();
@@ -710,9 +779,9 @@ namespace SocketServer
             this.gbPortSettings = new System.Windows.Forms.GroupBox();
             this.button_OpenPort = new System.Windows.Forms.Button();
             this.button_ReScanComPort = new System.Windows.Forms.Button();
-            this.cmbPortName = new System.Windows.Forms.ComboBox();
+            this.cmb_PortName = new System.Windows.Forms.ComboBox();
             this.cmbBaudRate = new System.Windows.Forms.ComboBox();
-            this.cmbStopBits = new System.Windows.Forms.ComboBox();
+            this.cmb_StopBits = new System.Windows.Forms.ComboBox();
             this.cmbParity = new System.Windows.Forms.ComboBox();
             this.cmbDataBits = new System.Windows.Forms.ComboBox();
             this.lblComPort = new System.Windows.Forms.Label();
@@ -740,7 +809,6 @@ namespace SocketServer
             this.txtS1_Clear = new System.Windows.Forms.Button();
             this.SerialPortLogger_TextBox = new System.Windows.Forms.RichTextBox();
             this.tabPage_ServerTCP = new System.Windows.Forms.TabPage();
-            this.button_ClearServer = new System.Windows.Forms.Button();
             this.checkBox_ParseMessages = new System.Windows.Forms.CheckBox();
             this.textBox_IDKey = new System.Windows.Forms.RichTextBox();
             this.groupBox_FOTA = new System.Windows.Forms.GroupBox();
@@ -758,6 +826,9 @@ namespace SocketServer
             this.button_SetTimedOut = new System.Windows.Forms.Button();
             this.textBox_ConnectionTimedOut = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBox_ServerRecord = new System.Windows.Forms.CheckBox();
+            this.checkBox_ServerPause = new System.Windows.Forms.CheckBox();
+            this.button_ClearServer = new System.Windows.Forms.Button();
             this.checkBox_StopLogging = new System.Windows.Forms.CheckBox();
             this.TextBox_Server = new System.Windows.Forms.RichTextBox();
             this.checkBox_RecordGeneral = new System.Windows.Forms.CheckBox();
@@ -781,7 +852,9 @@ namespace SocketServer
             this.tabPage_GenericFrame = new System.Windows.Forms.TabPage();
             this.button52 = new System.Windows.Forms.Button();
             this.groupBox31 = new System.Windows.Forms.GroupBox();
+            this.textBox_RxClientCheckSum = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             this.textBox_RxClientDataLength = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -792,6 +865,19 @@ namespace SocketServer
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox_clientTX = new System.Windows.Forms.GroupBox();
+            this.groupBox41 = new System.Windows.Forms.GroupBox();
+            this.textBox_SentChecksum = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.textBox_SentDataLength = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.textBox_SentPreamble = new System.Windows.Forms.TextBox();
+            this.textBox_SentOpcode = new System.Windows.Forms.TextBox();
+            this.textBox_SentData = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox_Preamble = new System.Windows.Forms.TextBox();
@@ -825,38 +911,40 @@ namespace SocketServer
             this.button49 = new System.Windows.Forms.Button();
             this.button48 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox_LoadDatainFlash = new System.Windows.Forms.TextBox();
-            this.button73 = new System.Windows.Forms.Button();
-            this.textBox_StoreDatainFlash = new System.Windows.Forms.TextBox();
-            this.button72 = new System.Windows.Forms.Button();
-            this.label28 = new System.Windows.Forms.Label();
+            this.textBox_Erase4KsectorQSPI = new System.Windows.Forms.TextBox();
+            this.button89 = new System.Windows.Forms.Button();
+            this.textBox_ReadQSPIFlashData = new System.Windows.Forms.TextBox();
+            this.button87 = new System.Windows.Forms.Button();
+            this.textBox_WriteQSPIFlashData = new System.Windows.Forms.TextBox();
+            this.button88 = new System.Windows.Forms.Button();
             this.textBox_SetTCXOTrim = new System.Windows.Forms.TextBox();
             this.button69 = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
             this.textBox_TCXOOnOff = new System.Windows.Forms.TextBox();
             this.button68 = new System.Windows.Forms.Button();
             this.button67 = new System.Windows.Forms.Button();
-            this.label26 = new System.Windows.Forms.Label();
             this.textBox_SetSystemOutputPower = new System.Windows.Forms.TextBox();
             this.button66 = new System.Windows.Forms.Button();
             this.button65 = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
             this.textBox_SetSyestemState = new System.Windows.Forms.TextBox();
             this.button64 = new System.Windows.Forms.Button();
             this.button63 = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
             this.textBox_GetTxAD936X = new System.Windows.Forms.TextBox();
             this.button62 = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
             this.textBox_SetTxAD936X = new System.Windows.Forms.TextBox();
             this.button61 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
             this.textBox_SetSynthesizerL2 = new System.Windows.Forms.TextBox();
             this.button60 = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
             this.textBox_SetSynthesizerL1 = new System.Windows.Forms.TextBox();
             this.button59 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.textBox_SetInternalLOFreqNumber = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox_SetRxChannelGainNumber = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.textBox_GetInternalLOFreq = new System.Windows.Forms.TextBox();
+            this.textBox_SetInternalLOFreq = new System.Windows.Forms.TextBox();
+            this.button90 = new System.Windows.Forms.Button();
+            this.button91 = new System.Windows.Forms.Button();
             this.textBox_SetDCAHex = new System.Windows.Forms.TextBox();
             this.textBox_TxRFPLL = new System.Windows.Forms.TextBox();
             this.textBox_RxRFPLL = new System.Windows.Forms.TextBox();
@@ -870,6 +958,7 @@ namespace SocketServer
             this.textBox_SetRXChannelGain = new System.Windows.Forms.TextBox();
             this.button77 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.richTextBox_RegisterCommands = new System.Windows.Forms.RichTextBox();
             this.textBox_GetGPIOVal = new System.Windows.Forms.TextBox();
             this.button82 = new System.Windows.Forms.Button();
             this.textBox_SetGPIOVal = new System.Windows.Forms.TextBox();
@@ -885,21 +974,73 @@ namespace SocketServer
             this.textBox_ReadFPGARegister = new System.Windows.Forms.TextBox();
             this.button71 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label40 = new System.Windows.Forms.Label();
+            this.textBox_RecordIQDataNumbers = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.TextBox_Zeropadding = new System.Windows.Forms.TextBox();
+            this.button_DFTPlot = new System.Windows.Forms.Button();
+            this.TextBoxFsSamplingRate = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.comboBox_WindowsDSPLib = new System.Windows.Forms.ComboBox();
+            this.button_FFTPlot = new System.Windows.Forms.Button();
+            this.textBox_RetriveIQData = new System.Windows.Forms.TextBox();
+            this.button92 = new System.Windows.Forms.Button();
+            this.textBox_PlayIQData = new System.Windows.Forms.TextBox();
+            this.button93 = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
             this.textBox_SetRxChannelState = new System.Windows.Forms.TextBox();
             this.button85 = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.textBox_RecordIQSourceSealect = new System.Windows.Forms.TextBox();
             this.button84 = new System.Windows.Forms.Button();
-            this.label32 = new System.Windows.Forms.Label();
             this.textBox_RecordIQData = new System.Windows.Forms.TextBox();
             this.button_RecordIQData = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.button86 = new System.Windows.Forms.Button();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.textBox_EraseDataFromFlash = new System.Windows.Forms.TextBox();
+            this.button_EraseFlash = new System.Windows.Forms.Button();
+            this.textBox_LoadDatainFlash = new System.Windows.Forms.TextBox();
+            this.button98 = new System.Windows.Forms.Button();
+            this.textBox_StoreDatainFlash = new System.Windows.Forms.TextBox();
+            this.button_StoreDatainFlash = new System.Windows.Forms.Button();
+            this.groupBox_FlashConfig = new System.Windows.Forms.GroupBox();
+            this.progressBar_WriteToFlash = new System.Windows.Forms.ProgressBar();
+            this.button_SynthL2 = new System.Windows.Forms.Button();
+            this.button_WriteAllToFlash = new System.Windows.Forms.Button();
+            this.button_SynthL1 = new System.Windows.Forms.Button();
+            this.button_WriteSystemType = new System.Windows.Forms.Button();
+            this.comboBox_SystemType = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.richTextBox_SyntisazerL2 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox_SyntisazerL1 = new System.Windows.Forms.RichTextBox();
+            this.textBox_FilesToWriteForTheCatalinas = new System.Windows.Forms.RichTextBox();
+            this.button_WriteCatalinas = new System.Windows.Forms.Button();
             this.groupBox32 = new System.Windows.Forms.GroupBox();
             this.richTextBox_MiniAda = new System.Windows.Forms.RichTextBox();
             this.checkBox_RecordMiniAda = new System.Windows.Forms.CheckBox();
             this.checkBox_PauseMiniAda = new System.Windows.Forms.CheckBox();
             this.button_ClearMiniAda = new System.Windows.Forms.Button();
+            this.tabPage_charts = new System.Windows.Forms.TabPage();
+            this.button99 = new System.Windows.Forms.Button();
+            this.label37 = new System.Windows.Forms.Label();
+            this.textBox_MaxXAxis = new System.Windows.Forms.TextBox();
+            this.textBox_MinXAxis = new System.Windows.Forms.TextBox();
+            this.comboBox_ChartUpdateTime = new System.Windows.Forms.ComboBox();
+            this.button28 = new System.Windows.Forms.Button();
+            this.listBox_Charts = new System.Windows.Forms.ListBox();
+            this.button_OpenFolder2 = new System.Windows.Forms.Button();
+            this.button_GraphPause = new System.Windows.Forms.Button();
+            this.Button_Export_excel = new System.Windows.Forms.Button();
+            this.button_ResetGraphs = new System.Windows.Forms.Button();
+            this.textBox_graph_XY = new System.Windows.Forms.TextBox();
+            this.button_ScreenShot = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button_OpenFolder = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.S1_Configuration = new System.Windows.Forms.GroupBox();
@@ -1028,6 +1169,7 @@ namespace SocketServer
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox_InternalCLIoutput = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button97 = new System.Windows.Forms.Button();
             this.textBox_SystemStatus = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox_ClentTCPStatus = new System.Windows.Forms.GroupBox();
@@ -1035,10 +1177,28 @@ namespace SocketServer
             this.label12 = new System.Windows.Forms.Label();
             this.label_ClientTCPConnected = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.checkBox_ServerPause = new System.Windows.Forms.CheckBox();
-            this.checkBox_ServerRecord = new System.Windows.Forms.CheckBox();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.button86 = new System.Windows.Forms.Button();
+            this.textBox_RecordingTests = new System.Windows.Forms.TextBox();
+            this.button72 = new System.Windows.Forms.Button();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.textBox_GetMonitoredData = new System.Windows.Forms.TextBox();
+            this.button73 = new System.Windows.Forms.Button();
+            this.button94 = new System.Windows.Forms.Button();
+            this.button95 = new System.Windows.Forms.Button();
+            this.button96 = new System.Windows.Forms.Button();
+            this.button100 = new System.Windows.Forms.Button();
+            this.textBox_SetAlarmSimulatorBlock = new System.Windows.Forms.TextBox();
+            this.button101 = new System.Windows.Forms.Button();
+            this.textBox_MonitorTask = new System.Windows.Forms.TextBox();
+            this.button102 = new System.Windows.Forms.Button();
+            this.textBox_SetLOFreq = new System.Windows.Forms.TextBox();
+            this.button103 = new System.Windows.Forms.Button();
+            this.textBox_SetLOFreqStep = new System.Windows.Forms.TextBox();
+            this.button104 = new System.Windows.Forms.Button();
+            this.textBox_GetLOStateFreqMode = new System.Windows.Forms.TextBox();
+            this.button105 = new System.Windows.Forms.Button();
+            this.button106 = new System.Windows.Forms.Button();
+            this.button107 = new System.Windows.Forms.Button();
+            this.textBox_SelectLOSource = new System.Windows.Forms.TextBox();
             this.groupBox_ServerSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl_Main.SuspendLayout();
@@ -1053,8 +1213,6 @@ namespace SocketServer
             this.tabControl_systems.SuspendLayout();
             this.tabPage10.SuspendLayout();
             this.groupBox38.SuspendLayout();
-            this.tabPage_charts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage_SerialPort.SuspendLayout();
             this.groupBox_SendSerialOrMonitorCommands.SuspendLayout();
             this.gbPortSettings.SuspendLayout();
@@ -1069,6 +1227,7 @@ namespace SocketServer
             this.tabPage_GenericFrame.SuspendLayout();
             this.groupBox31.SuspendLayout();
             this.groupBox_clientTX.SuspendLayout();
+            this.groupBox41.SuspendLayout();
             this.tabPage_MiniAda.SuspendLayout();
             this.groupBox40.SuspendLayout();
             this.tabControl_MiniAda.SuspendLayout();
@@ -1077,7 +1236,12 @@ namespace SocketServer
             this.tabPage6.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            this.tabPage14.SuspendLayout();
+            this.groupBox_FlashConfig.SuspendLayout();
             this.groupBox32.SuspendLayout();
+            this.tabPage_charts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.S1_Configuration.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -1111,7 +1275,7 @@ namespace SocketServer
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox_ClentTCPStatus.SuspendLayout();
-            this.tabPage9.SuspendLayout();
+            this.tabPage13.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_ServerSettings
@@ -1245,12 +1409,12 @@ namespace SocketServer
             // 
             this.tabControl_Main.Controls.Add(this.tabPage_SMS);
             this.tabControl_Main.Controls.Add(this.tabPage_Configuration);
-            this.tabControl_Main.Controls.Add(this.tabPage_charts);
             this.tabControl_Main.Controls.Add(this.tabPage_SerialPort);
             this.tabControl_Main.Controls.Add(this.tabPage_ServerTCP);
             this.tabControl_Main.Controls.Add(this.tabPage_ClientTCP);
             this.tabControl_Main.Controls.Add(this.tabPage_GenericFrame);
             this.tabControl_Main.Controls.Add(this.tabPage_MiniAda);
+            this.tabControl_Main.Controls.Add(this.tabPage_charts);
             this.tabControl_Main.Location = new System.Drawing.Point(4, 5);
             this.tabControl_Main.Name = "tabControl_Main";
             this.tabControl_Main.SelectedIndex = 0;
@@ -2068,167 +2232,15 @@ namespace SocketServer
             this.button30.Text = "Clear Config";
             this.button30.UseVisualStyleBackColor = true;
             // 
-            // tabPage_charts
-            // 
-            this.tabPage_charts.Controls.Add(this.comboBox_ChartUpdateTime);
-            this.tabPage_charts.Controls.Add(this.button28);
-            this.tabPage_charts.Controls.Add(this.listBox_Charts);
-            this.tabPage_charts.Controls.Add(this.button_OpenFolder2);
-            this.tabPage_charts.Controls.Add(this.button_GraphPause);
-            this.tabPage_charts.Controls.Add(this.Button_Export_excel);
-            this.tabPage_charts.Controls.Add(this.button_ResetGraphs);
-            this.tabPage_charts.Controls.Add(this.textBox_graph_XY);
-            this.tabPage_charts.Controls.Add(this.button_ScreenShot);
-            this.tabPage_charts.Controls.Add(this.chart1);
-            this.tabPage_charts.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_charts.Name = "tabPage_charts";
-            this.tabPage_charts.Size = new System.Drawing.Size(1547, 687);
-            this.tabPage_charts.TabIndex = 7;
-            this.tabPage_charts.Text = "Charts";
-            this.tabPage_charts.UseVisualStyleBackColor = true;
-            // 
-            // comboBox_ChartUpdateTime
-            // 
-            this.comboBox_ChartUpdateTime.FormattingEnabled = true;
-            this.comboBox_ChartUpdateTime.Items.AddRange(new object[] {
-            "100",
-            "200",
-            "500",
-            "1000",
-            "2000",
-            "5000",
-            "10000"});
-            this.comboBox_ChartUpdateTime.Location = new System.Drawing.Point(5, 612);
-            this.comboBox_ChartUpdateTime.Name = "comboBox_ChartUpdateTime";
-            this.comboBox_ChartUpdateTime.Size = new System.Drawing.Size(184, 26);
-            this.comboBox_ChartUpdateTime.TabIndex = 80;
-            this.comboBox_ChartUpdateTime.Text = "Update time ms";
-            this.comboBox_ChartUpdateTime.SelectedIndexChanged += new System.EventHandler(this.ComboBox_ChartUpdateTime_SelectedIndexChanged);
-            // 
-            // button28
-            // 
-            this.button28.Location = new System.Drawing.Point(3, 555);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(186, 23);
-            this.button28.TabIndex = 79;
-            this.button28.Text = "Reset X point";
-            this.button28.UseVisualStyleBackColor = true;
-            this.button28.Click += new System.EventHandler(this.Button28_Click_2);
-            // 
-            // listBox_Charts
-            // 
-            this.listBox_Charts.FormattingEnabled = true;
-            this.listBox_Charts.ItemHeight = 18;
-            this.listBox_Charts.Location = new System.Drawing.Point(5, 244);
-            this.listBox_Charts.Name = "listBox_Charts";
-            this.listBox_Charts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox_Charts.Size = new System.Drawing.Size(184, 184);
-            this.listBox_Charts.TabIndex = 78;
-            this.listBox_Charts.SelectedIndexChanged += new System.EventHandler(this.ListBox_Charts_SelectedIndexChanged);
-            // 
-            // button_OpenFolder2
-            // 
-            this.button_OpenFolder2.Location = new System.Drawing.Point(4, 434);
-            this.button_OpenFolder2.Name = "button_OpenFolder2";
-            this.button_OpenFolder2.Size = new System.Drawing.Size(185, 26);
-            this.button_OpenFolder2.TabIndex = 77;
-            this.button_OpenFolder2.Text = "Open Local Folder";
-            this.button_OpenFolder2.UseVisualStyleBackColor = true;
-            this.button_OpenFolder2.Click += new System.EventHandler(this.Button_OpenFolder2_Click);
-            // 
-            // button_GraphPause
-            // 
-            this.button_GraphPause.Location = new System.Drawing.Point(3, 583);
-            this.button_GraphPause.Name = "button_GraphPause";
-            this.button_GraphPause.Size = new System.Drawing.Size(186, 23);
-            this.button_GraphPause.TabIndex = 8;
-            this.button_GraphPause.Text = "Pause";
-            this.button_GraphPause.UseVisualStyleBackColor = true;
-            this.button_GraphPause.Click += new System.EventHandler(this.Button_GraphPause_Click);
-            // 
-            // Button_Export_excel
-            // 
-            this.Button_Export_excel.Location = new System.Drawing.Point(3, 466);
-            this.Button_Export_excel.Name = "Button_Export_excel";
-            this.Button_Export_excel.Size = new System.Drawing.Size(186, 23);
-            this.Button_Export_excel.TabIndex = 7;
-            this.Button_Export_excel.Text = "Export to excel";
-            this.Button_Export_excel.UseVisualStyleBackColor = true;
-            this.Button_Export_excel.Click += new System.EventHandler(this.Button_Export_excel_Click);
-            // 
-            // button_ResetGraphs
-            // 
-            this.button_ResetGraphs.Location = new System.Drawing.Point(3, 525);
-            this.button_ResetGraphs.Name = "button_ResetGraphs";
-            this.button_ResetGraphs.Size = new System.Drawing.Size(186, 23);
-            this.button_ResetGraphs.TabIndex = 6;
-            this.button_ResetGraphs.Text = "Reset chart data";
-            this.button_ResetGraphs.UseVisualStyleBackColor = true;
-            this.button_ResetGraphs.Click += new System.EventHandler(this.Button_ResetGraphs_Click);
-            // 
-            // textBox_graph_XY
-            // 
-            this.textBox_graph_XY.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_graph_XY.Location = new System.Drawing.Point(4, 8);
-            this.textBox_graph_XY.Multiline = true;
-            this.textBox_graph_XY.Name = "textBox_graph_XY";
-            this.textBox_graph_XY.ReadOnly = true;
-            this.textBox_graph_XY.Size = new System.Drawing.Size(185, 232);
-            this.textBox_graph_XY.TabIndex = 4;
-            this.textBox_graph_XY.Text = "Message box ";
-            this.textBox_graph_XY.TextChanged += new System.EventHandler(this.TextBox_graph_XY_TextChanged);
-            // 
-            // button_ScreenShot
-            // 
-            this.button_ScreenShot.Location = new System.Drawing.Point(3, 494);
-            this.button_ScreenShot.Name = "button_ScreenShot";
-            this.button_ScreenShot.Size = new System.Drawing.Size(186, 23);
-            this.button_ScreenShot.TabIndex = 1;
-            this.button_ScreenShot.Text = "Take screen shot";
-            this.button_ScreenShot.UseVisualStyleBackColor = true;
-            this.button_ScreenShot.Click += new System.EventHandler(this.Button_ScreenShot_Click);
-            // 
-            // chart1
-            // 
-            chartArea7.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea7);
-            legend7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend7.IsTextAutoFit = false;
-            legend7.Name = "Legend1";
-            this.chart1.Legends.Add(legend7);
-            this.chart1.Location = new System.Drawing.Point(194, 2);
-            this.chart1.Name = "chart1";
-            series19.ChartArea = "ChartArea1";
-            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series19.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series19.Legend = "Legend1";
-            series19.Name = "Data 1";
-            series20.ChartArea = "ChartArea1";
-            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series20.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series20.Legend = "Legend1";
-            series20.Name = "Data 2";
-            series21.ChartArea = "ChartArea1";
-            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series21.Font = new System.Drawing.Font("Calibri", 14.25F);
-            series21.Legend = "Legend1";
-            series21.Name = "Data 3";
-            this.chart1.Series.Add(series19);
-            this.chart1.Series.Add(series20);
-            this.chart1.Series.Add(series21);
-            this.chart1.Size = new System.Drawing.Size(1350, 665);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
-            // 
             // tabPage_SerialPort
             // 
             this.tabPage_SerialPort.Controls.Add(this.groupBox_SendSerialOrMonitorCommands);
             this.tabPage_SerialPort.Controls.Add(this.gbPortSettings);
             this.tabPage_SerialPort.Controls.Add(this.groupBox5);
-            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 27);
+            this.tabPage_SerialPort.Location = new System.Drawing.Point(4, 22);
             this.tabPage_SerialPort.Name = "tabPage_SerialPort";
             this.tabPage_SerialPort.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 682);
+            this.tabPage_SerialPort.Size = new System.Drawing.Size(1547, 687);
             this.tabPage_SerialPort.TabIndex = 1;
             this.tabPage_SerialPort.Text = "Serial Port";
             this.tabPage_SerialPort.UseVisualStyleBackColor = true;
@@ -2271,6 +2283,7 @@ namespace SocketServer
             this.toolTip1.SetToolTip(this.textBox_SendSerialPort, "Press help");
             this.textBox_SendSerialPort.TextChanged += new System.EventHandler(this.TextBox_SendSerialPort_TextChanged_1);
             this.textBox_SendSerialPort.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_SendSerialPort_KeyDown);
+            this.textBox_SendSerialPort.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.TextBox_SendSerialPort_PreviewKeyDown);
             // 
             // checkBox_DeleteCommand
             // 
@@ -2299,9 +2312,9 @@ namespace SocketServer
             // 
             this.gbPortSettings.Controls.Add(this.button_OpenPort);
             this.gbPortSettings.Controls.Add(this.button_ReScanComPort);
-            this.gbPortSettings.Controls.Add(this.cmbPortName);
+            this.gbPortSettings.Controls.Add(this.cmb_PortName);
             this.gbPortSettings.Controls.Add(this.cmbBaudRate);
-            this.gbPortSettings.Controls.Add(this.cmbStopBits);
+            this.gbPortSettings.Controls.Add(this.cmb_StopBits);
             this.gbPortSettings.Controls.Add(this.cmbParity);
             this.gbPortSettings.Controls.Add(this.cmbDataBits);
             this.gbPortSettings.Controls.Add(this.lblComPort);
@@ -2338,23 +2351,23 @@ namespace SocketServer
             this.button_ReScanComPort.UseVisualStyleBackColor = true;
             this.button_ReScanComPort.Click += new System.EventHandler(this.Button_ReScanComPort_Click);
             // 
-            // cmbPortName
+            // cmb_PortName
             // 
-            this.cmbPortName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPortName.FormattingEnabled = true;
-            this.cmbPortName.Items.AddRange(new object[] {
+            this.cmb_PortName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_PortName.FormattingEnabled = true;
+            this.cmb_PortName.Items.AddRange(new object[] {
             "COM1",
             "COM2",
             "COM3",
             "COM4",
             "COM5",
             "COM6"});
-            this.cmbPortName.Location = new System.Drawing.Point(8, 38);
-            this.cmbPortName.Name = "cmbPortName";
-            this.cmbPortName.Size = new System.Drawing.Size(67, 26);
-            this.cmbPortName.TabIndex = 1;
-            this.cmbPortName.Tag = "1";
-            this.cmbPortName.SelectedIndexChanged += new System.EventHandler(this.CmbPortName_SelectedIndexChanged);
+            this.cmb_PortName.Location = new System.Drawing.Point(8, 38);
+            this.cmb_PortName.Name = "cmb_PortName";
+            this.cmb_PortName.Size = new System.Drawing.Size(67, 26);
+            this.cmb_PortName.TabIndex = 1;
+            this.cmb_PortName.Tag = "1";
+            this.cmb_PortName.SelectedIndexChanged += new System.EventHandler(this.CmbPortName_SelectedIndexChanged);
             // 
             // cmbBaudRate
             // 
@@ -2375,18 +2388,18 @@ namespace SocketServer
             this.cmbBaudRate.Text = "115200";
             this.cmbBaudRate.SelectedIndexChanged += new System.EventHandler(this.CmbBaudRate_SelectedIndexChanged);
             // 
-            // cmbStopBits
+            // cmb_StopBits
             // 
-            this.cmbStopBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStopBits.FormattingEnabled = true;
-            this.cmbStopBits.Items.AddRange(new object[] {
+            this.cmb_StopBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_StopBits.FormattingEnabled = true;
+            this.cmb_StopBits.Items.AddRange(new object[] {
             "1",
             "2",
             "3"});
-            this.cmbStopBits.Location = new System.Drawing.Point(308, 37);
-            this.cmbStopBits.Name = "cmbStopBits";
-            this.cmbStopBits.Size = new System.Drawing.Size(88, 26);
-            this.cmbStopBits.TabIndex = 9;
+            this.cmb_StopBits.Location = new System.Drawing.Point(308, 37);
+            this.cmb_StopBits.Name = "cmb_StopBits";
+            this.cmb_StopBits.Size = new System.Drawing.Size(88, 26);
+            this.cmb_StopBits.TabIndex = 9;
             // 
             // cmbParity
             // 
@@ -2694,22 +2707,13 @@ namespace SocketServer
             this.tabPage_ServerTCP.Controls.Add(this.groupBox_ConnectionTimedOut);
             this.tabPage_ServerTCP.Controls.Add(this.groupBox2);
             this.tabPage_ServerTCP.Controls.Add(this.groupBox3);
-            this.tabPage_ServerTCP.Location = new System.Drawing.Point(4, 27);
+            this.tabPage_ServerTCP.Location = new System.Drawing.Point(4, 22);
             this.tabPage_ServerTCP.Name = "tabPage_ServerTCP";
             this.tabPage_ServerTCP.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_ServerTCP.Size = new System.Drawing.Size(1547, 682);
+            this.tabPage_ServerTCP.Size = new System.Drawing.Size(1547, 687);
             this.tabPage_ServerTCP.TabIndex = 0;
             this.tabPage_ServerTCP.Text = "Server TCP";
             this.tabPage_ServerTCP.UseVisualStyleBackColor = true;
-            // 
-            // button_ClearServer
-            // 
-            this.button_ClearServer.Location = new System.Drawing.Point(6, 578);
-            this.button_ClearServer.Name = "button_ClearServer";
-            this.button_ClearServer.Size = new System.Drawing.Size(75, 23);
-            this.button_ClearServer.TabIndex = 104;
-            this.button_ClearServer.Text = "Clear";
-            this.button_ClearServer.UseVisualStyleBackColor = true;
             // 
             // checkBox_ParseMessages
             // 
@@ -2900,6 +2904,39 @@ namespace SocketServer
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Server Console";
             // 
+            // checkBox_ServerRecord
+            // 
+            this.checkBox_ServerRecord.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox_ServerRecord.AutoSize = true;
+            this.checkBox_ServerRecord.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_ServerRecord.Location = new System.Drawing.Point(152, 578);
+            this.checkBox_ServerRecord.Name = "checkBox_ServerRecord";
+            this.checkBox_ServerRecord.Size = new System.Drawing.Size(64, 29);
+            this.checkBox_ServerRecord.TabIndex = 108;
+            this.checkBox_ServerRecord.Text = "Record";
+            this.checkBox_ServerRecord.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_ServerPause
+            // 
+            this.checkBox_ServerPause.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox_ServerPause.AutoSize = true;
+            this.checkBox_ServerPause.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_ServerPause.Location = new System.Drawing.Point(88, 578);
+            this.checkBox_ServerPause.Name = "checkBox_ServerPause";
+            this.checkBox_ServerPause.Size = new System.Drawing.Size(58, 29);
+            this.checkBox_ServerPause.TabIndex = 107;
+            this.checkBox_ServerPause.Text = "Pause";
+            this.checkBox_ServerPause.UseVisualStyleBackColor = true;
+            // 
+            // button_ClearServer
+            // 
+            this.button_ClearServer.Location = new System.Drawing.Point(6, 578);
+            this.button_ClearServer.Name = "button_ClearServer";
+            this.button_ClearServer.Size = new System.Drawing.Size(75, 23);
+            this.button_ClearServer.TabIndex = 104;
+            this.button_ClearServer.Text = "Clear";
+            this.button_ClearServer.UseVisualStyleBackColor = true;
+            // 
             // checkBox_StopLogging
             // 
             this.checkBox_StopLogging.Appearance = System.Windows.Forms.Appearance.Button;
@@ -2974,9 +3011,9 @@ namespace SocketServer
             this.tabPage_ClientTCP.Controls.Add(this.textBox_ClientIP);
             this.tabPage_ClientTCP.Controls.Add(this.label8);
             this.tabPage_ClientTCP.Controls.Add(this.label7);
-            this.tabPage_ClientTCP.Location = new System.Drawing.Point(4, 27);
+            this.tabPage_ClientTCP.Location = new System.Drawing.Point(4, 22);
             this.tabPage_ClientTCP.Name = "tabPage_ClientTCP";
-            this.tabPage_ClientTCP.Size = new System.Drawing.Size(1547, 682);
+            this.tabPage_ClientTCP.Size = new System.Drawing.Size(1547, 687);
             this.tabPage_ClientTCP.TabIndex = 9;
             this.tabPage_ClientTCP.Text = "Client TCP";
             this.tabPage_ClientTCP.UseVisualStyleBackColor = true;
@@ -2985,7 +3022,7 @@ namespace SocketServer
             // 
             this.button_Ping.Location = new System.Drawing.Point(195, 78);
             this.button_Ping.Name = "button_Ping";
-            this.button_Ping.Size = new System.Drawing.Size(75, 23);
+            this.button_Ping.Size = new System.Drawing.Size(100, 23);
             this.button_Ping.TabIndex = 14;
             this.button_Ping.Text = "Ping";
             this.button_Ping.UseVisualStyleBackColor = true;
@@ -3130,7 +3167,7 @@ namespace SocketServer
             // 
             // button52
             // 
-            this.button52.Location = new System.Drawing.Point(14, 178);
+            this.button52.Location = new System.Drawing.Point(20, 439);
             this.button52.Name = "button52";
             this.button52.Size = new System.Drawing.Size(75, 23);
             this.button52.TabIndex = 15;
@@ -3140,7 +3177,9 @@ namespace SocketServer
             // 
             // groupBox31
             // 
+            this.groupBox31.Controls.Add(this.textBox_RxClientCheckSum);
             this.groupBox31.Controls.Add(this.label24);
+            this.groupBox31.Controls.Add(this.label41);
             this.groupBox31.Controls.Add(this.textBox_RxClientDataLength);
             this.groupBox31.Controls.Add(this.label23);
             this.groupBox31.Controls.Add(this.label18);
@@ -3150,12 +3189,22 @@ namespace SocketServer
             this.groupBox31.Controls.Add(this.textBox_RxClientData);
             this.groupBox31.Controls.Add(this.label15);
             this.groupBox31.Controls.Add(this.label16);
-            this.groupBox31.Location = new System.Drawing.Point(434, 14);
+            this.groupBox31.Location = new System.Drawing.Point(814, 14);
             this.groupBox31.Name = "groupBox31";
-            this.groupBox31.Size = new System.Drawing.Size(372, 157);
+            this.groupBox31.Size = new System.Drawing.Size(372, 214);
             this.groupBox31.TabIndex = 14;
             this.groupBox31.TabStop = false;
             this.groupBox31.Text = "Data received";
+            // 
+            // textBox_RxClientCheckSum
+            // 
+            this.textBox_RxClientCheckSum.Location = new System.Drawing.Point(97, 160);
+            this.textBox_RxClientCheckSum.MaxLength = 4;
+            this.textBox_RxClientCheckSum.Name = "textBox_RxClientCheckSum";
+            this.textBox_RxClientCheckSum.ReadOnly = true;
+            this.textBox_RxClientCheckSum.Size = new System.Drawing.Size(100, 26);
+            this.textBox_RxClientCheckSum.TabIndex = 15;
+            this.textBox_RxClientCheckSum.TabStop = false;
             // 
             // label24
             // 
@@ -3168,6 +3217,15 @@ namespace SocketServer
             this.label24.Size = new System.Drawing.Size(65, 21);
             this.label24.TabIndex = 11;
             this.label24.Text = "Decimal";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(10, 164);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(75, 18);
+            this.label41.TabIndex = 14;
+            this.label41.Text = "Check Sum";
             // 
             // textBox_RxClientDataLength
             // 
@@ -3261,6 +3319,7 @@ namespace SocketServer
             // 
             // groupBox_clientTX
             // 
+            this.groupBox_clientTX.Controls.Add(this.groupBox41);
             this.groupBox_clientTX.Controls.Add(this.label17);
             this.groupBox_clientTX.Controls.Add(this.label4);
             this.groupBox_clientTX.Controls.Add(this.textBox_Preamble);
@@ -3271,11 +3330,150 @@ namespace SocketServer
             this.groupBox_clientTX.Controls.Add(this.label11);
             this.groupBox_clientTX.Location = new System.Drawing.Point(14, 12);
             this.groupBox_clientTX.Name = "groupBox_clientTX";
-            this.groupBox_clientTX.Size = new System.Drawing.Size(372, 159);
+            this.groupBox_clientTX.Size = new System.Drawing.Size(730, 421);
             this.groupBox_clientTX.TabIndex = 13;
             this.groupBox_clientTX.TabStop = false;
             this.groupBox_clientTX.Text = "Send Data";
             this.groupBox_clientTX.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.groupBox_clientTX_PreviewKeyDown);
+            // 
+            // groupBox41
+            // 
+            this.groupBox41.Controls.Add(this.textBox_SentChecksum);
+            this.groupBox41.Controls.Add(this.label48);
+            this.groupBox41.Controls.Add(this.label42);
+            this.groupBox41.Controls.Add(this.textBox_SentDataLength);
+            this.groupBox41.Controls.Add(this.label43);
+            this.groupBox41.Controls.Add(this.label44);
+            this.groupBox41.Controls.Add(this.label45);
+            this.groupBox41.Controls.Add(this.textBox_SentPreamble);
+            this.groupBox41.Controls.Add(this.textBox_SentOpcode);
+            this.groupBox41.Controls.Add(this.textBox_SentData);
+            this.groupBox41.Controls.Add(this.label46);
+            this.groupBox41.Controls.Add(this.label47);
+            this.groupBox41.Location = new System.Drawing.Point(6, 179);
+            this.groupBox41.Name = "groupBox41";
+            this.groupBox41.Size = new System.Drawing.Size(718, 230);
+            this.groupBox41.TabIndex = 15;
+            this.groupBox41.TabStop = false;
+            this.groupBox41.Text = "Data Sent";
+            // 
+            // textBox_SentChecksum
+            // 
+            this.textBox_SentChecksum.Location = new System.Drawing.Point(97, 162);
+            this.textBox_SentChecksum.MaxLength = 4;
+            this.textBox_SentChecksum.Name = "textBox_SentChecksum";
+            this.textBox_SentChecksum.ReadOnly = true;
+            this.textBox_SentChecksum.Size = new System.Drawing.Size(100, 26);
+            this.textBox_SentChecksum.TabIndex = 13;
+            this.textBox_SentChecksum.TabStop = false;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(10, 166);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(75, 18);
+            this.label48.TabIndex = 12;
+            this.label48.Text = "Check Sum";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label42.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.Maroon;
+            this.label42.Location = new System.Drawing.Point(203, 126);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(65, 21);
+            this.label42.TabIndex = 11;
+            this.label42.Text = "Decimal";
+            // 
+            // textBox_SentDataLength
+            // 
+            this.textBox_SentDataLength.Location = new System.Drawing.Point(97, 125);
+            this.textBox_SentDataLength.MaxLength = 4;
+            this.textBox_SentDataLength.Name = "textBox_SentDataLength";
+            this.textBox_SentDataLength.ReadOnly = true;
+            this.textBox_SentDataLength.Size = new System.Drawing.Size(100, 26);
+            this.textBox_SentDataLength.TabIndex = 10;
+            this.textBox_SentDataLength.TabStop = false;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(10, 129);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(81, 18);
+            this.label43.TabIndex = 9;
+            this.label43.Text = "Data Length";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label44.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.Maroon;
+            this.label44.Location = new System.Drawing.Point(269, 16);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(97, 21);
+            this.label44.TabIndex = 8;
+            this.label44.Text = "Hexadecimal";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(10, 21);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(68, 18);
+            this.label45.TabIndex = 4;
+            this.label45.Text = "Preamble";
+            // 
+            // textBox_SentPreamble
+            // 
+            this.textBox_SentPreamble.Location = new System.Drawing.Point(97, 18);
+            this.textBox_SentPreamble.MaxLength = 4;
+            this.textBox_SentPreamble.Name = "textBox_SentPreamble";
+            this.textBox_SentPreamble.ReadOnly = true;
+            this.textBox_SentPreamble.Size = new System.Drawing.Size(100, 26);
+            this.textBox_SentPreamble.TabIndex = 0;
+            this.textBox_SentPreamble.TabStop = false;
+            // 
+            // textBox_SentOpcode
+            // 
+            this.textBox_SentOpcode.Location = new System.Drawing.Point(97, 54);
+            this.textBox_SentOpcode.MaxLength = 4;
+            this.textBox_SentOpcode.Name = "textBox_SentOpcode";
+            this.textBox_SentOpcode.ReadOnly = true;
+            this.textBox_SentOpcode.Size = new System.Drawing.Size(100, 26);
+            this.textBox_SentOpcode.TabIndex = 1;
+            this.textBox_SentOpcode.TabStop = false;
+            // 
+            // textBox_SentData
+            // 
+            this.textBox_SentData.Location = new System.Drawing.Point(97, 88);
+            this.textBox_SentData.Name = "textBox_SentData";
+            this.textBox_SentData.ReadOnly = true;
+            this.textBox_SentData.Size = new System.Drawing.Size(615, 26);
+            this.textBox_SentData.TabIndex = 2;
+            this.textBox_SentData.TabStop = false;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(10, 60);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(56, 18);
+            this.label46.TabIndex = 5;
+            this.label46.Text = "Opcode";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(10, 91);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(36, 18);
+            this.label47.TabIndex = 6;
+            this.label47.Text = "Data";
             // 
             // label17
             // 
@@ -3283,7 +3481,7 @@ namespace SocketServer
             this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label17.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Maroon;
-            this.label17.Location = new System.Drawing.Point(269, 13);
+            this.label17.Location = new System.Drawing.Point(627, 16);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(97, 21);
             this.label17.TabIndex = 7;
@@ -3311,7 +3509,7 @@ namespace SocketServer
             // 
             // button_SendProtocol
             // 
-            this.button_SendProtocol.Location = new System.Drawing.Point(6, 125);
+            this.button_SendProtocol.Location = new System.Drawing.Point(6, 126);
             this.button_SendProtocol.Name = "button_SendProtocol";
             this.button_SendProtocol.Size = new System.Drawing.Size(91, 23);
             this.button_SendProtocol.TabIndex = 3;
@@ -3378,7 +3576,7 @@ namespace SocketServer
             this.groupBox40.Size = new System.Drawing.Size(969, 663);
             this.groupBox40.TabIndex = 11;
             this.groupBox40.TabStop = false;
-            this.groupBox40.Text = "Commands for MiniAda (press right click for help)";
+            this.groupBox40.Text = "Commands for MiniAda (press right click on mouse for help)";
             // 
             // tabControl_MiniAda
             // 
@@ -3387,8 +3585,10 @@ namespace SocketServer
             this.tabControl_MiniAda.Controls.Add(this.tabPage6);
             this.tabControl_MiniAda.Controls.Add(this.tabPage3);
             this.tabControl_MiniAda.Controls.Add(this.tabPage7);
+            this.tabControl_MiniAda.Controls.Add(this.tabPage13);
             this.tabControl_MiniAda.Controls.Add(this.tabPage8);
             this.tabControl_MiniAda.Controls.Add(this.tabPage9);
+            this.tabControl_MiniAda.Controls.Add(this.tabPage14);
             this.tabControl_MiniAda.Location = new System.Drawing.Point(6, 23);
             this.tabControl_MiniAda.Name = "tabControl_MiniAda";
             this.tabControl_MiniAda.SelectedIndex = 0;
@@ -3622,35 +3822,29 @@ namespace SocketServer
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.textBox_LoadDatainFlash);
-            this.tabPage2.Controls.Add(this.button73);
-            this.tabPage2.Controls.Add(this.textBox_StoreDatainFlash);
-            this.tabPage2.Controls.Add(this.button72);
-            this.tabPage2.Controls.Add(this.label28);
+            this.tabPage2.Controls.Add(this.textBox_Erase4KsectorQSPI);
+            this.tabPage2.Controls.Add(this.button89);
+            this.tabPage2.Controls.Add(this.textBox_ReadQSPIFlashData);
+            this.tabPage2.Controls.Add(this.button87);
+            this.tabPage2.Controls.Add(this.textBox_WriteQSPIFlashData);
+            this.tabPage2.Controls.Add(this.button88);
             this.tabPage2.Controls.Add(this.textBox_SetTCXOTrim);
             this.tabPage2.Controls.Add(this.button69);
-            this.tabPage2.Controls.Add(this.label27);
             this.tabPage2.Controls.Add(this.textBox_TCXOOnOff);
             this.tabPage2.Controls.Add(this.button68);
             this.tabPage2.Controls.Add(this.button67);
-            this.tabPage2.Controls.Add(this.label26);
             this.tabPage2.Controls.Add(this.textBox_SetSystemOutputPower);
             this.tabPage2.Controls.Add(this.button66);
             this.tabPage2.Controls.Add(this.button65);
-            this.tabPage2.Controls.Add(this.label25);
             this.tabPage2.Controls.Add(this.textBox_SetSyestemState);
             this.tabPage2.Controls.Add(this.button64);
             this.tabPage2.Controls.Add(this.button63);
-            this.tabPage2.Controls.Add(this.label22);
             this.tabPage2.Controls.Add(this.textBox_GetTxAD936X);
             this.tabPage2.Controls.Add(this.button62);
-            this.tabPage2.Controls.Add(this.label21);
             this.tabPage2.Controls.Add(this.textBox_SetTxAD936X);
             this.tabPage2.Controls.Add(this.button61);
-            this.tabPage2.Controls.Add(this.label20);
             this.tabPage2.Controls.Add(this.textBox_SetSynthesizerL2);
             this.tabPage2.Controls.Add(this.button60);
-            this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.textBox_SetSynthesizerL1);
             this.tabPage2.Controls.Add(this.button59);
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
@@ -3660,63 +3854,71 @@ namespace SocketServer
             this.tabPage2.Text = "Master";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox_LoadDatainFlash
+            // textBox_Erase4KsectorQSPI
             // 
-            this.textBox_LoadDatainFlash.Location = new System.Drawing.Point(257, 563);
-            this.textBox_LoadDatainFlash.MaxLength = 30;
-            this.textBox_LoadDatainFlash.Name = "textBox_LoadDatainFlash";
-            this.textBox_LoadDatainFlash.Size = new System.Drawing.Size(156, 26);
-            this.textBox_LoadDatainFlash.TabIndex = 60;
-            this.textBox_LoadDatainFlash.Text = "00000000 00000000";
-            this.textBox_LoadDatainFlash.TextChanged += new System.EventHandler(this.textBox_LoadDatainFlash_TextChanged);
+            this.textBox_Erase4KsectorQSPI.Location = new System.Drawing.Point(252, 335);
+            this.textBox_Erase4KsectorQSPI.MaxLength = 30;
+            this.textBox_Erase4KsectorQSPI.Name = "textBox_Erase4KsectorQSPI";
+            this.textBox_Erase4KsectorQSPI.Size = new System.Drawing.Size(156, 26);
+            this.textBox_Erase4KsectorQSPI.TabIndex = 66;
+            this.textBox_Erase4KsectorQSPI.Text = "00000000";
+            this.textBox_Erase4KsectorQSPI.TextChanged += new System.EventHandler(this.textBox_Erase4KsectorQSPI_TextChanged);
             // 
-            // button73
+            // button89
             // 
-            this.button73.Location = new System.Drawing.Point(8, 566);
-            this.button73.Name = "button73";
-            this.button73.Size = new System.Drawing.Size(244, 23);
-            this.button73.TabIndex = 59;
-            this.button73.Text = "Load data from Flash by address ";
-            this.button73.UseVisualStyleBackColor = true;
-            this.button73.Click += new System.EventHandler(this.button73_Click);
-            this.button73.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button73_MouseDown);
+            this.button89.Location = new System.Drawing.Point(3, 338);
+            this.button89.Name = "button89";
+            this.button89.Size = new System.Drawing.Size(244, 23);
+            this.button89.TabIndex = 65;
+            this.button89.Text = "Erase 4K sector QSPI flash";
+            this.button89.UseVisualStyleBackColor = true;
+            this.button89.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button89_MouseDown);
             // 
-            // textBox_StoreDatainFlash
+            // textBox_ReadQSPIFlashData
             // 
-            this.textBox_StoreDatainFlash.Location = new System.Drawing.Point(257, 530);
-            this.textBox_StoreDatainFlash.MaxLength = 30;
-            this.textBox_StoreDatainFlash.Name = "textBox_StoreDatainFlash";
-            this.textBox_StoreDatainFlash.Size = new System.Drawing.Size(286, 26);
-            this.textBox_StoreDatainFlash.TabIndex = 57;
-            this.textBox_StoreDatainFlash.Text = "00000000 00000000 00000000";
-            this.textBox_StoreDatainFlash.TextChanged += new System.EventHandler(this.textBox_StoreDatainFlash_TextChanged);
+            this.textBox_ReadQSPIFlashData.Location = new System.Drawing.Point(252, 295);
+            this.textBox_ReadQSPIFlashData.MaxLength = 30;
+            this.textBox_ReadQSPIFlashData.Name = "textBox_ReadQSPIFlashData";
+            this.textBox_ReadQSPIFlashData.Size = new System.Drawing.Size(156, 26);
+            this.textBox_ReadQSPIFlashData.TabIndex = 64;
+            this.textBox_ReadQSPIFlashData.Text = "00000000 00000000";
+            this.textBox_ReadQSPIFlashData.TextChanged += new System.EventHandler(this.textBox_ReadQSPIFlashData_TextChanged);
             // 
-            // button72
+            // button87
             // 
-            this.button72.Location = new System.Drawing.Point(8, 533);
-            this.button72.Name = "button72";
-            this.button72.Size = new System.Drawing.Size(244, 23);
-            this.button72.TabIndex = 56;
-            this.button72.Text = "Store data in Flash  ";
-            this.button72.UseVisualStyleBackColor = true;
-            this.button72.Click += new System.EventHandler(this.button72_Click_1);
-            this.button72.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button72_MouseDown);
+            this.button87.Location = new System.Drawing.Point(3, 298);
+            this.button87.Name = "button87";
+            this.button87.Size = new System.Drawing.Size(244, 23);
+            this.button87.TabIndex = 63;
+            this.button87.Text = "Read QSPI flash data";
+            this.button87.UseVisualStyleBackColor = true;
+            this.button87.Click += new System.EventHandler(this.button87_Click);
+            this.button87.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button87_MouseDown);
             // 
-            // label28
+            // textBox_WriteQSPIFlashData
             // 
-            this.label28.AutoSize = true;
-            this.label28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label28.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.Maroon;
-            this.label28.Location = new System.Drawing.Point(390, 468);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(150, 21);
-            this.label28.TabIndex = 55;
-            this.label28.Text = "Hexadecimal 4 bytes";
+            this.textBox_WriteQSPIFlashData.Location = new System.Drawing.Point(252, 262);
+            this.textBox_WriteQSPIFlashData.MaxLength = 30;
+            this.textBox_WriteQSPIFlashData.Name = "textBox_WriteQSPIFlashData";
+            this.textBox_WriteQSPIFlashData.Size = new System.Drawing.Size(222, 26);
+            this.textBox_WriteQSPIFlashData.TabIndex = 62;
+            this.textBox_WriteQSPIFlashData.Text = "00000000 00000000 00000000";
+            this.textBox_WriteQSPIFlashData.TextChanged += new System.EventHandler(this.textBox_WriteQSPIFlashData_TextChanged);
+            // 
+            // button88
+            // 
+            this.button88.Location = new System.Drawing.Point(3, 265);
+            this.button88.Name = "button88";
+            this.button88.Size = new System.Drawing.Size(244, 23);
+            this.button88.TabIndex = 61;
+            this.button88.Text = "Write QSPI flash data";
+            this.button88.UseVisualStyleBackColor = true;
+            this.button88.Click += new System.EventHandler(this.button88_Click);
+            this.button88.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button88_MouseDown);
             // 
             // textBox_SetTCXOTrim
             // 
-            this.textBox_SetTCXOTrim.Location = new System.Drawing.Point(254, 469);
+            this.textBox_SetTCXOTrim.Location = new System.Drawing.Point(252, 231);
             this.textBox_SetTCXOTrim.MaxLength = 30;
             this.textBox_SetTCXOTrim.Name = "textBox_SetTCXOTrim";
             this.textBox_SetTCXOTrim.Size = new System.Drawing.Size(129, 26);
@@ -3726,29 +3928,18 @@ namespace SocketServer
             // 
             // button69
             // 
-            this.button69.Location = new System.Drawing.Point(5, 472);
+            this.button69.Location = new System.Drawing.Point(3, 234);
             this.button69.Name = "button69";
             this.button69.Size = new System.Drawing.Size(244, 23);
             this.button69.TabIndex = 53;
             this.button69.Text = "Set TCXO Trim ";
             this.button69.UseVisualStyleBackColor = true;
             this.button69.Click += new System.EventHandler(this.button69_Click);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label27.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.Maroon;
-            this.label27.Location = new System.Drawing.Point(391, 435);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(150, 21);
-            this.label27.TabIndex = 52;
-            this.label27.Text = "Hexadecimal 1 bytes";
+            this.button69.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button69_MouseDown);
             // 
             // textBox_TCXOOnOff
             // 
-            this.textBox_TCXOOnOff.Location = new System.Drawing.Point(255, 436);
+            this.textBox_TCXOOnOff.Location = new System.Drawing.Point(253, 198);
             this.textBox_TCXOOnOff.MaxLength = 30;
             this.textBox_TCXOOnOff.Name = "textBox_TCXOOnOff";
             this.textBox_TCXOOnOff.Size = new System.Drawing.Size(130, 26);
@@ -3758,39 +3949,29 @@ namespace SocketServer
             // 
             // button68
             // 
-            this.button68.Location = new System.Drawing.Point(5, 439);
+            this.button68.Location = new System.Drawing.Point(3, 201);
             this.button68.Name = "button68";
             this.button68.Size = new System.Drawing.Size(244, 23);
             this.button68.TabIndex = 50;
             this.button68.Text = "Switch TCXO on/off ";
             this.button68.UseVisualStyleBackColor = true;
             this.button68.Click += new System.EventHandler(this.button68_Click);
+            this.button68.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button68_MouseDown);
             // 
             // button67
             // 
-            this.button67.Location = new System.Drawing.Point(7, 381);
+            this.button67.Location = new System.Drawing.Point(2, 166);
             this.button67.Name = "button67";
             this.button67.Size = new System.Drawing.Size(244, 23);
             this.button67.TabIndex = 49;
             this.button67.Text = "Get system output power ";
             this.button67.UseVisualStyleBackColor = true;
             this.button67.Click += new System.EventHandler(this.button67_Click);
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label26.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.Maroon;
-            this.label26.Location = new System.Drawing.Point(394, 348);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(150, 21);
-            this.label26.TabIndex = 48;
-            this.label26.Text = "Hexadecimal 5 bytes";
+            this.button67.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button67_MouseDown);
             // 
             // textBox_SetSystemOutputPower
             // 
-            this.textBox_SetSystemOutputPower.Location = new System.Drawing.Point(258, 349);
+            this.textBox_SetSystemOutputPower.Location = new System.Drawing.Point(253, 134);
             this.textBox_SetSystemOutputPower.MaxLength = 30;
             this.textBox_SetSystemOutputPower.Name = "textBox_SetSystemOutputPower";
             this.textBox_SetSystemOutputPower.Size = new System.Drawing.Size(130, 26);
@@ -3801,7 +3982,7 @@ namespace SocketServer
             // 
             // button66
             // 
-            this.button66.Location = new System.Drawing.Point(8, 350);
+            this.button66.Location = new System.Drawing.Point(3, 135);
             this.button66.Name = "button66";
             this.button66.Size = new System.Drawing.Size(244, 23);
             this.button66.TabIndex = 46;
@@ -3812,29 +3993,18 @@ namespace SocketServer
             // 
             // button65
             // 
-            this.button65.Location = new System.Drawing.Point(8, 295);
+            this.button65.Location = new System.Drawing.Point(4, 437);
             this.button65.Name = "button65";
             this.button65.Size = new System.Drawing.Size(244, 23);
             this.button65.TabIndex = 45;
             this.button65.Text = "Get system state ";
             this.button65.UseVisualStyleBackColor = true;
             this.button65.Click += new System.EventHandler(this.button65_Click);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label25.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Maroon;
-            this.label25.Location = new System.Drawing.Point(393, 264);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(150, 21);
-            this.label25.TabIndex = 44;
-            this.label25.Text = "Hexadecimal 1 bytes";
+            this.button65.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button65_MouseDown);
             // 
             // textBox_SetSyestemState
             // 
-            this.textBox_SetSyestemState.Location = new System.Drawing.Point(257, 265);
+            this.textBox_SetSyestemState.Location = new System.Drawing.Point(253, 407);
             this.textBox_SetSyestemState.MaxLength = 30;
             this.textBox_SetSyestemState.Name = "textBox_SetSyestemState";
             this.textBox_SetSyestemState.Size = new System.Drawing.Size(130, 26);
@@ -3844,7 +4014,7 @@ namespace SocketServer
             // 
             // button64
             // 
-            this.button64.Location = new System.Drawing.Point(7, 266);
+            this.button64.Location = new System.Drawing.Point(3, 408);
             this.button64.Name = "button64";
             this.button64.Size = new System.Drawing.Size(244, 23);
             this.button64.TabIndex = 42;
@@ -3855,29 +4025,18 @@ namespace SocketServer
             // 
             // button63
             // 
-            this.button63.Location = new System.Drawing.Point(3, 185);
+            this.button63.Location = new System.Drawing.Point(3, 375);
             this.button63.Name = "button63";
             this.button63.Size = new System.Drawing.Size(244, 23);
             this.button63.TabIndex = 41;
             this.button63.Text = "Do Sync";
             this.button63.UseVisualStyleBackColor = true;
             this.button63.Click += new System.EventHandler(this.button63_Click);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label22.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Maroon;
-            this.label22.Location = new System.Drawing.Point(388, 126);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(150, 21);
-            this.label22.TabIndex = 40;
-            this.label22.Text = "Hexadecimal 3 bytes";
+            this.button63.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button63_MouseDown);
             // 
             // textBox_GetTxAD936X
             // 
-            this.textBox_GetTxAD936X.Location = new System.Drawing.Point(252, 127);
+            this.textBox_GetTxAD936X.Location = new System.Drawing.Point(253, 101);
             this.textBox_GetTxAD936X.MaxLength = 30;
             this.textBox_GetTxAD936X.Name = "textBox_GetTxAD936X";
             this.textBox_GetTxAD936X.Size = new System.Drawing.Size(130, 26);
@@ -3887,29 +4046,18 @@ namespace SocketServer
             // 
             // button62
             // 
-            this.button62.Location = new System.Drawing.Point(2, 129);
+            this.button62.Location = new System.Drawing.Point(3, 103);
             this.button62.Name = "button62";
             this.button62.Size = new System.Drawing.Size(244, 23);
             this.button62.TabIndex = 38;
             this.button62.Text = "Get Tx AD936X data ";
             this.button62.UseVisualStyleBackColor = true;
             this.button62.Click += new System.EventHandler(this.button62_Click);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label21.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.Maroon;
-            this.label21.Location = new System.Drawing.Point(388, 94);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(150, 21);
-            this.label21.TabIndex = 37;
-            this.label21.Text = "Hexadecimal 4 bytes";
+            this.button62.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button62_MouseDown);
             // 
             // textBox_SetTxAD936X
             // 
-            this.textBox_SetTxAD936X.Location = new System.Drawing.Point(252, 95);
+            this.textBox_SetTxAD936X.Location = new System.Drawing.Point(253, 69);
             this.textBox_SetTxAD936X.MaxLength = 30;
             this.textBox_SetTxAD936X.Name = "textBox_SetTxAD936X";
             this.textBox_SetTxAD936X.Size = new System.Drawing.Size(130, 26);
@@ -3920,7 +4068,7 @@ namespace SocketServer
             // 
             // button61
             // 
-            this.button61.Location = new System.Drawing.Point(2, 98);
+            this.button61.Location = new System.Drawing.Point(3, 72);
             this.button61.Name = "button61";
             this.button61.Size = new System.Drawing.Size(244, 23);
             this.button61.TabIndex = 35;
@@ -3928,19 +4076,6 @@ namespace SocketServer
             this.button61.UseVisualStyleBackColor = true;
             this.button61.Click += new System.EventHandler(this.button61_Click);
             this.button61.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button61_MouseDown);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label20.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Maroon;
-            this.label20.Location = new System.Drawing.Point(388, 38);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(150, 21);
-            this.label20.TabIndex = 34;
-            this.label20.Text = "Hexadecimal 4 bytes";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // textBox_SetSynthesizerL2
             // 
@@ -3961,19 +4096,7 @@ namespace SocketServer
             this.button60.Text = "Set Synthesizer L2 register ";
             this.button60.UseVisualStyleBackColor = true;
             this.button60.Click += new System.EventHandler(this.button60_Click);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label19.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Maroon;
-            this.label19.Location = new System.Drawing.Point(389, 7);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(150, 21);
-            this.label19.TabIndex = 31;
-            this.label19.Text = "Hexadecimal 4 bytes";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
+            this.button60.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button60_MouseDown);
             // 
             // textBox_SetSynthesizerL1
             // 
@@ -4000,6 +4123,14 @@ namespace SocketServer
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.textBox_SetInternalLOFreqNumber);
+            this.tabPage6.Controls.Add(this.label19);
+            this.tabPage6.Controls.Add(this.textBox_SetRxChannelGainNumber);
+            this.tabPage6.Controls.Add(this.label36);
+            this.tabPage6.Controls.Add(this.textBox_GetInternalLOFreq);
+            this.tabPage6.Controls.Add(this.textBox_SetInternalLOFreq);
+            this.tabPage6.Controls.Add(this.button90);
+            this.tabPage6.Controls.Add(this.button91);
             this.tabPage6.Controls.Add(this.textBox_SetDCAHex);
             this.tabPage6.Controls.Add(this.textBox_TxRFPLL);
             this.tabPage6.Controls.Add(this.textBox_RxRFPLL);
@@ -4019,6 +4150,91 @@ namespace SocketServer
             this.tabPage6.Text = "RF";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // textBox_SetInternalLOFreqNumber
+            // 
+            this.textBox_SetInternalLOFreqNumber.Location = new System.Drawing.Point(479, 167);
+            this.textBox_SetInternalLOFreqNumber.MaxLength = 121;
+            this.textBox_SetInternalLOFreqNumber.Name = "textBox_SetInternalLOFreqNumber";
+            this.textBox_SetInternalLOFreqNumber.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetInternalLOFreqNumber.TabIndex = 44;
+            this.textBox_SetInternalLOFreqNumber.Text = "0";
+            this.textBox_SetInternalLOFreqNumber.TextChanged += new System.EventHandler(this.textBox_SetInternalLOFreqNumber_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label19.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Maroon;
+            this.label19.Location = new System.Drawing.Point(701, 13);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(75, 21);
+            this.label19.TabIndex = 43;
+            this.label19.Text = "0-76 dBm";
+            // 
+            // textBox_SetRxChannelGainNumber
+            // 
+            this.textBox_SetRxChannelGainNumber.Location = new System.Drawing.Point(479, 10);
+            this.textBox_SetRxChannelGainNumber.MaxLength = 121;
+            this.textBox_SetRxChannelGainNumber.Name = "textBox_SetRxChannelGainNumber";
+            this.textBox_SetRxChannelGainNumber.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetRxChannelGainNumber.TabIndex = 42;
+            this.textBox_SetRxChannelGainNumber.Text = "0";
+            this.textBox_SetRxChannelGainNumber.TextChanged += new System.EventHandler(this.textBox_SetRxChannelGainNumber_TextChanged);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label36.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.Maroon;
+            this.label36.Location = new System.Drawing.Point(479, 202);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(150, 21);
+            this.label36.TabIndex = 41;
+            this.label36.Text = "Hexadecimal 1 bytes";
+            // 
+            // textBox_GetInternalLOFreq
+            // 
+            this.textBox_GetInternalLOFreq.Location = new System.Drawing.Point(257, 200);
+            this.textBox_GetInternalLOFreq.MaxLength = 121;
+            this.textBox_GetInternalLOFreq.Name = "textBox_GetInternalLOFreq";
+            this.textBox_GetInternalLOFreq.Size = new System.Drawing.Size(216, 26);
+            this.textBox_GetInternalLOFreq.TabIndex = 39;
+            this.textBox_GetInternalLOFreq.Text = "00";
+            this.textBox_GetInternalLOFreq.TextChanged += new System.EventHandler(this.textBox_GetInternalLOFreq_TextChanged);
+            // 
+            // textBox_SetInternalLOFreq
+            // 
+            this.textBox_SetInternalLOFreq.Location = new System.Drawing.Point(257, 167);
+            this.textBox_SetInternalLOFreq.MaxLength = 121;
+            this.textBox_SetInternalLOFreq.Name = "textBox_SetInternalLOFreq";
+            this.textBox_SetInternalLOFreq.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetInternalLOFreq.TabIndex = 38;
+            this.textBox_SetInternalLOFreq.Text = "00 0000000000000000";
+            this.textBox_SetInternalLOFreq.TextChanged += new System.EventHandler(this.textBox_SetInternalLOFreq_TextChanged);
+            // 
+            // button90
+            // 
+            this.button90.Location = new System.Drawing.Point(7, 203);
+            this.button90.Name = "button90";
+            this.button90.Size = new System.Drawing.Size(244, 23);
+            this.button90.TabIndex = 37;
+            this.button90.Text = "Get internal LO Frequency ";
+            this.button90.UseVisualStyleBackColor = true;
+            this.button90.Click += new System.EventHandler(this.button90_Click);
+            // 
+            // button91
+            // 
+            this.button91.Location = new System.Drawing.Point(7, 170);
+            this.button91.Name = "button91";
+            this.button91.Size = new System.Drawing.Size(244, 23);
+            this.button91.TabIndex = 36;
+            this.button91.Text = "Set internal LO Frequency ";
+            this.button91.UseVisualStyleBackColor = true;
+            this.button91.Click += new System.EventHandler(this.button91_Click);
+            this.button91.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button91_MouseDown);
+            // 
             // textBox_SetDCAHex
             // 
             this.textBox_SetDCAHex.Location = new System.Drawing.Point(479, 89);
@@ -4030,7 +4246,7 @@ namespace SocketServer
             // 
             // textBox_TxRFPLL
             // 
-            this.textBox_TxRFPLL.Location = new System.Drawing.Point(253, 208);
+            this.textBox_TxRFPLL.Location = new System.Drawing.Point(253, 283);
             this.textBox_TxRFPLL.MaxLength = 121;
             this.textBox_TxRFPLL.Name = "textBox_TxRFPLL";
             this.textBox_TxRFPLL.Size = new System.Drawing.Size(216, 26);
@@ -4040,7 +4256,7 @@ namespace SocketServer
             // 
             // textBox_RxRFPLL
             // 
-            this.textBox_RxRFPLL.Location = new System.Drawing.Point(253, 175);
+            this.textBox_RxRFPLL.Location = new System.Drawing.Point(253, 250);
             this.textBox_RxRFPLL.MaxLength = 121;
             this.textBox_RxRFPLL.Name = "textBox_RxRFPLL";
             this.textBox_RxRFPLL.Size = new System.Drawing.Size(216, 26);
@@ -4060,7 +4276,7 @@ namespace SocketServer
             // 
             // button79
             // 
-            this.button79.Location = new System.Drawing.Point(3, 211);
+            this.button79.Location = new System.Drawing.Point(3, 286);
             this.button79.Name = "button79";
             this.button79.Size = new System.Drawing.Size(244, 23);
             this.button79.TabIndex = 31;
@@ -4070,7 +4286,7 @@ namespace SocketServer
             // 
             // button78
             // 
-            this.button78.Location = new System.Drawing.Point(3, 178);
+            this.button78.Location = new System.Drawing.Point(3, 253);
             this.button78.Name = "button78";
             this.button78.Size = new System.Drawing.Size(244, 23);
             this.button78.TabIndex = 30;
@@ -4108,6 +4324,7 @@ namespace SocketServer
             this.button75.Text = "Set DCA";
             this.button75.UseVisualStyleBackColor = true;
             this.button75.Click += new System.EventHandler(this.button75_Click);
+            this.button75.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button75_MouseDown);
             // 
             // button76
             // 
@@ -4118,6 +4335,7 @@ namespace SocketServer
             this.button76.Text = "Get RX channel gain";
             this.button76.UseVisualStyleBackColor = true;
             this.button76.Click += new System.EventHandler(this.button76_Click);
+            this.button76.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button76_MouseDown);
             // 
             // textBox_SetRXChannelGain
             // 
@@ -4138,9 +4356,11 @@ namespace SocketServer
             this.button77.Text = "Set RX channel gain";
             this.button77.UseVisualStyleBackColor = true;
             this.button77.Click += new System.EventHandler(this.button77_Click);
+            this.button77.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button77_MouseDown);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.richTextBox_RegisterCommands);
             this.tabPage3.Controls.Add(this.textBox_GetGPIOVal);
             this.tabPage3.Controls.Add(this.button82);
             this.tabPage3.Controls.Add(this.textBox_SetGPIOVal);
@@ -4161,6 +4381,15 @@ namespace SocketServer
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Debug";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox_RegisterCommands
+            // 
+            this.richTextBox_RegisterCommands.Location = new System.Drawing.Point(785, 11);
+            this.richTextBox_RegisterCommands.Name = "richTextBox_RegisterCommands";
+            this.richTextBox_RegisterCommands.Size = new System.Drawing.Size(161, 132);
+            this.richTextBox_RegisterCommands.TabIndex = 73;
+            this.richTextBox_RegisterCommands.Text = "";
+            this.richTextBox_RegisterCommands.TextChanged += new System.EventHandler(this.richTextBox_RegisterCommands_TextChanged);
             // 
             // textBox_GetGPIOVal
             // 
@@ -4263,7 +4492,7 @@ namespace SocketServer
             this.textBox_WriteFPGARegister.Name = "textBox_WriteFPGARegister";
             this.textBox_WriteFPGARegister.Size = new System.Drawing.Size(130, 26);
             this.textBox_WriteFPGARegister.TabIndex = 39;
-            this.textBox_WriteFPGARegister.Text = "00 00 00 00";
+            this.textBox_WriteFPGARegister.Text = "00000000 00000000";
             this.textBox_WriteFPGARegister.TextChanged += new System.EventHandler(this.textBox_WriteFPGARegister_TextChanged);
             // 
             // button70
@@ -4275,6 +4504,7 @@ namespace SocketServer
             this.button70.Text = "Write FPGA register ";
             this.button70.UseVisualStyleBackColor = true;
             this.button70.Click += new System.EventHandler(this.button70_Click);
+            this.button70.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button70_MouseDown);
             // 
             // label30
             // 
@@ -4295,7 +4525,7 @@ namespace SocketServer
             this.textBox_ReadFPGARegister.Name = "textBox_ReadFPGARegister";
             this.textBox_ReadFPGARegister.Size = new System.Drawing.Size(129, 26);
             this.textBox_ReadFPGARegister.TabIndex = 36;
-            this.textBox_ReadFPGARegister.Text = "00 00 00 00";
+            this.textBox_ReadFPGARegister.Text = "00000000";
             this.textBox_ReadFPGARegister.TextChanged += new System.EventHandler(this.textBox_ReadFPGARegister_TextChanged);
             // 
             // button71
@@ -4308,16 +4538,32 @@ namespace SocketServer
             this.toolTip1.SetToolTip(this.button71, "rafrefaefaefaef");
             this.button71.UseVisualStyleBackColor = true;
             this.button71.Click += new System.EventHandler(this.button71_Click);
+            this.button71.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button71_MouseDown);
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.textBox_RecordingTests);
+            this.tabPage7.Controls.Add(this.button72);
+            this.tabPage7.Controls.Add(this.label40);
+            this.tabPage7.Controls.Add(this.textBox_RecordIQDataNumbers);
+            this.tabPage7.Controls.Add(this.label39);
+            this.tabPage7.Controls.Add(this.TextBox_Zeropadding);
+            this.tabPage7.Controls.Add(this.button_DFTPlot);
+            this.tabPage7.Controls.Add(this.TextBoxFsSamplingRate);
+            this.tabPage7.Controls.Add(this.label38);
+            this.tabPage7.Controls.Add(this.label32);
+            this.tabPage7.Controls.Add(this.comboBox_WindowsDSPLib);
+            this.tabPage7.Controls.Add(this.button_FFTPlot);
+            this.tabPage7.Controls.Add(this.textBox_RetriveIQData);
+            this.tabPage7.Controls.Add(this.button92);
+            this.tabPage7.Controls.Add(this.textBox_PlayIQData);
+            this.tabPage7.Controls.Add(this.button93);
             this.tabPage7.Controls.Add(this.label34);
             this.tabPage7.Controls.Add(this.textBox_SetRxChannelState);
             this.tabPage7.Controls.Add(this.button85);
             this.tabPage7.Controls.Add(this.label33);
             this.tabPage7.Controls.Add(this.textBox_RecordIQSourceSealect);
             this.tabPage7.Controls.Add(this.button84);
-            this.tabPage7.Controls.Add(this.label32);
             this.tabPage7.Controls.Add(this.textBox_RecordIQData);
             this.tabPage7.Controls.Add(this.button_RecordIQData);
             this.tabPage7.Location = new System.Drawing.Point(4, 27);
@@ -4327,13 +4573,151 @@ namespace SocketServer
             this.tabPage7.Text = "Recording";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label40.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.Maroon;
+            this.label40.Location = new System.Drawing.Point(373, 46);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(84, 21);
+            this.label40.TabIndex = 58;
+            this.label40.Text = "Blocks,Size";
+            // 
+            // textBox_RecordIQDataNumbers
+            // 
+            this.textBox_RecordIQDataNumbers.Location = new System.Drawing.Point(257, 46);
+            this.textBox_RecordIQDataNumbers.MaxLength = 121;
+            this.textBox_RecordIQDataNumbers.Name = "textBox_RecordIQDataNumbers";
+            this.textBox_RecordIQDataNumbers.Size = new System.Drawing.Size(110, 26);
+            this.textBox_RecordIQDataNumbers.TabIndex = 57;
+            this.textBox_RecordIQDataNumbers.Text = "1,100000";
+            this.textBox_RecordIQDataNumbers.TextChanged += new System.EventHandler(this.textBox_RecordIQDataNumbers_TextChanged);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(823, 81);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(41, 18);
+            this.label39.TabIndex = 56;
+            this.label39.Text = "zeros";
+            // 
+            // TextBox_Zeropadding
+            // 
+            this.TextBox_Zeropadding.Location = new System.Drawing.Point(870, 77);
+            this.TextBox_Zeropadding.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBox_Zeropadding.Name = "TextBox_Zeropadding";
+            this.TextBox_Zeropadding.Size = new System.Drawing.Size(76, 26);
+            this.TextBox_Zeropadding.TabIndex = 55;
+            this.TextBox_Zeropadding.Text = "0";
+            // 
+            // button_DFTPlot
+            // 
+            this.button_DFTPlot.Location = new System.Drawing.Point(789, 49);
+            this.button_DFTPlot.Name = "button_DFTPlot";
+            this.button_DFTPlot.Size = new System.Drawing.Size(157, 23);
+            this.button_DFTPlot.TabIndex = 54;
+            this.button_DFTPlot.Text = "Plot IQ DFT";
+            this.button_DFTPlot.UseVisualStyleBackColor = true;
+            this.button_DFTPlot.Click += new System.EventHandler(this.button98_Click);
+            // 
+            // TextBoxFsSamplingRate
+            // 
+            this.TextBoxFsSamplingRate.Location = new System.Drawing.Point(631, 43);
+            this.TextBoxFsSamplingRate.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxFsSamplingRate.Name = "TextBoxFsSamplingRate";
+            this.TextBoxFsSamplingRate.Size = new System.Drawing.Size(76, 26);
+            this.TextBoxFsSamplingRate.TabIndex = 53;
+            this.TextBoxFsSamplingRate.Text = "61.38e6";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(486, 46);
+            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(140, 18);
+            this.label38.TabIndex = 52;
+            this.label38.Text = "Fs Sampling Rate (Hz)";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(522, 14);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(58, 18);
+            this.label32.TabIndex = 51;
+            this.label32.Text = "window";
+            // 
+            // comboBox_WindowsDSPLib
+            // 
+            this.comboBox_WindowsDSPLib.FormattingEnabled = true;
+            this.comboBox_WindowsDSPLib.Location = new System.Drawing.Point(586, 12);
+            this.comboBox_WindowsDSPLib.Name = "comboBox_WindowsDSPLib";
+            this.comboBox_WindowsDSPLib.Size = new System.Drawing.Size(121, 26);
+            this.comboBox_WindowsDSPLib.TabIndex = 50;
+            this.comboBox_WindowsDSPLib.Text = "None";
+            this.comboBox_WindowsDSPLib.SelectedIndexChanged += new System.EventHandler(this.comboBox_WindowsDSPLib_SelectedIndexChanged);
+            // 
+            // button_FFTPlot
+            // 
+            this.button_FFTPlot.Location = new System.Drawing.Point(789, 9);
+            this.button_FFTPlot.Name = "button_FFTPlot";
+            this.button_FFTPlot.Size = new System.Drawing.Size(157, 23);
+            this.button_FFTPlot.TabIndex = 49;
+            this.button_FFTPlot.Text = "Plot IQ FFT";
+            this.button_FFTPlot.UseVisualStyleBackColor = true;
+            this.button_FFTPlot.Click += new System.EventHandler(this.button96_Click);
+            // 
+            // textBox_RetriveIQData
+            // 
+            this.textBox_RetriveIQData.Location = new System.Drawing.Point(257, 149);
+            this.textBox_RetriveIQData.MaxLength = 121;
+            this.textBox_RetriveIQData.Name = "textBox_RetriveIQData";
+            this.textBox_RetriveIQData.Size = new System.Drawing.Size(216, 26);
+            this.textBox_RetriveIQData.TabIndex = 48;
+            this.textBox_RetriveIQData.Text = "00 00 00 00 00";
+            this.textBox_RetriveIQData.TextChanged += new System.EventHandler(this.textBox_RetriveIQData_TextChanged);
+            // 
+            // button92
+            // 
+            this.button92.Location = new System.Drawing.Point(7, 150);
+            this.button92.Name = "button92";
+            this.button92.Size = new System.Drawing.Size(244, 23);
+            this.button92.TabIndex = 47;
+            this.button92.Text = "Retrieve IQ data ";
+            this.button92.UseVisualStyleBackColor = true;
+            this.button92.Click += new System.EventHandler(this.button92_Click);
+            // 
+            // textBox_PlayIQData
+            // 
+            this.textBox_PlayIQData.Location = new System.Drawing.Point(257, 116);
+            this.textBox_PlayIQData.MaxLength = 121;
+            this.textBox_PlayIQData.Name = "textBox_PlayIQData";
+            this.textBox_PlayIQData.Size = new System.Drawing.Size(216, 26);
+            this.textBox_PlayIQData.TabIndex = 46;
+            this.textBox_PlayIQData.Text = "00 00 00 00 00";
+            this.textBox_PlayIQData.TextChanged += new System.EventHandler(this.textBox_PlayIQData_TextChanged);
+            // 
+            // button93
+            // 
+            this.button93.Location = new System.Drawing.Point(7, 117);
+            this.button93.Name = "button93";
+            this.button93.Size = new System.Drawing.Size(244, 23);
+            this.button93.TabIndex = 45;
+            this.button93.Text = "Play IQ data ";
+            this.button93.UseVisualStyleBackColor = true;
+            this.button93.Click += new System.EventHandler(this.button93_Click);
+            // 
             // label34
             // 
             this.label34.AutoSize = true;
             this.label34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label34.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.ForeColor = System.Drawing.Color.Maroon;
-            this.label34.Location = new System.Drawing.Point(479, 82);
+            this.label34.Location = new System.Drawing.Point(479, 267);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(150, 21);
             this.label34.TabIndex = 44;
@@ -4341,7 +4725,7 @@ namespace SocketServer
             // 
             // textBox_SetRxChannelState
             // 
-            this.textBox_SetRxChannelState.Location = new System.Drawing.Point(257, 82);
+            this.textBox_SetRxChannelState.Location = new System.Drawing.Point(257, 267);
             this.textBox_SetRxChannelState.MaxLength = 121;
             this.textBox_SetRxChannelState.Name = "textBox_SetRxChannelState";
             this.textBox_SetRxChannelState.Size = new System.Drawing.Size(216, 26);
@@ -4351,13 +4735,14 @@ namespace SocketServer
             // 
             // button85
             // 
-            this.button85.Location = new System.Drawing.Point(7, 83);
+            this.button85.Location = new System.Drawing.Point(7, 268);
             this.button85.Name = "button85";
             this.button85.Size = new System.Drawing.Size(244, 23);
             this.button85.TabIndex = 42;
             this.button85.Text = "Set RX channel state RX/CAL";
             this.button85.UseVisualStyleBackColor = true;
             this.button85.Click += new System.EventHandler(this.button85_Click);
+            this.button85.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button85_MouseDown);
             // 
             // label33
             // 
@@ -4365,7 +4750,7 @@ namespace SocketServer
             this.label33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label33.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.ForeColor = System.Drawing.Color.Maroon;
-            this.label33.Location = new System.Drawing.Point(479, 48);
+            this.label33.Location = new System.Drawing.Point(479, 89);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(150, 21);
             this.label33.TabIndex = 41;
@@ -4373,44 +4758,33 @@ namespace SocketServer
             // 
             // textBox_RecordIQSourceSealect
             // 
-            this.textBox_RecordIQSourceSealect.Location = new System.Drawing.Point(257, 48);
+            this.textBox_RecordIQSourceSealect.Location = new System.Drawing.Point(257, 86);
             this.textBox_RecordIQSourceSealect.MaxLength = 121;
             this.textBox_RecordIQSourceSealect.Name = "textBox_RecordIQSourceSealect";
             this.textBox_RecordIQSourceSealect.Size = new System.Drawing.Size(216, 26);
             this.textBox_RecordIQSourceSealect.TabIndex = 40;
-            this.textBox_RecordIQSourceSealect.Text = "00 00 00";
+            this.textBox_RecordIQSourceSealect.Text = "00 06 07";
             this.textBox_RecordIQSourceSealect.TextChanged += new System.EventHandler(this.textBox_RecordIQSourceSealect_TextChanged);
             // 
             // button84
             // 
-            this.button84.Location = new System.Drawing.Point(7, 49);
+            this.button84.Location = new System.Drawing.Point(7, 87);
             this.button84.Name = "button84";
             this.button84.Size = new System.Drawing.Size(244, 23);
             this.button84.TabIndex = 39;
             this.button84.Text = "Record IQ data source select ";
             this.button84.UseVisualStyleBackColor = true;
             this.button84.Click += new System.EventHandler(this.button84_Click);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label32.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.Color.Maroon;
-            this.label32.Location = new System.Drawing.Point(479, 15);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(150, 21);
-            this.label32.TabIndex = 38;
-            this.label32.Text = "Hexadecimal 5 bytes";
+            this.button84.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button84_MouseDown);
             // 
             // textBox_RecordIQData
             // 
             this.textBox_RecordIQData.Location = new System.Drawing.Point(257, 15);
             this.textBox_RecordIQData.MaxLength = 121;
             this.textBox_RecordIQData.Name = "textBox_RecordIQData";
-            this.textBox_RecordIQData.Size = new System.Drawing.Size(216, 26);
+            this.textBox_RecordIQData.Size = new System.Drawing.Size(110, 26);
             this.textBox_RecordIQData.TabIndex = 27;
-            this.textBox_RecordIQData.Text = "00 00 00 00 00";
+            this.textBox_RecordIQData.Text = "01 a0 86 01 00";
             this.textBox_RecordIQData.TextChanged += new System.EventHandler(this.textBox_RecordIQData_TextChanged);
             // 
             // button_RecordIQData
@@ -4422,6 +4796,7 @@ namespace SocketServer
             this.button_RecordIQData.Text = "Record IQ data ";
             this.button_RecordIQData.UseVisualStyleBackColor = true;
             this.button_RecordIQData.Click += new System.EventHandler(this.button_RecordIQData_Click);
+            this.button_RecordIQData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_RecordIQData_MouseDown);
             // 
             // tabPage8
             // 
@@ -4431,6 +4806,266 @@ namespace SocketServer
             this.tabPage8.TabIndex = 5;
             this.tabPage8.Text = "Transmit";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.button86);
+            this.tabPage9.Location = new System.Drawing.Point(4, 27);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(949, 604);
+            this.tabPage9.TabIndex = 6;
+            this.tabPage9.Text = "Extendend";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // button86
+            // 
+            this.button86.Location = new System.Drawing.Point(7, 8);
+            this.button86.Name = "button86";
+            this.button86.Size = new System.Drawing.Size(244, 23);
+            this.button86.TabIndex = 50;
+            this.button86.Text = "Get UBLOX data";
+            this.button86.UseVisualStyleBackColor = true;
+            this.button86.Click += new System.EventHandler(this.button86_Click);
+            // 
+            // tabPage14
+            // 
+            this.tabPage14.Controls.Add(this.textBox_EraseDataFromFlash);
+            this.tabPage14.Controls.Add(this.button_EraseFlash);
+            this.tabPage14.Controls.Add(this.textBox_LoadDatainFlash);
+            this.tabPage14.Controls.Add(this.button98);
+            this.tabPage14.Controls.Add(this.textBox_StoreDatainFlash);
+            this.tabPage14.Controls.Add(this.button_StoreDatainFlash);
+            this.tabPage14.Controls.Add(this.groupBox_FlashConfig);
+            this.tabPage14.Location = new System.Drawing.Point(4, 27);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Size = new System.Drawing.Size(949, 604);
+            this.tabPage14.TabIndex = 8;
+            this.tabPage14.Text = "Flash";
+            this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // textBox_EraseDataFromFlash
+            // 
+            this.textBox_EraseDataFromFlash.Location = new System.Drawing.Point(257, 71);
+            this.textBox_EraseDataFromFlash.MaxLength = 30;
+            this.textBox_EraseDataFromFlash.Name = "textBox_EraseDataFromFlash";
+            this.textBox_EraseDataFromFlash.Size = new System.Drawing.Size(156, 26);
+            this.textBox_EraseDataFromFlash.TabIndex = 75;
+            this.textBox_EraseDataFromFlash.Text = "00100000 ";
+            this.textBox_EraseDataFromFlash.TextChanged += new System.EventHandler(this.textBox_EraseDataFromFlash_TextChanged);
+            // 
+            // button_EraseFlash
+            // 
+            this.button_EraseFlash.Location = new System.Drawing.Point(8, 74);
+            this.button_EraseFlash.Name = "button_EraseFlash";
+            this.button_EraseFlash.Size = new System.Drawing.Size(244, 23);
+            this.button_EraseFlash.TabIndex = 74;
+            this.button_EraseFlash.Text = "Erase data from flash";
+            this.button_EraseFlash.UseVisualStyleBackColor = true;
+            this.button_EraseFlash.Click += new System.EventHandler(this.button96_Click_1);
+            // 
+            // textBox_LoadDatainFlash
+            // 
+            this.textBox_LoadDatainFlash.Location = new System.Drawing.Point(256, 41);
+            this.textBox_LoadDatainFlash.MaxLength = 30;
+            this.textBox_LoadDatainFlash.Name = "textBox_LoadDatainFlash";
+            this.textBox_LoadDatainFlash.Size = new System.Drawing.Size(156, 26);
+            this.textBox_LoadDatainFlash.TabIndex = 73;
+            this.textBox_LoadDatainFlash.Text = "00100000 15000000";
+            this.textBox_LoadDatainFlash.TextChanged += new System.EventHandler(this.textBox_LoadDatainFlash_TextChanged);
+            // 
+            // button98
+            // 
+            this.button98.Location = new System.Drawing.Point(7, 44);
+            this.button98.Name = "button98";
+            this.button98.Size = new System.Drawing.Size(244, 23);
+            this.button98.TabIndex = 72;
+            this.button98.Text = "Load data from Flash by address ";
+            this.button98.UseVisualStyleBackColor = true;
+            this.button98.Click += new System.EventHandler(this.button98_Click_2);
+            // 
+            // textBox_StoreDatainFlash
+            // 
+            this.textBox_StoreDatainFlash.Location = new System.Drawing.Point(256, 8);
+            this.textBox_StoreDatainFlash.MaxLength = 300000;
+            this.textBox_StoreDatainFlash.Name = "textBox_StoreDatainFlash";
+            this.textBox_StoreDatainFlash.Size = new System.Drawing.Size(313, 26);
+            this.textBox_StoreDatainFlash.TabIndex = 71;
+            this.textBox_StoreDatainFlash.Text = "00100000 00000000";
+            this.textBox_StoreDatainFlash.TextChanged += new System.EventHandler(this.textBox_StoreDatainFlash_TextChanged);
+            // 
+            // button_StoreDatainFlash
+            // 
+            this.button_StoreDatainFlash.Location = new System.Drawing.Point(7, 11);
+            this.button_StoreDatainFlash.Name = "button_StoreDatainFlash";
+            this.button_StoreDatainFlash.Size = new System.Drawing.Size(244, 23);
+            this.button_StoreDatainFlash.TabIndex = 70;
+            this.button_StoreDatainFlash.Text = "Store data in Flash  ";
+            this.button_StoreDatainFlash.UseVisualStyleBackColor = true;
+            this.button_StoreDatainFlash.Click += new System.EventHandler(this.button100_Click_1);
+            // 
+            // groupBox_FlashConfig
+            // 
+            this.groupBox_FlashConfig.Controls.Add(this.progressBar_WriteToFlash);
+            this.groupBox_FlashConfig.Controls.Add(this.button_SynthL2);
+            this.groupBox_FlashConfig.Controls.Add(this.button_WriteAllToFlash);
+            this.groupBox_FlashConfig.Controls.Add(this.button_SynthL1);
+            this.groupBox_FlashConfig.Controls.Add(this.button_WriteSystemType);
+            this.groupBox_FlashConfig.Controls.Add(this.comboBox_SystemType);
+            this.groupBox_FlashConfig.Controls.Add(this.label22);
+            this.groupBox_FlashConfig.Controls.Add(this.label21);
+            this.groupBox_FlashConfig.Controls.Add(this.label20);
+            this.groupBox_FlashConfig.Controls.Add(this.comboBox1);
+            this.groupBox_FlashConfig.Controls.Add(this.richTextBox_SyntisazerL2);
+            this.groupBox_FlashConfig.Controls.Add(this.richTextBox_SyntisazerL1);
+            this.groupBox_FlashConfig.Controls.Add(this.textBox_FilesToWriteForTheCatalinas);
+            this.groupBox_FlashConfig.Controls.Add(this.button_WriteCatalinas);
+            this.groupBox_FlashConfig.Location = new System.Drawing.Point(5, 116);
+            this.groupBox_FlashConfig.Name = "groupBox_FlashConfig";
+            this.groupBox_FlashConfig.Size = new System.Drawing.Size(939, 484);
+            this.groupBox_FlashConfig.TabIndex = 68;
+            this.groupBox_FlashConfig.TabStop = false;
+            this.groupBox_FlashConfig.Text = "Flash configurations";
+            // 
+            // progressBar_WriteToFlash
+            // 
+            this.progressBar_WriteToFlash.Location = new System.Drawing.Point(789, 68);
+            this.progressBar_WriteToFlash.Name = "progressBar_WriteToFlash";
+            this.progressBar_WriteToFlash.Size = new System.Drawing.Size(144, 23);
+            this.progressBar_WriteToFlash.TabIndex = 82;
+            // 
+            // button_SynthL2
+            // 
+            this.button_SynthL2.Location = new System.Drawing.Point(243, 244);
+            this.button_SynthL2.Name = "button_SynthL2";
+            this.button_SynthL2.Size = new System.Drawing.Size(227, 23);
+            this.button_SynthL2.TabIndex = 81;
+            this.button_SynthL2.Text = "Write Synthesizer L2";
+            this.button_SynthL2.UseVisualStyleBackColor = true;
+            this.button_SynthL2.Click += new System.EventHandler(this.button101_Click);
+            // 
+            // button_WriteAllToFlash
+            // 
+            this.button_WriteAllToFlash.BackColor = System.Drawing.Color.Transparent;
+            this.button_WriteAllToFlash.Location = new System.Drawing.Point(789, 24);
+            this.button_WriteAllToFlash.Name = "button_WriteAllToFlash";
+            this.button_WriteAllToFlash.Size = new System.Drawing.Size(144, 34);
+            this.button_WriteAllToFlash.TabIndex = 80;
+            this.button_WriteAllToFlash.Text = "Write all to flash";
+            this.button_WriteAllToFlash.UseVisualStyleBackColor = false;
+            this.button_WriteAllToFlash.Click += new System.EventHandler(this.button100_Click_2);
+            // 
+            // button_SynthL1
+            // 
+            this.button_SynthL1.Location = new System.Drawing.Point(2, 244);
+            this.button_SynthL1.Name = "button_SynthL1";
+            this.button_SynthL1.Size = new System.Drawing.Size(227, 23);
+            this.button_SynthL1.TabIndex = 79;
+            this.button_SynthL1.Text = "Write Synthesizer L1";
+            this.button_SynthL1.UseVisualStyleBackColor = true;
+            this.button_SynthL1.Click += new System.EventHandler(this.button96_Click_2);
+            // 
+            // button_WriteSystemType
+            // 
+            this.button_WriteSystemType.Location = new System.Drawing.Point(89, 45);
+            this.button_WriteSystemType.Name = "button_WriteSystemType";
+            this.button_WriteSystemType.Size = new System.Drawing.Size(188, 23);
+            this.button_WriteSystemType.TabIndex = 78;
+            this.button_WriteSystemType.Text = "Write System type to flash";
+            this.button_WriteSystemType.UseVisualStyleBackColor = true;
+            this.button_WriteSystemType.Click += new System.EventHandler(this.button73_Click_1);
+            // 
+            // comboBox_SystemType
+            // 
+            this.comboBox_SystemType.FormattingEnabled = true;
+            this.comboBox_SystemType.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C"});
+            this.comboBox_SystemType.Location = new System.Drawing.Point(5, 45);
+            this.comboBox_SystemType.Name = "comboBox_SystemType";
+            this.comboBox_SystemType.Size = new System.Drawing.Size(78, 26);
+            this.comboBox_SystemType.TabIndex = 77;
+            this.comboBox_SystemType.Text = "C";
+            this.toolTip1.SetToolTip(this.comboBox_SystemType, "            % mini_ada_write_sys_type(type)");
+            this.comboBox_SystemType.MouseDown += new System.Windows.Forms.MouseEventHandler(this.comboBox2_MouseDown);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 22);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(84, 18);
+            this.label22.TabIndex = 76;
+            this.label22.Text = "System type";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(240, 83);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(129, 18);
+            this.label21.TabIndex = 75;
+            this.label21.Text = "Synthesizer  data L2";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(8, 87);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(129, 18);
+            this.label20.TabIndex = 74;
+            this.label20.Text = "Synthesizer  data L1";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "A",
+            "B"});
+            this.comboBox1.Location = new System.Drawing.Point(371, 76);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(37, 26);
+            this.comboBox1.TabIndex = 73;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_3);
+            // 
+            // richTextBox_SyntisazerL2
+            // 
+            this.richTextBox_SyntisazerL2.Location = new System.Drawing.Point(243, 108);
+            this.richTextBox_SyntisazerL2.Name = "richTextBox_SyntisazerL2";
+            this.richTextBox_SyntisazerL2.Size = new System.Drawing.Size(161, 132);
+            this.richTextBox_SyntisazerL2.TabIndex = 72;
+            this.richTextBox_SyntisazerL2.Text = "00618000\n08008011\n00004542\n004004B3\n00883034\n00580005\n";
+            this.richTextBox_SyntisazerL2.TextChanged += new System.EventHandler(this.richTextBox_SyntisazerL2_TextChanged);
+            this.richTextBox_SyntisazerL2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.richTextBox_SyntisazerL2_MouseDown);
+            // 
+            // richTextBox_SyntisazerL1
+            // 
+            this.richTextBox_SyntisazerL1.Location = new System.Drawing.Point(5, 111);
+            this.richTextBox_SyntisazerL1.Name = "richTextBox_SyntisazerL1";
+            this.richTextBox_SyntisazerL1.Size = new System.Drawing.Size(161, 124);
+            this.richTextBox_SyntisazerL1.TabIndex = 71;
+            this.richTextBox_SyntisazerL1.Text = "00618000\n08008011\n00004542\n004004B3\n00883034\n00580005";
+            this.richTextBox_SyntisazerL1.TextChanged += new System.EventHandler(this.richTextBox_SyntisazerL1_TextChanged);
+            this.richTextBox_SyntisazerL1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.richTextBox_SyntisazerL1_MouseDown);
+            // 
+            // textBox_FilesToWriteForTheCatalinas
+            // 
+            this.textBox_FilesToWriteForTheCatalinas.Location = new System.Drawing.Point(0, 311);
+            this.textBox_FilesToWriteForTheCatalinas.Name = "textBox_FilesToWriteForTheCatalinas";
+            this.textBox_FilesToWriteForTheCatalinas.Size = new System.Drawing.Size(933, 131);
+            this.textBox_FilesToWriteForTheCatalinas.TabIndex = 70;
+            this.textBox_FilesToWriteForTheCatalinas.Text = resources.GetString("textBox_FilesToWriteForTheCatalinas.Text");
+            this.textBox_FilesToWriteForTheCatalinas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox_FilesToWriteForTheCatalinas2_MouseDown);
+            // 
+            // button_WriteCatalinas
+            // 
+            this.button_WriteCatalinas.Location = new System.Drawing.Point(789, 449);
+            this.button_WriteCatalinas.Name = "button_WriteCatalinas";
+            this.button_WriteCatalinas.Size = new System.Drawing.Size(144, 23);
+            this.button_WriteCatalinas.TabIndex = 69;
+            this.button_WriteCatalinas.Text = "Write Files To Flash";
+            this.button_WriteCatalinas.UseVisualStyleBackColor = true;
+            this.button_WriteCatalinas.Click += new System.EventHandler(this.button72_Click_2);
             // 
             // groupBox32
             // 
@@ -4489,6 +5124,189 @@ namespace SocketServer
             this.button_ClearMiniAda.TabIndex = 6;
             this.button_ClearMiniAda.Text = "Clear";
             this.button_ClearMiniAda.UseVisualStyleBackColor = true;
+            // 
+            // tabPage_charts
+            // 
+            this.tabPage_charts.Controls.Add(this.button99);
+            this.tabPage_charts.Controls.Add(this.label37);
+            this.tabPage_charts.Controls.Add(this.textBox_MaxXAxis);
+            this.tabPage_charts.Controls.Add(this.textBox_MinXAxis);
+            this.tabPage_charts.Controls.Add(this.comboBox_ChartUpdateTime);
+            this.tabPage_charts.Controls.Add(this.button28);
+            this.tabPage_charts.Controls.Add(this.listBox_Charts);
+            this.tabPage_charts.Controls.Add(this.button_OpenFolder2);
+            this.tabPage_charts.Controls.Add(this.button_GraphPause);
+            this.tabPage_charts.Controls.Add(this.Button_Export_excel);
+            this.tabPage_charts.Controls.Add(this.button_ResetGraphs);
+            this.tabPage_charts.Controls.Add(this.textBox_graph_XY);
+            this.tabPage_charts.Controls.Add(this.button_ScreenShot);
+            this.tabPage_charts.Controls.Add(this.chart1);
+            this.tabPage_charts.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_charts.Name = "tabPage_charts";
+            this.tabPage_charts.Size = new System.Drawing.Size(1547, 687);
+            this.tabPage_charts.TabIndex = 7;
+            this.tabPage_charts.Text = "Charts";
+            this.tabPage_charts.UseVisualStyleBackColor = true;
+            // 
+            // button99
+            // 
+            this.button99.Location = new System.Drawing.Point(132, 379);
+            this.button99.Name = "button99";
+            this.button99.Size = new System.Drawing.Size(45, 23);
+            this.button99.TabIndex = 84;
+            this.button99.Text = "auto";
+            this.button99.UseVisualStyleBackColor = true;
+            this.button99.Click += new System.EventHandler(this.button99_Click);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(2, 354);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(102, 18);
+            this.label37.TabIndex = 83;
+            this.label37.Text = "Min/Max X axis";
+            // 
+            // textBox_MaxXAxis
+            // 
+            this.textBox_MaxXAxis.Location = new System.Drawing.Point(61, 378);
+            this.textBox_MaxXAxis.Name = "textBox_MaxXAxis";
+            this.textBox_MaxXAxis.Size = new System.Drawing.Size(64, 26);
+            this.textBox_MaxXAxis.TabIndex = 82;
+            this.textBox_MaxXAxis.TextChanged += new System.EventHandler(this.textBox_MaxXAxis_TextChanged);
+            // 
+            // textBox_MinXAxis
+            // 
+            this.textBox_MinXAxis.Location = new System.Drawing.Point(3, 378);
+            this.textBox_MinXAxis.Name = "textBox_MinXAxis";
+            this.textBox_MinXAxis.Size = new System.Drawing.Size(47, 26);
+            this.textBox_MinXAxis.TabIndex = 81;
+            this.textBox_MinXAxis.TextChanged += new System.EventHandler(this.textBox_MinXAxis_TextChanged);
+            // 
+            // comboBox_ChartUpdateTime
+            // 
+            this.comboBox_ChartUpdateTime.FormattingEnabled = true;
+            this.comboBox_ChartUpdateTime.Items.AddRange(new object[] {
+            "100",
+            "200",
+            "500",
+            "1000",
+            "2000",
+            "5000",
+            "10000"});
+            this.comboBox_ChartUpdateTime.Location = new System.Drawing.Point(5, 612);
+            this.comboBox_ChartUpdateTime.Name = "comboBox_ChartUpdateTime";
+            this.comboBox_ChartUpdateTime.Size = new System.Drawing.Size(184, 26);
+            this.comboBox_ChartUpdateTime.TabIndex = 80;
+            this.comboBox_ChartUpdateTime.Text = "Update time ms";
+            this.comboBox_ChartUpdateTime.SelectedIndexChanged += new System.EventHandler(this.ComboBox_ChartUpdateTime_SelectedIndexChanged);
+            // 
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(3, 555);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(186, 23);
+            this.button28.TabIndex = 79;
+            this.button28.Text = "Reset X point";
+            this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.Button28_Click_2);
+            // 
+            // listBox_Charts
+            // 
+            this.listBox_Charts.FormattingEnabled = true;
+            this.listBox_Charts.ItemHeight = 18;
+            this.listBox_Charts.Location = new System.Drawing.Point(3, 167);
+            this.listBox_Charts.Name = "listBox_Charts";
+            this.listBox_Charts.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBox_Charts.Size = new System.Drawing.Size(184, 184);
+            this.listBox_Charts.TabIndex = 78;
+            this.listBox_Charts.SelectedIndexChanged += new System.EventHandler(this.ListBox_Charts_SelectedIndexChanged);
+            this.listBox_Charts.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox_Charts_KeyDown);
+            this.listBox_Charts.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBox_Charts_KeyPress);
+            // 
+            // button_OpenFolder2
+            // 
+            this.button_OpenFolder2.Location = new System.Drawing.Point(4, 434);
+            this.button_OpenFolder2.Name = "button_OpenFolder2";
+            this.button_OpenFolder2.Size = new System.Drawing.Size(185, 26);
+            this.button_OpenFolder2.TabIndex = 77;
+            this.button_OpenFolder2.Text = "Open Local Folder";
+            this.button_OpenFolder2.UseVisualStyleBackColor = true;
+            this.button_OpenFolder2.Click += new System.EventHandler(this.Button_OpenFolder2_Click);
+            // 
+            // button_GraphPause
+            // 
+            this.button_GraphPause.Location = new System.Drawing.Point(3, 583);
+            this.button_GraphPause.Name = "button_GraphPause";
+            this.button_GraphPause.Size = new System.Drawing.Size(186, 23);
+            this.button_GraphPause.TabIndex = 8;
+            this.button_GraphPause.Text = "Pause";
+            this.button_GraphPause.UseVisualStyleBackColor = true;
+            this.button_GraphPause.Click += new System.EventHandler(this.Button_GraphPause_Click);
+            // 
+            // Button_Export_excel
+            // 
+            this.Button_Export_excel.Location = new System.Drawing.Point(3, 466);
+            this.Button_Export_excel.Name = "Button_Export_excel";
+            this.Button_Export_excel.Size = new System.Drawing.Size(186, 23);
+            this.Button_Export_excel.TabIndex = 7;
+            this.Button_Export_excel.Text = "Export to excel";
+            this.Button_Export_excel.UseVisualStyleBackColor = true;
+            this.Button_Export_excel.Click += new System.EventHandler(this.Button_Export_excel_Click);
+            // 
+            // button_ResetGraphs
+            // 
+            this.button_ResetGraphs.Location = new System.Drawing.Point(3, 525);
+            this.button_ResetGraphs.Name = "button_ResetGraphs";
+            this.button_ResetGraphs.Size = new System.Drawing.Size(186, 23);
+            this.button_ResetGraphs.TabIndex = 6;
+            this.button_ResetGraphs.Text = "Reset chart data";
+            this.button_ResetGraphs.UseVisualStyleBackColor = true;
+            this.button_ResetGraphs.Click += new System.EventHandler(this.Button_ResetGraphs_Click);
+            // 
+            // textBox_graph_XY
+            // 
+            this.textBox_graph_XY.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_graph_XY.Location = new System.Drawing.Point(4, 8);
+            this.textBox_graph_XY.Multiline = true;
+            this.textBox_graph_XY.Name = "textBox_graph_XY";
+            this.textBox_graph_XY.ReadOnly = true;
+            this.textBox_graph_XY.Size = new System.Drawing.Size(185, 153);
+            this.textBox_graph_XY.TabIndex = 4;
+            this.textBox_graph_XY.Text = "Message box ";
+            this.textBox_graph_XY.TextChanged += new System.EventHandler(this.TextBox_graph_XY_TextChanged);
+            // 
+            // button_ScreenShot
+            // 
+            this.button_ScreenShot.Location = new System.Drawing.Point(3, 494);
+            this.button_ScreenShot.Name = "button_ScreenShot";
+            this.button_ScreenShot.Size = new System.Drawing.Size(186, 23);
+            this.button_ScreenShot.TabIndex = 1;
+            this.button_ScreenShot.Text = "Take screen shot";
+            this.button_ScreenShot.UseVisualStyleBackColor = true;
+            this.button_ScreenShot.Click += new System.EventHandler(this.Button_ScreenShot_Click);
+            // 
+            // chart1
+            // 
+            chartArea4.AxisX.Title = "Freq";
+            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.AxisY.Title = "Power [dBm]";
+            chartArea4.AxisY.TitleFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend4.IsTextAutoFit = false;
+            legend4.Name = "Legend1";
+            legend4.TitleFont = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chart1.Legends.Add(legend4);
+            this.chart1.Location = new System.Drawing.Point(194, 2);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(1350, 665);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Chart1_MouseClick);
+            this.chart1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Chart1_MouseMove);
             // 
             // button_OpenFolder
             // 
@@ -5677,6 +6495,10 @@ namespace SocketServer
             this.timer_General_1Second.Interval = 1000;
             this.timer_General_1Second.Tick += new System.EventHandler(this.Timer_General_Tick);
             // 
+            // serialPort
+            // 
+            this.serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.SerialPort_DataReceived);
+            // 
             // groupBox36
             // 
             this.groupBox36.Location = new System.Drawing.Point(0, -60);
@@ -5781,21 +6603,32 @@ namespace SocketServer
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button97);
             this.groupBox4.Controls.Add(this.textBox_SystemStatus);
             this.groupBox4.Location = new System.Drawing.Point(1561, 336);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(191, 217);
             this.groupBox4.TabIndex = 114;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "System status";
+            this.groupBox4.Text = "Status information";
+            // 
+            // button97
+            // 
+            this.button97.Location = new System.Drawing.Point(5, 188);
+            this.button97.Name = "button97";
+            this.button97.Size = new System.Drawing.Size(58, 23);
+            this.button97.TabIndex = 114;
+            this.button97.Text = "Clear";
+            this.button97.UseVisualStyleBackColor = true;
+            this.button97.Click += new System.EventHandler(this.button97_Click);
             // 
             // textBox_SystemStatus
             // 
-            this.textBox_SystemStatus.Location = new System.Drawing.Point(5, 19);
+            this.textBox_SystemStatus.Location = new System.Drawing.Point(6, 17);
             this.textBox_SystemStatus.Multiline = true;
             this.textBox_SystemStatus.Name = "textBox_SystemStatus";
             this.textBox_SystemStatus.ReadOnly = true;
-            this.textBox_SystemStatus.Size = new System.Drawing.Size(180, 192);
+            this.textBox_SystemStatus.Size = new System.Drawing.Size(180, 168);
             this.textBox_SystemStatus.TabIndex = 113;
             this.textBox_SystemStatus.TabStop = false;
             // 
@@ -5858,49 +6691,246 @@ namespace SocketServer
             this.label14.TabIndex = 108;
             this.label14.Text = "Rx";
             // 
-            // checkBox_ServerPause
+            // textBox_RecordingTests
             // 
-            this.checkBox_ServerPause.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_ServerPause.AutoSize = true;
-            this.checkBox_ServerPause.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_ServerPause.Location = new System.Drawing.Point(88, 578);
-            this.checkBox_ServerPause.Name = "checkBox_ServerPause";
-            this.checkBox_ServerPause.Size = new System.Drawing.Size(58, 29);
-            this.checkBox_ServerPause.TabIndex = 107;
-            this.checkBox_ServerPause.Text = "Pause";
-            this.checkBox_ServerPause.UseVisualStyleBackColor = true;
+            this.textBox_RecordingTests.Location = new System.Drawing.Point(257, 300);
+            this.textBox_RecordingTests.MaxLength = 121;
+            this.textBox_RecordingTests.Name = "textBox_RecordingTests";
+            this.textBox_RecordingTests.Size = new System.Drawing.Size(216, 26);
+            this.textBox_RecordingTests.TabIndex = 60;
+            this.textBox_RecordingTests.Text = "00";
+            this.textBox_RecordingTests.TextChanged += new System.EventHandler(this.textBox_RecordingTests_TextChanged);
             // 
-            // checkBox_ServerRecord
+            // button72
             // 
-            this.checkBox_ServerRecord.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox_ServerRecord.AutoSize = true;
-            this.checkBox_ServerRecord.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_ServerRecord.Location = new System.Drawing.Point(152, 578);
-            this.checkBox_ServerRecord.Name = "checkBox_ServerRecord";
-            this.checkBox_ServerRecord.Size = new System.Drawing.Size(64, 29);
-            this.checkBox_ServerRecord.TabIndex = 108;
-            this.checkBox_ServerRecord.Text = "Record";
-            this.checkBox_ServerRecord.UseVisualStyleBackColor = true;
+            this.button72.Location = new System.Drawing.Point(7, 301);
+            this.button72.Name = "button72";
+            this.button72.Size = new System.Drawing.Size(244, 23);
+            this.button72.TabIndex = 59;
+            this.button72.Text = "Recording Tests ";
+            this.button72.UseVisualStyleBackColor = true;
+            this.button72.Click += new System.EventHandler(this.button72_Click_3);
+            this.button72.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button72_MouseDown_1);
             // 
-            // tabPage9
+            // tabPage13
             // 
-            this.tabPage9.Controls.Add(this.button86);
-            this.tabPage9.Location = new System.Drawing.Point(4, 27);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(949, 604);
-            this.tabPage9.TabIndex = 6;
-            this.tabPage9.Text = "Extendend";
-            this.tabPage9.UseVisualStyleBackColor = true;
+            this.tabPage13.Controls.Add(this.button106);
+            this.tabPage13.Controls.Add(this.button107);
+            this.tabPage13.Controls.Add(this.textBox_SelectLOSource);
+            this.tabPage13.Controls.Add(this.button105);
+            this.tabPage13.Controls.Add(this.button104);
+            this.tabPage13.Controls.Add(this.textBox_GetLOStateFreqMode);
+            this.tabPage13.Controls.Add(this.button103);
+            this.tabPage13.Controls.Add(this.textBox_SetLOFreqStep);
+            this.tabPage13.Controls.Add(this.button102);
+            this.tabPage13.Controls.Add(this.textBox_SetLOFreq);
+            this.tabPage13.Controls.Add(this.button101);
+            this.tabPage13.Controls.Add(this.textBox_MonitorTask);
+            this.tabPage13.Controls.Add(this.button100);
+            this.tabPage13.Controls.Add(this.textBox_SetAlarmSimulatorBlock);
+            this.tabPage13.Controls.Add(this.button96);
+            this.tabPage13.Controls.Add(this.button95);
+            this.tabPage13.Controls.Add(this.button94);
+            this.tabPage13.Controls.Add(this.textBox_GetMonitoredData);
+            this.tabPage13.Controls.Add(this.button73);
+            this.tabPage13.Location = new System.Drawing.Point(4, 27);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Size = new System.Drawing.Size(949, 604);
+            this.tabPage13.TabIndex = 9;
+            this.tabPage13.Text = "Monitoring";
+            this.tabPage13.UseVisualStyleBackColor = true;
             // 
-            // button86
+            // textBox_GetMonitoredData
             // 
-            this.button86.Location = new System.Drawing.Point(7, 8);
-            this.button86.Name = "button86";
-            this.button86.Size = new System.Drawing.Size(244, 23);
-            this.button86.TabIndex = 50;
-            this.button86.Text = "Get UBLOX data";
-            this.button86.UseVisualStyleBackColor = true;
-            this.button86.Click += new System.EventHandler(this.button86_Click);
+            this.textBox_GetMonitoredData.Location = new System.Drawing.Point(257, 41);
+            this.textBox_GetMonitoredData.MaxLength = 121;
+            this.textBox_GetMonitoredData.Name = "textBox_GetMonitoredData";
+            this.textBox_GetMonitoredData.Size = new System.Drawing.Size(216, 26);
+            this.textBox_GetMonitoredData.TabIndex = 62;
+            this.textBox_GetMonitoredData.Text = "00";
+            this.textBox_GetMonitoredData.TextChanged += new System.EventHandler(this.textBox_GetMonitoredData_TextChanged);
+            // 
+            // button73
+            // 
+            this.button73.Location = new System.Drawing.Point(7, 12);
+            this.button73.Name = "button73";
+            this.button73.Size = new System.Drawing.Size(244, 23);
+            this.button73.TabIndex = 61;
+            this.button73.Text = "Reset monitoring data iterator";
+            this.button73.UseVisualStyleBackColor = true;
+            this.button73.Click += new System.EventHandler(this.button73_Click_2);
+            // 
+            // button94
+            // 
+            this.button94.Location = new System.Drawing.Point(7, 44);
+            this.button94.Name = "button94";
+            this.button94.Size = new System.Drawing.Size(244, 23);
+            this.button94.TabIndex = 63;
+            this.button94.Text = "Get next monitored data ";
+            this.button94.UseVisualStyleBackColor = true;
+            this.button94.Click += new System.EventHandler(this.button94_Click_1);
+            this.button94.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button94_MouseDown);
+            // 
+            // button95
+            // 
+            this.button95.Location = new System.Drawing.Point(7, 73);
+            this.button95.Name = "button95";
+            this.button95.Size = new System.Drawing.Size(244, 23);
+            this.button95.TabIndex = 64;
+            this.button95.Text = "Reset alarm iterator";
+            this.button95.UseVisualStyleBackColor = true;
+            this.button95.Click += new System.EventHandler(this.button95_Click_1);
+            // 
+            // button96
+            // 
+            this.button96.Location = new System.Drawing.Point(7, 101);
+            this.button96.Name = "button96";
+            this.button96.Size = new System.Drawing.Size(244, 23);
+            this.button96.TabIndex = 65;
+            this.button96.Text = "Get next alarm data";
+            this.button96.UseVisualStyleBackColor = true;
+            this.button96.Click += new System.EventHandler(this.button96_Click_3);
+            this.button96.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button96_MouseDown);
+            // 
+            // button100
+            // 
+            this.button100.Location = new System.Drawing.Point(7, 131);
+            this.button100.Name = "button100";
+            this.button100.Size = new System.Drawing.Size(244, 23);
+            this.button100.TabIndex = 67;
+            this.button100.Text = "Set alarm simulator block";
+            this.button100.UseVisualStyleBackColor = true;
+            this.button100.Click += new System.EventHandler(this.button100_Click_3);
+            // 
+            // textBox_SetAlarmSimulatorBlock
+            // 
+            this.textBox_SetAlarmSimulatorBlock.Location = new System.Drawing.Point(257, 128);
+            this.textBox_SetAlarmSimulatorBlock.MaxLength = 121;
+            this.textBox_SetAlarmSimulatorBlock.Name = "textBox_SetAlarmSimulatorBlock";
+            this.textBox_SetAlarmSimulatorBlock.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetAlarmSimulatorBlock.TabIndex = 66;
+            this.textBox_SetAlarmSimulatorBlock.Text = "00";
+            this.textBox_SetAlarmSimulatorBlock.TextChanged += new System.EventHandler(this.textBox_SetAlarmSimulatorBlock_TextChanged);
+            // 
+            // button101
+            // 
+            this.button101.Location = new System.Drawing.Point(7, 161);
+            this.button101.Name = "button101";
+            this.button101.Size = new System.Drawing.Size(244, 23);
+            this.button101.TabIndex = 69;
+            this.button101.Text = "Monitor Task";
+            this.button101.UseVisualStyleBackColor = true;
+            this.button101.Click += new System.EventHandler(this.button101_Click_1);
+            // 
+            // textBox_MonitorTask
+            // 
+            this.textBox_MonitorTask.Location = new System.Drawing.Point(257, 158);
+            this.textBox_MonitorTask.MaxLength = 121;
+            this.textBox_MonitorTask.Name = "textBox_MonitorTask";
+            this.textBox_MonitorTask.Size = new System.Drawing.Size(216, 26);
+            this.textBox_MonitorTask.TabIndex = 68;
+            this.textBox_MonitorTask.Text = "00";
+            this.textBox_MonitorTask.TextChanged += new System.EventHandler(this.textBox_MonitorTask_TextChanged);
+            // 
+            // button102
+            // 
+            this.button102.Location = new System.Drawing.Point(7, 190);
+            this.button102.Name = "button102";
+            this.button102.Size = new System.Drawing.Size(244, 23);
+            this.button102.TabIndex = 71;
+            this.button102.Text = "Set LO Frequency";
+            this.button102.UseVisualStyleBackColor = true;
+            this.button102.Click += new System.EventHandler(this.button102_Click);
+            // 
+            // textBox_SetLOFreq
+            // 
+            this.textBox_SetLOFreq.Location = new System.Drawing.Point(257, 187);
+            this.textBox_SetLOFreq.MaxLength = 121;
+            this.textBox_SetLOFreq.Name = "textBox_SetLOFreq";
+            this.textBox_SetLOFreq.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetLOFreq.TabIndex = 70;
+            this.textBox_SetLOFreq.Text = "00 00000000";
+            this.textBox_SetLOFreq.TextChanged += new System.EventHandler(this.textBox_SetLOFreq_TextChanged);
+            // 
+            // button103
+            // 
+            this.button103.Location = new System.Drawing.Point(7, 219);
+            this.button103.Name = "button103";
+            this.button103.Size = new System.Drawing.Size(244, 23);
+            this.button103.TabIndex = 73;
+            this.button103.Text = "Set LO Frequency step";
+            this.button103.UseVisualStyleBackColor = true;
+            this.button103.Click += new System.EventHandler(this.button103_Click);
+            // 
+            // textBox_SetLOFreqStep
+            // 
+            this.textBox_SetLOFreqStep.Location = new System.Drawing.Point(257, 216);
+            this.textBox_SetLOFreqStep.MaxLength = 121;
+            this.textBox_SetLOFreqStep.Name = "textBox_SetLOFreqStep";
+            this.textBox_SetLOFreqStep.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SetLOFreqStep.TabIndex = 72;
+            this.textBox_SetLOFreqStep.Text = "00 00000000 00000000 ";
+            this.textBox_SetLOFreqStep.TextChanged += new System.EventHandler(this.textBox_SetLOFreqStep_TextChanged);
+            // 
+            // button104
+            // 
+            this.button104.Location = new System.Drawing.Point(7, 248);
+            this.button104.Name = "button104";
+            this.button104.Size = new System.Drawing.Size(244, 23);
+            this.button104.TabIndex = 75;
+            this.button104.Text = "Get LO State (Frequency & Mode)";
+            this.button104.UseVisualStyleBackColor = true;
+            this.button104.Click += new System.EventHandler(this.button104_Click);
+            // 
+            // textBox_GetLOStateFreqMode
+            // 
+            this.textBox_GetLOStateFreqMode.Location = new System.Drawing.Point(257, 245);
+            this.textBox_GetLOStateFreqMode.MaxLength = 121;
+            this.textBox_GetLOStateFreqMode.Name = "textBox_GetLOStateFreqMode";
+            this.textBox_GetLOStateFreqMode.Size = new System.Drawing.Size(216, 26);
+            this.textBox_GetLOStateFreqMode.TabIndex = 74;
+            this.textBox_GetLOStateFreqMode.Text = "00";
+            this.textBox_GetLOStateFreqMode.TextChanged += new System.EventHandler(this.textBox_GetLOStateFreqMode_TextChanged);
+            // 
+            // button105
+            // 
+            this.button105.Location = new System.Drawing.Point(7, 280);
+            this.button105.Name = "button105";
+            this.button105.Size = new System.Drawing.Size(244, 23);
+            this.button105.TabIndex = 76;
+            this.button105.Text = "Synthesizer L2 shutdown ";
+            this.button105.UseVisualStyleBackColor = true;
+            this.button105.Click += new System.EventHandler(this.button105_Click);
+            // 
+            // button106
+            // 
+            this.button106.Location = new System.Drawing.Point(7, 341);
+            this.button106.Name = "button106";
+            this.button106.Size = new System.Drawing.Size(244, 23);
+            this.button106.TabIndex = 79;
+            this.button106.Text = "Get LO source ";
+            this.button106.UseVisualStyleBackColor = true;
+            this.button106.Click += new System.EventHandler(this.button106_Click);
+            // 
+            // button107
+            // 
+            this.button107.Location = new System.Drawing.Point(7, 309);
+            this.button107.Name = "button107";
+            this.button107.Size = new System.Drawing.Size(244, 23);
+            this.button107.TabIndex = 78;
+            this.button107.Text = "Select LO source ";
+            this.button107.UseVisualStyleBackColor = true;
+            this.button107.Click += new System.EventHandler(this.button107_Click);
+            // 
+            // textBox_SelectLOSource
+            // 
+            this.textBox_SelectLOSource.Location = new System.Drawing.Point(257, 306);
+            this.textBox_SelectLOSource.MaxLength = 121;
+            this.textBox_SelectLOSource.Name = "textBox_SelectLOSource";
+            this.textBox_SelectLOSource.Size = new System.Drawing.Size(216, 26);
+            this.textBox_SelectLOSource.TabIndex = 77;
+            this.textBox_SelectLOSource.Text = "00";
+            this.textBox_SelectLOSource.TextChanged += new System.EventHandler(this.textBox_SelectLOSource_TextChanged);
             // 
             // MainForm
             // 
@@ -5946,9 +6976,6 @@ namespace SocketServer
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
             this.groupBox38.ResumeLayout(false);
-            this.tabPage_charts.ResumeLayout(false);
-            this.tabPage_charts.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage_SerialPort.ResumeLayout(false);
             this.groupBox_SendSerialOrMonitorCommands.ResumeLayout(false);
             this.groupBox_SendSerialOrMonitorCommands.PerformLayout();
@@ -5975,6 +7002,8 @@ namespace SocketServer
             this.groupBox31.PerformLayout();
             this.groupBox_clientTX.ResumeLayout(false);
             this.groupBox_clientTX.PerformLayout();
+            this.groupBox41.ResumeLayout(false);
+            this.groupBox41.PerformLayout();
             this.tabPage_MiniAda.ResumeLayout(false);
             this.groupBox40.ResumeLayout(false);
             this.tabControl_MiniAda.ResumeLayout(false);
@@ -5988,8 +7017,16 @@ namespace SocketServer
             this.tabPage3.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage14.ResumeLayout(false);
+            this.tabPage14.PerformLayout();
+            this.groupBox_FlashConfig.ResumeLayout(false);
+            this.groupBox_FlashConfig.PerformLayout();
             this.groupBox32.ResumeLayout(false);
             this.groupBox32.PerformLayout();
+            this.tabPage_charts.ResumeLayout(false);
+            this.tabPage_charts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.S1_Configuration.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
@@ -6045,7 +7082,8 @@ namespace SocketServer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox_ClentTCPStatus.ResumeLayout(false);
             this.groupBox_ClentTCPStatus.PerformLayout();
-            this.tabPage9.ResumeLayout(false);
+            this.tabPage13.ResumeLayout(false);
+            this.tabPage13.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -6210,9 +7248,9 @@ namespace SocketServer
 
                 if (checkBox_DebugSMS.Checked == true)
                 {
-                    LogSMS.LogMessage(Color.Black, Color.LightGray, "", New_Line = false, Show_Time = true);
-                    LogSMS.LogMessage(Color.DarkViolet, Color.LightGray, "Send Data: ", false, false);
-                    LogSMS.LogMessage(Color.DarkGreen, Color.LightGray, Encoding.ASCII.GetString(i_SendData), true, false);
+                    //LogSMS.LogMessage(Color.Black, Color.LightGray, "", New_Line = false, Show_Time = true);
+                  //  LogSMS.LogMessage(Color.DarkViolet, Color.LightGray, "Send Data: ", false, false);
+                   // LogSMS.LogMessage(Color.DarkGreen, Color.LightGray, Encoding.ASCII.GetString(i_SendData), true, false);
                 }
 
                 return true;
@@ -7245,7 +8283,7 @@ namespace SocketServer
         TextBox_Logger ServerLogger;
         TextBox_Logger SerialPortLogger;
         //   Logger LogIWatcher;
-        TextBox_Logger LogSMS;
+        // TextBox_Logger LogSMS;
         PhoneBook MyPhoneBook;
     //    readonly List<Series> List_SeriesCharts = new List<Series>();
     //    readonly Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series
@@ -7301,9 +8339,9 @@ namespace SocketServer
                         if (Math.Abs(pos.X - pointXPixel) < 3 &&
                             Math.Abs(pos.Y - pointYPixel) < 3)
                         {
-                            textBox_graph_XY.Text = "Chart=" + result.Series.Name + "\n, X=" + prop.XValue.ToString() + ", Y=" + prop.YValues[0].ToString();
+                            //textBox_graph_XY.Text = "Chart=" + result.Series.Name + "\n, X=" + prop.XValue.ToString() + ", Y=" + prop.YValues[0].ToString();
 
-                            tooltip.Show("X=" + prop.XValue + ", Y=" + prop.YValues[0], this.chart1,
+                            tooltip.Show("X=" + prop.XValue.ToString("0.##E+0") + ", Y=" + prop.YValues[0], this.chart1,
                                             pos.X, pos.Y - 15, 9999999);
                         }
                     }
@@ -7330,11 +8368,11 @@ namespace SocketServer
                         var pointYPixel = result.ChartArea.AxisY.ValueToPixelPosition(prop.YValues[0]);
 
                         // check if the cursor is really close to the point (2 pixels around the point)
-                        if (Math.Abs(pos.X - pointXPixel) < 4 &&
-                            Math.Abs(pos.Y - pointYPixel) < 4)
+                        if (Math.Abs(pos.X - pointXPixel) < 3 &&
+                            Math.Abs(pos.Y - pointYPixel) < 3)
                         {
-                            chart1.Series[result.Series.Name].Points[(int)prop.XValue].Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00");
-
+                            // chart1.Series[result.Series.Name].Points[(int)prop.XValue].Label = "X=" + prop.XValue + ", Y=" + prop.YValues[0].ToString("0.00");
+                            prop.Label = "X=" + prop.XValue.ToString(".#E+0") + ", Y=" + prop.YValues[0].ToString("0.00") ;
                         }
                     }
                 }
@@ -7429,7 +8467,7 @@ namespace SocketServer
             {
                 tabControl_Main.TabPages.RemoveAt(0);
                 tabControl_Main.TabPages.RemoveAt(0);
-                tabControl_Main.TabPages.RemoveAt(0);
+               // tabControl_Main.TabPages.RemoveAt(0);
                 //tabControl_Main.TabPages.RemoveAt(3);
                 // tabControl_Main.TabPages.RemoveAt(3);
                 system1_Parser.AddCommand("sum" , " sum all the elements \n Format: sum 1 2 3");
@@ -7440,13 +8478,13 @@ namespace SocketServer
                 // this.TopMost = true;
                 //// this.FormBorderStyle = FormBorderStyle.None;
                 // this.WindowState = FormWindowState.Maximized;
-                foreach(Series ser in chart1.Series)
-                {
-                    listBox_Charts.Items.Add(ser.Name);
-                }
-                textBox_SendSerialPort.PreviewKeyDown += TextBox_SendSerialPort_PreviewKeyDown;
-                this.FormClosed += MainForm_FormClosed;
-               // chart1.Series.Clear();
+                //foreach(Series ser in chart1.Series)
+                //{
+                //    listBox_Charts.Items.Add(ser.Name);
+                //}
+               // textBox_SendSerialPort.PreviewKeyDown += TextBox_SendSerialPort_PreviewKeyDown;
+               // this.FormClosed += MainForm_FormClosed;
+                // chart1.Series.Clear();
                 // chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
                 // chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
                 //chart1.Series.Add(series1);
@@ -7461,21 +8499,22 @@ namespace SocketServer
                 //chart1.Series[0].SmartLabelStyle.IsMarkerOverlappingAllowed = false;
                 //chart1.Series[1].SmartLabelStyle.Enabled = true;
 
+                //chart1.ChartAreas[0].AxisX.IsLogarithmic = true;
+                comboBox_WindowsDSPLib.DataSource = Enum.GetNames(typeof(DSPLib.DSP.Window.Type));
+               // chart1.MouseMove += Chart1_MouseMove;
+                //chart1.MouseClick += Chart1_MouseClick;
+                chart1.ChartAreas[0].AxisX.LabelStyle.Format = "0.###E+0";
+                // tabControl_Main.DrawItem += TabControl1_DrawItem1;
+                //  textBox_SendSerialPort.KeyDown += TextBox_SendSerialPort_KeyDown;
 
-                chart1.MouseMove += Chart1_MouseMove;
-                chart1.MouseClick += Chart1_MouseClick;
-
-               // tabControl_Main.DrawItem += TabControl1_DrawItem1;
-              //  textBox_SendSerialPort.KeyDown += TextBox_SendSerialPort_KeyDown;
-
-               //tabControl1.TabPages.RemoveAt(2);
-          //      UpdatePhoneBook();
-             //   UpdateSMSCommands();
+                //tabControl1.TabPages.RemoveAt(2);
+                //      UpdatePhoneBook();
+                //   UpdateSMSCommands();
 
 
                 txtPortNo.Text = Monitor.Properties.Settings.Default.Start_Port;
                 txtDataTx.Text = Monitor.Properties.Settings.Default.Default_Server_Message;
-
+                richTextBox_RegisterCommands.Text = Monitor.Properties.Settings.Default.RegisterCommands;
 
 
                 //pictureBox_logo.BringToFront();
@@ -7496,11 +8535,11 @@ namespace SocketServer
                 //        checkBox_RecordTrace.Checked = !checkBox_RecordTrace.Checked;
 
                 //Gil: Initialize the serial ports
-                serialPort.DataReceived += new SerialDataReceivedEventHandler(SerialPort_DataReceived);
+                //serialPort.DataReceived += new SerialDataReceivedEventHandler(SerialPort_DataReceived);
 
                 ScanComports();
-                cmbStopBits.DataSource = Enum.GetValues(typeof(StopBits));
-                cmbStopBits.SelectedIndex = (int)StopBits.One;
+                cmb_StopBits.DataSource = Enum.GetValues(typeof(StopBits));
+                cmb_StopBits.SelectedIndex = (int)StopBits.One;
 
                 cmbParity.DataSource = Enum.GetValues(typeof(Parity));
                 cmbParity.SelectedIndex = (int)Parity.None;
@@ -7509,9 +8548,9 @@ namespace SocketServer
 
                 cmbBaudRate.Text = Monitor.Properties.Settings.Default.Comport_BaudRate ;
                 cmbDataBits.Text = Monitor.Properties.Settings.Default.Comport_DataBits  ;
-                cmbStopBits.Text = Monitor.Properties.Settings.Default.Comport_StopBit ;
+                cmb_StopBits.Text = Monitor.Properties.Settings.Default.Comport_StopBit ;
                 cmbParity.Text = Monitor.Properties.Settings.Default.Comport_Parity ;
-                cmbPortName.Text = Monitor.Properties.Settings.Default.Comport_Port ;
+                cmb_PortName.Text = Monitor.Properties.Settings.Default.Comport_Port ;
 
 
 
@@ -7608,6 +8647,20 @@ namespace SocketServer
                 String temp = txt.Text;
                 txt.Text = " ";
                 txt.Text = temp;
+            }
+
+            if (ctl.GetType().FullName == "System.Windows.Forms.RichTextBox")
+            {
+                RichTextBox txt = (RichTextBox)ctl;
+
+               txt.Invoke(new EventHandler(delegate
+                {
+
+                    String temp = txt.Text;
+                    txt.Text = "";
+                    txt.AppendText(temp);
+                }));
+
             }
 
             if (ctl.GetType().FullName == "System.Windows.Forms.CheckBox")
@@ -8118,7 +9171,7 @@ namespace SocketServer
 
                 if (Timer_100ms % (ChartUpdateTime/100) == 0)
                 {
-                    GraphPrint();
+                    //GraphPrint();
                 }
             }
 
@@ -8181,7 +9234,6 @@ namespace SocketServer
         private const int MOVING_AVARAGE_SIZE = 30;
         void GraphPrint()
         {
-
             try
             {
 
@@ -8319,13 +9371,447 @@ namespace SocketServer
         }
 
 
-        void TCPClientConnection()
+        int FindZeroPaddingSize(int i_SignalLength)
+        {
+            UInt32 mLogN = 0;
+            bool found = false;
+            double FFTBufferSize = i_SignalLength;
+
+            while (found != true)
+            {
+
+                mLogN++;
+                FFTBufferSize = Math.Pow(2.0, mLogN);
+                if (FFTBufferSize > i_SignalLength)
+                {
+                    found = true;
+                }
+            }
+
+            return (int)FFTBufferSize - i_SignalLength;
+        }
+
+        int WaitforBufferFull = -1;
+        DSPLib.DSP.Window.Type windowToApply;
+        void CheckForMiniAdaDataFFT(MiniAda_Parser i_MiniAdaParser)
+        {
+
+
+
+            double samplingRate = Convert.ToDouble(TextBoxFsSamplingRate.Text); ;
+            //UInt32 zeroPadding = 9000;
+            double scale = 2 ^ 11 - 1;
+
+
+            double[] IQ1Sigal = new double[i_MiniAdaParser.IQData.I1.Length];
+            double[] IQ2Sigal = new double[i_MiniAdaParser.IQData.I2.Length];
+
+            for (int i = 0; i < i_MiniAdaParser.IQData.I1.Length; i++)
+            {
+                IQ1Sigal[i] = (double)(i_MiniAdaParser.IQData.I1[i] / scale / 2) + (double)(i_MiniAdaParser.IQData.Q1[i] / scale / 2);
+            }
+
+
+            for (int i =0; i < i_MiniAdaParser.IQData.I2.Length;i++)
+            {
+                IQ2Sigal[i] = (double)(i_MiniAdaParser.IQData.I2[i]/ scale /2) + (double)(i_MiniAdaParser.IQData.Q2[i] / scale /2);
+            }
+
+            int zeroPadding = FindZeroPaddingSize(IQ1Sigal.Length);
+            int zeroPadding2 = FindZeroPaddingSize(IQ2Sigal.Length);
+
+            double[] wCoefs = DSP.Window.Coefficients(windowToApply, (uint)IQ1Sigal.Length);
+            double[] wCoefs2 = DSP.Window.Coefficients(windowToApply, (uint)IQ2Sigal.Length);
+
+            double[] wInputData = DSP.Math.Multiply(IQ1Sigal, wCoefs);
+            double[] wInputData2 = DSP.Math.Multiply(IQ2Sigal, wCoefs2);
+
+            double wScaleFactor = DSP.Window.ScaleFactor.Signal(wCoefs);
+            double wScaleFactor2 = DSP.Window.ScaleFactor.Signal(wCoefs2);
+
+            // Instantiate & Initialize a new DFT
+            DSPLib.FFT fft = new DSPLib.FFT();
+            DSPLib.FFT fft2 = new DSPLib.FFT();
+            //DSPLib.DFT dft = new DSPLib.DFT();
+            fft.Initialize((uint)IQ1Sigal.Length, (uint)zeroPadding); // NOTE: Zero Padding
+            fft2.Initialize((uint)IQ2Sigal.Length, (uint)zeroPadding2);
+
+            // Call the DFT and get the scaled spectrum back
+            Complex[] cSpectrum = fft.Execute(wInputData);
+            Complex[] cSpectrum2 = fft2.Execute(wInputData2);
+            // Convert the complex spectrum to note: Magnitude Format
+            double[] lmSpectrum = DSP.ConvertComplex.ToMagnitudeDBV(cSpectrum);
+            double[] lmSpectrum2 = DSP.ConvertComplex.ToMagnitudeDBV(cSpectrum2);
+            
+            //double[] lmSpectrum = DSP.ConvertMagnitude.ToMagnitudeDBV(temp);
+           // double[] lmSpectrum2 = DSP.ConvertMagnitude.ToMagnitudeDBV(temp2);
+            // Properly scale the spectrum for the added window
+            lmSpectrum = DSP.Math.Multiply(lmSpectrum, wScaleFactor);
+            lmSpectrum2 = DSP.Math.Multiply(lmSpectrum2, wScaleFactor2);
+
+            for (int i = 0; i < lmSpectrum.Length; i++)
+            {
+                lmSpectrum[i] -= 35.5;
+            }
+
+            for (int i = 0; i < lmSpectrum2.Length; i++)
+            {
+                lmSpectrum2[i] -= 35.5;
+            }
+
+            // For plotting on an XY Scatter plot generate the X Axis frequency Span
+            double[] freqSpan = fft.FrequencySpan(samplingRate);
+            double[] freqSpan2 = fft2.FrequencySpan(samplingRate);
+            // At this point a XY Scatter plot can be generated from,
+            // X axis => freqSpan
+            // Y axis => lmSpectrum
+            //double Mean = DSP.Analyze.FindMean(IQ1Sigal);
+            //double Mean2 = DSP.Analyze.FindMean(IQ2Sigal);
+
+            //double RMS = DSP.Analyze.FindRms(IQ1Sigal);
+            //double RMS2 = DSP.Analyze.FindRms(IQ2Sigal);
+
+            //double MaxAmplitude = DSP.Analyze.FindMaxAmplitude(lmSpectrum);
+            //double MaxPosition = DSP.Analyze.FindMaxPosition(lmSpectrum);
+            //double MaxFrequency = DSP.Analyze.FindMaxFrequency(lmSpectrum, freqSpan);
+
+            //textBox_graph_XY.BeginInvoke(new EventHandler(delegate
+            //{
+            //    textBox_graph_XY.Text = String.Format(" \n CH1 : Mean [{0}] RMS [{1}] \n", Mean.ToString("0.00"),RMS.ToString("0.00"));
+            //    textBox_graph_XY.Text += String.Format(" \n CH2 : Mean [{0}] RMS [{1}]  \n ", Mean2.ToString("0.00"), RMS2.ToString("0.00"));
+            //    textBox_graph_XY.Text += String.Format(" \n CH1 : MaxAmplitude [{0}] MaxPosition [{1}] MaxFrequency [{2}] \n ", MaxAmplitude.ToString("0.00"), MaxPosition.ToString("0.00"), MaxFrequency.ToString("0.00"));
+
+            //}));
+
+            listBox_Charts.BeginInvoke(new EventHandler(delegate
+            {
+                var series1 = new Series("CH1 " + ChartIndex.ToString());
+                //var series2 = new Series("IQ1 Time " + ChartIndex.ToString());
+                var series3 = new Series("CH2 " + ChartIndex.ToString());
+                //  var series4 = new Series("IQ2 Time " + ChartIndex.ToString());
+
+                series1.ChartType = SeriesChartType.Line;
+                series3.ChartType = SeriesChartType.Line;
+
+                ChartIndex++;
+
+                //  listBox_Charts.Items.Add(series4.Name);
+                // Frist parameter is X-Axis and Second is Collection of Y- Axis
+               // double[] xData = DSP.Generate.LinSpace(-(freqSpan.Length) / 2 , (freqSpan.Length) / 2, (UInt32)(freqSpan.Length));
+                series1.Points.DataBindXY(freqSpan, lmSpectrum);
+                for (int i = 0; i < IQ1Sigal.Length; i++)
+                {
+           //         series2.Points.AddXY(i, IQ1Sigal[i]);
+                }
+           //     series2.ChartType = SeriesChartType.Line;
+                chart1.Series.Add(series1);
+           //     chart1.Series.Add(series2);
+
+                series3.Points.DataBindXY(freqSpan, lmSpectrum2);
+
+                for (int i = 0; i < IQ1Sigal.Length; i++)
+                {
+           //         series4.Points.AddXY(i, IQ1Sigal[i]);
+                }
+          //      series4.ChartType = SeriesChartType.Line;
+                chart1.Series.Add(series3);
+            //   chart1.Series.Add(series4);
+
+                PlotGraphTimer = -1;
+                textBox_SystemStatus.Text = "Graphs is ready;\n";
+                textBox_SystemStatus.BackColor = Color.LightGreen;
+
+                //Gil: Find the maximum and minimum points
+                MarkTheBiggestFreq(series1, lmSpectrum, freqSpan);
+                MarkTheBiggestFreq(series3, lmSpectrum2, freqSpan2);
+                
+
+            }));
+ 
+
+        }
+
+        void MarkTheBiggestFreq(Series i_serias, double[] i_lmSpectrum, double[] i_freqSpan)
+        {
+            double minX = i_serias.Points.Select(v => v.XValue).Min();
+            double maxX = i_serias.Points.Select(v => v.XValue).Max();
+            double minY = i_serias.Points.Select(v => v.YValues[0]).Min();
+            double maxY = i_serias.Points.Select(v => v.YValues[0]).Max();
+
+            // find datapoints from left..
+            DataPoint minXpt = i_serias.Points.Select(p => p)
+                                .Where(p => p.XValue == minX)
+                                .DefaultIfEmpty(i_serias.Points.First()).First();
+            DataPoint minYpt = i_serias.Points.Select(p => p)
+                                .Where(p => p.YValues[0] == minY)
+                                .DefaultIfEmpty(i_serias.Points.First()).First();
+            //..or from right
+            DataPoint maxXpt = i_serias.Points.Select(p => p)
+                                .Where(p => p.XValue == maxX)
+                                .DefaultIfEmpty(i_serias.Points.Last()).Last();
+            DataPoint maxYpt = i_serias.Points.Select(p => p)
+                                .Where(p => p.YValues[0] == maxY)
+                                .DefaultIfEmpty(i_serias.Points.Last()).Last();
+
+            textBox_MaxXAxis.Text = maxXpt.XValue.ToString();
+            textBox_MinXAxis.Text = minXpt.XValue.ToString();
+
+            // textBox_SystemStatus.Text += maxYpt.ToString();
+
+
+
+
+            Color c = Color.Red;
+            //  minXpt.MarkerColor = c;
+            //   minYpt.MarkerColor = c;
+            //   maxXpt.MarkerColor = c;
+            maxYpt.MarkerColor = c;
+            //   minXpt.MarkerSize = 12;
+            //   minYpt.MarkerSize = 12;
+            //    maxXpt.MarkerSize = 12;
+            maxYpt.MarkerSize = 20;
+            maxYpt.MarkerStyle = MarkerStyle.Triangle;
+            maxYpt.Label = String.Format("X= {0} Y= {1} dBm", maxYpt.XValue.ToString("0.##E+0"), maxYpt.YValues[0].ToString("0.00"));
+            //Plot fig3 = new Plot("Figure 3 - FFT Log Magnitude ", "Frequency (Hz)", "Mag (dBV)");
+            //fig3.PlotData(freqSpan, lmSpectrum);
+
+
+            double MaxAmplitude = DSP.Analyze.FindMaxAmplitude(i_lmSpectrum);
+            double MaxPosition = DSP.Analyze.FindMaxPosition(i_lmSpectrum);
+            double MaxFrequency = DSP.Analyze.FindMaxFrequency(i_lmSpectrum, i_freqSpan);
+
+            double Mean = DSP.Analyze.FindMean(i_lmSpectrum);
+
+
+            double RMS = DSP.Analyze.FindRms(i_lmSpectrum);
+
+
+
+            // Create a new legend called "Legend2".
+          //  chart1.Legends.Add(new Legend(i_serias.Name));
+            // Set Docking of the Legend chart to the Default Chart Area.
+            //chart1.Legends[i_serias.Name].DockToChartArea = "Default";
+            // Assign the legend to Series1.
+
+            DataPoint prop = new DataPoint(0, 0);
+            //chart1.Series[i_serias.Name].Points[(int)prop.XValue].Label = String.Format(" \n Mean [{0}] RMS [{1}]  MaxAmplitude [{2}] MaxPosition [{3}] MaxFrequency [{4}] \n \n", Mean.ToString("0.00"), RMS.ToString("0.00"), MaxAmplitude.ToString("0.00"), MaxPosition.ToString("0.00"), MaxFrequency.ToString("0.00"));
+
+            int index = listBox_Charts.Items.Add(i_serias.Name);
+            i_serias.LegendToolTip = String.Format(" \n{0} \n Mean [{1}] \n RMS [{2}] \n MaxAmplitude [{3}] \n MaxPosition [{4}] \n MaxFrequency [{5}] \n \n", i_serias.Name, Mean.ToString("0.00"), RMS.ToString("0.00"), MaxAmplitude.ToString("0.00"), MaxPosition.ToString("0.00"), MaxFrequency.ToString("0.##E+0"));
+        }
+
+        void CheckForMiniAdaDataDFT(MiniAda_Parser i_MiniAdaParser)
+        {
+            //// Same Input Signal as Example 1 - Except a fractional cycle for frequency.
+            //double amplitude = 1.0; double frequency = 20000.5;
+            //UInt32 length = 1000; UInt32 zeroPadding = 9000; // NOTE: Zero Padding
+            //double samplingRate = 100000;
+            //double[] inputSignal = DSPLib.DSP.Generate.ToneSampling(amplitude, frequency, samplingRate, length);
+            //// Apply window to the Input Data & calculate Scale Factor
+            //double[] wCoefs = DSP.Window.Coefficients(DSP.Window.Type.FTNI, length);
+            //double[] wInputData = DSP.Math.Multiply(inputSignal, wCoefs);
+            //double wScaleFactor = DSP.Window.ScaleFactor.Signal(wCoefs);
+            //// Instantiate & Initialize a new DFT
+            //DSPLib.DFT dft = new DSPLib.DFT();
+            //dft.Initialize(length, zeroPadding); // NOTE: Zero Padding
+            //                                     // Call the DFT and get the scaled spectrum back
+            //Complex[] cSpectrum = dft.Execute(wInputData);
+            //// Convert the complex spectrum to note: Magnitude Format
+            //double[] lmSpectrum = DSPLib.DSP.ConvertComplex.ToMagnitude(cSpectrum);
+            //// Properly scale the spectrum for the added window
+            //lmSpectrum = DSP.Math.Multiply(lmSpectrum, wScaleFactor);
+            //// For plotting on an XY Scatter plot generate the X Axis frequency Span
+            //double[] freqSpan = dft.FrequencySpan(samplingRate);
+            //// At this point a XY Scatter plot can be generated from,
+            //// X axis => freqSpan
+            //// Y axis => lmSpectrum
+
+            //var series = new Series("Freq 2");
+            //var series2 = new Series("Time 2");
+            //listBox_Charts.Items.Add(series.Name);
+            //listBox_Charts.Items.Add(series2.Name);
+            //// Frist parameter is X-Axis and Second is Collection of Y- Axis
+            //series.Points.DataBindXY(freqSpan, lmSpectrum);
+
+            //for (int i = 0; i < inputSignal.Length / 10; i++)
+            //{
+            //    series2.Points.AddXY(i, inputSignal[i]);
+            //}
+            //series2.ChartType = SeriesChartType.Line;
+            //chart1.Series.Add(series);
+            //chart1.Series.Add(series2);
+
+            double samplingRate = Convert.ToDouble(TextBoxFsSamplingRate.Text); ;
+            //UInt32 zeroPadding = 9000;
+            double scale = 2 ^ 11 - 1;
+
+
+            double[] IQ1Sigal = new double[i_MiniAdaParser.IQData.I1.Length];
+            double[] IQ2Sigal = new double[i_MiniAdaParser.IQData.I2.Length];
+
+            for (int i = 0; i < i_MiniAdaParser.IQData.I1.Length; i++)
+            {
+                IQ1Sigal[i] = (double)(i_MiniAdaParser.IQData.I1[i] / scale / 2) + (double)(i_MiniAdaParser.IQData.Q1[i] / scale / 2);
+            }
+
+
+            for (int i = 0; i < i_MiniAdaParser.IQData.I2.Length; i++)
+            {
+                IQ2Sigal[i] = (double)(i_MiniAdaParser.IQData.I2[i] / scale / 2) + (double)(i_MiniAdaParser.IQData.Q2[i] / scale / 2);
+            }
+
+            int zeroPadding = 0;
+            Int32.TryParse(TextBox_Zeropadding.Text, out zeroPadding);
+
+            double[] wCoefs = DSP.Window.Coefficients(windowToApply, (uint)IQ1Sigal.Length);
+            double[] wCoefs2 = DSP.Window.Coefficients(windowToApply, (uint)IQ2Sigal.Length);
+
+            double[] wInputData = DSP.Math.Multiply(IQ1Sigal, wCoefs);
+            double[] wInputData2 = DSP.Math.Multiply(IQ2Sigal, wCoefs2);
+
+            double wScaleFactor = DSP.Window.ScaleFactor.Signal(wCoefs);
+            double wScaleFactor2 = DSP.Window.ScaleFactor.Signal(wCoefs2);
+
+            // Instantiate & Initialize a new DFT
+            DSPLib.DFT dft = new DSPLib.DFT();
+            DSPLib.DFT dft2 = new DSPLib.DFT();
+            //DSPLib.DFT dft = new DSPLib.DFT();
+            dft.Initialize((uint)IQ1Sigal.Length, (uint)zeroPadding); // NOTE: Zero Padding
+            dft2.Initialize((uint)IQ2Sigal.Length, (uint)zeroPadding);
+
+            // Call the DFT and get the scaled spectrum back
+            Complex[] cSpectrum = dft.Execute(wInputData);
+            Complex[] cSpectrum2 = dft2.Execute(wInputData2);
+            // Convert the complex spectrum to note: Magnitude Format
+            double[] lmSpectrum = DSPLib.DSP.ConvertComplex.ToMagnitude(cSpectrum);
+            double[] lmSpectrum2 = DSPLib.DSP.ConvertComplex.ToMagnitude(cSpectrum2);
+            // Properly scale the spectrum for the added window
+            lmSpectrum = DSP.Math.Multiply(lmSpectrum, wScaleFactor);
+            lmSpectrum2 = DSP.Math.Multiply(lmSpectrum2, wScaleFactor2);
+            // For plotting on an XY Scatter plot generate the X Axis frequency Span
+            double[] freqSpan = dft.FrequencySpan(samplingRate);
+            double[] freqSpan2 = dft2.FrequencySpan(samplingRate);
+            // At this point a XY Scatter plot can be generated from,
+            // X axis => freqSpan
+            // Y axis => lmSpectrum
+
+            listBox_Charts.BeginInvoke(new EventHandler(delegate
+            {
+                var series1 = new Series("IQ1 Freq " + ChartIndex.ToString());
+                var series2 = new Series("IQ1 Time " + ChartIndex.ToString());
+                var series3 = new Series("IQ2 Freq " + ChartIndex.ToString());
+                var series4 = new Series("IQ2 Time " + ChartIndex.ToString());
+
+                ChartIndex++;
+                listBox_Charts.Items.Add(series1.Name);
+                listBox_Charts.Items.Add(series2.Name);
+                listBox_Charts.Items.Add(series3.Name);
+                listBox_Charts.Items.Add(series4.Name);
+                // Frist parameter is X-Axis and Second is Collection of Y- Axis
+                series1.Points.DataBindXY(freqSpan, lmSpectrum);
+
+                for (int i = 0; i < IQ1Sigal.Length; i++)
+                {
+                    series2.Points.AddXY(i, IQ1Sigal[i]);
+                }
+                series2.ChartType = SeriesChartType.Line;
+                chart1.Series.Add(series1);
+                chart1.Series.Add(series2);
+
+                series3.Points.DataBindXY(freqSpan, lmSpectrum);
+
+                for (int i = 0; i < IQ1Sigal.Length; i++)
+                {
+                    series4.Points.AddXY(i, IQ1Sigal[i]);
+                }
+                series4.ChartType = SeriesChartType.Line;
+                chart1.Series.Add(series3);
+                chart1.Series.Add(series4);
+
+                PlotGraphTimer = -1;
+                textBox_SystemStatus.Text = "Graphs is ready;";
+                textBox_SystemStatus.BackColor = Color.LightGreen;
+            }));
+
+
+        }
+
+        int ChartIndex = 0;
+        MiniAda_Parser MiniAdaParser =  new MiniAda_Parser();
+        void ParseIncomeBuffer()
+        {
+            try
+            {
+                TcpClient PClientSocket = ClientSocket;
+                if (TCPClientBuffer.Length > 0)
+                {
+
+
+                    KratosProtocolFrame Result = new KratosProtocolFrame();
+                    Result = Kratos_Protocol.DecodeKratusProtocol(TCPClientBuffer);
+                    TCPClientBuffer = new byte[0];
+
+                    textBox_RxClientPreamble.BeginInvoke(new EventHandler(delegate
+                    {
+                        if (Result != null)
+                        {
+                            textBox_RxClientPreamble.BackColor = Color.LightGreen;
+                            textBox_RxClientPreamble.Text = Result.Preamble;
+
+                            textBox_RxClientOpcode.BackColor = Color.LightGreen;
+                            textBox_RxClientOpcode.Text = Result.Opcode;
+
+                            textBox_RxClientData.BackColor = Color.LightGreen;
+                            textBox_RxClientData.Text = Result.Data;
+
+                            textBox_RxClientDataLength.BackColor = Color.LightGreen;
+                            textBox_RxClientDataLength.Text = Result.DataLength + " Bytes";
+
+                            textBox_RxClientCheckSum.BackColor = Color.LightGreen;
+                            textBox_RxClientCheckSum.Text = Result.CheckSum;
+
+                            MiniAdaParser = new MiniAda_Parser();
+                            string MiniAdaResult = MiniAdaParser.ParseKratosFrame(Result);
+
+                            MiniAdaLogger.LogMessage(Color.Blue, Color.Azure, "", New_Line = false, Show_Time = true);
+                            MiniAdaLogger.LogMessage(Color.Blue, Color.Azure, "Rx:>", false, false);
+                            MiniAdaLogger.LogMessage(Color.Blue, Color.Azure, MiniAdaResult, true, false);
+
+
+
+
+                            richTextBox_ClientRx.Invoke(new EventHandler(delegate
+                            {
+                                byte[] Onlythe40FirstBytes = TCPClientBuffer.Skip(0).Take(200).ToArray();
+                                richTextBox_ClientRxPrintText("[" + DateTime.Now.TimeOfDay.ToString().Substring(0, 11) + "] " + ByteArrayToString(Onlythe40FirstBytes) + "\n \n");
+                            //richTextBox_ClientRx.AppendText("[" + dt.TimeOfDay.ToString().Substring(0, 11) + "] " + Encoding.ASCII.GetString(buffer) + " \n");
+
+
+
+                        }));
+                            PClientSocket = ClientSocket;
+                        }
+
+
+                    }));
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MiniAdaLogger.LogMessage(Color.Red, Color.LightGray, ex.ToString(), New_Line = false, Show_Time = true);
+            }
+            }
+
+            void TCPClientConnection()
         {
             if (ClientSocket == null || ClientSocket.Client == null)
             {
                 button_ClientConnect.BackColor = default;
             }
             label_ClientTCPConnected.BackColor = button_ClientConnect.BackColor;
+
+
             if (label_ClientTCPConnected.BackColor == Color.LightGreen)
             {
                 label_TCPClient.Text = textBox_ClientIP.Text + "  \n" + textBox_ClientPort.Text;
@@ -8334,6 +9820,28 @@ namespace SocketServer
             {
                 label_TCPClient.Text = "None";
             }
+
+            if (WaitforBufferFull > 0)
+            {
+                WaitforBufferFull--;
+                textBox_SystemStatus.Text = string.Format("Wait for income buffer [{0}] ", WaitforBufferFull);
+                textBox_SystemStatus.BackColor = Color.Yellow;
+                button_FFTPlot.Enabled = false;
+                button_DFTPlot.Enabled = false;
+
+            }
+            else
+            {
+                button_FFTPlot.Enabled = true;
+                button_DFTPlot.Enabled = true;
+
+                ParseIncomeBuffer();
+
+
+
+
+            }
+
         }
         //bool timer_General_TranssmitionPeriodicallyEnable = false;
         //uint NumbeOfTransmmitions = 0;
@@ -8343,6 +9851,22 @@ namespace SocketServer
         {
 
             TCPClientConnection();
+
+            if(PlotGraphTimer > 0)
+            {
+                textBox_SystemStatus.Text = string.Format("Generating graph [{0}] ", PlotGraphTimer);
+                textBox_SystemStatus.BackColor = Color.AliceBlue;
+                PlotGraphTimer--;
+            }
+            else
+            {
+                if (PlotGraphTimer == 0)
+                {
+                    textBox_SystemStatus.Text = string.Empty;
+                    textBox_SystemStatus.BackColor = default;
+                    PlotGraphTimer--;
+                }
+            }
             //Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
             //Tab0Color = randomColor;
 
@@ -8552,8 +10076,8 @@ namespace SocketServer
                      cmbBaudRate.Enabled = true;
                      cmbDataBits.Enabled = true;
                      cmbParity.Enabled = true;
-                     cmbPortName.Enabled = true;
-                     cmbStopBits.Enabled = true;
+                     cmb_PortName.Enabled = true;
+                     cmb_StopBits.Enabled = true;
                  }));
 
                 CloseSerialPortTimer = false;
@@ -8633,7 +10157,7 @@ namespace SocketServer
             string IncomingHexMessage = "";
             foreach (byte by in i_Buffer)
             {
-                IncomingHexMessage += "[0x" + by.ToString("X2") + "] ";
+                IncomingHexMessage +=  by.ToString("X2") + " ";
 
             }
 
@@ -8850,17 +10374,7 @@ namespace SocketServer
 
         void ParseSerialPortSMSString(string IncomingString)
         {
-            Boolean ret;
-            try
-            {
-                IncomingString = IncomingString.Replace(System.Environment.NewLine, "");
-                ret = ParseSMSCommand(IncomingString);
-            }
-            catch (Exception ex)
-            {
-                LogSMS.LogMessage(Color.Red, Color.LightGray, ex.ToString(), New_Line = true, Show_Time = true);
-                //    return;
-            }
+
         }
 
         void ParseSerialPortString(string IncomingString)
@@ -8944,13 +10458,13 @@ namespace SocketServer
                         //   ACKSMSReceived = true;
                         mutexACKSMSReceived.ReleaseMutex();
 
-                        LogSMS.LogMessage(Color.DarkBlue, Color.White, "SMS Send ACK received", New_Line = true, Show_Time = true);
+                        //LogSMS.LogMessage(Color.DarkBlue, Color.White, "SMS Send ACK received", New_Line = true, Show_Time = true);
 
                         if (checkBox_SMSencrypted.Checked == true)
                         {
                             string[] temp = CommandString.Split('[', ']');
-                            LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                            LogSMS.LogMessage(Color.Green, Color.White, "Encrypted SMS (Copy to server Tab):\n" + temp[5], New_Line = true, Show_Time = false);
+                         //   LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                         //   LogSMS.LogMessage(Color.Green, Color.White, "Encrypted SMS (Copy to server Tab):\n" + temp[5], New_Line = true, Show_Time = false);
 
                             txtDataTx.Invoke(new EventHandler(delegate
                             {
@@ -8963,7 +10477,7 @@ namespace SocketServer
                     if (CommandString.Contains("Modem ring to Contact."))
                     {
                         string[] temp = CommandString.Split('[', ']');
-                        LogSMS.LogMessage(Color.DarkBlue, Color.White, "Ring to contact, Phone Number: " + temp[3] + " Hangout: " + temp[5], New_Line = true, Show_Time = true);
+                        //LogSMS.LogMessage(Color.DarkBlue, Color.White, "Ring to contact, Phone Number: " + temp[3] + " Hangout: " + temp[5], New_Line = true, Show_Time = true);
 
                     }
 
@@ -9009,28 +10523,16 @@ namespace SocketServer
             PhoneBookContact ContactFound = MyPhoneBook.IsNumberExist(i_Subscriber);
 
             string ReceivedUnitID = String.Empty;
-            try
-            {
-                if (i_SMSText.Contains(","))
-                {
-                    //ParseStrings = i_SMSText.Split(',');
-                   // ReceivedUnitID = ParseStrings[0].Replace(";", "");
-                }
-            }
-            catch (Exception ex)
-            {
-                LogSMS.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = true, Show_Time = true);
-                //return;
-            }
+
 
 
 
             if (ContactFound != null)
             {
-                LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                LogSMS.LogMessage(i_ColorDisplay, Color.White, "\n SMS Received: ", New_Line = false, Show_Time = false);
-                LogSMS.LogMessage(Color.DarkBlue, Color.Yellow, "\n Contact:  " + ContactFound.ToString(), New_Line = false, Show_Time = false);
-                LogSMS.LogMessage(i_ColorDisplay, Color.White, "\n Text:  " + i_SMSText, New_Line = true, Show_Time = false);
+                //LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+            //    LogSMS.LogMessage(i_ColorDisplay, Color.White, "\n SMS Received: ", New_Line = false, Show_Time = false);
+            //    LogSMS.LogMessage(Color.DarkBlue, Color.Yellow, "\n Contact:  " + ContactFound.ToString(), New_Line = false, Show_Time = false);
+            //    LogSMS.LogMessage(i_ColorDisplay, Color.White, "\n Text:  " + i_SMSText, New_Line = true, Show_Time = false);
 
                 if (ReceivedUnitID != String.Empty)
                 {
@@ -9049,8 +10551,8 @@ namespace SocketServer
             }
             else
             {
-                LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                LogSMS.LogMessage(i_ColorDisplay, Color.White, "SMS Received: " + "\n Number:  " + i_Subscriber + "\n Text:  " + i_SMSText, New_Line = true, Show_Time = false);
+                //LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+         //       LogSMS.LogMessage(i_ColorDisplay, Color.White, "SMS Received: " + "\n Number:  " + i_Subscriber + "\n Text:  " + i_SMSText, New_Line = true, Show_Time = false);
 
 
 
@@ -10784,30 +12286,7 @@ namespace SocketServer
 
         bool CheckValidSMS(string i_SMS)
         {
-            try
-            {
-                //;<S1BM>CDC=,1111,;
-                if (i_SMS.Contains("CDC"))
-                {
-                    int CommaIndex = i_SMS.IndexOf(',');
-                    string str = i_SMS.Substring(CommaIndex + 1, 4);
-                    if (!(str.Length == 4 && (Regex.IsMatch(str, @"^[1-5]+$") || Regex.IsMatch(str, @"^[0]+$"))))
-                    {
-                        return false;
-                    }
-
-
-                }
-                return true;
-
-            }
-            catch (Exception ex)
-            {
-                LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                LogSMS.LogMessage(Color.Red, Color.White, ex.ToString(), New_Line = true, Show_Time = false);
-
-                return false;
-            }
+            return true;
         }
 
         string ReturnCommandWithPassword(string i_Command, PhoneBookContact i_Contact)
@@ -10844,30 +12323,7 @@ namespace SocketServer
 
         void RemoveSelectedContact()
         {
-            try
-            {
-                int i = checkedListBox_PhoneBook.SelectedIndex;
-                MyPhoneBook.RemoveContactFromPhoneBook((PhoneBookContact)checkedListBox_PhoneBook.SelectedItem);
 
-                UpdateDefaultsContacts();
-
-                UpdatePhoneBook();
-
-                if (i < checkedListBox_PhoneBook.Items.Count)
-                {
-                    checkedListBox_PhoneBook.SelectedIndex = i;
-                }
-                else
-                {
-                    checkedListBox_PhoneBook.SelectedIndex = checkedListBox_PhoneBook.Items.Count - 1;
-                }
-            }
-            catch (Exception ex)
-            {
-                //LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                LogSMS.LogMessage(Color.Red, Color.White, ex.Message, New_Line = true, Show_Time = true);
-
-            }
         }
 
         private void Button_RemoveContact_Click(object sender, EventArgs e)
@@ -10906,25 +12362,7 @@ namespace SocketServer
 
         private void Button_ImportToXML_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
-                if (result == DialogResult.OK) // Test result.
-                {
-                    MyPhoneBook.ImportToXML(openFileDialog1.FileName);
 
-                    UpdateDefaultsContacts();
-
-                    UpdatePhoneBook();
-
-                }
-            }
-            catch (Exception ex)
-            {
-                //LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                LogSMS.LogMessage(Color.Red, Color.White, ex.Message, New_Line = true, Show_Time = true);
-
-            }
 
         }
 
@@ -10995,8 +12433,8 @@ namespace SocketServer
                 if (IsSent == true)
                 {
 
-                    LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                    LogSMS.LogMessage(Color.Green, Color.White, "  SMS was Sent:\n Contact: " + i_Contact.ToString() + "\n Text:  " + SMSToSend, New_Line = true, Show_Time = false);
+          //          LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                    //LogSMS.LogMessage(Color.Green, Color.White, "  SMS was Sent:\n Contact: " + i_Contact.ToString() + "\n Text:  " + SMSToSend, New_Line = true, Show_Time = false);
 
                     Thread.Sleep(1500);
 
@@ -11038,8 +12476,8 @@ namespace SocketServer
                 //}
                 //if (ACKSMSReceived)
                 //{
-                LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                LogSMS.LogMessage(Color.Green, Color.White, "  Ring to Contact:\n Contact: " + i_Contact.ToString(), New_Line = true, Show_Time = false);
+                //LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+            //    LogSMS.LogMessage(Color.Green, Color.White, "  Ring to Contact:\n Contact: " + i_Contact.ToString(), New_Line = true, Show_Time = false);
 
                 Thread.Sleep(1500);
                 //}
@@ -11083,8 +12521,8 @@ namespace SocketServer
                 }
                 else
                 {
-                    LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                    LogSMS.LogMessage(Color.Red, Color.White, "SMS Not Valid", New_Line = true, Show_Time = false);
+                    //LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+            //        LogSMS.LogMessage(Color.Red, Color.White, "SMS Not Valid", New_Line = true, Show_Time = false);
                 }
 
                 // AddCommandToCommands(richTextBox_TextSendSMS.Text);
@@ -11203,18 +12641,7 @@ namespace SocketServer
 
         private void Button_AddToSendSMS_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (listBox_SMSCommands.SelectedItem != null)
-                {
-                    richTextBox_TextSendSMS.Text = listBox_SMSCommands.SelectedItem.ToString();
-                }
 
-            }
-            catch (Exception ex)
-            {
-                LogSMS.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = false, Show_Time = true);
-            }
         }
 
         private void TextBox_Config33_TextChanged(object sender, EventArgs e)
@@ -11232,19 +12659,7 @@ namespace SocketServer
 
         private void ListBox_SMSCommands_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (listBox_SMSCommands.SelectedItem != null)
-                {
 
-                    richTextBox_TextSendSMS.Text = listBox_SMSCommands.SelectedItem.ToString();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                LogSMS.LogMessage(Color.Black, Color.White, ex.ToString(), New_Line = false, Show_Time = true);
-            }
         }
 
         private void Button41_Click(object sender, EventArgs e)
@@ -11316,34 +12731,10 @@ namespace SocketServer
             }
         }
 
+        ///
         void RemoveSelectedCommand()
         {
-            try
-            {
-                int i = listBox_SMSCommands.SelectedIndex;
-                //MyPhoneBook.RemoveContactFromPhoneBook((PhoneBookContact)checkedListBox_PhoneBook.SelectedItem);
 
-                listBox_SMSCommands.Items.Remove(listBox_SMSCommands.SelectedItem);
-
-                UpdateDefaultsCommands();
-
-                UpdateSMSCommands();
-
-                if (i < listBox_SMSCommands.Items.Count)
-                {
-                    listBox_SMSCommands.SelectedIndex = i;
-                }
-                else
-                {
-                    listBox_SMSCommands.SelectedIndex = listBox_SMSCommands.Items.Count - 1;
-                }
-            }
-            catch (Exception ex)
-            {
-                //LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                LogSMS.LogMessage(Color.Red, Color.White, ex.Message, New_Line = true, Show_Time = true);
-
-            }
 
 
 
@@ -11388,8 +12779,7 @@ namespace SocketServer
 
         private void Button38_Click(object sender, EventArgs e)
         {
-            try
-            {
+
                 openFileDialog1 = new OpenFileDialog();
                 DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
                 if (result == DialogResult.OK) // Test result.
@@ -11408,17 +12798,8 @@ namespace SocketServer
                         AddCommandToCommands(str);
                     }
                     UpdateSMSCommands();
-
-
-
                 }
-            }
-            catch (Exception ex)
-            {
-                //LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                LogSMS.LogMessage(Color.Red, Color.White, ex.Message, New_Line = true, Show_Time = true);
 
-            }
         }
 
 
@@ -11495,8 +12876,7 @@ namespace SocketServer
         {
             if (checkBox_OpenPortSMS.Checked)
             {
-                try
-                {
+
                     checkBox_OpenPortSMS.BackColor = Color.Yellow;
 
 
@@ -11515,30 +12895,15 @@ namespace SocketServer
 
 
 
-                    LogSMS.LogMessage(Color.Green, Color.LightGray,
-                     " Serial port Opened with  " + " ,PortName = " + serialPort_SMS.PortName
-                     + " ,BaudRate = " + serialPort_SMS.BaudRate +
-                     " ,DataBits = " + serialPort_SMS.DataBits +
-                     " ,StopBits = " + serialPort_SMS.StopBits +
-                     " ,Parity = " + serialPort_SMS.Parity,
-                     New_Line = true, Show_Time = true);
+
 
                     checkBox_OpenPortSMS.BackColor = Color.Green;
 
                     serialPort_SMS.DataReceived += new SerialDataReceivedEventHandler(SerialPort_SMS_DataReceived);
 
                     comboBox_ComportSMS.Enabled = false;
-                }
-                catch (Exception ex)
-                {
-                    checkBox_OpenPortSMS.Checked = false;
-                    checkBox_OpenPortSMS.BackColor = default;
+                
 
-
-
-                    LogSMS.LogMessage(Color.Red, Color.LightGray, ex.Message.ToString(), New_Line = true, Show_Time = true);
-                    return;
-                }
 
 
 
@@ -11583,8 +12948,8 @@ namespace SocketServer
             if (checkBox_DebugSMS.Checked == true)
             {
 
-                LogSMS.LogMessage(Color.Black, Color.LightGray, "", New_Line = false, Show_Time = true);
-                LogSMS.LogMessage(Color.Black, Color.LightGray, IncomingString, New_Line = true, Show_Time = false);
+                //LogSMS.LogMessage(Color.Black, Color.LightGray, "", New_Line = false, Show_Time = true);
+              //  LogSMS.LogMessage(Color.Black, Color.LightGray, IncomingString, New_Line = true, Show_Time = false);
             }
 
 
@@ -11790,8 +13155,8 @@ namespace SocketServer
                     }
                     else
                     {
-                        LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                        LogSMS.LogMessage(Color.Red, Color.White, "SMS Not Valid", New_Line = true, Show_Time = false);
+                        //LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+                   //     LogSMS.LogMessage(Color.Red, Color.White, "SMS Not Valid", New_Line = true, Show_Time = false);
                     }
 
                     // AddCommandToCommands(richTextBox_TextSendSMS.Text);
@@ -11808,16 +13173,16 @@ namespace SocketServer
             }
             else
             {
-                LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
-                string RingExplain = @"In Order to Ring you have to:
-1. Select the contact 
-2. Select the command
-3. Check that the password is the right password
-4. Check the Encripted checkbox
-5. Check the unit ID (IMEI),it should be the same IMEI target ID (when the status received it compare the IMEI recieved vs the UnitID TextBox)
-6. Check the Unit code it the right code
-7. Comport must be open ";
-                LogSMS.LogMessage(Color.Red, Color.White, RingExplain, New_Line = true, Show_Time = false);
+                //LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+//                string RingExplain = @"In Order to Ring you have to:
+//1. Select the contact 
+//2. Select the command
+//3. Check that the password is the right password
+//4. Check the Encripted checkbox
+//5. Check the unit ID (IMEI),it should be the same IMEI target ID (when the status received it compare the IMEI recieved vs the UnitID TextBox)
+//6. Check the Unit code it the right code
+//7. Comport must be open ";
+                //LogSMS.LogMessage(Color.Red, Color.White, RingExplain, New_Line = true, Show_Time = false);
 
                 button_Ring.BackColor = default;
                 button_Ring.Text = "Ring";
@@ -11829,18 +13194,18 @@ namespace SocketServer
 
         void ScanComports()
         {
-            cmbPortName.Items.Clear();
+            cmb_PortName.Items.Clear();
             comboBox_ComportSMS.Items.Clear();
 
             string[] ports = SerialPort.GetPortNames();
             foreach (string port in ports)
             {
-                cmbPortName.Items.Add(port);
+                cmb_PortName.Items.Add(port);
                 comboBox_ComportSMS.Items.Add(port);
             }
             if (ports.Length > 0)
             {
-                cmbPortName.SelectedIndex = 0;
+                cmb_PortName.SelectedIndex = 0;
                 comboBox_ComportSMS.SelectedIndex = 0;
             }
         }
@@ -11985,15 +13350,15 @@ namespace SocketServer
 
         private void ListBox_SMSCommands_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
+      //      LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = false, Show_Time = true);
             for (int i = 0; i < listBox_SMSCommands.Items.Count; i++)
             {
                 if (listBox_SMSCommands.GetSelected(i) == true)
                 {
-                    LogSMS.LogMessage(Color.Black, Color.White, "[" + listBox_SMSCommands.Items[i].ToString() + "]", New_Line = true, Show_Time = false);
+         //           LogSMS.LogMessage(Color.Black, Color.White, "[" + listBox_SMSCommands.Items[i].ToString() + "]", New_Line = true, Show_Time = false);
                 }
             }
-            LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = true, Show_Time = false);
+            //LogSMS.LogMessage(Color.Black, Color.White, "", New_Line = true, Show_Time = false);
         }
 
         private void Button_ResetGraphs_Click(object sender, EventArgs e)
@@ -12153,6 +13518,7 @@ namespace SocketServer
             return hex.ToString();
         }
 
+        byte[] TCPClientBuffer = new byte[0]; 
         void ReceiveData()
         {
             TcpClient PClientSocket = ClientSocket;
@@ -12169,83 +13535,48 @@ namespace SocketServer
                     {
                         try
                         {
-                            byte[] buffer = new byte[4096];
+                            byte[] buffer = new byte[1000000];
                             Stream stm = PClientSocket.GetStream();
 
 
 
-                            stm.Read(buffer, 0, buffer.Length);
-                            KratosProtocolFrame Result = new KratosProtocolFrame();
-                            Result = Kratos_Protocol.DecodeKratusProtocol(buffer);
-
-                            textBox_RxClientPreamble.BeginInvoke(new EventHandler(delegate
+                            int NumOfReceivedBytes = stm.Read(buffer, 0, buffer.Length);
+                            if(WaitforBufferFull == 0)
                             {
-                                if (Result != null)
-                                {
-                                    textBox_RxClientPreamble.BackColor = Color.LightGreen;
-                                    textBox_RxClientPreamble.Text = Result.Preamble;
-
-                                    textBox_RxClientOpcode.BackColor = Color.LightGreen;
-                                    textBox_RxClientOpcode.Text = Result.Opcode;
-
-                                    textBox_RxClientData.BackColor = Color.LightGreen;
-                                    textBox_RxClientData.Text = Result.Data;
-
-                                    textBox_RxClientDataLength.BackColor = Color.LightGreen;
-                                    textBox_RxClientDataLength.Text = Result.DataLength + " Bytes";
-                                }
+                                TCPClientBuffer = new byte[NumOfReceivedBytes];
+                                Array.Copy(buffer, 0, TCPClientBuffer, 0, NumOfReceivedBytes);
 
 
-                            }));
-
-
-
-                            string MiniAdaResult = MiniAda_Parser.ParseKratosFrame(Result);
-
-                           // MiniAdaLogger.LogMessage(Color.Black, Color.Empty, MiniAdaResult, New_Line = true, Show_Time = true);
-
-                            MiniAdaLogger.LogMessage(Color.Blue, Color.Azure, "", New_Line = false, Show_Time = true);
-                            MiniAdaLogger.LogMessage(Color.Blue, Color.Azure, "Rx:>", false, false);
-                            MiniAdaLogger.LogMessage(Color.Blue, Color.Azure, MiniAdaResult, true, false);
-
-
-
-
-
-
-
-                            //SSP_Protocol.SSP_DataPayload data = SSP_Protocol.SSP_Protocol.SSPPacket_Decoder(buffer);
-                            richTextBox_ClientRx.Invoke(new EventHandler(delegate
+                            }
+                            else
                             {
-                                byte[] Onlythe40FirstBytes = buffer.Skip(0).Take(200).ToArray();
-                                richTextBox_ClientRxPrintText("[" + DateTime.Now.TimeOfDay.ToString().Substring(0, 11) + "] " + ByteArrayToString(Onlythe40FirstBytes) + "\n \n");
-                                //richTextBox_ClientRx.AppendText("[" + dt.TimeOfDay.ToString().Substring(0, 11) + "] " + Encoding.ASCII.GetString(buffer) + " \n");
+                                byte[] temp = new byte[NumOfReceivedBytes + TCPClientBuffer.Length];
+                                TCPClientBuffer.CopyTo(temp, 0);
+                                Array.Copy(buffer, 0, temp, TCPClientBuffer.Length, NumOfReceivedBytes);
+                                //buffer.CopyTo(temp, NumOfReceivedBytes);
+                                TCPClientBuffer = temp;
+                                
+
+                            }
+
+                           
 
 
 
-                            }));
-                            PClientSocket = ClientSocket;
 
                         }
                         catch (Exception ex)
                         {
 
 
-                                //textBox_SystemStatus.Invoke(new EventHandler(delegate
-                                //        {
-                                //            richTextBox_ClientRx.Text = ex.Message;
-                                //            textBox_SystemStatus.Text = ex.Message;
+                            MiniAdaLogger.LogMessage(Color.Black, Color.Red,"Gil: " + ex.ToString(), New_Line = true, Show_Time = true);
 
-                                //        //       ClearRxTextBox();
 
-                                //    }));
-                            
+                            return;
 
-                                    
+
 
                         }
-                        finally
-                        { }
                     }
                     else
                     {
@@ -12501,9 +13832,9 @@ namespace SocketServer
                     }
 
                     serialPort.DataBits = int.Parse(cmbDataBits.Text);
-                    serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmbStopBits.Text);
+                    serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cmb_StopBits.Text);
                     serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), cmbParity.Text);
-                    serialPort.PortName = cmbPortName.Text;
+                    serialPort.PortName = cmb_PortName.Text;
 
 
 
@@ -12526,20 +13857,20 @@ namespace SocketServer
                     button_OpenPort.Text = "Close";
                     button_OpenPort.BackColor = Color.LightGreen;
                     label_SerialPortConnected.BackColor = Color.LightGreen;
-                    label_SerialPortStatus.Text = cmbPortName.Text+ "   \n" + cmbBaudRate.Text; 
+                    label_SerialPortStatus.Text = cmb_PortName.Text+ "   \n" + cmbBaudRate.Text; 
 
 
                     cmbBaudRate.Enabled = false;
                     cmbDataBits.Enabled = false;
                     cmbParity.Enabled = false;
-                    cmbPortName.Enabled = false;
-                    cmbStopBits.Enabled = false;
+                    cmb_PortName.Enabled = false;
+                    cmb_StopBits.Enabled = false;
 
                     Monitor.Properties.Settings.Default.Comport_BaudRate = cmbBaudRate.Text;
                     Monitor.Properties.Settings.Default.Comport_DataBits = cmbDataBits.Text;
-                    Monitor.Properties.Settings.Default.Comport_StopBit = cmbStopBits.Text;
+                    Monitor.Properties.Settings.Default.Comport_StopBit = cmb_StopBits.Text;
                     Monitor.Properties.Settings.Default.Comport_Parity = cmbParity.Text;
-                    Monitor.Properties.Settings.Default.Comport_Port = cmbPortName.Text;
+                    Monitor.Properties.Settings.Default.Comport_Port = cmb_PortName.Text;
 
                     Monitor.Properties.Settings.Default.Save();
 
@@ -12707,6 +14038,22 @@ namespace SocketServer
             textBox_data.BackColor = default;
             textBox_data.Text = "";
 
+            textBox_data.BackColor = default;
+            textBox_data.Text = "";
+
+            textBox_RxClientDataLength.BackColor = default;
+            textBox_RxClientDataLength.Text = "";
+
+            textBox_RxClientCheckSum.BackColor = default;
+            textBox_RxClientCheckSum.Text = "";
+
+            textBox_SentPreamble.Text = "";
+            textBox_SentOpcode.Text = "";
+            textBox_SentData.Text = "";
+            textBox_SentDataLength.Text = "";
+            textBox_SentChecksum.Text = "";
+            textBox_SentPreamble.Text = "";
+
         }
 
         private void button_Send_Click(object sender, EventArgs e)
@@ -12737,9 +14084,21 @@ namespace SocketServer
                 
                     Stream stm = ClientSocket.GetStream();
 
-                byte[] Result = Kratos_Protocol.EncodeKratusProtocol(Regex.Replace(textBox_Preamble.Text, @"\s+", ""), Regex.Replace(textBox_Opcode.Text, @"\s+", ""), Regex.Replace(textBox_data.Text, @"\s+", ""));
+                if (stm != null)
+                {
+                    byte[] Result = Kratos_Protocol.EncodeKratusProtocol(Regex.Replace(textBox_Preamble.Text, @"\s+", ""), Regex.Replace(textBox_Opcode.Text, @"\s+", ""), Regex.Replace(textBox_data.Text, @"\s+", ""));
+
+                    KratosProtocolFrame SentFrame = Kratos_Protocol.DecodeKratusProtocol(Result);
+                    //textBox_AllDataSent.Text = String.Format("Preamble: [{0}] Opcode: [{1}] Data : [{2}] Data length: [{3}] CheckSum: [{4}]",Ret.Preamble,Ret.Opcode,Ret.Data,Ret.DataLength,Ret.CheckSum);
+                    textBox_SentPreamble.Text = SentFrame.Preamble;
+                    textBox_SentOpcode.Text = SentFrame.Opcode;
+                    textBox_SentData.Text = SentFrame.Data;
+                    textBox_SentDataLength.Text = SentFrame.DataLength;
+                    textBox_SentChecksum.Text = SentFrame.CheckSum;
+
 
                     stm.Write(Result, 0, Result.Length);
+                }
                 
 
 
@@ -12866,6 +14225,11 @@ namespace SocketServer
                 String str = String.Format("Preamble [{0}],Opcode [{1}],Data [{2}] ", textBox_Preamble.Text, textBox_Opcode.Text, textBox_data.Text);
                 MiniAdaLogger.LogMessage(Color.Purple, Color.LightYellow, str, true, false);
             }
+            else
+            {
+                MiniAdaLogger.LogMessage(Color.Orange, Color.White, "Connection Problem or bad data", true, true);
+
+            }
 
             
         }
@@ -12987,6 +14351,7 @@ namespace SocketServer
 
         private void MainForm_FormClosed_1(object sender, FormClosedEventArgs e)
         {
+            CloseClentConnection();
             m_Exit = true;
             System.GC.Collect();
         }
@@ -13167,7 +14532,24 @@ namespace SocketServer
 
         private void button59_MouseDown(object sender, MouseEventArgs e)
         {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+Description:   Set register value to synthesizer L1
+Command: 	0x1E
+TX data: 	4 bytes – 32bit register value
+TX frame: 	0x004D 0x0016 + Tx Data + checksum
+RX data: 	N.A
+RX frame: 	0x004D 0x0016 0x00000000 0x63
 
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
         }
 
         private void button61_MouseDown(object sender, MouseEventArgs e)
@@ -13290,7 +14672,8 @@ byte – band type: 0x00 - L1, 0x01 - L2
             MouseEventArgs me = (MouseEventArgs)e;
             if (me.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                String str = String.Format(@"Description:   Set system output power in dBm by Band type
+                String str = String.Format(@"
+Description:   Set system output power in dBm by Band type
 Command: 	0x2A
 TX data: 	5 bytes
 		1 byte – Band type: 0x0 – Both, 0x1 – L1; 0x2 – L2
@@ -13396,7 +14779,7 @@ RX frame: 	0x004D 0x002A 0x00000000 0x77
             string WithoutSpaces = Regex.Replace(textBox_WriteFPGARegister.Text, @"\s+", "");
             byte[] buffer = StringToByteArray(WithoutSpaces);
 
-            if (buffer != null && buffer.Length <= 8)
+            if (buffer != null && buffer.Length == 8)
             {
                 textBox_WriteFPGARegister.BackColor = Color.LightGreen;
             }
@@ -13417,36 +14800,56 @@ RX frame: 	0x004D 0x002A 0x00000000 0x77
 
         void richTextBox_ClientRxPrintText(String i_string)
         {
-            richTextBox_ClientRx.AppendText(i_string);
-            richTextBox_ClientRx.ScrollToCaret();
+            richTextBox_ClientRx.BeginInvoke(new EventHandler(delegate
+            {
+                richTextBox_ClientRx.AppendText(i_string);
+                richTextBox_ClientRx.ScrollToCaret();
+            }));
         }
+
+       // int PingWaitTime = 0;
         private void button72_Click(object sender, EventArgs e)
         {
+
             try
             {
-
                 String szIPSelected = textBox_ClientIP.Text;
 
+                new Thread(() =>
+                {
+                    button_Ping.BackColor = Color.Yellow;
 
+                    Thread.CurrentThread.IsBackground = true;
+                /* run your code here */
                 Ping myPing = new Ping();
                 PingReply reply = myPing.Send(szIPSelected);
-                if (reply != null)
-                {
-
-                    // richTextBox_ClientRx.AppendText(String.Format("Failed to connect to [{0}] [{1}]\n", szIPSelected, szPort));
-                    richTextBox_ClientRxPrintText("\n Status :  " + reply.Status + " \n Time : " + reply.RoundtripTime.ToString() + " \n Address : " + reply.Address);
-
-                    if (reply.Status == IPStatus.Success)
+                    if (reply != null)
                     {
-                        button_Ping.BackColor = Color.LightGreen;
+                      //  PingWaitTime = 0;
+                        // richTextBox_ClientRx.AppendText(String.Format("Failed to connect to [{0}] [{1}]\n", szIPSelected, szPort));
+                        richTextBox_ClientRxPrintText("\n Status :  " + reply.Status + " \n Time : " + reply.RoundtripTime.ToString() + " \n Address : " + reply.Address);
+
+                        button_Ping.Text = "Ping";
+                        if (reply.Status == IPStatus.Success)
+                        {
+                            button_Ping.BackColor = Color.LightGreen;
+                        }
+                        else
+                        {
+                            button_Ping.BackColor = Color.Orange;
+                        }
                     }
-                    else
-                    {
-                        button_Ping.BackColor = Color.Orange;
-                    }
-                    //Console.WriteLine(reply.ToString());
-                }
+                    }).Start();
+            
+
+
+                //System.Threading.Thread.Sleep(500);
+
+
+                //Console.WriteLine(reply.ToString());
+                
             }
+            
             catch
             {
                 richTextBox_ClientRx.AppendText("ERROR: You have Some TIMEOUT issue");
@@ -13504,7 +14907,7 @@ RX frame: 	0x0044 0x0030 0x00000000 + CRC
             string WithoutSpaces = Regex.Replace(textBox_LoadDatainFlash.Text, @"\s+", "");
             byte[] buffer = StringToByteArray(WithoutSpaces);
 
-            if (buffer != null && buffer.Length <= 8)
+            if (buffer != null && buffer.Length == 8)
             {
                 textBox_LoadDatainFlash.BackColor = Color.LightGreen;
             }
@@ -13559,7 +14962,7 @@ RX frame: 	0x0044 0x0031 + size + RX Data + CRC
             string WithoutSpaces = Regex.Replace(textBox_SetRXChannelGain.Text, @"\s+", "");
             byte[] buffer = StringToByteArray(WithoutSpaces);
 
-            if (buffer != null && buffer.Length <= 2)
+            if (buffer != null && buffer.Length == 2)
             {
                 textBox_SetRXChannelGain.BackColor = Color.LightGreen;
             }
@@ -13583,7 +14986,7 @@ RX frame: 	0x0044 0x0031 + size + RX Data + CRC
             string WithoutSpaces = Regex.Replace(textBox_GetRXChannelGain.Text, @"\s+", "");
             byte[] buffer = StringToByteArray(WithoutSpaces);
 
-            if (buffer != null && buffer.Length <= 1)
+            if (buffer != null && buffer.Length == 1)
             {
                 textBox_GetRXChannelGain.BackColor = Color.LightGreen;
             }
@@ -13643,7 +15046,7 @@ RX frame: 	0x0044 0x0031 + size + RX Data + CRC
             string WithoutSpaces = Regex.Replace(textBox_RxRFPLL.Text, @"\s+", "");
             byte[] buffer = StringToByteArray(WithoutSpaces);
 
-            if (buffer != null && buffer.Length <= 2)
+            if (buffer != null && buffer.Length == 2)
             {
                 textBox_RxRFPLL.BackColor = Color.LightGreen;
             }
@@ -13655,8 +15058,6 @@ RX frame: 	0x0044 0x0031 + size + RX Data + CRC
 
         private void button78_Click(object sender, EventArgs e)
         {
-            textBox_RxRFPLL_TextChanged(null, null);
-
             textBox_Preamble.Text = MINIADA_HEADER;
             textBox_Opcode.Text = "5C 00";
             textBox_data.Text = textBox_RxRFPLL.Text;
@@ -13669,7 +15070,7 @@ RX frame: 	0x0044 0x0031 + size + RX Data + CRC
             string WithoutSpaces = Regex.Replace(textBox_TxRFPLL.Text, @"\s+", "");
             byte[] buffer = StringToByteArray(WithoutSpaces);
 
-            if (buffer != null && buffer.Length <= 2)
+            if (buffer != null && buffer.Length == 2)
             {
                 textBox_TxRFPLL.BackColor = Color.LightGreen;
             }
@@ -13831,6 +15232,8 @@ RX frame: 	0x004D 0x005C 0x00000001 + RX Data + checksum
             textBox_Opcode.Text = "80 00";
             textBox_data.Text = textBox_RecordIQData.Text;
 
+            WaitforBufferFull = 6;
+
             SendDataToSystem();
         }
 
@@ -13839,7 +15242,7 @@ RX frame: 	0x004D 0x005C 0x00000001 + RX Data + checksum
             string WithoutSpaces = Regex.Replace(textBox_RecordIQSourceSealect.Text, @"\s+", "");
             byte[] buffer = StringToByteArray(WithoutSpaces);
 
-            if (buffer != null && buffer.Length <= 3)
+            if (buffer != null && buffer.Length == 3)
             {
                 textBox_RecordIQSourceSealect.BackColor = Color.LightGreen;
             }
@@ -13876,7 +15279,7 @@ RX frame: 	0x004D 0x005C 0x00000001 + RX Data + checksum
         private void button85_Click(object sender, EventArgs e)
         {
             textBox_Preamble.Text = MINIADA_HEADER;
-            textBox_Opcode.Text = "81 00";
+            textBox_Opcode.Text = "87 00";
             textBox_data.Text = textBox_SetRxChannelState.Text;
 
             SendDataToSystem();
@@ -13887,6 +15290,1817 @@ RX frame: 	0x004D 0x005C 0x00000001 + RX Data + checksum
         {
             textBox_Preamble.Text = MINIADA_HEADER;
             textBox_Opcode.Text = "D0 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void textBox_WriteQSPIFlashData_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_WriteQSPIFlashData.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null)
+            {
+                textBox_WriteQSPIFlashData.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_WriteQSPIFlashData.BackColor = Color.Red;
+            }
+        }
+
+        private void button88_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "35 00";
+            textBox_data.Text = textBox_WriteQSPIFlashData.Text;
+
+            SendDataToSystem();
+        }
+
+        private void button87_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "36 00";
+            textBox_data.Text = textBox_ReadQSPIFlashData.Text;
+
+            SendDataToSystem();
+        }
+
+        private void textBox_ReadQSPIFlashData_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_ReadQSPIFlashData.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null )
+            {
+                if (buffer.Length == 8)
+                {
+                    textBox_ReadQSPIFlashData.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    textBox_ReadQSPIFlashData.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void textBox_Erase4KsectorQSPI_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_Erase4KsectorQSPI.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null & buffer.Length == 4)
+            {
+                textBox_Erase4KsectorQSPI.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_Erase4KsectorQSPI.BackColor = Color.Red;
+            }
+        }
+
+        private void textBox_SetInternalLOFreq_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_SetInternalLOFreq.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length == 9)
+            {
+                textBox_SetInternalLOFreq.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_SetInternalLOFreq.BackColor = Color.Red;
+            }
+        }
+
+        private void button91_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "5A 00";
+            textBox_data.Text = textBox_SetInternalLOFreq.Text;
+
+            SendDataToSystem();
+        }
+
+        private void textBox_GetInternalLOFreq_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_GetInternalLOFreq.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length == 1)
+            {
+                textBox_GetInternalLOFreq.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_GetInternalLOFreq.BackColor = Color.Red;
+            }
+        }
+
+        private void button90_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "5B 00";
+            textBox_data.Text = textBox_GetInternalLOFreq.Text;
+
+            SendDataToSystem();
+        }
+
+        private void button_RecordIQData_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+                4.2.5.1 Record IQ data - day 1
+
+Description: Initiate recording of I/ Q data and send the data on completion
+Command: 	0x80
+TX data: 	5 bytes
+1 byte -Number of data blocks
+4 byte -Number of samples
+TX frame: 	0x004D 0x0080 0x00000005 + Tx Data + checksum
+RX data: 	N bytes
+Recorded samples
+RX frame: 	0x004D 0x0080 + Length + RX Data + checksum
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+
+        }
+
+        private void button77_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+Description:   Set the Gain to the RX channels
+Command: 	0x56
+TX data: 	2 bytes 
+1 byte – band: 	0 – Broadcast; 1 – Band L1; 2 – Band L2
+1 byte - Gain Value 1 ÷ 76 (dB)
+TX frame: 	0x004D 0x0056 + Tx Data + checksum
+RX data: 	N.A
+RX frame: 	0x004D 0x0056 0x00000000 0xA3
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button76_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+                4.2.5.1 Record IQ data - day 1
+
+Description: Initiate recording of I/ Q data and send the data on completion
+Command: 	0x80
+TX data: 	5 bytes
+1 byte -Number of data blocks
+4 byte -Number of samples
+TX frame: 	0x004D 0x0080 0x00000005 + Tx Data + checksum
+RX data: 	N bytes
+Recorded samples
+RX frame: 	0x004D 0x0080 + Length + RX Data + checksum
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button75_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+Description:   Set DCA in the system
+Command: 	0x58
+TX data: 	4 bytes 
+DCA value [Float]
+TX frame: 	0x004D 0x0058 + Tx Data + checksum
+RX data: 	N.A
+RX frame: 	0x004D 0x0058 0x00000000 0xA5
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button91_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+Description:   Set internal LO frequency in Hz
+Command: 	0x5A
+TX data: 	9 byte
+		1 byte – Band type: 0x0 – L1; 0x1 – L2
+		8 byte - Frequency [Hz]		
+TX frame: 	0x004D 0x005A 0x00000009 + TX Data + checksum
+RX data: 	N.A
+RX frame: 	0x004D 0x005A 0x00000000 0xA7
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button69_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+4.2.2.11	Set TCXO Trim 
+Description:   Change the frequency of the clock generation TCXO
+Command: 	0x2F
+TX data: 	4 byte – fraction of pulse per minute [-10:10]
+TX frame: 	0x004D 0x002F 0x00000004+ TX Data + checksum
+RX data: 	N.A
+RX frame: 	0x004D 0x002F 0x00000000 0x7A
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button84_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+Description:   Initiate recording of I/Q data and send the data on completion
+Command: 	0x81
+TX data: 	3 bytes 
+1 byte – Record source :
+ 0x00 - Xcvr RX
+ 0x01 – Playback
+ 0x02 -  Counter
+ 0x03 -  Zero
+		1 byte - Channel 1 data source:
+0x00 – Catalina 1, channel 1
+0x01 – Catalina 1, channel 2
+0x02 -  Catalina 2, channel 1
+0x03 -  Catalina 2 channel 2
+0x04 – Catalina 3, channel 1
+0x05 – Catalina 3, channel 2
+0x06 -  Catalina 4, channel 1
+0x07 -  Catalina 4 channel 2
+
+1 byte - Channel 2 data source – same as Channel 1			  
+		
+TX frame: 	0x004D 0x0081 0x00000001 + Tx Data + checksum
+RX data: 	N.A 
+RX frame: 	0x004D 0x0081 0x00000000 0xCE
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+            }
+        }
+
+        private void button85_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+Description:   Set the state to RX Channel
+Command: 	0x87
+TX data: 	2 bytes 
+1 byte - Channel number: 0 ÷7
+1 byte – State: 0x0 – Rx; 0x1 - CAL
+TX frame: 	0x004D 0x0087 0x00000002 + Tx Data + checksum
+RX data: 	N.A 
+RX frame: 	0x004D 0x0087 0x00000000 0xD4
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void textBox_PlayIQData_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_PlayIQData.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null )
+            {
+                textBox_PlayIQData.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_PlayIQData.BackColor = Color.Red;
+            }
+        }
+
+        private void button93_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "82 00";
+            textBox_data.Text = textBox_PlayIQData.Text;
+
+            SendDataToSystem();
+        }
+
+        private void textBox_RetriveIQData_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_RetriveIQData.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null)
+            {
+                if (buffer.Length == 5)
+                { 
+                    textBox_RetriveIQData.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    textBox_RetriveIQData.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void button92_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "84 00";
+            textBox_data.Text = textBox_RetriveIQData.Text;
+
+            SendDataToSystem();
+        }
+
+        private void button94_Click(object sender, EventArgs e)
+        {
+                // Generate a test signal,
+                //  1 Vrms at 20,000 Hz
+                //  Sampling Rate = 100,000 Hz
+                //  DFT Length is 1000 Points
+                double amplitude = 1.0;
+                double frequency = 20000;
+                UInt32 length = 1000;
+                double samplingRate = 100000;
+                double[] inputSignal = DSP.Generate.ToneSampling(amplitude, frequency, samplingRate, length);
+                // Instantiate a new DFT
+                DFT dft = new DFT();
+                // Initialize the DFT
+                // You only need to do this once or if you change any of the DFT parameters.
+                dft.Initialize(length);
+                // Call the DFT and get the scaled spectrum back
+                Complex[] cSpectrum = dft.Execute(inputSignal);
+                // Convert the complex spectrum to magnitude
+                double[] lmSpectrum = DSP.ConvertComplex.ToMagnitude(cSpectrum);
+                // Note: At this point, lmSpectrum is a 501 byte array that 
+                // contains a properly scaled Spectrum from 0 - 50,000 Hz (1/2 the Sampling Frequency)
+                // For plotting on an XY Scatter plot, generate the X Axis frequency Span
+                double[] freqSpan = dft.FrequencySpan(samplingRate);
+            // At this point a XY Scatter plot can be generated from,
+            // X axis => freqSpan
+            // Y axis => lmSpectrum
+            // In this example, the maximum value of 1 Vrms is located at bin 200 (20,000 Hz)
+                var series = new Series("Freq");
+                var series2 = new Series("Time");
+            listBox_Charts.Items.Add(series.Name);
+            listBox_Charts.Items.Add(series2.Name);
+            // Frist parameter is X-Axis and Second is Collection of Y- Axis
+            series.Points.DataBindXY(freqSpan, lmSpectrum);
+
+            for (int i = 0; i < inputSignal.Length/10; i++)
+            {
+                series2.Points.AddXY(i, inputSignal[i]);
+            }
+            series2.ChartType = SeriesChartType.Line;
+            chart1.Series.Add(series);
+            chart1.Series.Add(series2);
+
+        }
+
+        private void button95_Click(object sender, EventArgs e)
+        {
+            // Same Input Signal as Example 1 - Except a fractional cycle for frequency.
+            double amplitude = 1.0; double frequency = 20000.5;
+            UInt32 length = 1000; UInt32 zeroPadding = 9000; // NOTE: Zero Padding
+            double samplingRate = 100000;
+            double[] inputSignal = DSPLib.DSP.Generate.ToneSampling(amplitude, frequency, samplingRate, length);
+            // Apply window to the Input Data & calculate Scale Factor
+            double[] wCoefs = DSP.Window.Coefficients(DSP.Window.Type.FTNI, length);
+            double[] wInputData = DSP.Math.Multiply(inputSignal, wCoefs);
+            double wScaleFactor = DSP.Window.ScaleFactor.Signal(wCoefs);
+            // Instantiate & Initialize a new DFT
+            DSPLib.DFT dft = new DSPLib.DFT();
+            dft.Initialize(length, zeroPadding); // NOTE: Zero Padding
+                                                 // Call the DFT and get the scaled spectrum back
+            Complex[] cSpectrum = dft.Execute(wInputData);
+            // Convert the complex spectrum to note: Magnitude Format
+            double[] lmSpectrum = DSPLib.DSP.ConvertComplex.ToMagnitude(cSpectrum);
+            // Properly scale the spectrum for the added window
+            lmSpectrum = DSP.Math.Multiply(lmSpectrum, wScaleFactor);
+            // For plotting on an XY Scatter plot generate the X Axis frequency Span
+            double[] freqSpan = dft.FrequencySpan(samplingRate);
+            // At this point a XY Scatter plot can be generated from,
+            // X axis => freqSpan
+            // Y axis => lmSpectrum
+
+            var series = new Series("Freq 2");
+            var series2 = new Series("Time 2");
+            listBox_Charts.Items.Add(series.Name);
+            listBox_Charts.Items.Add(series2.Name);
+            // Frist parameter is X-Axis and Second is Collection of Y- Axis
+            series.Points.DataBindXY(freqSpan, lmSpectrum);
+
+            for (int i = 0; i < inputSignal.Length / 10; i++)
+            {
+                series2.Points.AddXY(i, inputSignal[i]);
+            }
+            series2.ChartType = SeriesChartType.Line;
+            chart1.Series.Add(series);
+            chart1.Series.Add(series2);
+        }
+
+        private void textBox_MinXAxis_TextChanged(object sender, EventArgs e)
+        {
+            long x = 0;
+            if (long.TryParse(textBox_MinXAxis.Text, out x))
+            {
+                if ( x < chart1.ChartAreas[0].AxisX.Maximum)
+                {
+                    // you know that the parsing attempt
+                    // was successful
+                    textBox_MinXAxis.BackColor = Color.LightGreen;
+                    chart1.ChartAreas[0].AxisX.Minimum = x;
+                }
+                else
+                {
+                    textBox_MinXAxis.BackColor = Color.Orange;
+                }
+            }
+            else
+            {
+                textBox_MinXAxis.BackColor = Color.Orange;
+            }
+
+        }
+
+        private void textBox_MaxXAxis_TextChanged(object sender, EventArgs e)
+        {
+            long x = 0;
+            if (long.TryParse(textBox_MaxXAxis.Text, out x))
+            {
+                if (x > chart1.ChartAreas[0].AxisX.Minimum)
+                {
+                    // you know that the parsing attempt
+                    // was successful
+                    textBox_MaxXAxis.BackColor = Color.LightGreen;
+                    chart1.ChartAreas[0].AxisX.Maximum = x;
+                }
+                else
+                {
+                    textBox_MaxXAxis.BackColor = Color.Orange;
+                }
+            }
+            else
+            {
+                textBox_MaxXAxis.BackColor = Color.Orange;
+            }
+
+        }
+        int PlotGraphTimer = 0;
+        private void button96_Click(object sender, EventArgs e)
+        {
+            PlotGraphTimer = 60;
+            new Thread(() =>
+            {
+                CheckForMiniAdaDataFFT(MiniAdaParser);
+                
+            }).Start();
+
+        }
+
+        private void button97_Click(object sender, EventArgs e)
+        {
+            textBox_SystemStatus.Text = string.Empty;
+            textBox_SystemStatus.BackColor = default;
+        }
+
+        private void comboBox_WindowsDSPLib_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedWindowName = comboBox_WindowsDSPLib.SelectedValue.ToString();
+            windowToApply = (DSPLib.DSP.Window.Type)Enum.Parse(typeof(DSPLib.DSP.Window.Type), selectedWindowName);
+        }
+
+        private void button98_Click(object sender, EventArgs e)
+        {
+            PlotGraphTimer = 120;
+            new Thread(() =>
+            {
+
+
+                CheckForMiniAdaDataDFT(MiniAdaParser);
+
+            }).Start();
+        }
+
+        private void button99_Click(object sender, EventArgs e)
+        {
+            chart1.ChartAreas[0].AxisX.IsMarginVisible = false;
+            chart1.ChartAreas[0].AxisX.RoundAxisValues();
+            // textBox_MinXAxis.Text = "3000"
+            //chart1.ChartAreas[0].AxisX.Minimum = -30000;
+            //  chart1.ChartAreas[0].AxisX.Maximum = 30000;
+            chart1.ChartAreas[0].RecalculateAxesScale();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox_Charts_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void listBox_Charts_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && listBox_Charts.SelectedItem != null)
+            {
+                chart1.Series.Remove(chart1.Series[listBox_Charts.SelectedItem.ToString()]);
+                listBox_Charts.Items.Remove(listBox_Charts.SelectedItem);
+                if (listBox_Charts.Items.Count > 0)
+                {
+                    listBox_Charts.SelectedIndex = 0;
+                }
+                
+            }
+        }
+
+        private void textBox_RecordIQDataNumbers_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] words = textBox_RecordIQDataNumbers.Text.Split(',');
+                if (words.Length == 2)
+                {
+                    byte.TryParse(words[0], out byte NumOfBlocks);
+                    int.TryParse(words[1], out int BlockSize);
+
+                    byte[] BSize = BitConverter.GetBytes(BlockSize);
+
+                    byte[] SendArray = new byte[5];
+                    SendArray[0] = NumOfBlocks;
+                    SendArray[1] = BSize[0];
+                    SendArray[2] = BSize[1];
+                    SendArray[3] = BSize[2];
+                    SendArray[4] = BSize[3];
+
+                    textBox_RecordIQData.Text = ByteArrayToString(SendArray);
+                    textBox_RecordIQDataNumbers.BackColor = Color.LightGreen;
+                    //Array.Reverse(intBytes);
+                    //byte[] result = intBytes;
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MiniAdaLogger.LogMessage(Color.Red, Color.LightGray, ex.ToString(), true, true);
+                textBox_RecordIQDataNumbers.BackColor = Color.Red;
+            }
+        }
+
+        private void button71_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+4.2.4.1	Read FPGA register 
+
+Description:   Read register value from FPGA
+Command: 	0x70
+TX data: 	4 bytes 
+address
+TX frame: 	0x004D 0x0070 0x00000004 + Tx Data + checksum
+RX data: 	4 bytes 
+value
+RX frame: 	0x004D 0x0056 0x00000004 + RX Data + checksum
+
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button70_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+4.2.4.2	Write FPGA register 
+
+Description:   Write register value to FPGA
+Command: 	0x71
+TX data: 	8 bytes 
+4 byte - address
+4 byte - value
+TX frame: 	0x004D 0x0071 0x00000008 + Tx Data + checksum
+RX data: 	N.A
+RX frame: 	0x004D 0x0071 0x00000000 0Xbe
+
+
+");
+
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+            }
+
+
+        }
+
+        private void button60_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+4.2.2.2	Set Synthesizer L2 register - day 1
+
+Description:   Set register value to synthesizer L2
+Command: 	0x1F
+TX data: 	4 bytes – 32bit register value
+TX frame: 	0x004D 0x0017 + Tx Data + checksum
+RX data: 	N.A
+RX frame: 	0x004D 0x0017 0x00000000 0x64
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button62_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+Description:   Get Tx AD9361 register
+Command: 	0x21
+TX data: 	3 byte
+1 byte – Band type
+2 bytes – Address
+TX frame: 	0x004D 0x0021 0x00000003 + Tx Data + checksum
+RX data: 	1 byte - data
+RX frame: 	0x004D 0x0021 0x00000001 + Rx Date + checksum
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button63_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button65_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+4.2.2.7	Get system state - day 1
+
+Description:   Get the system state: Cal/Normal
+Command: 	0x29
+TX data: 	N.A
+TX frame: 	0x004D 0x0029 0x00000000 0x76
+RX data: 	1 byte – System state: 0x1 – CAL; 0x2 – Normal
+RX frame: 	0x004D 0x0029 0x00000000 + RX Data + checksum
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button67_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button68_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+4.2.2.10	Switch TCXO on/off 
+
+Description:   Switch the TCXO on or off
+Command: 	0x2E
+TX data: 	1 byte – Switch 0x1 - On; 0x0 - Off
+TX frame: 	0x004D 0x002E 0x00000001 + TX Data + checksum
+RX data: 	N.A
+RX frame: 	0x004D 0x002E 0x00000000 0x79
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button89_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button87_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void button88_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+
+
+            }
+        }
+
+        private void textBox2_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+The textbox contain 4 files for the 4 Catalinas
+Raw1 - Catalina 1
+Raw2 - Catalina 2
+Raw3 - Catalina 3
+Raw4 - Catalina 4
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+            }
+        }
+
+
+        void WriteFileToFlash(String i_FilePathName,string i_AD936X_ADDR)
+        {
+            String DataToSend = "";
+            int DataLength = 0;
+            byte CheckSumCalc = 0;
+            //Gil: Catalina 1
+            var lines = File.ReadAllLines(i_FilePathName);
+            for (var i = 0; i < lines.Length; i++)
+            {
+                String line = lines[i];
+                // Process line
+                DataToSend += line;
+                line = Regex.Replace(line, @"\s+", "");
+                byte[] LineBytes = StringToByteArray(line);
+
+                DataLength += LineBytes.Length;
+                foreach(byte by in LineBytes)
+                {
+                    CheckSumCalc += by;
+                }
+            }
+            //CheckSumCalc = CheckSumCalc % 256;
+            //            % Header Structure:
+            //% ver_major   1
+            //% ver_minor   1
+            //% ver_day     1
+            //% ver_month   1
+            //% ver_year    2
+            //% Block_size  4
+            //% CHK         1
+            //% Dummy(0)   1
+
+            // 1	0	17	3	230	7	16	11	0	0	219	0
+            byte[] FlashHeader = CreateMiniAdaFlashHeader(0, 0, DateTime.Now, DataLength, CheckSumCalc);
+            //byte[] FlashHeader = new byte[12];
+            //FlashHeader[0] = 1;
+            //FlashHeader[1] = 0;
+            //FlashHeader[2] = (byte)DateTime.Now.Day;
+            //FlashHeader[3] = (byte)DateTime.Now.Month;
+            //FlashHeader[4] = (byte)(DateTime.Now.Year);
+            //FlashHeader[5] = (byte)(DateTime.Now.Year >> 8);
+            //FlashHeader[6] = (byte)(DataLength);
+            //FlashHeader[7] = (byte)(DataLength >> 8);
+            //FlashHeader[8] = (byte)(DataLength >> 16);
+            //FlashHeader[9] = (byte)(DataLength >> 24);
+            //FlashHeader[10] = (byte)(CheckSumCalc);
+            //FlashHeader[11] = (byte)(0);
+
+            DataLength += 12;
+            string TotalframeDataToSend = ConvertByteArraytToString(FlashHeader) + DataToSend;
+            byte[] temp = StringToByteArray(Regex.Replace(TotalframeDataToSend, @"\s+", ""));
+            // Erase the Sector
+            textBox_EraseDataFromFlash.Text = i_AD936X_ADDR;
+            button_EraseFlash.PerformClick();
+            wait(2000);
+            //Store the Data in flash
+            byte[] intBytes = BitConverter.GetBytes(DataLength);
+            String NumOfBytesstr = ConvertByteArraytToString(intBytes);
+            textBox_StoreDatainFlash.Text = i_AD936X_ADDR /* + NumOfBytesstr */+ TotalframeDataToSend;
+            temp = StringToByteArray(Regex.Replace(textBox_StoreDatainFlash.Text, @"\s+", "") );
+            button_StoreDatainFlash.PerformClick();
+        }
+        private void button_WriteFilesToFlash_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    WriteFileToFlash(textBox_FilesToWriteForTheCatalinas.Lines[0], "00500000");
+            //    wait(2000);
+            //    WriteFileToFlash(textBox_FilesToWriteForTheCatalinas.Lines[1], "00600000");
+            //    wait(2000);
+            //    WriteFileToFlash(textBox_FilesToWriteForTheCatalinas.Lines[2], "00700000");
+            //    wait(2000);
+            //    WriteFileToFlash(textBox_FilesToWriteForTheCatalinas.Lines[3], "00800000");
+            //}
+            //catch(Exception ex)
+            //{
+            //    MiniAdaLogger.LogMessage(Color.Red, Color.White, ex.Message, true, false);
+            //}
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="milliseconds"></param>
+        public void wait(int milliseconds)
+        {
+            var timer1 = new System.Windows.Forms.Timer();
+            if (milliseconds == 0 || milliseconds < 0) return;
+            // Console.WriteLine("start wait timer");
+            timer1.Interval = milliseconds;
+            timer1.Enabled = true;
+            timer1.Start();
+            timer1.Tick += (s, e) =>
+            {
+                timer1.Enabled = false;
+                timer1.Stop();
+                // Console.WriteLine("stop wait timer");
+            };
+            while (timer1.Enabled)
+            {
+                Application.DoEvents();
+            }
+        }
+        private void textBox_EraseDataFromFlash_TextChanged(object sender, EventArgs e)
+        {
+            
+            string WithoutSpaces = Regex.Replace(textBox_EraseDataFromFlash.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length == 4)
+            {
+                textBox_EraseDataFromFlash.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_EraseDataFromFlash.BackColor = Color.Red;
+            }
+        }
+
+        private void button100_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "32 00";
+            textBox_data.Text = textBox_EraseDataFromFlash.Text;
+
+            SendDataToSystem();
+        }
+
+        private void textBox_FilesToWriteForTheCatalinas_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+The textbox contain 4 files for the 4 Catalinas
+Raw1 - Catalina 1
+Raw2 - Catalina 2
+Raw3 - Catalina 3
+Raw4 - Catalina 4
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+            }
+        }
+
+        private void textBox_SetRxChannelGainNumber_TextChanged(object sender, EventArgs e)
+        {
+            int gain;
+            bool result = int.TryParse(textBox_SetRxChannelGainNumber.Text, out gain);
+            if (result == true)
+            {
+                if (gain >= 0 && gain <= 76)
+                {
+                    string hexValue = gain.ToString("X2");
+                    textBox_SetRXChannelGain.Text = textBox_SetRXChannelGain.Text.Substring(0,2) + " " + hexValue;
+                    textBox_SetRxChannelGainNumber.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    textBox_SetRxChannelGainNumber.BackColor = Color.Red;
+                }
+            }
+            else
+            {
+                textBox_SetRxChannelGainNumber.BackColor = Color.Red;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i_HexString"></param>
+        /// <returns></returns>
+        String ReverseHexStringLittleBigEndian(String i_HexString)
+        {
+            byte[] temp = StringToByteArray(i_HexString);
+            temp = temp.Reverse().ToArray();
+            return ConvertByteArraytToString(temp);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox_SetInternalLOFreqNumber_TextChanged(object sender, EventArgs e)
+        {
+            long freq =0;
+            bool result = long.TryParse(textBox_SetInternalLOFreqNumber.Text, out freq);
+            if (result == true)
+            {
+                if (freq >= 0 && freq <= 9999999999999)
+                {
+                    string hexValue = freq.ToString("X16");
+                    
+                    textBox_SetInternalLOFreq.Text = textBox_SetInternalLOFreq.Text.Substring(0, 2) + " " + ReverseHexStringLittleBigEndian(hexValue);
+                    
+                    textBox_SetInternalLOFreqNumber.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    textBox_SetInternalLOFreqNumber.BackColor = Color.Red;
+                }
+            }
+            else
+            {
+                textBox_SetInternalLOFreqNumber.BackColor = Color.Red;
+            }
+        }
+
+        private void button98_Click_1(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "31 00";
+            textBox_data.Text = textBox_LoadDatainFlash.Text;
+
+            SendDataToSystem();
+        }
+
+        private void button100_Click_1(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "30 00";
+            textBox_data.Text = textBox_StoreDatainFlash.Text;
+
+            SendDataToSystem();
+        }
+
+        private void button98_Click_2(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "31 00";
+            textBox_data.Text = textBox_LoadDatainFlash.Text;
+
+            SendDataToSystem();
+        }
+
+        private void button96_Click_1(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "32 00";
+            textBox_data.Text = textBox_EraseDataFromFlash.Text;
+
+            SendDataToSystem();
+        }
+
+        String CATALINA_1_ADDRESS = "00500000";
+        String CATALINA_2_ADDRESS = "00600000";
+        String CATALINA_3_ADDRESS = "00700000";
+        String CATALINA_4_ADDRESS = "00800000";
+        private void button72_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                WriteFileToFlash(textBox_FilesToWriteForTheCatalinas.Lines[0], CATALINA_1_ADDRESS);
+                wait(2000);
+                progressBar_WriteToFlash.Value = 70;
+                WriteFileToFlash(textBox_FilesToWriteForTheCatalinas.Lines[1], CATALINA_2_ADDRESS);
+                wait(2000);
+                progressBar_WriteToFlash.Value = 80;
+                WriteFileToFlash(textBox_FilesToWriteForTheCatalinas.Lines[2], CATALINA_3_ADDRESS);
+                wait(2000);
+                progressBar_WriteToFlash.Value = 90;
+                WriteFileToFlash(textBox_FilesToWriteForTheCatalinas.Lines[3], CATALINA_4_ADDRESS);
+            }
+            catch (Exception ex)
+            {
+                MiniAdaLogger.LogMessage(Color.Red, Color.White, ex.Message, true, false);
+            }
+        }
+
+        private void textBox_FilesToWriteForTheCatalinas2_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+The textbox contain 4 files for the 4 Catalinas
+Raw1 - Catalina 1
+Raw2 - Catalina 2
+Raw3 - Catalina 3
+Raw4 - Catalina 4
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+            }
+        }
+
+        private void richTextBox_SyntisazerL2_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(richTextBox_SyntisazerL2.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null)
+            {
+                richTextBox_SyntisazerL2.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                richTextBox_SyntisazerL2.BackColor = Color.Red;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged_3(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                richTextBox_SyntisazerL2.Text = 
+@"00618000
+08008011
+00004542
+004004B3
+00883034
+00580005
+";
+            }
+            else
+            {
+                richTextBox_SyntisazerL2.Text = 
+@"004B0000
+08008011
+00004542
+004004B3
+00883024
+00580005
+";
+            }
+        }
+
+        private void richTextBox_SyntisazerL1_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(richTextBox_SyntisazerL1.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null)
+            {
+                richTextBox_SyntisazerL1.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                richTextBox_SyntisazerL1.BackColor = Color.Red;
+            }
+        }
+
+        private void textBox_StoreDatainFlash_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox_SyntisazerL1_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+%synth_data_L1=[hex2dec('00C08000') ...   % Frequency change  % LO_L1=2*(1575.42)=2*1575.42 MHz. INT-N. Fpfd=16.368 MHz.
+synth_data_L1=[hex2dec('00618000') ...   % Frequency change  % LO_L1=2*(1575.42+20.46)=2*1595.88 MHz. INT-N. Fpfd=16.368 MHz.
+    hex2dec('08008011') ...              %
+    hex2dec('00004542') ...              % charge pump change (4542 for 0.94mA , 4742 for 1.25mA) (for LO = 1595.88 SET 00004542 for LO = 1575.42 SET 00008542)
+    hex2dec('004004B3') ...
+    hex2dec('00883034') ...             %   Arie : hex2dec('0088303C') . 15dBm Required after Amplifier (34 instead 3C)
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+            }
+        }
+
+        private void comboBox2_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+            % mini_ada_write_sys_type(type)
+%
+% PURPOSE: To write system mini ADA TYPE to proper location in data FLASH.
+% INPUT: type - '0' - ALL L1(A) , '1' - L1 & L2(B) , '2' - L1 - CAT4 & 1 ONLY(C).
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+            }
+
+
+        }
+
+        private void richTextBox_SyntisazerL2_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+%synth_data_L1=[hex2dec('00C08000') ...   % Frequency change  % LO_L1=2*(1575.42)=2*1575.42 MHz. INT-N. Fpfd=16.368 MHz.
+synth_data_L1=[hex2dec('00618000') ...   % Frequency change  % LO_L1=2*(1575.42+20.46)=2*1595.88 MHz. INT-N. Fpfd=16.368 MHz.
+    hex2dec('08008011') ...              %
+    hex2dec('00004542') ...              % charge pump change (4542 for 0.94mA , 4742 for 1.25mA) (for LO = 1595.88 SET 00004542 for LO = 1575.42 SET 00008542)
+    hex2dec('004004B3') ...
+    hex2dec('00883034') ...             %   Arie : hex2dec('0088303C') . 15dBm Required after Amplifier (34 instead 3C)
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+            }
+        }
+
+
+        byte[] CreateMiniAdaFlashHeader(byte i_ver_major, byte i_ver_minor, DateTime i_ver_date, int i_block_size, byte i_checksum)
+        {
+            //CheckSumCalc = CheckSumCalc % 256;
+            //            % Header Structure:
+            //% ver_major   1
+            //% ver_minor   1
+            //% ver_day     1
+            //% ver_month   1
+            //% ver_year    2
+            //% Block_size  4
+            //% CHK         1
+            //% Dummy(0)   1
+            byte[] FlashHeader = new byte[12];
+            FlashHeader[0] = i_ver_major;
+            FlashHeader[1] = i_ver_minor;
+            FlashHeader[2] = (byte)i_ver_date.Day;
+            FlashHeader[3] = (byte)i_ver_date.Month;
+            FlashHeader[4] = (byte)(i_ver_date.Year);
+            FlashHeader[5] = (byte)(i_ver_date.Year >> 8);
+            FlashHeader[6] = (byte)(i_block_size);
+            FlashHeader[7] = (byte)(i_block_size >> 8);
+            FlashHeader[8] = (byte)(i_block_size >> 16);
+            FlashHeader[9] = (byte)(i_block_size >> 24);
+            FlashHeader[10] = (byte)(i_checksum); // Check Sum is the same as the system type
+            FlashHeader[11] = (byte)(0);
+
+            return FlashHeader;
+        }
+        String SYSTEM_TYPE_ADDRESS = "00000000";
+        private void button73_Click_1(object sender, EventArgs e)
+        {
+            String DataToSend = "";
+            int DataLength = 1;
+          //  byte CheckSumCalc = 0;
+            byte SystemType = (byte)comboBox_SystemType.SelectedIndex;
+            
+
+            //            % mini_ada_write_sys_type(type)
+            //%
+            //% PURPOSE: To write system mini ADA TYPE to proper location in data FLASH.
+            //% INPUT: type - '0' - ALL L1(A) , '1' - L1 & L2(B) , '2' - L1 - CAT4 & 1 ONLY(C).
+            //Gil: Catalina 1
+
+            //CheckSumCalc = CheckSumCalc % 256;
+            //            % Header Structure:
+            //% ver_major   1
+            //% ver_minor   1
+            //% ver_day     1
+            //% ver_month   1
+            //% ver_year    2
+            //% Block_size  4
+            //% CHK         1
+            //% Dummy(0)   1
+
+            // 1	0	17	3	230	7	16	11	0	0	219	0
+
+            DataToSend = SystemType.ToString("X2");
+
+            byte[] FlashHeader = CreateMiniAdaFlashHeader(0, 0, DateTime.Now, DataLength, (byte)SystemType);
+
+            DataLength += 12;
+            string TotalframeDataToSend = ConvertByteArraytToString(FlashHeader) + DataToSend;
+            byte[] temp = StringToByteArray(Regex.Replace(TotalframeDataToSend, @"\s+", ""));
+            // Erase the Sector
+            textBox_EraseDataFromFlash.Text = SYSTEM_TYPE_ADDRESS;
+            button_EraseFlash.PerformClick();
+            wait(2000);
+            //Store the Data in flash
+            byte[] intBytes = BitConverter.GetBytes(DataLength);
+            String NumOfBytesstr = ConvertByteArraytToString(intBytes);
+            textBox_StoreDatainFlash.Text = "00000000" /* + NumOfBytesstr */+ TotalframeDataToSend;
+            temp = StringToByteArray(Regex.Replace(textBox_StoreDatainFlash.Text, @"\s+", ""));
+            button_StoreDatainFlash.PerformClick();
+        }
+
+        String SYNTHESIZER_L1_ADDRESS = "00300000";
+        private void button96_Click_2(object sender, EventArgs e)
+        {
+            // 1	0	21	3	230	7	24	0	0	0	65	0	5	0	88	0	52	48	136	0	179	4	64	0	66	69	0	0	17	128	0	8	0	128	97	0
+            String DataToSend = "";
+            int DataLength = 0;
+            byte CheckSumCalc = 0;
+            
+            var lines = richTextBox_SyntisazerL1.Lines;
+            for (var i = 0; i < lines.Length ; i++)
+            {
+                String line = lines[i];
+                // Process line
+
+                 
+                line = Regex.Replace(line, @"\s+", "");
+
+                byte[] LineBytes = StringToByteArray(line);
+                LineBytes = LineBytes.Reverse().ToArray();
+                DataToSend = ByteArrayToString(LineBytes) + DataToSend;// Gil: We need to make it in reverse order, Icompare it exactly to the Matlab code.
+
+                DataLength += LineBytes.Length;
+                foreach (byte by in LineBytes)
+                {
+                    CheckSumCalc += by;
+                }
+            }
+
+
+
+            byte[] FlashHeader = CreateMiniAdaFlashHeader(1, 0, DateTime.Now, DataLength, CheckSumCalc);
+
+
+            DataLength += 12;
+            string TotalframeDataToSend = ConvertByteArraytToString(FlashHeader) + DataToSend;
+            byte[] temp = StringToByteArray(Regex.Replace(TotalframeDataToSend, @"\s+", ""));
+            // Erase the Sector
+            textBox_EraseDataFromFlash.Text = SYNTHESIZER_L1_ADDRESS;
+            button_EraseFlash.PerformClick();
+            wait(2000);
+            //Store the Data in flash
+            byte[] intBytes = BitConverter.GetBytes(DataLength);
+            String NumOfBytesstr = ConvertByteArraytToString(intBytes);
+            textBox_StoreDatainFlash.Text = SYNTHESIZER_L1_ADDRESS /* + NumOfBytesstr */+ TotalframeDataToSend;
+            temp = StringToByteArray(Regex.Replace(textBox_StoreDatainFlash.Text, @"\s+", ""));
+            button_StoreDatainFlash.PerformClick();
+        }
+
+        String SYNTHESIZER_L2_ADDRESS = "00400000";
+        private void button101_Click(object sender, EventArgs e)
+        {
+            String DataToSend = "";
+            int DataLength = 0;
+            byte CheckSumCalc = 0;
+            
+            var lines = richTextBox_SyntisazerL2.Lines;
+            for (var i = 0; i < lines.Length; i++)
+            {
+                String line = lines[i];
+                // Process line
+
+
+                line = Regex.Replace(line, @"\s+", "");
+
+                byte[] LineBytes = StringToByteArray(line);
+                LineBytes = LineBytes.Reverse().ToArray();
+                DataToSend = ByteArrayToString(LineBytes) + DataToSend;// Gil: We need to make it in reverse order, Icompare it exactly to the Matlab code.
+
+                DataLength += LineBytes.Length;
+                foreach (byte by in LineBytes)
+                {
+                    CheckSumCalc += by;
+                }
+            }
+
+
+
+            byte[] FlashHeader = CreateMiniAdaFlashHeader(1, 0, DateTime.Now, DataLength, CheckSumCalc);
+
+
+            DataLength += 12;
+            string TotalframeDataToSend = ConvertByteArraytToString(FlashHeader) + DataToSend;
+            byte[] temp = StringToByteArray(Regex.Replace(TotalframeDataToSend, @"\s+", ""));
+            // Erase the Sector
+            textBox_EraseDataFromFlash.Text = SYNTHESIZER_L2_ADDRESS;
+            button_EraseFlash.PerformClick();
+            wait(2000);
+            //Store the Data in flash
+            byte[] intBytes = BitConverter.GetBytes(DataLength);
+            String NumOfBytesstr = ConvertByteArraytToString(intBytes);
+            textBox_StoreDatainFlash.Text = SYNTHESIZER_L2_ADDRESS /* + NumOfBytesstr */+ TotalframeDataToSend;
+            temp = StringToByteArray(Regex.Replace(textBox_StoreDatainFlash.Text, @"\s+", ""));
+            button_StoreDatainFlash.PerformClick();
+        }
+
+        private void button100_Click_2(object sender, EventArgs e)
+        {
+            button_WriteAllToFlash.BackColor = Color.Yellow;
+            progressBar_WriteToFlash.Value = 0;
+            MiniAdaLogger.LogMessage(Color.Orange, Color.White, String.Format("Writing System Type to [{0}]", SYSTEM_TYPE_ADDRESS), true, true);
+            button_WriteSystemType.PerformClick();
+            wait(3000);
+            progressBar_WriteToFlash.Value = 20;
+            MiniAdaLogger.LogMessage(Color.Orange, Color.White, String.Format("Synthesizer L1 [{0}]", SYNTHESIZER_L1_ADDRESS), true, true);
+            button_SynthL1.PerformClick();
+            wait(3000);
+            progressBar_WriteToFlash.Value = 40;
+            MiniAdaLogger.LogMessage(Color.Orange, Color.White, String.Format("Synthesizer L2 [{0}]", SYNTHESIZER_L2_ADDRESS), true, true);
+            button_SynthL2.PerformClick();
+            wait(3000);
+            progressBar_WriteToFlash.Value = 60;
+            MiniAdaLogger.LogMessage(Color.Orange, Color.White, String.Format("Catalina 1-4 [{0}] [{1}] [{2}] [{3}]", CATALINA_1_ADDRESS, CATALINA_2_ADDRESS, CATALINA_3_ADDRESS, CATALINA_4_ADDRESS), true, true);
+            button_WriteCatalinas.PerformClick();
+            wait(3000);
+            progressBar_WriteToFlash.Value = 100;
+            button_WriteAllToFlash.BackColor = default;
+        }
+
+        private void richTextBox_RegisterCommands_TextChanged(object sender, EventArgs e)
+        {
+            Monitor.Properties.Settings.Default.RegisterCommands = richTextBox_RegisterCommands.Text;
+            Monitor.Properties.Settings.Default.Save();
+        }
+
+        private void button72_Click_3(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "8A 00";
+            textBox_data.Text = textBox_RecordingTests.Text;
+
+            SendDataToSystem();
+        }
+
+        private void textBox_RecordingTests_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_RecordingTests.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length ==1)
+            {
+                textBox_RecordingTests.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_RecordingTests.BackColor = Color.Red;
+            }
+        }
+
+        private void button72_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+Description:   Select recording test
+Command: 	0x8A
+TX data: 	1 byte - Select test:
+0x0 - Record the RX channel state RX/CAL (CAL_TX_CTRL signal) 
+along with 1 of the Rx channel (1 from 1…8) at the same time
+0x1 - Record the bit(Rx/CAL) that represent the end of command.
+along with 1 of the Rx channel (1 from 1…8) at the same time
+0x2 - Record the bit that represent the end of command change Syn. Freq.  
+        and record the bit Syn Lock at the same time.
+
+Note: “at the same time” – meaning when saving the samples there is time alignment between bot sampled signals
+
+TX frame: 	0x004D 0x008A 0x00000001 + Tx Data + checksum
+RX data: 	1 byte – Test result: 0x0 – Ok, 0x1 - Failed
+RX frame: 	0x004D 0x008A 0x00000001 + RX Data + checksum
+
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+            }
+        }
+
+        private void button73_Click_2(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "90 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void textBox_GetMonitoredData_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_GetMonitoredData.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length == 1)
+            {
+                textBox_GetMonitoredData.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_GetMonitoredData.BackColor = Color.Red;
+            }
+        }
+
+        private void button94_Click_1(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "91 00";
+            textBox_data.Text = textBox_GetMonitoredData.Text;
+
+            SendDataToSystem();
+        }
+
+        private void button94_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+
+Description:   Get a block of next monitored data from selected group
+Command: 	0x91
+TX data: 	1 byte - Monitored group enum: 	0x0 - Group Temperature
+							0x1 - Group Voltage
+							0x2 - Group Current
+							0x3 - Group Flags
+TX frame: 	0x004D 0x0091 0x00000001 + TX Data + checksum
+RX data: 	64 byte
+		2 byte - The ID of this object Discrete 
+1 byte - Current value
+1 byte - Discrete is Alarm. Boolean level (1/0) for generating an Alarm
+4 byte - Minimum value allowed
+4 byte - Maximum value allowed
+4 byte - Analog Current value
+40 byte - The Name of this object, String type.
+4byte - Alarm type, eStatus enum
+4byte - Alarm rules (Min-Only, Max-Only, Min-Max, No), eStatus enum
+RX frame: 	0x004D 0x0091 0x00000040 + RX Data + checksum
+Note: eStatus enum 
+	0x0 - NO - Alarm is not generated/Current reading is in range. Ok!
+0x1 - HIGH - Alarm when value to high / Current reading is too high.
+0x2 - LOW - Alarm when value to low / Current reading is too low.
+0x3 - MIN_MAX- Alarm when value to high or to low / not applicable for reading
+ 
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+            }
+        }
+
+        private void button95_Click_1(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "92 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void button96_Click_3(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "93 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void button96_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                String str = String.Format(@"
+Description:   Get a block of next monitored data having alarm 
+Command: 	0x93
+TX data: 	N.A
+TX frame: 	0x004D 0x0093 0x00000001 + TX Data + checksum
+RX data: 	64 byte
+		2 byte - The ID of this object Discrete 
+1 byte - Current value
+1 byte - Discrete is Alarm. Boolean level (1/0) for generating an Alarm
+4 byte - Minimum value allowed
+4 byte - Maximum value allowed
+4 byte - Analog Current value
+40 byte - The Name of this object, String type.
+4byte - Alarm type, eStatus enum
+4byte - Alarm rules (Min-Only, Max-Only, Min-Max, No), eStatus enum
+RX frame: 	0x004D 0x0093 0x00000040 + RX Data + checksum
+Note: eStatus enum 
+	0x0 - NO - Alarm is not generated/Current reading is in range. Ok!
+0x1 - HIGH - Alarm when value to high / Current reading is too high.
+0x2 - LOW - Alarm when value to low / Current reading is too low.
+0x3 - MIN_MAX- Alarm when value to high or to low / not applicable for reading
+
+
+");
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, "Help: ", true, true);
+                MiniAdaLogger.LogMessage(Color.Black, Color.Chartreuse, str, true, false);
+            }
+        }
+
+        private void textBox_SetAlarmSimulatorBlock_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_SetAlarmSimulatorBlock.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null )
+            {
+                textBox_SetAlarmSimulatorBlock.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_SetAlarmSimulatorBlock.BackColor = Color.Red;
+            }
+        }
+
+        private void button100_Click_3(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "94 00";
+            textBox_data.Text = textBox_SetAlarmSimulatorBlock.Text;
+
+            SendDataToSystem();
+        }
+
+        private void textBox_MonitorTask_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_MonitorTask.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length == 1)
+            {
+                textBox_MonitorTask.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_MonitorTask.BackColor = Color.Red;
+            }
+        }
+
+        private void button101_Click_1(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "95 00";
+            textBox_data.Text = textBox_MonitorTask.Text;
+
+            SendDataToSystem();
+        }
+
+        private void textBox_SetLOFreq_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_SetLOFreq.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length == 5)
+            {
+                textBox_SetLOFreq.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_SetLOFreq.BackColor = Color.Red;
+            }
+        }
+
+        private void button102_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "99 00";
+            textBox_data.Text = textBox_SetLOFreq.Text;
+
+            SendDataToSystem();
+            
+        }
+
+        private void textBox_SetLOFreqStep_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_SetLOFreqStep.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length == 9)
+            {
+                textBox_SetLOFreqStep.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_SetLOFreqStep.BackColor = Color.Red;
+            }
+        }
+
+        private void button103_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "9A 00";
+            textBox_data.Text = textBox_SetLOFreqStep.Text;
+
+            SendDataToSystem();
+            
+        }
+
+        private void button104_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "9B 00";
+            textBox_data.Text = textBox_GetLOStateFreqMode.Text;
+
+            SendDataToSystem();
+            
+        }
+
+        private void textBox_GetLOStateFreqMode_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_GetLOStateFreqMode.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length == 1)
+            {
+                textBox_GetLOStateFreqMode.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_GetLOStateFreqMode.BackColor = Color.Red;
+            }
+        }
+
+        private void button105_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "9C 00";
+            textBox_data.Text = "";
+
+            SendDataToSystem();
+        }
+
+        private void textBox_SelectLOSource_TextChanged(object sender, EventArgs e)
+        {
+            string WithoutSpaces = Regex.Replace(textBox_SelectLOSource.Text, @"\s+", "");
+            byte[] buffer = StringToByteArray(WithoutSpaces);
+
+            if (buffer != null && buffer.Length == 1)
+            {
+                textBox_SelectLOSource.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                textBox_SelectLOSource.BackColor = Color.Red;
+            }
+        }
+
+        private void button107_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "9D 00";
+            textBox_data.Text = textBox_SelectLOSource.Text;
+
+            SendDataToSystem();
+        }
+
+        private void button106_Click(object sender, EventArgs e)
+        {
+            textBox_Preamble.Text = MINIADA_HEADER;
+            textBox_Opcode.Text = "9E 00";
             textBox_data.Text = "";
 
             SendDataToSystem();
@@ -13905,18 +17119,26 @@ RX frame: 	0x004D 0x005C 0x00000001 + RX Data + checksum
 
         private void ListBox_Charts_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             for (int i = 0; i < listBox_Charts.Items.Count; i++)
             {
-                
+
                 if (listBox_Charts.GetSelected(i) == true)
                 {
                     chart1.Series[i].Enabled = true;
+
+                    textBox_graph_XY.Invoke(new EventHandler(delegate
+                    {
+                        textBox_graph_XY.Text = chart1.Series[i].LegendToolTip;
+
+                    }));
                 }
                 else
                 {
                     chart1.Series[i].Enabled = false;
                 }
             }
+            chart1.ChartAreas[0].RecalculateAxesScale();
         }
 
         void ResetTimer()
