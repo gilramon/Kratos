@@ -29,12 +29,21 @@ using DSPLib;
 */
 namespace PlotWrapper
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class Plot : Form
     {
         private string mTitle;
         private string mAxisX;
         private string mAxisY;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mainTitle"></param>
+        /// <param name="xAxisTitle"></param>
+        /// <param name="yAxisTitle"></param>
         public Plot(string mainTitle, string xAxisTitle, string yAxisTitle)
         {
             InitializeComponent();
@@ -57,6 +66,10 @@ namespace PlotWrapper
             chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="yData"></param>
         // Line chart
         public void PlotData(double[] yData)
         {
@@ -67,6 +80,11 @@ namespace PlotWrapper
             chart1.Series["Series1"].Points.DataBindXY(xData, yData);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="xData"></param>
+        /// <param name="yData"></param>
         // XY Line Chart (Overload)
         public void PlotData(double[] xData, double[] yData)
         {

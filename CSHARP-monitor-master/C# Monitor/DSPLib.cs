@@ -552,7 +552,9 @@ namespace DSPLib
 
 
     #region =====[ Generation, Conversion, Analysis and Array Manipulations ]============
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class DSP
     {
         /*
@@ -581,7 +583,9 @@ namespace DSPLib
 
 
         #region Generate Signals & Noise
-
+        /// <summary>
+        /// 
+        /// </summary>
         public static class Generate
         {
             /// <summary>
@@ -777,43 +781,142 @@ namespace DSPLib
             /// </summary>
             public enum Type
             {
+                /// <summary>
+                /// 
+                /// </summary>
                 None,
+                /// <summary>
+                /// 
+                /// </summary>
                 Rectangular,
+                /// <summary>
+                /// 
+                /// </summary>
                 Welch,
+                /// <summary>
+                /// 
+                /// </summary>
                 Bartlett,
+                /// <summary>
+                /// 
+                /// </summary>
                 Hanning,
+                /// <summary>
+                /// 
+                /// </summary>
                 Hann,
+                /// <summary>
+                /// 
+                /// </summary>
                 Hamming,
+                /// <summary>
+                /// 
+                /// </summary>
                 Nutall3,
+                /// <summary>
+                /// 
+                /// </summary>
                 Nutall4,
+                /// <summary>
+                /// 
+                /// </summary>
                 Nutall3A,
+                /// <summary>
+                /// 
+                /// </summary>
                 Nutall3B,
+                /// <summary>
+                /// 
+                /// </summary>
                 Nutall4A,
+                /// <summary>
+                /// 
+                /// </summary>
                 BH92,
+                /// <summary>
+                /// 
+                /// </summary>
                 Nutall4B,
-
+                /// <summary>
+                /// 
+                /// </summary>
                 SFT3F,
+                /// <summary>
+                /// 
+                /// </summary>
                 SFT3M,
+                /// <summary>
+                /// 
+                /// </summary>
                 FTNI,
+                /// <summary>
+                /// 
+                /// </summary>
                 SFT4F,
+                /// <summary>
+                /// 
+                /// </summary>
                 SFT5F,
+                /// <summary>
+                /// 
+                /// </summary>
                 SFT4M,
+                /// <summary>
+                /// 
+                /// </summary>
                 FTHP,
+                /// <summary>
+                /// 
+                /// </summary>
                 HFT70,
+                /// <summary>
+                /// 
+                /// </summary>
                 FTSRS,
+                /// <summary>
+                /// 
+                /// </summary>
                 SFT5M,
+                /// <summary>
+                /// 
+                /// </summary>
                 HFT90D,
+                /// <summary>
+                /// 
+                /// </summary>
                 HFT95,
+                /// <summary>
+                /// 
+                /// </summary>
                 HFT116D,
+                /// <summary>
+                /// 
+                /// </summary>
                 HFT144D,
+                /// <summary>
+                /// 
+                /// </summary>
                 HFT169D,
+                /// <summary>
+                /// 
+                /// </summary>
                 HFT196D,
+                /// <summary>
+                /// 
+                /// </summary>
                 HFT223D,
+                /// <summary>
+                /// 
+                /// </summary>
                 HFT248D
+                    
             }
 
             #region Window Scale Factor
 
+            /// <summary>
+            /// 
+            /// </summary>
             public static class ScaleFactor
             {
                 /// <summary>
@@ -1334,7 +1437,8 @@ namespace DSPLib
             /// <summary>
             /// Find the RMS value of a[].
             /// </summary>
-            /// <param name="inData"> = of N data points, 0 based.</param>
+            
+            /// <param name="a"> = of N data points, 0 based.</param>
             /// <param name="startBin"> = Bin to start the counting at (0 based)."></param>
             /// <param name="stopBin"> = Bin FROM END to stop counting at (Max = N - 1)."></param>
             /// <returns>RMS value of input array between start and stop bins.</returns>

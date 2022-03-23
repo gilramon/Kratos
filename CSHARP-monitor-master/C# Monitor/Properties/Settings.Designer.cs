@@ -18,6 +18,7 @@ namespace Monitor.Properties {
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        
         /// <summary>
         /// 
         /// </summary>
@@ -41,7 +42,6 @@ namespace Monitor.Properties {
                 this["Start_Port"] = value;
             }
         }
-        
         /// <summary>
         /// 
         /// </summary>
@@ -56,6 +56,7 @@ namespace Monitor.Properties {
                 this["Default_Server_Message"] = value;
             }
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -70,6 +71,7 @@ namespace Monitor.Properties {
                 this["Comport_Port"] = value;
             }
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -84,6 +86,7 @@ namespace Monitor.Properties {
                 this["Comport_BaudRate"] = value;
             }
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -98,6 +101,7 @@ namespace Monitor.Properties {
                 this["Comport_Parity"] = value;
             }
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -112,6 +116,7 @@ namespace Monitor.Properties {
                 this["Comport_DataBits"] = value;
             }
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -140,6 +145,7 @@ namespace Monitor.Properties {
                 this["Setting"] = value;
             }
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -153,6 +159,7 @@ namespace Monitor.Properties {
                 this["LastRunTime"] = value;
             }
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -166,6 +173,7 @@ namespace Monitor.Properties {
                 this["LastSaveSMSTime"] = value;
             }
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -180,6 +188,7 @@ namespace Monitor.Properties {
                 this["Setting1"] = value;
             }
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -195,6 +204,7 @@ namespace Monitor.Properties {
                 this["PhoneBook"] = value;
             }
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -229,6 +239,7 @@ namespace Monitor.Properties {
                 this["SMS_Commands"] = value;
             }
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -243,6 +254,21 @@ namespace Monitor.Properties {
             }
             set {
                 this["SerialPort_History"] = value;
+            }
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RegisterCommands {
+            get {
+                return ((string)(this["RegisterCommands"]));
+            }
+            set {
+                this["RegisterCommands"] = value;
             }
         }
     }

@@ -49,19 +49,13 @@ namespace Monitor
 
          byte[] StringToByteArray(string hex)
         {
-            try
-            {
+
                 return Enumerable.Range(0, hex.Length)
                                  .Where(x => x % 2 == 0)
                                  .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
                                  .ToArray();
 
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-                return null;
-            }
+
         }
 
        // object ReturnValue =null;
@@ -182,7 +176,8 @@ namespace Monitor
         }
          string GetRXChannelGain(KratosProtocolFrame i_Parsedframe)
         {
-            return String.Format("\n Rx channel Gain [{0}] \n", i_Parsedframe.Data);
+            int intValue = int.Parse(i_Parsedframe.Data, System.Globalization.NumberStyles.HexNumber);
+            return String.Format("\n Rx channel Gain [{0}] \n", intValue);
         }
          string SetRXChannelGain(KratosProtocolFrame i_Parsedframe)
         {
@@ -194,7 +189,15 @@ namespace Monitor
             byte[] DataBytes = StringToByteArray(i_Parsedframe.Data);
             return String.Format("\n Loaded Data: [{0}]  Data Length: [{1}] Bytes\n", i_Parsedframe.Data, DataBytes.Length);
         }
-         string StoreDataInFlash(KratosProtocolFrame i_Parsedframe)
+
+        
+
+        string EraseSectorintFlash(KratosProtocolFrame i_Parsedframe)
+        {
+
+            return String.Format("\n Sector has been erased \n");
+        }
+        string StoreDataInFlash(KratosProtocolFrame i_Parsedframe)
         {
 
             return String.Format("\n Data stored in the flash \n");
@@ -523,6 +526,11 @@ namespace Monitor
 
                     case "3100":
                         ret = LoadDataInFlash(i_Parsedframe);
+
+                        break;
+
+                    case "3200":
+                        ret = EraseSectorintFlash(i_Parsedframe);
 
                         break;
 
